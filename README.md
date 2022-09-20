@@ -24,3 +24,4 @@ Changes to content in the `docs` folder will not show up on the website unless t
 **Alex Thimineur**: Programmed the game, made the art.
 Camryn Keller
 Michael Ruocco
+Nicholas Centeno
