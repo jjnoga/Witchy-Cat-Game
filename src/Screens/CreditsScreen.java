@@ -16,6 +16,11 @@ public class CreditsScreen extends Screen {
     protected KeyLocker keyLocker = new KeyLocker();
     protected SpriteFont creditsLabel;
     protected SpriteFont createdByLabel;
+    protected SpriteFont createdByLabelb;
+    protected SpriteFont createdByLabelc;
+    protected SpriteFont createdByLabeld;
+    protected SpriteFont createdByLabele;
+    protected SpriteFont createdByLabela;
     protected SpriteFont returnInstructionsLabel;
 
     public CreditsScreen(ScreenCoordinator screenCoordinator) {
@@ -27,9 +32,14 @@ public class CreditsScreen extends Screen {
         // setup graphics on screen (background map, spritefont text)
         background = new TitleScreenMap();
         background.setAdjustCamera(false);
-        creditsLabel = new SpriteFont("Credits", 15, 35, "Times New Roman", 30, Color.white);
-        createdByLabel = new SpriteFont("Created by Alex Thimineur", 130, 140, "Times New Roman", 20, Color.white);
-        returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 20, 560, "Times New Roman", 30, Color.white);
+        creditsLabel = new SpriteFont("Credits", 15, 35, "Times New Roman", 30, Color.black);
+        createdByLabel = new SpriteFont("Created by Team TBT:", 130, 120, "Times New Roman", 20, Color.black);
+        createdByLabela = new SpriteFont("Madi Smith,", 130, 140, "Times New Roman", 20, Color.black);
+        createdByLabelb = new SpriteFont("Michael Ruocco,", 130, 160, "Times New Roman", 20, Color.black);
+        createdByLabelc = new SpriteFont("Camryn Keller,", 130, 180, "Times New Roman", 20, Color.black);
+        createdByLabeld = new SpriteFont("Mia Troiano,", 130, 200, "Times New Roman", 20, Color.black);
+        createdByLabele = new SpriteFont("and Nicholas Centeno", 130, 220, "Times New Roman", 20, Color.black);
+        returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 20, 560, "Times New Roman", 30, Color.black);
         keyLocker.lockKey(Key.SPACE);
     }
 
@@ -50,6 +60,11 @@ public class CreditsScreen extends Screen {
         background.draw(graphicsHandler);
         creditsLabel.draw(graphicsHandler);
         createdByLabel.drawWithParsedNewLines(graphicsHandler);
+        createdByLabela.drawWithParsedNewLines(graphicsHandler);
+        createdByLabelb.drawWithParsedNewLines(graphicsHandler);
+        createdByLabelc.drawWithParsedNewLines(graphicsHandler);
+        createdByLabeld.drawWithParsedNewLines(graphicsHandler);
+        createdByLabele.drawWithParsedNewLines(graphicsHandler);
         returnInstructionsLabel.draw(graphicsHandler);
     }
 }
