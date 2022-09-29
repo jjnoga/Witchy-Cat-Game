@@ -66,7 +66,7 @@ public class OptionsScreen extends Screen{
 	     on2.setOutlineColor(Color.gray);
 	     on2.setOutlineThickness(2);
 	     returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 20, 560, "Times New Roman", 30, Color.black);
-	     returnInstructionsLabel2 = new SpriteFont("Press Enter to return to toggle the options", 250, 35, "Times New Roman", 30, Color.black);
+	     returnInstructionsLabel2 = new SpriteFont("Press Enter/Esc to return to toggle the options", 250, 35, "Times New Roman", 30, Color.black);
 	     toggle1 = new JToggleButton("Mute Off");
 	     toggle2 = new JToggleButton("Off");
 	     toggle3 = new JToggleButton("Off");
@@ -74,6 +74,7 @@ public class OptionsScreen extends Screen{
 	     keyLocker.lockKey(Key.ENTER);
 	     keyLocker.lockKey(Key.ESC);
 	     menuItemSelected = -1;
+	     keyTimer.setWaitTime(200);
 	}
 
 	@Override
