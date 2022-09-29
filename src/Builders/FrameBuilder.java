@@ -53,6 +53,7 @@ public class FrameBuilder {
         this.imageEffect = imageEffect;
         return this;
     }
+   
 
     public Frame build() {
         return new Frame(image, imageEffect, scale, bounds, delay);
