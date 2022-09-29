@@ -98,6 +98,11 @@ public abstract class Script<T extends MapEntity> {
     protected void addTextToTextboxQueue(String text) {
         map.getTextbox().addText(text);
     }
+    
+    // adds text to be shown in textbox with the option for selectable text
+    protected void addTextToTextboxQueue(String text, String[] selectableText) {
+        map.getTextbox().addSelectableText(text, selectableText);
+    }
 
     // adds a series of text to be shown in textbox
     protected void addTextToTextboxQueue(String[] text) {
