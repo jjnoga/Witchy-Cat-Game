@@ -1,13 +1,17 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+
 import Level.EnhancedMapTile;
+
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Coin;
 import NPCs.Dinosaur;
 import NPCs.Walrus;
 import Scripts.SimpleTextScript;
+import Scripts.TestMap.CoinScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.TreeScript;
@@ -43,9 +47,13 @@ public class TestMap extends Map {
         dinosaur.setExistenceFlag("hasTalkedToDinosaur");
         dinosaur.setInteractScript(new DinoScript());
         npcs.add(dinosaur);
+        
+        Coin coin = new Coin(3, getMapTile(10, 20).getLocation());
+        npcs.add(coin);
 
         return npcs;
     }
+  
 
     @Override
     public ArrayList<Trigger> loadTriggers() {
@@ -53,6 +61,7 @@ public class TestMap extends Map {
         triggers.add(new Trigger(790, 1030, 100, 10, new LostBallScript(), "hasLostBall"));
         triggers.add(new Trigger(790, 960, 10, 80, new LostBallScript(), "hasLostBall"));
         triggers.add(new Trigger(890, 960, 10, 80, new LostBallScript(), "hasLostBall"));
+        triggers.add(new Trigger(480, 960, 20, 20, new CoinScript(), "hasFoundCoin"));
         return triggers;
     }
 

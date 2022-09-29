@@ -2,11 +2,14 @@ package Tilesets;
 
 import Builders.FrameBuilder;
 import Builders.MapTileBuilder;
+import GameObject.GameObject;
+import Level.PlayerState;
 import Engine.ImageLoader;
 import GameObject.Frame;
 import GameObject.ImageEffect;
 import Level.TileType;
 import Level.Tileset;
+
 
 import java.util.ArrayList;
 
@@ -56,6 +59,7 @@ public class CommonTileset extends Tileset {
 
         MapTileBuilder rockTile = new MapTileBuilder(rockFrame)
                 .withTileType(TileType.NOT_PASSABLE);
+        
 
         mapTiles.add(rockTile);
 
