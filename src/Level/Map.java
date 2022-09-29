@@ -56,6 +56,7 @@ public abstract class Map {
     // lists to hold map entities that are a part of the map
     protected ArrayList<EnhancedMapTile> enhancedMapTiles;
     protected ArrayList<NPC> npcs;
+  //  protected ArrayList<Item> items;
     protected ArrayList<Trigger> triggers;
 
     protected Script activeInteractScript;
@@ -71,6 +72,7 @@ public abstract class Map {
 
     // map's textbox instance
     protected Textbox textbox;
+    protected CoinCounter coinCounter;
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -102,7 +104,10 @@ public abstract class Map {
         for (NPC npc: this.npcs) {
             npc.setMap(this);
         }
-
+       /* this.items = loadItems();
+        for (Item item: this.items) {
+            item.setMap(this);
+        }*/
         this.triggers = loadTriggers();
         for (Trigger trigger: this.triggers) {
             trigger.setMap(this);
@@ -112,6 +117,7 @@ public abstract class Map {
 
         this.camera = new Camera(0, 0, tileset.getScaledSpriteWidth(), tileset.getScaledSpriteHeight(), this);
         this.textbox = new Textbox(this);
+        this.coinCounter = new CoinCounter(this);
     }
 
     // reads in a map file to create the map's tilemap
@@ -282,6 +288,10 @@ public abstract class Map {
     protected ArrayList<NPC> loadNPCs() {
         return new ArrayList<>();
     }
+    
+   /* protected ArrayList<Item> loadItems() {
+        return new ArrayList<>();
+    }*/
 
     protected ArrayList<Trigger> loadTriggers() {
         return new ArrayList<>();
@@ -298,6 +308,9 @@ public abstract class Map {
     public ArrayList<NPC> getNPCs() {
         return npcs;
     }
+   /* public ArrayList<Item> getItems() {
+        return items;
+    }*/
     public ArrayList<Trigger> getTriggers() { return triggers; }
 
     public ArrayList<MapTile> getAnimatedMapTiles() {
@@ -321,7 +334,15 @@ public abstract class Map {
         }
         return null;
     }
-
+   /* public Item getItemById(int id) {
+        for (Item item : items) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
+*/
     // returns all active enhanced map tiles (enhanced map tiles that are a part of the current update cycle) -- this changes every frame by the Camera class
     public ArrayList<EnhancedMapTile> getActiveEnhancedMapTiles() {
         return camera.getActiveEnhancedMapTiles();
@@ -331,6 +352,9 @@ public abstract class Map {
     public ArrayList<NPC> getActiveNPCs() {
         return camera.getActiveNPCs();
     }
+   /* public ArrayList<Item> getActiveItems() {
+        return camera.getActiveItems();
+    }*/
 
     public ArrayList<Trigger> getActiveTriggers() {
         return camera.getActiveTriggers();
@@ -347,6 +371,10 @@ public abstract class Map {
         npc.setMap(this);
         this.npcs.add(npc);
     }
+   /* public void addItem(Item item) {
+        item.setMap(this);
+        this.items.add(item);
+    }*/
 
     // add a trigger to the map's list of triggers
     public void addTrigger(Trigger trigger) {
@@ -374,6 +402,7 @@ public abstract class Map {
         }
         // gets active surrounding npcs
         surroundingMapEntities.addAll(getActiveNPCs());
+        //surroundingMapEntities.addAll(getActiveItems());
         surroundingMapEntities.addAll(getActiveEnhancedMapTiles());
         return surroundingMapEntities;
     }
