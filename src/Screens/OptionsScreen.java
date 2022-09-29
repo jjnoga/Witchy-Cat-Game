@@ -72,6 +72,7 @@ public class OptionsScreen extends Screen{
 	     toggle3 = new JToggleButton("Off");
 	     keyLocker.lockKey(Key.SPACE); //without this keyLock, the space button would continuously press, resulting in it not staying on the menu
 	     keyLocker.lockKey(Key.ENTER);
+	     keyLocker.lockKey(Key.ESC);
 	     menuItemSelected = -1;
 	}
 
@@ -128,6 +129,10 @@ public class OptionsScreen extends Screen{
 			keyLocker.unlockKey(Key.ENTER);
 		}
     	
+    	if (Keyboard.isKeyUp(Key.ESC)) {
+    		keyLocker.unlockKey(Key.ESC);
+    	}
+    	
     	
     	
 		if (!keyLocker.isKeyLocked(Key.ENTER) && Keyboard.isKeyDown(Key.ENTER)) {
@@ -150,6 +155,29 @@ public class OptionsScreen extends Screen{
 //				on2.setColor(col);
 				//col = Color.blue;
 				on2.setText("On");
+			}
+		}
+		
+		if (!keyLocker.isKeyLocked(Key.ESC) && Keyboard.isKeyDown(Key.ESC)) {
+			menuItemSelected = currentMenuItemHovered;
+			if (menuItemSelected == 0) {
+//				mute.setColor(col);
+//				on.setColor(Color.red);
+//				on2.setColor(Color.red);
+				//col = Color.blue;
+				mute.setText("Mute Off");
+			} else if (menuItemSelected == 1) {
+//				mute.setColor(Color.red);
+//				on.setColor(col);
+//				on2.setColor(Color.red);
+				//col = Color.blue;
+				on.setText("Off");
+			} else if (menuItemSelected == 2) {
+//				mute.setColor(Color.red);
+//				on.setColor(Color.red);
+//				on2.setColor(col);
+				//col = Color.blue;
+				on2.setText("Off");
 			}
 		}
 		

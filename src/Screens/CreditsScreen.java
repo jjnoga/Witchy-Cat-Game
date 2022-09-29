@@ -9,7 +9,7 @@ import SpriteFont.SpriteFont;
 
 import java.awt.*;
 
-// This class is for the credits screen
+// This class is for the credits screen with the updated information from our group
 public class CreditsScreen extends Screen {
     protected ScreenCoordinator screenCoordinator;
     protected Map background;
