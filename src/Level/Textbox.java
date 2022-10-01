@@ -28,12 +28,15 @@ public class Textbox {
     protected int currentTextItemHovered = 1;
     protected final int textItemSelected = -1;
     protected int compiledCount = 0;
+    protected int choice = 0;
 
     private Queue<String> textQueue = new LinkedList<String>();
+    private Queue<String> textQueueFlip = new LinkedList<String>();
     private Queue<String> selectionQueue = new LinkedList<String>();
     private Queue<String> decideTurn = new LinkedList<String>();
     private SpriteFont text = null;
     private SpriteFont[] selectionText = new SpriteFont[10];
+    private String[] responseText = new String[10];
     private KeyLocker keyLocker = new KeyLocker();
     private Map map;
     private Key interactKey = Key.SPACE;
@@ -111,6 +114,12 @@ public class Textbox {
 	return null;
     }
 
+    public void setResponses(String[] responses) {
+	for (int i = 0; i < responses.length; i++) {
+	    this.responseText[i] = responses[i];
+	}
+    }
+
     public void update() {
 
 	// if interact key is pressed, remove the current text from the queue to prepare
@@ -135,6 +144,18 @@ public class Textbox {
 	if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
 	    keyLocker.lockKey(interactKey);
 	    textQueue.poll();
+	    if (!decideTurn.isEmpty()) {
+		if (decideTurn.peek().equals("1")) {
+		    while (!textQueue.isEmpty()) {
+			textQueueFlip.add(textQueue.poll());
+		    }
+		    textQueue.add(responseText[currentTextItemHovered - 1]);
+		    choice = currentTextItemHovered - 1;
+		    while (!textQueueFlip.isEmpty()) {
+			textQueue.add(textQueueFlip.poll());
+		    }
+		}
+	    }
 	    decideTurn.poll();
 	} else if (Keyboard.isKeyUp(interactKey)) {
 	    keyLocker.unlockKey(interactKey);
@@ -178,7 +199,6 @@ public class Textbox {
 		if (this.currentTextItemHovered > 0) {
 		    selectionText[currentTextItemHovered - 1].setColor(Color.black);
 		}
-
 		selectionText[0].drawWithParsedNewLines(graphicsHandler, 10);
 		int x = fontX;
 		for (int i = 0; i <= compiledCount; i++) {
@@ -193,6 +213,10 @@ public class Textbox {
 	}
     }
 
+    public int getChoice() {
+	return choice;
+    }
+    
     public boolean isActive() {
 	return isActive;
     }
