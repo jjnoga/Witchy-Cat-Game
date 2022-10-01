@@ -117,7 +117,11 @@ public abstract class Player extends GameObject {
 	// if walk left key is pressed, move player to the left
 	if (Keyboard.isKeyDown(MOVE_LEFT_KEY)) {
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
-		moveAmountX -= walkSpeed + 3;
+		if (Keyboard.isKeyDown(MOVE_UP_KEY) || Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
+		    moveAmountX -= walkSpeed + 2.12132;
+		} else {
+		    moveAmountX -= walkSpeed + 3;
+		}
 	    } else {
 		moveAmountX -= walkSpeed;
 	    }
@@ -129,7 +133,11 @@ public abstract class Player extends GameObject {
 	// if walk right key is pressed, move player to the right
 	else if (Keyboard.isKeyDown(MOVE_RIGHT_KEY)) {
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
-		moveAmountX += walkSpeed + 3;
+		if (Keyboard.isKeyDown(MOVE_UP_KEY) || Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
+		    moveAmountX += walkSpeed + 2.12132;
+		} else {
+		    moveAmountX += walkSpeed + 3;
+		}
 	    } else {
 		moveAmountX += walkSpeed;
 	    }
@@ -142,7 +150,11 @@ public abstract class Player extends GameObject {
 
 	if (Keyboard.isKeyDown(MOVE_UP_KEY)) {
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
-		moveAmountY -= walkSpeed + 3;
+		if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY)) {
+		    moveAmountY -= walkSpeed + 2.12132;
+		} else {
+		    moveAmountY -= walkSpeed + 3;
+		}
 	    } else {
 		moveAmountY -= walkSpeed;
 	    }
@@ -150,7 +162,11 @@ public abstract class Player extends GameObject {
 	    lastWalkingYDirection = Direction.UP;
 	} else if (Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
-		moveAmountY += walkSpeed + 3;
+		if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY)) {
+		    moveAmountY += walkSpeed + 2.12132;
+		} else {
+		    moveAmountY += walkSpeed + 3;
+		}
 	    } else {
 		moveAmountY += walkSpeed;
 	    }
