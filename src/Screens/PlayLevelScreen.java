@@ -7,6 +7,7 @@ import Game.ScreenCoordinator;
 import Level.*;
 import Maps.TestMap;
 import Players.Cat;
+import Scripts.Sounds;
 import Utils.Direction;
 import Utils.Point;
 
@@ -18,6 +19,7 @@ public class PlayLevelScreen extends Screen {
     protected PlayLevelScreenState playLevelScreenState;
     protected WinScreen winScreen;
     protected FlagManager flagManager;
+    Sounds sound = new Sounds();
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -74,6 +76,8 @@ public class PlayLevelScreen extends Screen {
         }
 
         winScreen = new WinScreen(this);
+        
+        playMusic(0);	
     }
 
     public void update() {
@@ -125,4 +129,19 @@ public class PlayLevelScreen extends Screen {
     private enum PlayLevelScreenState {
         RUNNING, LEVEL_COMPLETED
     }
+    
+    public void playMusic(int i) {
+		sound.setFile(i);
+		sound.play();
+		sound.loop();
+	}
+	
+	public void stopMusic() {
+		sound.stop();
+	}
+	
+	public void playSE(int i) {
+		sound.setFile(i);
+		sound.play();
+	}
 }

@@ -5,6 +5,7 @@ import Game.GameState;
 import Game.ScreenCoordinator;
 import Level.Map;
 import Maps.TitleScreenMap;
+import Scripts.Sounds;
 import SpriteFont.SpriteFont;
 import Utils.Stopwatch;
 
@@ -35,6 +36,8 @@ public class OptionsScreen extends Screen{
     protected int menuItemSelected = -1;
     protected Stopwatch keyTimer = new Stopwatch();
     protected int pointerLocationX, pointerLocationY;
+    
+    Sounds sound = new Sounds();
   
 
     public OptionsScreen(ScreenCoordinator screenCoordinator) {
@@ -144,18 +147,21 @@ public class OptionsScreen extends Screen{
 //				on2.setColor(Color.red);
 				//col = Color.blue;
 				mute.setText("Mute On");
+				mute.setColor(Color.green);
 			} else if (menuItemSelected == 1) {
 //				mute.setColor(Color.red);
 //				on.setColor(col);
 //				on2.setColor(Color.red);
 				//col = Color.blue;
 				on.setText("On");
+				mute.setColor(Color.green);
 			} else if (menuItemSelected == 2) {
 //				mute.setColor(Color.red);
 //				on.setColor(Color.red);
 //				on2.setColor(col);
 				//col = Color.blue;
 				on2.setText("On");
+				mute.setColor(Color.green);
 			}
 		}
 		
@@ -167,18 +173,21 @@ public class OptionsScreen extends Screen{
 //				on2.setColor(Color.red);
 				//col = Color.blue;
 				mute.setText("Mute Off");
+				mute.setColor(Color.red);
 			} else if (menuItemSelected == 1) {
 //				mute.setColor(Color.red);
 //				on.setColor(col);
 //				on2.setColor(Color.red);
 				//col = Color.blue;
 				on.setText("Off");
+				mute.setColor(Color.red);
 			} else if (menuItemSelected == 2) {
 //				mute.setColor(Color.red);
 //				on.setColor(Color.red);
 //				on2.setColor(col);
 				//col = Color.blue;
 				on2.setText("Off");
+				mute.setColor(Color.red);
 			}
 		}
 		
