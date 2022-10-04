@@ -191,11 +191,11 @@ public class OptionsScreen extends Screen{
 			}
 		}
 		
-		if(mute.getText() == "Mute Off") {
-			sound.stop();
-		}else if (mute.getText() == "Mute On") {;
-			sound.play();
-		}
+//		if(mute.getText() == "Mute Off") {
+//			sound.play();
+//		}else if (mute.getText() == "Mute On") {;
+//			sound.stop();
+//		}
 	}
 
 	@Override
