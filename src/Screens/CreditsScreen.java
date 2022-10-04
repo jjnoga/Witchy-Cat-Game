@@ -33,11 +33,11 @@ public class CreditsScreen extends Screen {
         background = new TitleScreenMap();
         background.setAdjustCamera(false);
         creditsLabel = new SpriteFont("Credits", 15, 35, "Times New Roman", 30, Color.black);
-        createdByLabel = new SpriteFont("Created by Team TBT:", 130, 120, "Times New Roman", 20, Color.black);
+        createdByLabel = new SpriteFont("Created by Team Anita the Cat:", 130, 120, "Times New Roman", 20, Color.black);
         createdByLabela = new SpriteFont("Madi Smith,", 130, 140, "Times New Roman", 20, Color.black);
         createdByLabelb = new SpriteFont("Michael Ruocco,", 130, 160, "Times New Roman", 20, Color.black);
         createdByLabelc = new SpriteFont("Camryn Keller,", 130, 180, "Times New Roman", 20, Color.black);
-        createdByLabeld = new SpriteFont("Mia Troiano,", 130, 200, "Times New Roman", 20, Color.black);
+        createdByLabeld = new SpriteFont("Joe Noga,", 130, 200, "Times New Roman", 20, Color.black);
         createdByLabele = new SpriteFont("and Nicholas Centeno", 130, 220, "Times New Roman", 20, Color.black);
         returnInstructionsLabel = new SpriteFont("Press Space to return to the menu", 20, 560, "Times New Roman", 30, Color.black);
         keyLocker.lockKey(Key.SPACE);
