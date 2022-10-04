@@ -25,6 +25,7 @@ public class Camera extends Rectangle {
     // current map entities that are to be included in this frame's update/draw cycle
     private ArrayList<EnhancedMapTile> activeEnhancedMapTiles = new ArrayList<>();
     private ArrayList<NPC> activeNPCs = new ArrayList<>();
+   
     private ArrayList<Trigger> activeTriggers = new ArrayList<>();
 
     // determines how many tiles off screen an entity can be before it will be deemed inactive and not included in the update/draw cycles until it comes back in range
@@ -131,6 +132,7 @@ public class Camera extends Rectangle {
         }
         return activeNPCs;
     }
+  
 
     // determine which trigger map tiles are active (exist and are within range of the camera)
     private ArrayList<Trigger> loadActiveTriggers() {
@@ -240,16 +242,7 @@ public class Camera extends Rectangle {
         for (NPC npc : drawNpcsAfterPlayer) {
             npc.draw(graphicsHandler);
         }
-
-        // Uncomment this to see triggers drawn on screen
-        // helps for placing them in the correct spot/debugging
-        /*
-        for (Trigger trigger : activeTriggers) {
-            if (containsDraw(trigger)) {
-                trigger.draw(graphicsHandler);
-            }
-        }
-        */
+       
     }
 
 
@@ -275,6 +268,7 @@ public class Camera extends Rectangle {
     public ArrayList<NPC> getActiveNPCs() {
         return activeNPCs;
     }
+   
 
     public ArrayList<Trigger> getActiveTriggers() {
         return activeTriggers;

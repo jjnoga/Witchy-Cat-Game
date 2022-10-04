@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
+
 import Level.*;
 import Maps.TestMap;
 import Players.Cat;
@@ -21,6 +22,7 @@ public class PlayLevelScreen extends Screen {
     protected FlagManager flagManager;
     Sounds sound = new Sounds();
 
+
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
     }
@@ -32,6 +34,7 @@ public class PlayLevelScreen extends Screen {
         flagManager.addFlag("hasTalkedToWalrus", false);
         flagManager.addFlag("hasTalkedToDinosaur", false);
         flagManager.addFlag("hasFoundBall", false);
+        flagManager.addFlag("hasFoundCoin", false);
 
         // define/setup map
         this.map = new TestMap();
@@ -45,6 +48,9 @@ public class PlayLevelScreen extends Screen {
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.playLevelScreenState = PlayLevelScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
+        
+        
+       
 
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
