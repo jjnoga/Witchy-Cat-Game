@@ -13,7 +13,7 @@ import Utils.Point;
 import java.awt.Color;
 import java.util.HashMap;
 
-// This class is for the dinosaur NPC
+// This class is for the coin
 public class Coin extends NPC {
 	protected SpriteFont counter;
 

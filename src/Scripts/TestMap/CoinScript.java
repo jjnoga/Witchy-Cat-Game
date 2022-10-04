@@ -9,34 +9,33 @@ import Level.Textbox;
 
 public class CoinScript extends Script {
 	protected CoinCounter counter;
-	 private Map map;
-    @Override
-    protected void setup() {
-    	counter = new CoinCounter(map);
-        showTextbox();
-        addTextToTextboxQueue("You found a coin! Now you have 1 coin");
-        
-        
-        
-    }
+	private Map map;
 
-    @Override
-    protected void cleanup() {
-        setFlag("hasFoundCoin");
-        counter.addCoin(1);
-        hideTextbox();
-        
-    }
+	@Override
+	protected void setup() {
+		counter = new CoinCounter(map);
+		showTextbox();
+		addTextToTextboxQueue("You found a coin! Now you have 1 coin");
 
-    @Override
-    public ScriptState execute() {
-        if (!isFlagSet("hasFoundCoin")) {
-            start();
-            if (!isTextboxQueueEmpty()) {
-                return ScriptState.RUNNING;
-            }
-            end();
-        }
-        return ScriptState.COMPLETED;
-    }
+	}
+
+	@Override
+	protected void cleanup() {
+		setFlag("hasFoundCoin");
+		counter.addCoin(1);
+		hideTextbox();
+
+	}
+
+	@Override
+	public ScriptState execute() {
+		if (!isFlagSet("hasFoundCoin")) {
+			start();
+			if (!isTextboxQueueEmpty()) {
+				return ScriptState.RUNNING;
+			}
+			end();
+		}
+		return ScriptState.COMPLETED;
+	}
 }
