@@ -11,9 +11,9 @@ public class Sounds {
 	URL soundURL[] = new URL[30];
 	
 	public Sounds() {
-		soundURL[0] = getClass().getResource("/Utils/brilliant-life-60sec.wav");
-		soundURL[1] = getClass().getResource("/Utils/mixkit-space-coin-win-notification-271.wav");
-		soundURL[2] = getClass().getResource("/Utils/mixkit-arcade-game-complete-or-approved-mission-205.wav");
+		soundURL[0] = getClass().getResource("/Sounds/brilliant-life-60sec.wav");
+		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav");
+		soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
 	}
 	
 	public void setFile(int i) {
