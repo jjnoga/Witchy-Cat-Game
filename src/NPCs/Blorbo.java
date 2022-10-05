@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class Blorbo extends NPC {
 
     public Blorbo(int id, Point location) {
-        super(id, location.x, location.y, new SpriteSheet(ImageLoader.load("lilGuy.png"), 25, 25), "STAND_LEFT");
+        super(id, location.x, location.y, new SpriteSheet(ImageLoader.load("Blorbo.png"), 25, 25), "STAND_LEFT");
     }
 
     public void update(Player player) {
