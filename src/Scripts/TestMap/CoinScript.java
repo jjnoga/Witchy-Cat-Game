@@ -32,9 +32,8 @@ public class CoinScript extends Script {
 	@Override
 	public ScriptState execute() {
 		if (!isFlagSet("hasFoundCoin")) {
-			start();
 			playSE(1);
-			
+			start();
 			if (!isTextboxQueueEmpty()) {
 				return ScriptState.RUNNING;
 			}
