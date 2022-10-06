@@ -12,11 +12,11 @@ import Utils.Point;
 
 import java.util.HashMap;
 
-// This class is for the Blorbo
-public class Blorbo extends NPC {
+// This class is for the Pizza the Snake
+public class Pizza extends NPC {
 
-    public Blorbo(int id, Point location) {
-        super(id, location.x, location.y, new SpriteSheet(ImageLoader.load("Blorbo.png"), 25, 25), "STAND_LEFT");
+    public Pizza(int id, Point location) {
+        super(id, location.x, location.y, new SpriteSheet(ImageLoader.load("Pizza.png"), 25, 25), "STAND_LEFT");
     }
 
     public void update(Player player) {
@@ -28,15 +28,15 @@ public class Blorbo extends NPC {
         return new HashMap<String, Frame[]>() {{
             put("STAND_LEFT", new Frame[] {
                     new FrameBuilder(spriteSheet.getSprite(0, 0))
-                            .withScale(3)
+                            .withScale(2)
                             .withBounds(7, 13, 11, 7)
+                            .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
                             .build()
             });
             put("STAND_RIGHT", new Frame[] {
                    new FrameBuilder(spriteSheet.getSprite(0, 0))
-                           .withScale(3)
+                           .withScale(2)
                            .withBounds(7, 13, 11, 7)
-                           .withImageEffect(ImageEffect.FLIP_HORIZONTAL)
                            .build()
            });
         }};
@@ -47,3 +47,4 @@ public class Blorbo extends NPC {
         super.draw(graphicsHandler);
     }
 }
+

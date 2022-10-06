@@ -9,9 +9,11 @@ import Level.NPC;
 import Level.Trigger;
 import NPCs.Coin;
 import NPCs.Dinosaur;
+import NPCs.Pizza;
 import NPCs.Walrus;
 import NPCs.Blorbo;
 import Scripts.SimpleTextScript;
+import Scripts.TestMap.PizzaScript;
 import Scripts.TestMap.CoinScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
@@ -52,10 +54,15 @@ public class TestMap extends Map {
 
 		Coin coin = new Coin(3, getMapTile(10, 20).getLocation());
 		npcs.add(coin);
+		
+		Pizza pizza = new Pizza(4, getMapTile(10, 25).getLocation());
+		pizza.setInteractScript(new PizzaScript());
+		npcs.add(pizza);
 
-		Blorbo testnpc = new Blorbo(4, getMapTile(13, 20).getLocation());
-		testnpc.setInteractScript(new BlorboScript());
-		npcs.add(testnpc);
+		Blorbo blorbo = new Blorbo(5, getMapTile(13, 20).getLocation());
+		blorbo.setInteractScript(new BlorboScript());
+		npcs.add(blorbo);
+		
 
 		return npcs;
 	}
