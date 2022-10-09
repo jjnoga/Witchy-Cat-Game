@@ -1,6 +1,4 @@
 # SER225 RPG Game
-#names:
-Mia Troiano
 
 ## What is this?
 This is a game created for Quinnipiac's SER225 Agile Development class.
@@ -25,4 +23,5 @@ Changes to content in the `docs` folder will not show up on the website unless t
 Camryn Keller
 Michael Ruocco
 Nicholas Centeno
-madi Smith
+Madi Smith
+Joseph Noga
