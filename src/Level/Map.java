@@ -73,8 +73,12 @@ public abstract class Map {
 
     // map's textbox instance
     protected Textbox textbox;
-    protected CoinCounter coinCounter;
     
+    //map's coin counter instance
+    protected CoinCounter coinCounter;
+    protected boolean hasChangedCoins = false;
+    
+    //map's inventory instance
     protected Inventory inventory;
     protected boolean inventoryCheck = true;
 
@@ -534,6 +538,13 @@ public abstract class Map {
         	}
         	else inventoryCheck = true;
         }
+        
+        if (hasChangedCoins)
+        {
+        	coinCounter.addCoin(1);
+        	coinCounter.update();
+        	hasChangedCoins = false;
+        }
     }
 
     // based on the player's current X position (which in a level can potentially be updated each frame),
@@ -606,6 +617,15 @@ public abstract class Map {
         if(inventory.isActive() && !textbox.isActive()) { //won't appear concurrently with textboxes
         	inventory.draw(graphicsHandler);
         }
+        
+        if(!coinCounter.isActive())
+        {
+        	coinCounter.setIsActive(true);
+        }
+        else
+        {
+        	coinCounter.draw(graphicsHandler);
+        }
     }
 
     public FlagManager getFlagManager() { return flagManager; }
@@ -618,4 +638,12 @@ public abstract class Map {
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
+    
+    public CoinCounter getCoinCounter() {
+    	return this.coinCounter;
+    }
+    
+    public void setHasChangedCoins(boolean status) {
+    	hasChangedCoins = status;
+    }
 }
