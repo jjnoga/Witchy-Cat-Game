@@ -43,16 +43,6 @@ public class CoinScript extends Script {
 		return ScriptState.COMPLETED;
 		
 	}
-	
-	 public void playSound(int i) {
-			sound.setFile(i);
-			sound.play();
-			sound.loop();
-		}
-		
-	 public void stopSound() {
-			sound.stop();
-	 	}
 		
 	 public void playSE(int i) {
 			sound.setFile(i);
