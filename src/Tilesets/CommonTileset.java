@@ -387,6 +387,247 @@ public class CommonTileset extends Tileset {
 
 	mapTiles.add(snowFadeFullTopLeftTile);
 
+	///////autumn///////
+	
+	// dead grass
+	Frame deadGrassFrame = new FrameBuilder(getSubImage(6, 0)).withScale(tileScale).build();
+
+	MapTileBuilder deadGrassTile = new MapTileBuilder(deadGrassFrame);
+
+	mapTiles.add(deadGrassTile);
+
+	// puddle
+	Frame puddleFrame = new FrameBuilder(getSubImage(6, 1)).withScale(tileScale).build();
+
+	MapTileBuilder puddleTile = new MapTileBuilder(puddleFrame);
+
+	mapTiles.add(puddleTile);
+
+	// pink flower
+	Frame pinkFlowerFrame = new FrameBuilder(getSubImage(6, 2)).withScale(tileScale).build();
+
+	MapTileBuilder pinkFlowerTile = new MapTileBuilder(pinkFlowerFrame);
+
+	mapTiles.add(pinkFlowerTile);
+
+	// purple big flower
+	Frame purpleBigFlowerFrames = new FrameBuilder(getSubImage(7, 2)).withScale(tileScale).build();
+
+	MapTileBuilder purpleBigFlowerTile = new MapTileBuilder(purpleBigFlowerFrames);
+
+	mapTiles.add(purpleBigFlowerTile);
+
+	// autumn leaves
+	Frame autumnLeavesFrame = new FrameBuilder(getSubImage(7, 1)).withScale(tileScale).build();
+
+	MapTileBuilder autumnLeavesTile = new MapTileBuilder(deadGrassFrame).withTopLayer(autumnLeavesFrame)
+			.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(autumnLeavesTile);
+	
+	// autumn tree trunk
+	Frame autTreeTrunkFrame = new FrameBuilder(getSubImage(7, 0)).withScale(tileScale).build();
+
+	MapTileBuilder autTreeTrunkTile = new MapTileBuilder(autTreeTrunkFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(autTreeTrunkTile);
+	
+	// autumn tree trunk bottom
+	Frame autTreeTrunkBottomFrame = new FrameBuilder(getSubImage(8, 0)).withScale(tileScale).build();
+
+	MapTileBuilder autTreeTrunkBottomTile = new MapTileBuilder(autTreeTrunkBottomFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(autTreeTrunkBottomTile);
+		
+	// small colored mushrooms
+	Frame smallMushroomsFrame = new FrameBuilder(getSubImage(8, 1)).withScale(tileScale).build();
+
+	MapTileBuilder smallMushroomsTile = new MapTileBuilder(smallMushroomsFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(smallMushroomsTile);
+	
+	// autumn tree trunk with full hole
+	Frame autTreeTrunkWithFullHoleFrame = new FrameBuilder(getSubImage(8, 2)).withScale(tileScale).build();
+
+	MapTileBuilder autTreeTrunkWithFullHoleTile = new MapTileBuilder(deadGrassFrame)
+		.withTopLayer(autTreeTrunkWithFullHoleFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(autTreeTrunkWithFullHoleTile);
+	
+	// mushroom left end branch
+	Frame mushLeftEndBranchFrame = new FrameBuilder(getSubImage(8, 4)).withScale(tileScale).withBounds(0, 6, 16, 4)
+		.build();
+
+	MapTileBuilder mushLeftEndBranchTile = new MapTileBuilder(deadGrassFrame).withTopLayer(mushLeftEndBranchFrame)
+		.withTileType(TileType.PASSABLE);
+	MapTileBuilder leftEndBranchAutumnTile = new MapTileBuilder(deadGrassFrame).withTopLayer(leftEndBranchFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(mushLeftEndBranchTile);
+	mapTiles.add(leftEndBranchAutumnTile);
+
+	// mushroom right end branch
+	Frame mushRightEndBranchFrame = new FrameBuilder(getSubImage(8, 4)).withScale(tileScale).withBounds(0, 6, 16, 4)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder mushRightEndBranchTile = new MapTileBuilder(deadGrassFrame).withTopLayer(mushRightEndBranchFrame)
+		.withTileType(TileType.PASSABLE);
+	MapTileBuilder rightEndBranchAutumnTile = new MapTileBuilder(deadGrassFrame).withTopLayer(rightEndBranchFrame)
+			.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(mushRightEndBranchTile);
+	mapTiles.add(rightEndBranchAutumnTile);
+	
+	// mushroom middle branch
+	Frame mushMiddleBranchFrame = new FrameBuilder(getSubImage(8, 3)).withScale(tileScale).withBounds(0, 6, 16, 4)
+		.build();
+
+	MapTileBuilder mushMiddleBranchTile = new MapTileBuilder(deadGrassFrame).withTopLayer(mushMiddleBranchFrame)
+		.withTileType(TileType.PASSABLE);
+	MapTileBuilder middleBranchAutumnTile = new MapTileBuilder(deadGrassFrame).withTopLayer(middleBranchFrame)
+			.withTileType(TileType.PASSABLE);
+	
+	mapTiles.add(mushMiddleBranchTile);
+	mapTiles.add(middleBranchAutumnTile);
+
+	// rock autumn tile
+	Frame autRockFrame = new FrameBuilder(getSubImage(9, 1)).withScale(tileScale).build();
+
+	MapTileBuilder autRockTile = new MapTileBuilder(autRockFrame);
+
+	mapTiles.add(autRockTile);
+	
+	// autumn sign
+	Frame autSignFrame = new FrameBuilder(getSubImage(9, 2)).withScale(tileScale).build();
+
+	MapTileBuilder autSignTile = new MapTileBuilder(autSignFrame);
+
+	mapTiles.add(autSignTile);
+	
+	// small rocks autumn
+	Frame smallRocksAutumnFrame = new FrameBuilder(getSubImage(11, 0)).withScale(tileScale).build();
+
+	MapTileBuilder smallRocksAutumnTile = new MapTileBuilder(smallRocksAutumnFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(smallRocksAutumnTile);
+
+	// dead shrubbery 
+	Frame deadShrubFrame = new FrameBuilder(getSubImage(9, 3)).withScale(tileScale).build();
+
+	MapTileBuilder deadShrubTile = new MapTileBuilder(deadShrubFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(deadShrubTile);
+
+	// dead twig autumn
+	Frame deadTwigAutumnFrame = new FrameBuilder(getSubImage(11, 1)).withScale(tileScale).build();
+
+	MapTileBuilder deadTwigAutumnTile = new MapTileBuilder(deadTwigAutumnFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(deadTwigAutumnTile);
+
+	// cobweb
+	Frame cobwebFrame = new FrameBuilder(getSubImage(11, 2)).withScale(tileScale).build();
+
+	MapTileBuilder cobwebTile = new MapTileBuilder(deadGrassFrame)
+			.withTopLayer(cobwebFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(cobwebTile);
+	
+	// autumnFadeRight
+	Frame autumnFadeRightFrame = new FrameBuilder(getSubImage(6, 3)).withScale(tileScale).build();
+
+	MapTileBuilder autumnFadeRightTile = new MapTileBuilder(autumnFadeRightFrame);
+
+	mapTiles.add(autumnFadeRightTile);
+
+	// autumnFadeLeft
+	Frame autumnFadeLeftFrame = new FrameBuilder(getSubImage(6, 3)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder autumnFadeLeftTile = new MapTileBuilder(autumnFadeLeftFrame);
+
+	mapTiles.add(autumnFadeLeftTile);
+
+	// autumnFadeUp
+	Frame autumnFadeUpFrame = new FrameBuilder(getSubImage(7, 3)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+	MapTileBuilder autumnFadeUpTile = new MapTileBuilder(autumnFadeUpFrame);
+
+	mapTiles.add(autumnFadeUpTile);
+
+	// autumnFadeDown
+	Frame autumnFadeDownFrame = new FrameBuilder(getSubImage(7, 3)).withScale(tileScale).build();
+
+	MapTileBuilder autumnFadeDownTile = new MapTileBuilder(autumnFadeDownFrame);
+
+	mapTiles.add(autumnFadeDownTile);
+
+	// autumnFadeBottomRight
+	Frame autumnFadeBottomRightFrame = new FrameBuilder(getSubImage(6, 4)).withScale(tileScale).build();
+
+	MapTileBuilder autumnFadeBottomRightTile = new MapTileBuilder(autumnFadeBottomRightFrame);
+
+	mapTiles.add(autumnFadeBottomRightTile);
+
+	// autumnFadeBottomLeft
+	Frame autumnFadeBottomLeftFrame = new FrameBuilder(getSubImage(6, 4)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder autumnFadeBottomLeftTile = new MapTileBuilder(autumnFadeBottomLeftFrame);
+
+	mapTiles.add(autumnFadeBottomLeftTile);
+
+	// autumnFadeTopRight
+	Frame autumnFadeTopRightFrame = new FrameBuilder(getSubImage(6, 4)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+	MapTileBuilder autumnFadeTopRightTile = new MapTileBuilder(autumnFadeTopRightFrame);
+
+	mapTiles.add(autumnFadeTopRightTile);
+
+	// autumnFadeTopLeft
+	Frame autumnFadeTopLeftFrame = new FrameBuilder(getSubImage(6, 4)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+
+	MapTileBuilder autumnFadeTopLeftTile = new MapTileBuilder(autumnFadeTopLeftFrame);
+
+	mapTiles.add(autumnFadeTopLeftTile);
+
+	// autumnFadeFullBottomRight
+	Frame autumnFadeFullBottomRightFrame = new FrameBuilder(getSubImage(7, 4)).withScale(tileScale).build();
+
+	MapTileBuilder autumnFadeFullBottomRightTile = new MapTileBuilder(autumnFadeFullBottomRightFrame);
+
+	mapTiles.add(autumnFadeFullBottomRightTile);
+
+	// autumnFadeFullBottomLeft
+	Frame autumnFadeFullBottomLeftFrame = new FrameBuilder(getSubImage(7, 4)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder autumnFadeFullBottomLeftTile = new MapTileBuilder(autumnFadeFullBottomLeftFrame);
+
+	mapTiles.add(autumnFadeFullBottomLeftTile);
+
+	// autumnFadeFullTopRight
+	Frame autumnFadeFullTopRightFrame = new FrameBuilder(getSubImage(7, 4)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+	MapTileBuilder autumnFadeFullTopRightTile = new MapTileBuilder(autumnFadeFullTopRightFrame);
+
+	mapTiles.add(autumnFadeFullTopRightTile);
+
+	// autumnFadeFullTopLeft
+	Frame autumnFadeFullTopLeftFrame = new FrameBuilder(getSubImage(7, 4)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+
+	MapTileBuilder autumnFadeFullTopLeftTile = new MapTileBuilder(autumnFadeFullTopLeftFrame);
+
+	mapTiles.add(autumnFadeFullTopLeftTile);
+
+		
 	return mapTiles;
     }
 }

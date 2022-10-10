@@ -17,10 +17,10 @@ import java.util.Queue;
 public class CoinCounter {
     protected boolean isActive = true;
     protected final int x = 10;
-    protected final int bottomY = 444;
+    protected final int bottomY = 500;
     protected final int topY = 4;
     protected final int fontX = 15;
-    protected final int fontBottomY = 420;
+    protected final int fontBottomY = 519;
     protected final int fontTopY = 23;
     protected final int width = 60;
     protected final int height = 30;
@@ -43,17 +43,24 @@ public class CoinCounter {
     }
 
     public void update() {
-    	text = new SpriteFont("Coins: " + String.valueOf(count), fontX, fontTopY, "Arial", 12, Color.white);
+    	if (!map.getCamera().isAtBottomOfMap()) {
+    		text = new SpriteFont("Coins: " + String.valueOf(count), fontX, fontTopY, "Arial", 12, Color.white);
+    	}
+    	else {
+    		text = new SpriteFont("Coins: " + String.valueOf(count), fontX, fontBottomY, "Arial", 12, Color.white);
+    	}
     }
 
     public void draw(GraphicsHandler graphicsHandler) {
         // if camera is at bottom of screen, textbox is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
         if (!map.getCamera().isAtBottomOfMap()) {
+        	update();
             graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 2);
             text.draw(graphicsHandler);
         }
         else {
+        	update();
             graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 2);
             text.draw(graphicsHandler);
             
