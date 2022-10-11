@@ -14,7 +14,7 @@ public class CertainAreaScript extends Script {
 		// vs talking to him afterwards (flag is set)
 		if (!isFlagSet("rightSpot")) {
 			addTextToTextboxQueue("You made it to just the right spot");
-
+			
 		}
 
 	}
