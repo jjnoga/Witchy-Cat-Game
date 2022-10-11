@@ -1,6 +1,4 @@
 # SER225 RPG Game
-#names:
-Mia Troiano
 
 ## What is this?
 This is a game created for Quinnipiac's SER225 Agile Development class.
@@ -21,8 +19,9 @@ It can be accessed at [https://a-r-t.github.io/SER-225-Game-RPG/](https://a-r-t.
 Changes to content in the `docs` folder will not show up on the website unless they are pushed to the `master` branch.
 
 ## Credits
-**Alex Thimineur**: Programmed the game, made the art.
-Camryn Keller
-Michael Ruocco
-Nicholas Centeno
-madi Smith
+**Alex Thimineur**: Programmed the engine for the game, provided simple graphics resources.<br>
+**Camryn Keller**<br>
+**Michael Ruocco**<br>
+**Nicholas Centeno**<br>
+**Madi Smith**<br>
+**Joseph Noga**<br>

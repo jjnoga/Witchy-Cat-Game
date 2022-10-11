@@ -201,7 +201,7 @@ public class Textbox {
 		}
 		selectionText[0].drawWithParsedNewLines(graphicsHandler, 10);
 		int x = fontX;
-		for (int i = 0; i <= compiledCount; i++) {
+		for (int i = 0; i < compiledCount; i++) {
 		    if (selectionText[i + 1] != null) {
 			selectionText[i + 1].setY(fontBottomY + 40);
 			selectionText[i + 1].setX(x);
@@ -214,7 +214,7 @@ public class Textbox {
     }
 
     public int getChoice() {
-	return choice;
+	return choice;  
     }
     
     public boolean isActive() {

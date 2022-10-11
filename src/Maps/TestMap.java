@@ -1,25 +1,25 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+import EnhancedMapTiles.Coin;
 
 import Level.EnhancedMapTile;
 
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
-import NPCs.Coin;
 import NPCs.Dinosaur;
 import NPCs.Pizza;
 import NPCs.Walrus;
 import NPCs.Blorbo;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.PizzaScript;
-import Scripts.TestMap.CoinScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
+import Scripts.TestMap.CertainAreaScript;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;
@@ -36,6 +36,10 @@ public class TestMap extends Map {
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
 		enhancedMapTiles.add(new Rock(getMapTile(2, 7).getLocation()));
+		enhancedMapTiles.add(new Coin(getMapTile(15, 20).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(15, 19).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(14, 19).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(14, 20).getLocation(), this));
 		return enhancedMapTiles;
 	}
 
@@ -51,15 +55,12 @@ public class TestMap extends Map {
 		dinosaur.setExistenceFlag("hasTalkedToDinosaur");
 		dinosaur.setInteractScript(new DinoScript());
 		npcs.add(dinosaur);
-
-		Coin coin = new Coin(3, getMapTile(10, 20).getLocation());
-		npcs.add(coin);
 		
 		Pizza pizza = new Pizza(4, getMapTile(10, 25).getLocation());
 		pizza.setInteractScript(new PizzaScript());
 		npcs.add(pizza);
 
-		Blorbo blorbo = new Blorbo(5, getMapTile(13, 20).getLocation());
+		Blorbo blorbo = new Blorbo(5, getMapTile(10, 20).getLocation());
 		blorbo.setInteractScript(new BlorboScript());
 		npcs.add(blorbo);
 		
@@ -73,7 +74,7 @@ public class TestMap extends Map {
 		triggers.add(new Trigger(790, 1030, 100, 10, new LostBallScript(), "hasLostBall"));
 		triggers.add(new Trigger(790, 960, 10, 80, new LostBallScript(), "hasLostBall"));
 		triggers.add(new Trigger(890, 960, 10, 80, new LostBallScript(), "hasLostBall"));
-		triggers.add(new Trigger(480, 960, 20, 20, new CoinScript(), "hasFoundCoin"));
+		triggers.add(new Trigger(890, 780, 100, 25, new CertainAreaScript(), "rightSpot"));
 		
 		return triggers;
 	}
@@ -87,5 +88,6 @@ public class TestMap extends Map {
 		getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
 		getMapTile(2, 6).setInteractScript(new TreeScript());
+		
 	}
 }

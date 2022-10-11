@@ -2,6 +2,7 @@ package Level;
 
 import Engine.Config;
 import Engine.GraphicsHandler;
+import Engine.Keyboard;
 import Engine.ScreenManager;
 import GameObject.Rectangle;
 import Utils.Direction;
@@ -72,7 +73,14 @@ public abstract class Map {
 
     // map's textbox instance
     protected Textbox textbox;
+    
+    //map's coin counter instance
     protected CoinCounter coinCounter;
+    protected boolean hasChangedCoins = false;
+    
+    //map's inventory instance
+    protected Inventory inventory;
+    protected boolean inventoryCheck = true;
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -118,6 +126,7 @@ public abstract class Map {
         this.camera = new Camera(0, 0, tileset.getScaledSpriteWidth(), tileset.getScaledSpriteHeight(), this);
         this.textbox = new Textbox(this);
         this.coinCounter = new CoinCounter(this);
+        this.inventory = new Inventory(this);
     }
 
     // reads in a map file to create the map's tilemap
@@ -507,6 +516,35 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.update();
         }
+        
+        //if "i" is pressed
+        if (Keyboard.isKeyDown(inventory.getInteractKey()))
+        {
+        	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
+        	if (inventoryCheck) {
+            	inventory.setIsActive(true);
+        	}
+        	else { 
+        		inventory.setIsActive(false); 
+        	}
+        	
+        }
+        //once "i" is released
+        if (Keyboard.isKeyUp(inventory.getInteractKey()))
+        {
+        	inventory.getKeyLocker().unlockKey(inventory.getInteractKey());
+        	if (inventory.isActive()) { 
+            	inventoryCheck = false;
+        	}
+        	else inventoryCheck = true;
+        }
+        
+        if (hasChangedCoins)
+        {
+        	coinCounter.addCoin(1);
+        	coinCounter.update();
+        	hasChangedCoins = false;
+        }
     }
 
     // based on the player's current X position (which in a level can potentially be updated each frame),
@@ -576,6 +614,18 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.draw(graphicsHandler);
         }
+        if(inventory.isActive() && !textbox.isActive()) { //won't appear concurrently with textboxes
+        	inventory.draw(graphicsHandler);
+        }
+        
+        if(!coinCounter.isActive())
+        {
+        	coinCounter.setIsActive(true);
+        }
+        else
+        {
+        	coinCounter.draw(graphicsHandler);
+        }
     }
 
     public FlagManager getFlagManager() { return flagManager; }
@@ -588,4 +638,12 @@ public abstract class Map {
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
+    
+    public CoinCounter getCoinCounter() {
+    	return this.coinCounter;
+    }
+    
+    public void setHasChangedCoins(boolean status) {
+    	hasChangedCoins = status;
+    }
 }
