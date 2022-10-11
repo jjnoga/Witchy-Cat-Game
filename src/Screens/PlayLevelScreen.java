@@ -1,6 +1,17 @@
 package Screens;
 
+import javax.swing.JFrame;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+
 import Engine.GraphicsHandler;
+import Engine.Key;
+import Engine.KeyLocker;
+import Engine.Keyboard;
 import Engine.Screen;
 import Game.GameState;
 import Game.ScreenCoordinator;
@@ -20,11 +31,52 @@ public class PlayLevelScreen extends Screen {
     protected PlayLevelScreenState playLevelScreenState;
     protected WinScreen winScreen;
     protected FlagManager flagManager;
+    protected KeyLocker keyLocker = new KeyLocker();
     Sounds sound = new Sounds();
 
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
+        
+       
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new GridLayout(1,3));
+        
+        JButton volUp = new JButton("Volume Up");
+        volUp.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sound.volumeUp();
+			}
+		});
+        frame.add(volUp);
+        
+        JButton volDown = new JButton("Volume Down");
+        volDown.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sound.volumeDown();
+			}
+		});
+        frame.add(volDown);
+        
+        JButton mute = new JButton("Mute/Unmute");
+        mute.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sound.volumeMute();
+			}
+		});
+        frame.add(mute);
+        
+        frame.pack();
+        frame.setVisible(true);
+        
+        playMusic(0);
     }
 
     public void initialize() {
@@ -85,7 +137,8 @@ public class PlayLevelScreen extends Screen {
 
         winScreen = new WinScreen(this);
         
-        playMusic(0);	
+        
+        	
     }
 
     public void update() {
@@ -105,6 +158,14 @@ public class PlayLevelScreen extends Screen {
         // if flag is set at any point during gameplay, game is "won"
         if (map.getFlagManager().isFlagSet("hasFoundBall")) {
             playLevelScreenState = PlayLevelScreenState.LEVEL_COMPLETED;
+        }
+        
+
+        if (Keyboard.isKeyDown(Key.ESC) && !keyLocker.isKeyLocked(Key.ESC)) {
+        	keyLocker.lockKey(Key.ESC);
+        }
+        else if (Keyboard.isKeyUp(Key.ESC)) {
+            keyLocker.unlockKey(Key.ESC);
         }
     }
 
@@ -144,12 +205,9 @@ public class PlayLevelScreen extends Screen {
 		sound.loop();
 	}
 	
-	public void stopMusic() {
+	public  void stopMusic() {
 		sound.stop();
 	}
 	
-	public void playSE(int i) {
-		sound.setFile(i);
-		sound.play();
-	}
+	
 }

@@ -12,33 +12,35 @@ import Utils.Stopwatch;
 import java.awt.*;
 
 import javax.swing.JToggleButton;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 
 
 public class OptionsScreen extends Screen{
-	protected ScreenCoordinator screenCoordinator;
-    protected Map background;
-    protected KeyLocker keyLocker = new KeyLocker();
+	protected static ScreenCoordinator screenCoordinator;
+    protected static Map background;
+    protected static KeyLocker keyLocker = new KeyLocker();
     protected SpriteFont optionsLabel;
     protected SpriteFont volumeLabel;
     protected SpriteFont hintLabel;
     protected SpriteFont darkMLabel;
     protected SpriteFont returnInstructionsLabel;
-    protected SpriteFont returnInstructionsLabel2;
-    protected JToggleButton toggle1;
-    protected JToggleButton toggle2;
+    protected  SpriteFont returnInstructionsLabel2;
+    protected  JToggleButton toggle1;
+    protected  JToggleButton toggle2;
     protected JToggleButton toggle3;
-    protected SpriteFont on;
-    protected SpriteFont on2;
-    protected SpriteFont mute;
-    protected Color col;
+    protected  SpriteFont on;
+    protected  SpriteFont on2;
+    protected static SpriteFont mute;
+    protected static Color col;
     
-    protected int currentMenuItemHovered = 0;
-    protected int menuItemSelected = -1;
-    protected Stopwatch keyTimer = new Stopwatch();
-    protected int pointerLocationX, pointerLocationY;
+    protected static int currentMenuItemHovered = 0;
+    protected static int menuItemSelected = -1;
+    protected static Stopwatch keyTimer = new Stopwatch();
+    protected static int pointerLocationX;
+	protected static int pointerLocationY;
     
-    Sounds sound = new Sounds();
-  
+    protected static float currentVolume = 0;
 
     public OptionsScreen(ScreenCoordinator screenCoordinator) {
         this.screenCoordinator = screenCoordinator;
@@ -80,7 +82,7 @@ public class OptionsScreen extends Screen{
 	     keyTimer.setWaitTime(200);
 	}
 
-	@Override
+//	@Override
 	public void update() {
 		background.update(null);
 
@@ -148,6 +150,7 @@ public class OptionsScreen extends Screen{
 				//col = Color.blue;
 				mute.setText("Mute On");
 				mute.setColor(Color.green);
+				currentVolume = -80f;
 			} else if (menuItemSelected == 1) {
 //				mute.setColor(Color.red);
 //				on.setColor(col);
@@ -174,6 +177,7 @@ public class OptionsScreen extends Screen{
 				//col = Color.blue;
 				mute.setText("Mute Off");
 				mute.setColor(Color.red);
+				currentVolume = 6f;
 			} else if (menuItemSelected == 1) {
 //				mute.setColor(Color.red);
 //				on.setColor(col);
@@ -190,12 +194,14 @@ public class OptionsScreen extends Screen{
 				mute.setColor(Color.red);
 			}
 		}
-		
+//		
 //		if(mute.getText() == "Mute Off") {
-//			sound.play();
+//			mu = false;
 //		}else if (mute.getText() == "Mute On") {;
-//			sound.stop();
+//			mu = true;
 //		}
+		
+		
 	}
 
 	@Override
