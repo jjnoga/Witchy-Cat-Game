@@ -12,7 +12,7 @@ public class PizzaScript extends Script<NPC> {
 		lockPlayer();
 		showTextbox();
 
-		// changes what walrus says when talking to him the first time (flag is not set)
+		// changes what pizza says when talking to him the first time (flag is not set)
 		// vs talking to him afterwards (flag is set)
 		if (!isFlagSet("hasTalkedtoPizza")) {
 			addTextToTextboxQueue("You talked to Pizza the Snake, Hooray!");
