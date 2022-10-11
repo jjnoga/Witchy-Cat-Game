@@ -6,9 +6,11 @@ import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
 import Level.Textbox;
+import Scripts.Sounds;
 
 public class CoinScript extends Script {
 	protected CoinCounter counter;
+	Sounds sound = new Sounds();
 	private Map map;
 
 	@Override
@@ -30,12 +32,31 @@ public class CoinScript extends Script {
 	@Override
 	public ScriptState execute() {
 		if (!isFlagSet("hasFoundCoin")) {
+			
 			start();
 			if (!isTextboxQueueEmpty()) {
 				return ScriptState.RUNNING;
 			}
 			end();
+			playSE(1);
 		}
 		return ScriptState.COMPLETED;
+		
 	}
+	
+	 public void playSound(int i) {
+			sound.setFile(i);
+			sound.play();
+			sound.loop();
+		}
+		
+	 public void stopSound() {
+			sound.stop();
+	 	}
+		
+	 public void playSE(int i) {
+			sound.setFile(i);
+			sound.play();
+		}
+		
 }
