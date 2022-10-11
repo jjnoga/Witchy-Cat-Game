@@ -16,8 +16,7 @@ import Scripts.Sounds;
 import Utils.Direction;
 import Utils.Point;
 
-// This class is for the end level gold box tile
-// when the player touches it, it will tell the player that the level has been completed
+// for collecting the coins
 public class Coin extends EnhancedMapTile {
 	protected Sounds sound;
 	protected TestMap map;
