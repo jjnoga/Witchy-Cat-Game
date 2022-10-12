@@ -36,10 +36,20 @@ public class TestMap extends Map {
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
 		enhancedMapTiles.add(new Rock(getMapTile(2, 7).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(55, 19).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(54, 19).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(77, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(77, 5).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(72, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(73, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(64, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(65, 4).getLocation()));
 		enhancedMapTiles.add(new Coin(getMapTile(15, 20).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(15, 19).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(14, 19).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(14, 20).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(55, 24).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(69, 2).getLocation(), this));
 		return enhancedMapTiles;
 	}
 
