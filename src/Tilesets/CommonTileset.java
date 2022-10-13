@@ -386,7 +386,7 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder snowFadeFullTopLeftTile = new MapTileBuilder(snowFadeFullTopLeftFrame);
 
 	mapTiles.add(snowFadeFullTopLeftTile);
-	
+
 	///////// summer ////////
 	// desertSand
 	Frame desertSandFrame = new FrameBuilder(getSubImage(6, 6)).withScale(tileScale).build();
@@ -399,47 +399,46 @@ public class CommonTileset extends Tileset {
 
 	MapTileBuilder sandRockTile = new MapTileBuilder(sandRockFrame);
 
-		mapTiles.add(sandRockTile);
+	mapTiles.add(sandRockTile);
 	// desertLizard
 	Frame desertLizardFrame = new FrameBuilder(getSubImage(7, 5)).withScale(tileScale).build();
 
 	MapTileBuilder desertLizardTile = new MapTileBuilder(desertLizardFrame);
 
-		mapTiles.add(desertLizardTile);	
+	mapTiles.add(desertLizardTile);
 	// desertFlower
 	Frame desertFlowerFrame = new FrameBuilder(getSubImage(6, 7)).withScale(tileScale).build();
 
 	MapTileBuilder desertFlowerTile = new MapTileBuilder(desertFlowerFrame).withTileType(TileType.NOT_PASSABLE);
 
-		mapTiles.add(desertFlowerTile);
+	mapTiles.add(desertFlowerTile);
 	// cactus
-		Frame cactusFrame = new FrameBuilder(getSubImage(7, 6)).withScale(tileScale).build();
+	Frame cactusFrame = new FrameBuilder(getSubImage(7, 6)).withScale(tileScale).build();
 
-		MapTileBuilder cactusTile = new MapTileBuilder(cactusFrame).withTileType(TileType.NOT_PASSABLE);
+	MapTileBuilder cactusTile = new MapTileBuilder(cactusFrame).withTileType(TileType.NOT_PASSABLE);
 
-		mapTiles.add(cactusTile);
+	mapTiles.add(cactusTile);
 	// sandDunes
-		Frame sandDuneFrame = new FrameBuilder(getSubImage(7, 8)).withScale(tileScale).build();
+	Frame sandDuneFrame = new FrameBuilder(getSubImage(7, 8)).withScale(tileScale).build();
 
-		MapTileBuilder sandDuneTile = new MapTileBuilder(sandDuneFrame).withTileType(TileType.NOT_PASSABLE);
+	MapTileBuilder sandDuneTile = new MapTileBuilder(sandDuneFrame).withTileType(TileType.NOT_PASSABLE);
 
-		mapTiles.add(sandDuneTile);
+	mapTiles.add(sandDuneTile);
 	// cactusFlower
-		Frame cactusFlowerFrame = new FrameBuilder(getSubImage(7, 6)).withScale(tileScale).build();
+	Frame cactusFlowerFrame = new FrameBuilder(getSubImage(7, 6)).withScale(tileScale).build();
 
-		MapTileBuilder cactusFlowerTile = new MapTileBuilder(cactusFlowerFrame).withTileType(TileType.NOT_PASSABLE);
+	MapTileBuilder cactusFlowerTile = new MapTileBuilder(cactusFlowerFrame).withTileType(TileType.NOT_PASSABLE);
 
-		mapTiles.add(cactusFlowerTile);
-		// DessertRockFlower
-				Frame desertRockFrame = new FrameBuilder(getSubImage(7, 9)).withScale(tileScale).build();
+	mapTiles.add(cactusFlowerTile);
+	// DessertRockFlower
+	Frame desertRockFrame = new FrameBuilder(getSubImage(7, 9)).withScale(tileScale).build();
 
-				MapTileBuilder desertRockTile = new MapTileBuilder(desertRockFrame).withTileType(TileType.NOT_PASSABLE);
+	MapTileBuilder desertRockTile = new MapTileBuilder(desertRockFrame).withTileType(TileType.NOT_PASSABLE);
 
-				mapTiles.add(desertRockTile);
-		
+	mapTiles.add(desertRockTile);
 
-	///////autumn///////
-	
+	/////// autumn///////
+
 	// dead grass
 	Frame deadGrassFrame = new FrameBuilder(getSubImage(6, 0)).withScale(tileScale).build();
 
@@ -472,18 +471,17 @@ public class CommonTileset extends Tileset {
 	Frame autumnLeavesFrame = new FrameBuilder(getSubImage(7, 1)).withScale(tileScale).build();
 
 	MapTileBuilder autumnLeavesTile = new MapTileBuilder(deadGrassFrame).withTopLayer(autumnLeavesFrame)
-			.withTileType(TileType.PASSABLE);
+		.withTileType(TileType.PASSABLE);
 
 	mapTiles.add(autumnLeavesTile);
-	
+
 	// autumn tree trunk
 	Frame autTreeTrunkFrame = new FrameBuilder(getSubImage(7, 0)).withScale(tileScale).build();
 
-	MapTileBuilder autTreeTrunkTile = new MapTileBuilder(autTreeTrunkFrame)
-		.withTileType(TileType.NOT_PASSABLE);
+	MapTileBuilder autTreeTrunkTile = new MapTileBuilder(autTreeTrunkFrame).withTileType(TileType.NOT_PASSABLE);
 
 	mapTiles.add(autTreeTrunkTile);
-	
+
 	// autumn tree trunk bottom
 	Frame autTreeTrunkBottomFrame = new FrameBuilder(getSubImage(8, 0)).withScale(tileScale).build();
 
@@ -491,14 +489,14 @@ public class CommonTileset extends Tileset {
 		.withTileType(TileType.NOT_PASSABLE);
 
 	mapTiles.add(autTreeTrunkBottomTile);
-		
+
 	// small colored mushrooms
 	Frame smallMushroomsFrame = new FrameBuilder(getSubImage(8, 1)).withScale(tileScale).build();
 
 	MapTileBuilder smallMushroomsTile = new MapTileBuilder(smallMushroomsFrame).withTileType(TileType.PASSABLE);
 
 	mapTiles.add(smallMushroomsTile);
-	
+
 	// autumn tree trunk with full hole
 	Frame autTreeTrunkWithFullHoleFrame = new FrameBuilder(getSubImage(8, 2)).withScale(tileScale).build();
 
@@ -506,7 +504,7 @@ public class CommonTileset extends Tileset {
 		.withTopLayer(autTreeTrunkWithFullHoleFrame).withTileType(TileType.PASSABLE);
 
 	mapTiles.add(autTreeTrunkWithFullHoleTile);
-	
+
 	// mushroom left end branch
 	Frame mushLeftEndBranchFrame = new FrameBuilder(getSubImage(8, 4)).withScale(tileScale).withBounds(0, 6, 16, 4)
 		.build();
@@ -526,11 +524,11 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder mushRightEndBranchTile = new MapTileBuilder(deadGrassFrame).withTopLayer(mushRightEndBranchFrame)
 		.withTileType(TileType.PASSABLE);
 	MapTileBuilder rightEndBranchAutumnTile = new MapTileBuilder(deadGrassFrame).withTopLayer(rightEndBranchFrame)
-			.withTileType(TileType.PASSABLE);
+		.withTileType(TileType.PASSABLE);
 
 	mapTiles.add(mushRightEndBranchTile);
 	mapTiles.add(rightEndBranchAutumnTile);
-	
+
 	// mushroom middle branch
 	Frame mushMiddleBranchFrame = new FrameBuilder(getSubImage(8, 3)).withScale(tileScale).withBounds(0, 6, 16, 4)
 		.build();
@@ -538,8 +536,8 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder mushMiddleBranchTile = new MapTileBuilder(deadGrassFrame).withTopLayer(mushMiddleBranchFrame)
 		.withTileType(TileType.PASSABLE);
 	MapTileBuilder middleBranchAutumnTile = new MapTileBuilder(deadGrassFrame).withTopLayer(middleBranchFrame)
-			.withTileType(TileType.PASSABLE);
-	
+		.withTileType(TileType.PASSABLE);
+
 	mapTiles.add(mushMiddleBranchTile);
 	mapTiles.add(middleBranchAutumnTile);
 
@@ -549,22 +547,23 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder autRockTile = new MapTileBuilder(autRockFrame);
 
 	mapTiles.add(autRockTile);
-	
+
 	// autumn sign
 	Frame autSignFrame = new FrameBuilder(getSubImage(9, 2)).withScale(tileScale).build();
 
 	MapTileBuilder autSignTile = new MapTileBuilder(autSignFrame);
 
 	mapTiles.add(autSignTile);
-	
+
 	// small rocks autumn
 	Frame smallRocksAutumnFrame = new FrameBuilder(getSubImage(11, 0)).withScale(tileScale).build();
 
-	MapTileBuilder smallRocksAutumnTile = new MapTileBuilder(smallRocksAutumnFrame).withTileType(TileType.NOT_PASSABLE);
+	MapTileBuilder smallRocksAutumnTile = new MapTileBuilder(smallRocksAutumnFrame)
+		.withTileType(TileType.NOT_PASSABLE);
 
 	mapTiles.add(smallRocksAutumnTile);
 
-	// dead shrubbery 
+	// dead shrubbery
 	Frame deadShrubFrame = new FrameBuilder(getSubImage(9, 3)).withScale(tileScale).build();
 
 	MapTileBuilder deadShrubTile = new MapTileBuilder(deadShrubFrame).withTileType(TileType.PASSABLE);
@@ -581,11 +580,11 @@ public class CommonTileset extends Tileset {
 	// cobweb
 	Frame cobwebFrame = new FrameBuilder(getSubImage(11, 2)).withScale(tileScale).build();
 
-	MapTileBuilder cobwebTile = new MapTileBuilder(deadGrassFrame)
-			.withTopLayer(cobwebFrame).withTileType(TileType.PASSABLE);
+	MapTileBuilder cobwebTile = new MapTileBuilder(deadGrassFrame).withTopLayer(cobwebFrame)
+		.withTileType(TileType.PASSABLE);
 
 	mapTiles.add(cobwebTile);
-	
+
 	// autumnFadeRight
 	Frame autumnFadeRightFrame = new FrameBuilder(getSubImage(6, 3)).withScale(tileScale).build();
 
@@ -677,6 +676,152 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder autumnFadeFullTopLeftTile = new MapTileBuilder(autumnFadeFullTopLeftFrame);
 
 	mapTiles.add(autumnFadeFullTopLeftTile);
+
+	///////////////// More Winter////////////////
+	// middle winter branch
+	Frame middleBranchWinterFrame = new FrameBuilder(getSubImage(2, 8)).withScale(tileScale).withBounds(0, 6, 16, 4)
+		.build();
+
+	MapTileBuilder middleBranchWinterTile = new MapTileBuilder(snowFrame).withTopLayer(middleBranchWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(middleBranchWinterTile);
+
+	// tree trunk winter bottom
+	Frame treeTrunkWinterBottomFrame = new FrameBuilder(getSubImage(2, 5)).withScale(tileScale).build();
+
+	MapTileBuilder treeTrunkWinterBottomTile = new MapTileBuilder(treeTrunkWinterBottomFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(treeTrunkWinterBottomTile);
+
+	// rock winter
+	Frame rockWinterFrame = new FrameBuilder(getSubImage(3, 6)).withScale(tileScale).build();
+
+	MapTileBuilder rockWinterTile = new MapTileBuilder(rockWinterFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(rockWinterTile);
+
+	// tree trunk with full hole winter
+	Frame treeTrunkWinterWithFullHoleFrame = new FrameBuilder(getSubImage(2, 7)).withScale(tileScale).build();
+
+	MapTileBuilder treeTrunkWinterWithFullHoleTile = new MapTileBuilder(snowFrame)
+		.withTopLayer(treeTrunkWinterWithFullHoleFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(treeTrunkWinterWithFullHoleTile);
+
+	// left end branch winter
+	Frame leftEndBranchWinterFrame = new FrameBuilder(getSubImage(2, 9)).withScale(tileScale)
+		.withBounds(0, 6, 16, 4).build();
+
+	MapTileBuilder leftEndBranchWinterTile = new MapTileBuilder(snowFrame).withTopLayer(leftEndBranchWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(leftEndBranchWinterTile);
+
+	// right end branch winter
+	Frame rightEndBranchWinterFrame = new FrameBuilder(getSubImage(2, 9)).withScale(tileScale)
+		.withBounds(0, 6, 16, 4).withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder rightEndBranchWinterTile = new MapTileBuilder(snowFrame).withTopLayer(rightEndBranchWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(rightEndBranchWinterTile);
+
+	// tree trunk winter
+	Frame treeTrunkWinterFrame = new FrameBuilder(getSubImage(1, 5)).withScale(tileScale).build();
+
+	MapTileBuilder treeTrunkWinterTile = new MapTileBuilder(snowFrame).withTopLayer(treeTrunkWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(treeTrunkWinterTile);
+
+	// tree top leaves winter
+	Frame treeTopWinterLeavesFrame = new FrameBuilder(getSubImage(1, 6)).withScale(tileScale).build();
+
+	MapTileBuilder treeTopWinterLeavesTile = new MapTileBuilder(snowFrame).withTopLayer(treeTopWinterLeavesFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(treeTopWinterLeavesTile);
+
+	// tree top leaves snow winter
+	Frame treeTopWinterSnowLeavesFrame = new FrameBuilder(getSubImage(8, 5)).withScale(tileScale).build();
+
+	MapTileBuilder treeTopWinterSnowLeavesTile = new MapTileBuilder(snowFrame)
+		.withTopLayer(treeTopWinterSnowLeavesFrame).withTileType(TileType.PASSABLE);
+
+	mapTiles.add(treeTopWinterSnowLeavesTile);
+
+	// sign winter
+	Frame signWinterFrame = new FrameBuilder(getSubImage(3, 5)).withScale(tileScale).build();
+
+	MapTileBuilder signWinterTile = new MapTileBuilder(signWinterFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(signWinterTile);
+
+	// sign snow winter
+	Frame signWinterSnowFrame = new FrameBuilder(getSubImage(3, 7)).withScale(tileScale).build();
+
+	MapTileBuilder signWinterSnowTile = new MapTileBuilder(signWinterSnowFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(signWinterSnowTile);
+
+	// house body winter
+	Frame houseBodyWinterFrame = new FrameBuilder(getSubImage(3, 9)).withScale(tileScale).build();
+
+	MapTileBuilder houseBodyWinterTile = new MapTileBuilder(houseBodyWinterFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(houseBodyWinterTile);
+
+	// house roof body winter
+	Frame houseRoofBodyWinterFrame = new FrameBuilder(getSubImage(4, 5)).withScale(tileScale).build();
+
+	MapTileBuilder houseRoofBodyWinterTile = new MapTileBuilder(snowFrame).withTopLayer(houseRoofBodyWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(houseRoofBodyWinterTile);
+
+	// left house roof winter
+	Frame leftHouseRoofWinterFrame = new FrameBuilder(getSubImage(4, 6)).withScale(tileScale).build();
+
+	MapTileBuilder leftHouseRoofWinterTile = new MapTileBuilder(snowFrame).withTopLayer(leftHouseRoofWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(leftHouseRoofWinterTile);
+
+	// right house roof winter
+	Frame rightHouseRoofWinterFrame = new FrameBuilder(getSubImage(4, 6)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder rightHouseRoofWinterTile = new MapTileBuilder(snowFrame).withTopLayer(rightHouseRoofWinterFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(rightHouseRoofWinterTile);
+
+	// left window winter
+	Frame leftWindowWinterFrame = new FrameBuilder(getSubImage(4, 7)).withScale(tileScale).build();
+
+	MapTileBuilder leftWindowWinterTile = new MapTileBuilder(leftWindowWinterFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(leftWindowWinterTile);
+
+	// right window winter
+	Frame rightWindowWinterFrame = new FrameBuilder(getSubImage(4, 7)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder rightWindowWinterTile = new MapTileBuilder(rightWindowWinterFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(rightWindowWinterTile);
+
+	// door winter
+	Frame doorWinterFrame = new FrameBuilder(getSubImage(4, 8)).withScale(tileScale).build();
+
+	MapTileBuilder doorWinterTile = new MapTileBuilder(doorWinterFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(doorWinterTile);
 
 	return mapTiles;
     }
