@@ -386,6 +386,57 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder snowFadeFullTopLeftTile = new MapTileBuilder(snowFadeFullTopLeftFrame);
 
 	mapTiles.add(snowFadeFullTopLeftTile);
+	
+	///////// summer ////////
+	// desertSand
+	Frame desertSandFrame = new FrameBuilder(getSubImage(6, 6)).withScale(tileScale).build();
+
+	MapTileBuilder desertSandTile = new MapTileBuilder(desertSandFrame);
+
+	mapTiles.add(desertSandTile);
+	// sandRock
+	Frame sandRockFrame = new FrameBuilder(getSubImage(6, 5)).withScale(tileScale).build();
+
+	MapTileBuilder sandRockTile = new MapTileBuilder(sandRockFrame);
+
+		mapTiles.add(sandRockTile);
+	// desertLizard
+	Frame desertLizardFrame = new FrameBuilder(getSubImage(7, 5)).withScale(tileScale).build();
+
+	MapTileBuilder desertLizardTile = new MapTileBuilder(desertLizardFrame);
+
+		mapTiles.add(desertLizardTile);	
+	// desertFlower
+	Frame desertFlowerFrame = new FrameBuilder(getSubImage(6, 7)).withScale(tileScale).build();
+
+	MapTileBuilder desertFlowerTile = new MapTileBuilder(desertFlowerFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(desertFlowerTile);
+	// cactus
+		Frame cactusFrame = new FrameBuilder(getSubImage(7, 6)).withScale(tileScale).build();
+
+		MapTileBuilder cactusTile = new MapTileBuilder(cactusFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cactusTile);
+	// sandDunes
+		Frame sandDuneFrame = new FrameBuilder(getSubImage(7, 8)).withScale(tileScale).build();
+
+		MapTileBuilder sandDuneTile = new MapTileBuilder(sandDuneFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(sandDuneTile);
+	// cactusFlower
+		Frame cactusFlowerFrame = new FrameBuilder(getSubImage(7, 6)).withScale(tileScale).build();
+
+		MapTileBuilder cactusFlowerTile = new MapTileBuilder(cactusFlowerFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cactusFlowerTile);
+		// DessertRockFlower
+				Frame desertRockFrame = new FrameBuilder(getSubImage(7, 9)).withScale(tileScale).build();
+
+				MapTileBuilder desertRockTile = new MapTileBuilder(desertRockFrame).withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(desertRockTile);
+		
 
 	///////autumn///////
 	
@@ -627,7 +678,6 @@ public class CommonTileset extends Tileset {
 
 	mapTiles.add(autumnFadeFullTopLeftTile);
 
-		
 	return mapTiles;
     }
 }
