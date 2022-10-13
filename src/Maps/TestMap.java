@@ -73,7 +73,7 @@ public class TestMap extends Map {
 		pizza.setInteractScript(new PizzaScript());
 		npcs.add(pizza);
 
-		Blorbo blorbo = new Blorbo(5, getMapTile(10, 20).getLocation());
+		Blorbo blorbo = new Blorbo(5, getMapTile(12, 21).getLocation());
 		blorbo.setInteractScript(new BlorboScript());
 		npcs.add(blorbo);
 		
