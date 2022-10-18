@@ -76,6 +76,8 @@ public class PlayLevelScreen extends Screen {
         frame.pack();
         frame.setVisible(true);
         
+        
+        
         playMusic(0);
     }
 
