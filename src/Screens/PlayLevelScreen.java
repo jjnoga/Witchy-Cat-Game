@@ -32,6 +32,7 @@ public class PlayLevelScreen extends Screen {
     protected WinScreen winScreen;
     protected FlagManager flagManager;
     protected KeyLocker keyLocker = new KeyLocker();
+    
     Sounds sound = new Sounds();
 
 
@@ -89,9 +90,10 @@ public class PlayLevelScreen extends Screen {
         flagManager.addFlag("hasTalkedToWalrus", false);
         flagManager.addFlag("hasTalkedToDinosaur", false);
         flagManager.addFlag("hasFoundBall", false);
-        flagManager.addFlag("hasFoundCoin", false);
         flagManager.addFlag("hasTalkedToBlorbo", false);
         flagManager.addFlag("hasTalkedtoPizza", false);
+        flagManager.addFlag("hasGivenSwordItem", false);
+        flagManager.addFlag("hasDroppedSword", false);
 
         // define/setup map
         this.map = new TestMap();
@@ -105,7 +107,6 @@ public class PlayLevelScreen extends Screen {
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.playLevelScreenState = PlayLevelScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
-        
         
        
 
@@ -182,6 +183,8 @@ public class PlayLevelScreen extends Screen {
                 winScreen.draw(graphicsHandler);
                 break;
         }
+        
+        
     }
 
     public PlayLevelScreenState getPlayLevelScreenState() {

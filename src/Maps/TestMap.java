@@ -1,10 +1,11 @@
 package Maps;
 
 import EnhancedMapTiles.Rock;
+import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
 
 import Level.EnhancedMapTile;
-
+import Level.Inventory;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
@@ -15,6 +16,7 @@ import NPCs.Blorbo;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.PizzaScript;
 import Scripts.TestMap.DinoScript;
+import Scripts.TestMap.DinoScriptItemGive;
 import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class TestMap extends Map {
 
+	
 	public TestMap() {
 		super("test_map.txt", new CommonTileset());
 		this.playerStartPosition = getMapTile(17, 20).getLocation();
@@ -53,6 +56,11 @@ public class TestMap extends Map {
 		enhancedMapTiles.add(new Coin(getMapTile(55, 24).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(69, 2).getLocation(), this));
 		
+		
+		//enhancedMapTiles.add(new Sword(getMapTile(11, 19).getLocation(), this));
+		
+		
+		
 		return enhancedMapTiles;
 	}
 
@@ -64,9 +72,8 @@ public class TestMap extends Map {
 		walrus.setInteractScript(new WalrusScript());
 		npcs.add(walrus);
 
-		Dinosaur dinosaur = new Dinosaur(2, getMapTile(13, 4).getLocation());
-		dinosaur.setExistenceFlag("hasTalkedToDinosaur");
-		dinosaur.setInteractScript(new DinoScript());
+		Dinosaur dinosaur = new Dinosaur(2, getMapTile(10, 26).getLocation());
+		dinosaur.setInteractScript(new DinoScriptItemGive());
 		npcs.add(dinosaur);
 		
 		Pizza pizza = new Pizza(4, getMapTile(10, 25).getLocation());
