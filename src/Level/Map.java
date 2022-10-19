@@ -4,6 +4,7 @@ import Engine.Config;
 import Engine.GraphicsHandler;
 import Engine.Keyboard;
 import Engine.ScreenManager;
+import EnhancedMapTiles.Sword;
 import GameObject.Rectangle;
 import Utils.Direction;
 import Utils.Point;
@@ -81,6 +82,10 @@ public abstract class Map {
     //map's inventory instance
     protected Inventory inventory;
     protected boolean inventoryCheck = true;
+    protected boolean dropCheck = false;
+    
+    protected Sword sword;
+
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -127,6 +132,7 @@ public abstract class Map {
         this.textbox = new Textbox(this);
         this.coinCounter = new CoinCounter(this);
         this.inventory = new Inventory(this);
+        
     }
 
     // reads in a map file to create the map's tilemap
@@ -539,13 +545,48 @@ public abstract class Map {
         	else inventoryCheck = true;
         }
         
+        if(inventory.getCurrItem() != inventory.EMPTY) {
+        	this.dropCheck = true;
+        }
+        
+        if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()))
+        {
+        	inventory.getKeyLocker().lockKey(inventory.getDropKey());
+        	flagManager.unsetFlag("hasGivenSwordItem");
+        	flagManager.setFlag("hasDroppedSword");
+        	
+        	if(this.dropCheck) {
+        		inventory.dropCheck = true;
+        	}
+        }
+        
+        if(Keyboard.isKeyUp(inventory.getDropKey()))
+        {
+        	inventory.getKeyLocker().unlockKey(inventory.getDropKey());
+        	if(!inventory.dropCheck) {
+        		this.dropCheck = false;
+        	} 
+        }
+        
+        if(flagManager != null && flagManager.isFlagSet("hasGivenSwordItem")) inventory.setCurrItem(inventory.SWORD);
+        else inventory.setCurrItem(inventory.EMPTY);
+        
         if (hasChangedCoins)
         {
         	coinCounter.addCoin(1);
         	coinCounter.update();
         	hasChangedCoins = false;
         }
-    }
+        
+        if (flagManager != null && !flagManager.isFlagSet("hasGivenSwordItem") && flagManager.isFlagSet("hasDroppedSword"))
+        {
+        	this.sword = new Sword(getMapTile(21, 23).getLocation(), this);
+        	addEnhancedMapTile(sword);
+        	sword.isHidden = false;
+        }
+     }
+      
+      
 
     // based on the player's current X position (which in a level can potentially be updated each frame),
     // adjust the player's and camera's positions accordingly in order to properly create the map "scrolling" effect
@@ -626,6 +667,8 @@ public abstract class Map {
         {
         	coinCounter.draw(graphicsHandler);
         }
+        
+        
     }
 
     public FlagManager getFlagManager() { return flagManager; }

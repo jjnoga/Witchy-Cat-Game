@@ -15,7 +15,7 @@ public class MapEntity extends GameObject {
     protected boolean isUpdateOffScreen = false;
 
     // if true, entity will no longer be updated or drawn on the map
-    protected boolean isHidden = false;
+    public boolean isHidden = false;
 
     // if given an existence flag, and that flag gets set, the entity will no longer exist until the flag is unset
     protected String existenceFlag;
