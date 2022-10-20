@@ -20,8 +20,10 @@ public class UI {
 	
 	
 	public void drawOptions(GraphicsHandler graphicsHandler) {
-		Color c = new Color(0,0,0);
-		g2.setColor(c);
+		
+		g2.setColor(Color.pink);
+		g2.getColor();
+		System.out.println(g2.getColor());
 		g2.setFont(g2.getFont().deriveFont(32F));
 		
 		//SUB WINDOW

@@ -118,11 +118,16 @@ public class GamePanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		Graphics2D g2 = null;
 		// every repaint call will schedule this method to be called
 		// when called, it will setup the graphics handler and then call this class's draw method
 		graphicsHandler.setGraphics((Graphics2D) g);
 		if (doPaint) {
 			draw();
 		}
+//		
+//		g2.dispose();
+		
+		
 	}
 }
