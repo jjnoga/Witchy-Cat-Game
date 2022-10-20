@@ -1,6 +1,7 @@
 package Engine;
 
 import GameObject.Rectangle;
+import Scripts.UI;
 import SpriteFont.SpriteFont;
 import Utils.Colors;
 
@@ -29,6 +30,10 @@ public class GamePanel extends JPanel {
 	private SpriteFont pauseLabel;
 	private KeyLocker keyLocker = new KeyLocker();
 	private final Key pauseKey = Key.P;
+	private final Key optionsKey = Key.ESC;
+	private UI options = new UI(this);
+
+	public int tileSize;
 
 	/*
 	 * The JPanel and various important class instances are setup here
@@ -90,11 +95,19 @@ public class GamePanel extends JPanel {
 		if (!isGamePaused) {
 			screenManager.update();
 		}
+		
+		if (Keyboard.isKeyDown(optionsKey) && !keyLocker.isKeyLocked(optionsKey)) {
+			options.drawOptions(graphicsHandler);
+			keyLocker.lockKey(optionsKey);
+		}
+		
+		if (Keyboard.isKeyUp(pauseKey)) {
+			keyLocker.unlockKey(pauseKey);
+		}
 	}
 
 	public void draw() {
 		screenManager.draw(graphicsHandler);
-
 		// if game is paused, draw pause gfx over Screen gfx
 		if (isGamePaused) {
 			pauseLabel.draw(graphicsHandler);

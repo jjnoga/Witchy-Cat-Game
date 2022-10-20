@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+import Engine.GamePanel;
 import Engine.GraphicsHandler;
 import Engine.Key;
 import Engine.KeyLocker;
@@ -20,6 +21,7 @@ import Level.*;
 import Maps.TestMap;
 import Players.Cat;
 import Scripts.Sounds;
+import Scripts.UI;
 import Utils.Direction;
 import Utils.Point;
 
@@ -29,9 +31,12 @@ public class PlayLevelScreen extends Screen {
     protected Map map;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
+    protected OptionsState optionsMenuState;
     protected WinScreen winScreen;
+    protected UI options;
     protected FlagManager flagManager;
     protected KeyLocker keyLocker = new KeyLocker();
+    protected GamePanel gp;
     
     Sounds sound = new Sounds();
 
@@ -108,7 +113,7 @@ public class PlayLevelScreen extends Screen {
         this.playLevelScreenState = PlayLevelScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
         
-       
+       this.options = new UI(gp);
 
         // let pieces of map know which button to listen for as the "interact" button
         map.getTextbox().setInteractKey(player.getInteractKey());
@@ -167,9 +172,11 @@ public class PlayLevelScreen extends Screen {
 
         if (Keyboard.isKeyDown(Key.ESC) && !keyLocker.isKeyLocked(Key.ESC)) {
         	keyLocker.lockKey(Key.ESC);
+        	optionsMenuState = OptionsState.OPEN;
         }
         else if (Keyboard.isKeyUp(Key.ESC)) {
             keyLocker.unlockKey(Key.ESC);
+            optionsMenuState = OptionsState.CLOSED;
         }
     }
 
@@ -184,11 +191,22 @@ public class PlayLevelScreen extends Screen {
                 break;
         }
         
-        
+        switch (optionsMenuState) {
+        case OPEN:
+        	options.drawOptions(graphicsHandler);
+            break;
+        case CLOSED:
+        	map.draw(player, graphicsHandler);
+            break;
+    }
     }
 
-    public PlayLevelScreenState getPlayLevelScreenState() {
+   public PlayLevelScreenState getPlayLevelScreenState() {
         return playLevelScreenState;
+    }
+    
+    public OptionsState getOptionsState() {
+		return optionsMenuState;
     }
 
 
@@ -203,6 +221,10 @@ public class PlayLevelScreen extends Screen {
     // This enum represents the different states this screen can be in
     private enum PlayLevelScreenState {
         RUNNING, LEVEL_COMPLETED
+    }
+    
+    private enum OptionsState {
+    	OPEN, CLOSED
     }
     
     public void playMusic(int i) {
