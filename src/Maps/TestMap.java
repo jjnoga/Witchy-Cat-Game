@@ -13,6 +13,7 @@ import NPCs.Dinosaur;
 import NPCs.Pizza;
 import NPCs.Walrus;
 import NPCs.Blorbo;
+import NPCs.Bruce;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.PizzaScript;
 import Scripts.TestMap.DinoScript;
@@ -21,6 +22,7 @@ import Scripts.TestMap.LostBallScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
+import Scripts.TestMap.BruceScript;
 import Scripts.TestMap.CertainAreaScript;
 import Tilesets.CommonTileset;
 
@@ -29,7 +31,6 @@ import java.util.ArrayList;
 // Represents a test map to be used in a level
 public class TestMap extends Map {
 
-	
 	public TestMap() {
 		super("test_map.txt", new CommonTileset());
 		this.playerStartPosition = getMapTile(17, 20).getLocation();
@@ -55,12 +56,9 @@ public class TestMap extends Map {
 		enhancedMapTiles.add(new Rock(getMapTile(65, 4).getLocation()));
 		enhancedMapTiles.add(new Coin(getMapTile(55, 24).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(69, 2).getLocation(), this));
-		
-		
-		//enhancedMapTiles.add(new Sword(getMapTile(11, 19).getLocation(), this));
-		
-		
-		
+
+		// enhancedMapTiles.add(new Sword(getMapTile(11, 19).getLocation(), this));
+
 		return enhancedMapTiles;
 	}
 
@@ -75,15 +73,18 @@ public class TestMap extends Map {
 		Dinosaur dinosaur = new Dinosaur(2, getMapTile(10, 26).getLocation());
 		dinosaur.setInteractScript(new DinoScriptItemGive());
 		npcs.add(dinosaur);
-		
-		Pizza pizza = new Pizza(4, getMapTile(10, 25).getLocation());
+
+		Pizza pizza = new Pizza(3, getMapTile(10, 25).getLocation());
 		pizza.setInteractScript(new PizzaScript());
 		npcs.add(pizza);
 
-		Blorbo blorbo = new Blorbo(5, getMapTile(12, 21).getLocation());
+		Blorbo blorbo = new Blorbo(4, getMapTile(12, 21).getLocation());
 		blorbo.setInteractScript(new BlorboScript());
 		npcs.add(blorbo);
-		
+
+		Bruce bruce = new Bruce(5, getMapTile(26, 19).getLocation());
+		bruce.setInteractScript(new BruceScript());
+		npcs.add(bruce);
 
 		return npcs;
 	}
@@ -95,7 +96,7 @@ public class TestMap extends Map {
 		triggers.add(new Trigger(790, 960, 10, 80, new LostBallScript(), "hasLostBall"));
 		triggers.add(new Trigger(890, 960, 10, 80, new LostBallScript(), "hasLostBall"));
 		triggers.add(new Trigger(890, 780, 100, 25, new CertainAreaScript(), "rightSpot"));
-		
+
 		return triggers;
 	}
 
@@ -108,6 +109,6 @@ public class TestMap extends Map {
 		getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
 		getMapTile(2, 6).setInteractScript(new TreeScript());
-		
+
 	}
 }
