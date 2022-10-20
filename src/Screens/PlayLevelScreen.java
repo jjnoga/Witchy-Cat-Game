@@ -92,6 +92,7 @@ public class PlayLevelScreen extends Screen {
         flagManager.addFlag("hasTalkedtoPizza", false);
         flagManager.addFlag("hasGivenSwordItem", false);
         flagManager.addFlag("hasDroppedSword", false);
+        flagManager.addFlag("hasTalkedtoBruce", false);
 
         // define/setup map
         this.map = new TestMap();
