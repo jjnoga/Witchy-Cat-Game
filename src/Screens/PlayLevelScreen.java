@@ -88,18 +88,6 @@ public class PlayLevelScreen extends Screen {
     }
 
     public void initialize() {
-<<<<<<< HEAD
-	// setup state
-	flagManager = new FlagManager();
-	flagManager.addFlag("rightSpot", false);
-	flagManager.addFlag("hasLostBall", false);
-	flagManager.addFlag("hasTalkedToWalrus", false);
-	flagManager.addFlag("hasTalkedToDinosaur", false);
-	flagManager.addFlag("hasFoundBall", false);
-	flagManager.addFlag("hasFoundCoin", false);
-	flagManager.addFlag("hasTalkedToBlorbo", false);
-	flagManager.addFlag("hasTalkedtoPizza", false);
-=======
         // setup state
         flagManager = new FlagManager();
         flagManager.addFlag("rightSpot", false);
@@ -112,7 +100,6 @@ public class PlayLevelScreen extends Screen {
         flagManager.addFlag("hasGivenSwordItem", false);
         flagManager.addFlag("hasDroppedSword", false);
         flagManager.addFlag("hasTalkedtoBruce", false);
->>>>>>> bb0402a3850fcea71f5cedeea686ab371ad4e626
 
 	// define/setup map
 	springMap = new TestMap();
@@ -124,15 +111,6 @@ public class PlayLevelScreen extends Screen {
 	map.reset();
 	map.setFlagManager(flagManager);
 
-<<<<<<< HEAD
-	// setup player
-	this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
-	this.player.setMap(map);
-	Point playerStartPosition = map.getPlayerStartPosition();
-	this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
-	this.playLevelScreenState = PlayLevelScreenState.RUNNING;
-	this.player.setFacingDirection(Direction.LEFT);
-=======
         // setup player
         this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
         this.player.setMap(map);
@@ -140,9 +118,6 @@ public class PlayLevelScreen extends Screen {
         this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
         this.playLevelScreenState = PlayLevelScreenState.RUNNING;
         this.player.setFacingDirection(Direction.LEFT);
-        
-       
->>>>>>> bb0402a3850fcea71f5cedeea686ab371ad4e626
 
 	// let pieces of map know which button to listen for as the "interact" button
 	map.getTextbox().setInteractKey(player.getInteractKey());
@@ -234,17 +209,6 @@ public class PlayLevelScreen extends Screen {
     }
 
     public void draw(GraphicsHandler graphicsHandler) {
-<<<<<<< HEAD
-	// based on screen state, draw appropriate graphics
-	switch (playLevelScreenState) {
-	case RUNNING:
-	    map.draw(player, graphicsHandler);
-	    break;
-	case LEVEL_COMPLETED:
-	    winScreen.draw(graphicsHandler);
-	    break;
-	}
-=======
         // based on screen state, draw appropriate graphics
         switch (playLevelScreenState) {
             case RUNNING:
@@ -255,8 +219,6 @@ public class PlayLevelScreen extends Screen {
                 break;
         }
         
-        
->>>>>>> bb0402a3850fcea71f5cedeea686ab371ad4e626
     }
 
     public PlayLevelScreenState getPlayLevelScreenState() {
