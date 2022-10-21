@@ -6,6 +6,9 @@ import java.awt.*;
 import java.awt.font.GlyphVector;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+
+import javax.swing.ImageIcon;
 
 
 public class GraphicsHandler {
@@ -13,6 +16,11 @@ public class GraphicsHandler {
 
     public void setGraphics(Graphics2D g) {
         this.g = g;
+    }
+    
+    public void drawImage(ImageIcon imageIcon, int x, int y, int width, int height, ImageObserver observer) {
+    	g.drawImage(imageIcon.getImage(), x, y, width, height, observer);
+
     }
 
     public void drawImage(BufferedImage image, int x, int y) {
