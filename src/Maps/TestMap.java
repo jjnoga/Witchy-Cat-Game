@@ -48,14 +48,15 @@ public class TestMap extends Map {
 
 		enhancedMapTiles.add(new Rock(getMapTile(55, 19).getLocation()));
 		enhancedMapTiles.add(new Rock(getMapTile(54, 19).getLocation()));
-		enhancedMapTiles.add(new Rock(getMapTile(77, 4).getLocation()));
-		enhancedMapTiles.add(new Rock(getMapTile(77, 5).getLocation()));
-		enhancedMapTiles.add(new Rock(getMapTile(72, 4).getLocation()));
-		enhancedMapTiles.add(new Rock(getMapTile(73, 4).getLocation()));
-		enhancedMapTiles.add(new Rock(getMapTile(64, 4).getLocation()));
-		enhancedMapTiles.add(new Rock(getMapTile(65, 4).getLocation()));
-		enhancedMapTiles.add(new Coin(getMapTile(55, 24).getLocation(), this));
-		enhancedMapTiles.add(new Coin(getMapTile(69, 2).getLocation(), this));
+		enhancedMapTiles.add(new Rock(getMapTile(76, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(76, 5).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(68, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(69, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(60, 4).getLocation()));
+		enhancedMapTiles.add(new Rock(getMapTile(61, 4).getLocation()));
+		
+		enhancedMapTiles.add(new Coin(getMapTile(55, 23).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(65, 3).getLocation(), this));
 
 		// enhancedMapTiles.add(new Sword(getMapTile(11, 19).getLocation(), this));
 
