@@ -21,6 +21,7 @@ public class Sounds {
 		soundURL[0] = getClass().getResource("/Sounds/brilliant-life-60sec.wav");
 		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav");
 		soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
+		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav");
 	}
 	
 	public void setFile(int i) {
@@ -35,7 +36,7 @@ public class Sounds {
 		}
 	}
 	
-	public static void play() {
+	public void play() {
 		clip.start();
 	}
 	
@@ -43,7 +44,7 @@ public class Sounds {
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 	
-	public static void stop() {
+	public void stop() {
 		clip.stop();
 	}
 	

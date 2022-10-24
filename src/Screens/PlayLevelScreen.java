@@ -98,8 +98,11 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorbo", false);
 	flagManager.addFlag("hasTalkedtoPizza", false);
 	flagManager.addFlag("hasGivenSwordItem", false);
-	flagManager.addFlag("hasDroppedSword", false);
+	flagManager.addFlag("hasDropped", false);
 	flagManager.addFlag("hasTalkedtoBruce", false);
+	flagManager.addFlag("hasGoldLeaf", false);
+	flagManager.addFlag("hasIceSphere", false);
+	flagManager.addFlag("hasFireRose", false);
 
 	// define/setup map
 	springMap = new TestMap();

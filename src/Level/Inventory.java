@@ -25,6 +25,9 @@ public class Inventory {
     protected final int fontTopY = 62;
     protected final int width = 500;
     protected final int height = 50;
+    protected final int halfway = 250;
+    protected final int imageWidth = 40;
+    protected final int imageHeight = 40;
     
     public final int EMPTY = 0;
     public final int SWORD = 1;
@@ -35,8 +38,16 @@ public class Inventory {
     private Key interactKey = Key.I;
     private Key dropKey = Key.E;
     
-    public Image testImage;
-    public ImageIcon imageIcon;
+    //public Image testImage;
+    private ImageIcon imageIcon;
+    private ImageIcon goldLeaf;
+    private ImageIcon iceSphere;
+    private ImageIcon fireRose;
+    private ImageIcon goldLeafHidden;
+    private ImageIcon iceSphereHidden;
+    private ImageIcon fireRoseHidden;
+    
+    
     
     protected boolean dropCheck = false;
     
@@ -46,6 +57,12 @@ public class Inventory {
     public Inventory(Map map) {
         this.map = map;
         imageIcon = new ImageIcon("Resources/Sword.png");
+        goldLeaf = new ImageIcon("Resources/GoldLeaf.png");
+        iceSphere = new ImageIcon("Resources/iceSphere.png");
+        fireRose = new ImageIcon("Resources/fireRose.png");
+        goldLeafHidden = new ImageIcon("Resources/GoldLeaf_Hidden.png");
+        iceSphereHidden = new ImageIcon("Resources/iceSphere_Hidden.png");
+        fireRoseHidden = new ImageIcon("Resources/fireRose_Hidden.png");
     }
     
 
@@ -65,16 +82,30 @@ public class Inventory {
     public void draw(GraphicsHandler graphicsHandler) {
         // if camera is at bottom of screen, textbox is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
+    	
+    		graphicsHandler.drawFilledRectangleWithBorder(3, halfway - 50, 50, 50, Color.gray, Color.black, 2);
+    		graphicsHandler.drawFilledRectangleWithBorder(3, halfway, 50, 50, Color.gray, Color.black, 2);
+    		graphicsHandler.drawFilledRectangleWithBorder(3, halfway + 50, 50, 50, Color.gray, Color.black, 2);
+    		
+    		if (map.getFlagManager().isFlagSet("hasIceSphere")) graphicsHandler.drawImage(iceSphere, 8, halfway - 45, imageWidth, imageHeight, null);
+    		else graphicsHandler.drawImage(iceSphereHidden, 8, halfway - 45, imageWidth, imageHeight, null);
+    		
+    		if (map.getFlagManager().isFlagSet("hasFireRose")) graphicsHandler.drawImage(fireRose, 8, halfway + 5, imageWidth, imageHeight, null);
+    		else graphicsHandler.drawImage(fireRoseHidden, 8, halfway + 5, imageWidth, imageHeight, null);
+    		
+    		if (map.getFlagManager().isFlagSet("hasGoldLeaf")) graphicsHandler.drawImage(goldLeaf, 8, halfway + 55, imageWidth, imageHeight, null);
+    		else graphicsHandler.drawImage(goldLeafHidden, 8, halfway + 55, imageWidth, imageHeight, null);
+    			
+    		
+    		
+    	
             if (!map.getCamera().isAtBottomOfMap()) {
                 graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 2);
                 graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width / 3, height, Color.black, Color.white, 3);
-                
             }
             else {
                 graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 2);
                 graphicsHandler.drawFilledRectangleWithBorder(x, topY, width / 3, height, Color.black, Color.white, 3);
-                
-                
             }
             
             switch(currItem)

@@ -3,7 +3,8 @@ package Maps;
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
-
+import EnhancedMapTiles.GoldLeaf;
+import EnhancedMapTiles.IceSphere;
 import Level.EnhancedMapTile;
 import Level.Inventory;
 import Level.Map;
@@ -45,6 +46,9 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Coin(getMapTile(15, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(13, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(12, 20).getLocation(), this));
+	
+	enhancedMapTiles.add(new GoldLeaf(getMapTile(15, 25).getLocation(), this));
+	enhancedMapTiles.add(new IceSphere(getMapTile(16, 25).getLocation(), this));
 
 	/*
 	 * enhancedMapTiles.add(new Coin(getMapTile(55, 23).getLocation(), this));
@@ -103,6 +107,8 @@ public class TestMap extends Map {
 	getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
 	getMapTile(2, 6).setInteractScript(new TreeScript());
+	
+	//getMapTile(15, 25).setInteractScript(new GoldLeafScript());
 
     }
 }
