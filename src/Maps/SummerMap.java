@@ -33,8 +33,8 @@ public class SummerMap extends Map {
 		enhancedMapTiles.add(new Rock(getMapTile(27, 4).getLocation()));
 		
 		
-		//enhancedMapTiles.add(new Coin(getMapTile(21, 23).getLocation(), this));
-		//enhancedMapTiles.add(new Coin(getMapTile(31, 3).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(21, 23).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(31, 3).getLocation(), this));
 		return enhancedMapTiles;
 	}
 

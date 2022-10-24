@@ -189,11 +189,14 @@ public class PlayLevelScreen extends Screen {
 
 	// map switching, saves state of current map, changes map, places player at
 	// certain location
+	
+	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
 
 	    // Walrus house interior
 	    if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
 		springMap = this.map;
+		interiorMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = interiorMap;
 		this.player.setLocation(374, 408);
 		map.setFlagManager(flagManager);
@@ -204,6 +207,7 @@ public class PlayLevelScreen extends Screen {
 	    if (player.getFacingDirection().getVelocity() > 0) {
 		if (player.getLocation().x > this.map.getEndBoundX() - 426) {
 		    springMap = this.map;
+		    summerMap.setCoinCounter(this.map.getCoinCounter());
 		    this.player.setLocation(438,
 			    (player.getLocation().y / springMap.getHeight()) * summerMap.getHeight());
 		    this.map = summerMap;
@@ -217,13 +221,15 @@ public class PlayLevelScreen extends Screen {
 	    // fall map
 
 	}
-
+	
+	// leaving summer
 	if (map.getMapFileName().equals("summer_map.txt")) {
 
 	    // spring map
 	    if (player.getFacingDirection().getVelocity() < 0) {
 		if (player.getLocation().x < 438) {
 		    summerMap = this.map;
+		    springMap.setCoinCounter(this.map.getCoinCounter());
 		    this.player.setLocation(springMap.getEndBoundX() - 426,
 			    (player.getLocation().y / summerMap.getHeight()) * springMap.getHeight());
 		    this.map = springMap;
@@ -232,10 +238,13 @@ public class PlayLevelScreen extends Screen {
 		}
 	    }
 	}
-
+	
+	
+	// leaving interior
 	if (map.getMapFileName().equals("interior_map.txt")) {
 	    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
 		interiorMap = this.map;
+		springMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = springMap;
 		this.player.setLocation(173, 1264);
 		map.setFlagManager(flagManager);

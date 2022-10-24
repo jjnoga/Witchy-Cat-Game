@@ -682,6 +682,10 @@ public abstract class Map {
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
     
+    public void setCoinCounter(CoinCounter coinCounter) {
+    	this.coinCounter = coinCounter;
+    }
+    
     public CoinCounter getCoinCounter() {
     	return this.coinCounter;
     }

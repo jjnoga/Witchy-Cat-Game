@@ -19,13 +19,13 @@ import Utils.Point;
 // for collecting the coins
 public class Coin extends EnhancedMapTile {
 	protected Sounds sound;
-	protected TestMap map;
+	protected Map map;
 	private boolean hasInteracted = false;
 	
-    public Coin(Point location, TestMap testMap) {
+    public Coin(Point location, Map map) {
         super(location.x, location.y, new SpriteSheet(ImageLoader.load("Coinss.png"),16, 16), TileType.PASSABLE);
         sound  = new Sounds();
-        this.map = testMap;
+        this.map = map;
     }
 
     @Override
