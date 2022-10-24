@@ -251,7 +251,7 @@ public class CommonTileset extends Tileset {
 
 		// red flower
 		Frame[] redFlowerFrames = new Frame[] { new FrameBuilder(getSubImage(1, 7), 500).withScale(tileScale).build(),
-				new FrameBuilder(getSubImage(1, 9), 500).withScale(tileScale).build(),
+				new FrameBuilder(getSubImage(1, 8), 500).withScale(tileScale).build(),
 				new FrameBuilder(getSubImage(1, 7), 500).withScale(tileScale).build(),
 				new FrameBuilder(getSubImage(1, 9), 500).withScale(tileScale).build() };
 
