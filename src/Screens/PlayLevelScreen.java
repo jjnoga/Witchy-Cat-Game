@@ -45,16 +45,16 @@ public class PlayLevelScreen extends Screen {
     protected UI options;
     protected FlagManager flagManager;
     protected KeyLocker keyLocker = new KeyLocker();
-<<<<<<< HEAD
+//<<<<<< HEAD
     protected GamePanel gp;
     
-=======
+///=======
 
->>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
+//>>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
     Sounds sound = new Sounds();
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
-<<<<<<< HEAD
+//<<<<<<< HEAD
         this.screenCoordinator = screenCoordinator;
         
        
@@ -98,7 +98,7 @@ public class PlayLevelScreen extends Screen {
         
         
         playMusic(0);
-=======
+//=======
 	this.screenCoordinator = screenCoordinator;
 
 	JFrame frame = new JFrame();
@@ -139,7 +139,7 @@ public class PlayLevelScreen extends Screen {
 	frame.setVisible(true);
 
 	playMusic(0);
->>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
+///>>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
     }
 
     public void initialize() {
@@ -171,7 +171,7 @@ public class PlayLevelScreen extends Screen {
 	map.reset();
 	map.setFlagManager(flagManager);
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         // setup player
         this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
         this.player.setMap(map);
@@ -181,7 +181,7 @@ public class PlayLevelScreen extends Screen {
         this.player.setFacingDirection(Direction.LEFT);
         
        this.options = new UI(gp);
-=======
+//=======
 	// setup player
 	this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
 	this.player.setMap(map);
@@ -189,7 +189,7 @@ public class PlayLevelScreen extends Screen {
 	this.player.setLocation(playerStartPosition.x, playerStartPosition.y);
 	this.playLevelScreenState = PlayLevelScreenState.RUNNING;
 	this.player.setFacingDirection(Direction.LEFT);
->>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
+///>>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
 
 	// let pieces of map know which button to listen for as the "interact" button
 	map.getTextbox().setInteractKey(player.getInteractKey());
@@ -228,23 +228,125 @@ public class PlayLevelScreen extends Screen {
 	// based on screen state, perform specific actions
 	switch (playLevelScreenState) {
 	// if level is "running" update player and map to keep game logic for the
-	// platformer level going
-	case RUNNING:
-	    player.update();
-	    map.update(player);
-	    break;
-	// if level has been completed, bring up level cleared screen
-	case LEVEL_COMPLETED:
-	    winScreen.update();
-	    break;
+	// platformer level goin public PlayLevelScreenState getPlayLevelScreenState() {
+    return playLevelScreenState;
+//=======
+if (Keyboard.isKeyDown(Key.ESC) && !keyLocker.isKeyLocked(Key.ESC)) {
+    keyLocker.lockKey(Key.ESC);
+} else if (Keyboard.isKeyUp(Key.ESC)) {
+    keyLocker.unlockKey(Key.ESC);
+}
+
+//////////// Temporary thing, get player location by pressing B
+//////////// ///////////
+if (Keyboard.isKeyDown(Key.B) && !keyLocker.isKeyLocked(Key.B)) {
+    System.out.println("player coords: " + player.getLocation());
+    System.out.println("cameraY: " + this.map.getCamera().getY());
+    System.out.println("cameraX: " + this.map.getCamera().getX());
+}
+////////////////////////////////////////////////////////////////////////////////////////
+
+// map switching, saves state of current map, changes map, places player at
+// certain location
+
+// leaving spring
+if (map.getMapFileName().equals("test_map.txt")) {
+
+    // Walrus house interior
+    if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
+	springMap = this.map;
+	interiorMap.setCoinCounter(this.map.getCoinCounter());
+	this.map = interiorMap;
+	this.player.setLocation(374, 408);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+    }
+
+    // summer map
+    if (player.getFacingDirection().getVelocity() > 0) {
+	if (player.getLocation().x > this.map.getEndBoundX() - 426) {
+	    springMap = this.map;
+	    summerMap.setCoinCounter(this.map.getCoinCounter());
+	    summerMap.setCameraY(this.map.getCamera().getY());
+	    this.player.setLocation(438,
+		    (player.getLocation().y / springMap.getHeight()) * summerMap.getHeight());
+	    this.map = summerMap;
+	    map.setFlagManager(flagManager);
+	    this.player.setMap(map);
 	}
+    }
+
+    // winter map
+
+    // fall map
+
+}
+
+// leaving summer
+if (map.getMapFileName().equals("summer_map.txt")) {
+
+    // spring map
+    if (player.getFacingDirection().getVelocity() < 0) {
+	if (player.getLocation().x < 438) {
+	    summerMap = this.map;
+	    springMap.setCoinCounter(this.map.getCoinCounter());
+	    //System.out.println("springPre: " + springMap.getCamera().getY());
+	    springMap.setCameraY(this.map.getCamera().getY());
+	    //System.out.println("springPost: " + springMap.getCamera().getY());
+	    this.player.setLocation(springMap.getEndBoundX() - 426,
+		    (player.getLocation().y / summerMap.getHeight()) * springMap.getHeight());
+	    this.map = springMap;
+	    map.setFlagManager(flagManager);
+	    this.player.setMap(map);
+	}
+    }
+}
+
+
+// leaving interior
+if (map.getMapFileName().equals("interior_map.txt")) {
+    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
+	interiorMap = this.map;
+	springMap.setCoinCounter(this.map.getCoinCounter());
+	this.map = springMap;
+	this.player.setLocation(173, 1264);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+    }
+}
+}
+
+public void draw(GraphicsHandler graphicsHandler) {
+// based on screen state, draw appropriate graphics
+switch (playLevelScreenState) {
+case RUNNING:
+    map.draw(player, graphicsHandler);
+    break;
+case LEVEL_COMPLETED:
+    winScreen.draw(graphicsHandler);
+    break;
+}
+
+}
+
+
+public void playMusic(int i) {
+sound.setFile(i);
+sound.play();
+sound.loop();
+}
+
+public void stopMusic() {
+sound.stop();
+}
+    }
 
 	// if flag is set at any point during gameplay, game is "won"
 	if (map.getFlagManager().isFlagSet("hasFoundBall")) {
 	    playLevelScreenState = PlayLevelScreenState.LEVEL_COMPLETED;
 	}
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         if (Keyboard.isKeyDown(Key.ESC) && !keyLocker.isKeyLocked(Key.ESC)) {
         	keyLocker.lockKey(Key.ESC);
         	optionsMenuState = OptionsState.OPEN;
@@ -255,166 +357,6 @@ public class PlayLevelScreen extends Screen {
         }
     }
 
-    public void draw(GraphicsHandler graphicsHandler) {
-        // based on screen state, draw appropriate graphics
-        switch (playLevelScreenState) {
-            case RUNNING:
-                map.draw(player, graphicsHandler);
-                break;
-            case LEVEL_COMPLETED:
-                winScreen.draw(graphicsHandler);
-                break;
-        }
-        
-//        switch (optionsMenuState) {
-//        case OPEN:
-//        	options.drawOptions(graphicsHandler);
-//            break;
-//        case CLOSED:
-//        	map.draw(player, graphicsHandler);
-//            break;
-//    }
     }
 
-   public PlayLevelScreenState getPlayLevelScreenState() {
-        return playLevelScreenState;
-=======
-	if (Keyboard.isKeyDown(Key.ESC) && !keyLocker.isKeyLocked(Key.ESC)) {
-	    keyLocker.lockKey(Key.ESC);
-	} else if (Keyboard.isKeyUp(Key.ESC)) {
-	    keyLocker.unlockKey(Key.ESC);
-	}
-
-	//////////// Temporary thing, get player location by pressing B
-	//////////// ///////////
-	if (Keyboard.isKeyDown(Key.B) && !keyLocker.isKeyLocked(Key.B)) {
-	    System.out.println("player coords: " + player.getLocation());
-	    System.out.println("cameraY: " + this.map.getCamera().getY());
-	    System.out.println("cameraX: " + this.map.getCamera().getX());
-	}
-	////////////////////////////////////////////////////////////////////////////////////////
-
-	// map switching, saves state of current map, changes map, places player at
-	// certain location
-	
-	// leaving spring
-	if (map.getMapFileName().equals("test_map.txt")) {
-
-	    // Walrus house interior
-	    if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
-		springMap = this.map;
-		interiorMap.setCoinCounter(this.map.getCoinCounter());
-		this.map = interiorMap;
-		this.player.setLocation(374, 408);
-		map.setFlagManager(flagManager);
-		this.player.setMap(map);
-	    }
-
-	    // summer map
-	    if (player.getFacingDirection().getVelocity() > 0) {
-		if (player.getLocation().x > this.map.getEndBoundX() - 426) {
-		    springMap = this.map;
-		    summerMap.setCoinCounter(this.map.getCoinCounter());
-		    summerMap.setCameraY(this.map.getCamera().getY());
-		    this.player.setLocation(438,
-			    (player.getLocation().y / springMap.getHeight()) * summerMap.getHeight());
-		    this.map = summerMap;
-		    map.setFlagManager(flagManager);
-		    this.player.setMap(map);
-		}
-	    }
-
-	    // winter map
-
-	    // fall map
-
-	}
-	
-	// leaving summer
-	if (map.getMapFileName().equals("summer_map.txt")) {
-
-	    // spring map
-	    if (player.getFacingDirection().getVelocity() < 0) {
-		if (player.getLocation().x < 438) {
-		    summerMap = this.map;
-		    springMap.setCoinCounter(this.map.getCoinCounter());
-		    //System.out.println("springPre: " + springMap.getCamera().getY());
-		    springMap.setCameraY(this.map.getCamera().getY());
-		    //System.out.println("springPost: " + springMap.getCamera().getY());
-		    this.player.setLocation(springMap.getEndBoundX() - 426,
-			    (player.getLocation().y / summerMap.getHeight()) * springMap.getHeight());
-		    this.map = springMap;
-		    map.setFlagManager(flagManager);
-		    this.player.setMap(map);
-		}
-	    }
-	}
-	
-	
-	// leaving interior
-	if (map.getMapFileName().equals("interior_map.txt")) {
-	    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
-		interiorMap = this.map;
-		springMap.setCoinCounter(this.map.getCoinCounter());
-		this.map = springMap;
-		this.player.setLocation(173, 1264);
-		map.setFlagManager(flagManager);
-		this.player.setMap(map);
-	    }
-	}
-    }
-
-    public void draw(GraphicsHandler graphicsHandler) {
-	// based on screen state, draw appropriate graphics
-	switch (playLevelScreenState) {
-	case RUNNING:
-	    map.draw(player, graphicsHandler);
-	    break;
-	case LEVEL_COMPLETED:
-	    winScreen.draw(graphicsHandler);
-	    break;
-	}
-
-    }
-
-    public PlayLevelScreenState getPlayLevelScreenState() {
-	return playLevelScreenState;
->>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
-    }
-    
-    public OptionsState getOptionsState() {
-		return optionsMenuState;
-    }
-
-    public void resetLevel() {
-	initialize();
-    }
-
-    public void goBackToMenu() {
-	screenCoordinator.setGameState(GameState.MENU);
-    }
-
-    // This enum represents the different states this screen can be in
-    private enum PlayLevelScreenState {
-	RUNNING, LEVEL_COMPLETED
-    }
-<<<<<<< HEAD
-    
-    private enum OptionsState {
-    	OPEN, CLOSED
-    }
-    
-=======
-
->>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
-    public void playMusic(int i) {
-	sound.setFile(i);
-	sound.play();
-	sound.loop();
-    }
-
-    public void stopMusic() {
-	sound.stop();
-    }
-
-}
+  

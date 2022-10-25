@@ -33,6 +33,9 @@ public class Options {
 	protected static Stopwatch keyTimer = new Stopwatch();
 	protected static int pointerLocationX;
 	protected static int pointerLocationY;
+	protected int textX;
+	protected int textY;
+
 
 	private KeyLocker keyLocker = new KeyLocker();
 	private Map map;
@@ -43,13 +46,10 @@ public class Options {
 	}
 
 	public void intialize() {
-		int textX;
-		int textY;
-
+	
 		String text = "Options";
 		font = new Font(text, 10, (int) 6.5);
-		textX = getXCenteredText(text);
-		textY = topY + width;
+		
 		g2.drawString(text, textX, textY);
 	}
 
@@ -81,9 +81,7 @@ public class Options {
 	}
 
 	public void draw(GraphicsHandler graphicsHandler) {
-		// if camera is at bottom of screen, textbox is drawn at top of screen instead
-		// of the bottom like usual
-		// to prevent it from covering the player
+		//displays the options menu near the center of the screen, from the top.
 		if (!map.getCamera().isAtTopOfMap()) {
 			graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 5);
 			// graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width / 2, height,
@@ -95,7 +93,9 @@ public class Options {
 		}
 
 		String text = "Options";
-		g2.drawString(text, x * 2, topY);
+		textX = getXCenteredText(text);
+		textY = topY + width;
+		g2.drawString(text, textX, textY);
 
 	}
 
