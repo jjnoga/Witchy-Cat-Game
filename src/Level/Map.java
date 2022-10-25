@@ -317,6 +317,14 @@ public abstract class Map {
     public Camera getCamera() {
         return camera;
     }
+    
+    public void setCameraX(float cameraX) {
+	this.camera.setX(cameraX);
+    }
+    
+    public void setCameraY(float cameraY) {
+	this.camera.setY(cameraY);
+    }
 
     public ArrayList<EnhancedMapTile> getEnhancedMapTiles() {
         return enhancedMapTiles;
