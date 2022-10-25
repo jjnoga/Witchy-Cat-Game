@@ -30,8 +30,8 @@ public class GamePanel extends JPanel {
 	private SpriteFont pauseLabel;
 	private KeyLocker keyLocker = new KeyLocker();
 	private final Key pauseKey = Key.P;
-	private final Key optionsKey = Key.ESC;
-	private UI options = new UI(this);
+//	private final Key optionsKey = Key.ESC;
+//	private UI options = new UI(this);
 
 	public int tileSize;
 
@@ -96,14 +96,14 @@ public class GamePanel extends JPanel {
 			screenManager.update();
 		}
 		
-		if (Keyboard.isKeyDown(optionsKey) && !keyLocker.isKeyLocked(optionsKey)) {
-			options.drawOptions(graphicsHandler);
-			keyLocker.lockKey(optionsKey);
-		}
-		
-		if (Keyboard.isKeyUp(pauseKey)) {
-			keyLocker.unlockKey(pauseKey);
-		}
+//		if (Keyboard.isKeyDown(optionsKey) && !keyLocker.isKeyLocked(optionsKey)) {
+//			options.drawOptions(graphicsHandler);
+//			keyLocker.lockKey(optionsKey);
+//		}
+//		
+//		if (Keyboard.isKeyUp(pauseKey)) {
+//			keyLocker.unlockKey(pauseKey);
+//		}
 	}
 
 	public void draw() {

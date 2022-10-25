@@ -86,6 +86,8 @@ public abstract class Map {
     
     protected Sword sword;
 
+    protected Options options;
+    protected boolean optionsCheck = true;
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -132,6 +134,7 @@ public abstract class Map {
         this.textbox = new Textbox(this);
         this.coinCounter = new CoinCounter(this);
         this.inventory = new Inventory(this);
+        this.options = new Options(this);
         
     }
 
@@ -584,6 +587,28 @@ public abstract class Map {
         	addEnhancedMapTile(sword);
         	sword.isHidden = false;
         }
+        
+      //if "o" is pressed
+        if (Keyboard.isKeyDown(options.getInteractKey()))
+        {
+        	options.getKeyLocker().lockKey(options.getInteractKey());
+        	if (optionsCheck) {
+            	options.setIsActive(true);
+        	}
+        	else { 
+        		options.setIsActive(false); 
+        	}
+        	
+        }
+        //once "o" is released
+        if (Keyboard.isKeyUp(options.getInteractKey()))
+        {
+        	options.getKeyLocker().unlockKey(options.getInteractKey());
+        	if (options.isActive()) { 
+            	optionsCheck = false;
+        	}
+        	else optionsCheck = true;
+        }
      }
       
       
@@ -657,6 +682,10 @@ public abstract class Map {
         }
         if(inventory.isActive() && !textbox.isActive()) { //won't appear concurrently with textboxes
         	inventory.draw(graphicsHandler);
+        }
+        
+        if(options.isActive() && !textbox.isActive()) { //won't appear concurrently with textboxes
+        	options.draw(graphicsHandler);
         }
         
         if(!coinCounter.isActive())

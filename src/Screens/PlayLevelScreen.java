@@ -192,14 +192,14 @@ public class PlayLevelScreen extends Screen {
                 break;
         }
         
-        switch (optionsMenuState) {
-        case OPEN:
-        	options.drawOptions(graphicsHandler);
-            break;
-        case CLOSED:
-        	map.draw(player, graphicsHandler);
-            break;
-    }
+//        switch (optionsMenuState) {
+//        case OPEN:
+//        	options.drawOptions(graphicsHandler);
+//            break;
+//        case CLOSED:
+//        	map.draw(player, graphicsHandler);
+//            break;
+//    }
     }
 
    public PlayLevelScreenState getPlayLevelScreenState() {

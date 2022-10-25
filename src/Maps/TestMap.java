@@ -6,6 +6,7 @@ import EnhancedMapTiles.Coin;
 
 import Level.EnhancedMapTile;
 import Level.Inventory;
+import Level.Options;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;

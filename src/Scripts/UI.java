@@ -16,6 +16,7 @@ public class UI {
 	
 	public UI(GamePanel gp) {
 		this.gp = gp;
+//		g2 = (Graphics2D) gp.getGraphics();
 	}
 	
 	

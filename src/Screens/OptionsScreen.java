@@ -25,9 +25,9 @@ public class OptionsScreen extends Screen{
     protected SpriteFont hintLabel;
     protected SpriteFont darkMLabel;
     protected SpriteFont returnInstructionsLabel;
-    protected  SpriteFont returnInstructionsLabel2;
-    protected  JToggleButton toggle1;
-    protected  JToggleButton toggle2;
+    protected SpriteFont returnInstructionsLabel2;
+    protected JToggleButton toggle1;
+    protected JToggleButton toggle2;
     protected JToggleButton toggle3;
     protected  SpriteFont on;
     protected  SpriteFont on2;
