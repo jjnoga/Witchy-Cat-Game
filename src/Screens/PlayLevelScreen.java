@@ -103,6 +103,7 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasGoldLeaf", false);
 	flagManager.addFlag("hasIceSphere", false);
 	flagManager.addFlag("hasFireRose", false);
+	flagManager.addFlag("inSpringArea", false);
 
 	// define/setup map
 	springMap = new TestMap();

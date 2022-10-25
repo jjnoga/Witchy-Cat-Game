@@ -85,6 +85,8 @@ public abstract class Map {
     protected boolean dropCheck = false;
     
     protected Sword sword;
+    
+    protected boolean isSpring = false;
 
 
     public Map(String mapFileName, Tileset tileset) {
@@ -578,7 +580,7 @@ public abstract class Map {
         	hasChangedCoins = false;
         }
         
-        if (flagManager != null && !flagManager.isFlagSet("hasGivenSwordItem") && flagManager.isFlagSet("hasDropped"))
+        if (flagManager != null && !flagManager.isFlagSet("hasGivenSwordItem") && flagManager.isFlagSet("hasDropped") && isSpring)
         {
         	this.sword = new Sword(getMapTile(21, 23).getLocation(), this);
         	addEnhancedMapTile(sword);
