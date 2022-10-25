@@ -3,6 +3,7 @@ package Maps;
 import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
+import EnhancedMapTiles.Vines;
 
 import Level.EnhancedMapTile;
 import Level.Inventory;
@@ -45,6 +46,7 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Coin(getMapTile(15, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(13, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(12, 20).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(4, 20).getLocation(), this));
 
 	/*
 	 * enhancedMapTiles.add(new Coin(getMapTile(55, 23).getLocation(), this));
