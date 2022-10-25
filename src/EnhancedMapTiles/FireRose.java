@@ -2,6 +2,8 @@ package EnhancedMapTiles;
 
 import Builders.FrameBuilder;
 import Engine.ImageLoader;
+import Engine.Key;
+import Engine.Keyboard;
 import GameObject.Frame;
 import GameObject.GameObject;
 import GameObject.SpriteSheet;
@@ -17,28 +19,28 @@ import Utils.Direction;
 import Utils.Point;
 
 // for collecting the coins
-public class Coin extends EnhancedMapTile {
+public class FireRose extends EnhancedMapTile {
 	protected Sounds sound;
 	protected Map map;
-	private boolean hasInteracted = false;
 	
-    public Coin(Point location, Map map) {
-        super(location.x, location.y, new SpriteSheet(ImageLoader.load("Coinss.png"),16, 16), TileType.PASSABLE);
+    public FireRose(Point location, Map testMap) {
+        super(location.x, location.y, new SpriteSheet(ImageLoader.load("FireRose.png"),16, 16), TileType.NOT_PASSABLE);
         sound  = new Sounds();
-        this.map = map;
+        this.map = testMap;
     }
 
-    @Override
+	@Override
     public void update(Player player) {
         super.update(player);
-        
-        if (player.overlaps(this) && !hasInteracted)
-        {
-        	map.setHasChangedCoins(true);
-            playSE(1);
-            hasInteracted = true;
+        if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
+      		map.getFlagManager().setFlag("hasFireRose");
+      		//sound.stop();
+            playSE(3);
             this.isHidden = true;
-        }
+      	}
+        else this.isHidden = false;
+        
+        
     }
     
     public void playSE(int i) {

@@ -12,102 +12,124 @@ import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
 import SpriteFont.SpriteFont;
+import Utils.Stopwatch;
 
 public class Options {
 	protected boolean isActive;
-    protected int x = 150;
-    protected int bottomY = 300;
-    protected int topY = 22;
+	protected int x = 150;
+	protected int bottomY = 300;
+	protected int topY = 22;
 //    protected final int fontX = 35;
 //    protected final int fontBottomY = 300;
 //    protected final int fontTopY = 62;
-    protected int width = 500;
-    protected int height = 350;
-    protected Graphics2D g2;
-    protected GamePanel gp;
-    protected Font font;
-    
-    
-    private KeyLocker keyLocker = new KeyLocker();
-    private Map map;
-    private Key interactKey = Key.O;
-    
-    public Options(Map map) {
-        this.map = map;
-    }
-    
-    public void intialize() {
-    	int textX;
-    	int textY;
-    	
-    	
-    	String text = "Options";
-    	font = new Font(text, 10,(int) 6.5);
-    	textX = getXCenteredText(text);
-    	textY = topY + width;
-    	g2.drawString(text, textX, textY);
-    }
-    
-    public void update() {
-    	
-   	 if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
-            keyLocker.lockKey(interactKey);
-        }
-   	 else if (Keyboard.isKeyUp(interactKey)) {
-            keyLocker.unlockKey(interactKey);
-        }
-   	 
-   	System.out.println(g2.getFontMetrics());
-   	 
-   
-    }
-    
-    public void draw(GraphicsHandler graphicsHandler) {
-        // if camera is at bottom of screen, textbox is drawn at top of screen instead of the bottom like usual
-        // to prevent it from covering the player
-            if (!map.getCamera().isAtTopOfMap()) {
-                graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 5);
-                //graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width / 2, height, Color.black, Color.white, 4); 
-            }
-            else {
-                graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 5);
-               // graphicsHandler.drawFilledRectangleWithBorder(x, topY, width / 2, height, Color.black, Color.white, 4);
-            }
-            
-            String text = "Options";
-            g2.drawString(text, x*2, topY);
-           
-    }
-    
-    public boolean isActive() {
-        return isActive;
-    }
+	protected int width = 500;
+	protected int height = 350;
+	protected Graphics2D g2;
+	protected GamePanel gp;
+	protected Font font;
 
-    public void setIsActive(boolean isActive) {
-        this.isActive = isActive;
-    }
+	protected static int currentMenuItemHovered = 0;
+	protected static int menuItemSelected = -1;
+	protected static Stopwatch keyTimer = new Stopwatch();
+	protected static int pointerLocationX;
+	protected static int pointerLocationY;
 
-    public void setInteractKey(Key interactKey) {
-        this.interactKey = interactKey;
-    }
-    
-    public Key getInteractKey()
-    {
-    	return this.interactKey;
-    }
-    
-    public KeyLocker getKeyLocker()
-    {
-    	return keyLocker;
-    }
-    
-    public int getXCenteredText(String text) {
-    	
-    	//String textS = "Options";
-    	font = new Font(text, 10,(int) 6.5);
-    	g2.getFontMetrics(font);
-		int length = (int)g2.getFontMetrics().getStringBounds(text,g2).getWidth();
-		int x = this.width/2 - length/2;
+	private KeyLocker keyLocker = new KeyLocker();
+	private Map map;
+	private Key interactKey = Key.O;
+
+	public Options(Map map) {
+		this.map = map;
+	}
+
+	public void intialize() {
+		int textX;
+		int textY;
+
+		String text = "Options";
+		font = new Font(text, 10, (int) 6.5);
+		textX = getXCenteredText(text);
+		textY = topY + width;
+		g2.drawString(text, textX, textY);
+	}
+
+	public void update() {
+
+		if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
+			keyLocker.lockKey(interactKey);
+		} else if (Keyboard.isKeyUp(interactKey)) {
+			keyLocker.unlockKey(interactKey);
+		}
+
+		if (Keyboard.isKeyDown(Key.DOWN) && keyTimer.isTimeUp()) {
+			keyTimer.reset();
+			currentMenuItemHovered++;
+		} else if (Keyboard.isKeyDown(Key.UP) && keyTimer.isTimeUp()) {
+			keyTimer.reset();
+			currentMenuItemHovered--;
+		}
+
+		if (currentMenuItemHovered > 2 || currentMenuItemHovered < 0) {
+			currentMenuItemHovered = 0;
+		} else if (currentMenuItemHovered > 0 && currentMenuItemHovered < 2) {
+			currentMenuItemHovered = 1;
+		} else if (currentMenuItemHovered > 1) {
+			currentMenuItemHovered = 2;
+		}
+		System.out.println(g2.getFontMetrics());
+
+	}
+
+	public void draw(GraphicsHandler graphicsHandler) {
+		// if camera is at bottom of screen, textbox is drawn at top of screen instead
+		// of the bottom like usual
+		// to prevent it from covering the player
+		if (!map.getCamera().isAtTopOfMap()) {
+			graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 5);
+			// graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width / 2, height,
+			// Color.black, Color.white, 4);
+		} else {
+			graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 5);
+			// graphicsHandler.drawFilledRectangleWithBorder(x, topY, width / 2, height,
+			// Color.black, Color.white, 4);
+		}
+
+		String text = "Options";
+		g2.drawString(text, x * 2, topY);
+
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public void setInteractKey(Key interactKey) {
+		this.interactKey = interactKey;
+	}
+
+	public Key getInteractKey() {
+		return this.interactKey;
+	}
+
+	public KeyLocker getKeyLocker() {
+		return keyLocker;
+	}
+
+	public int getMenuItemSelected() {
+		return menuItemSelected;
+	}
+
+	public int getXCenteredText(String text) {
+
+		// String textS = "Options";
+		font = new Font(Font.SANS_SERIF, Font.ITALIC, 11);
+		g2.getFontMetrics(font);
+		int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+		int x = this.width / 2 - length / 2;
 		return x;
-    }
+	}
 }

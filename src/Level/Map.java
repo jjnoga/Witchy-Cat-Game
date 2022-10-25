@@ -556,7 +556,7 @@ public abstract class Map {
         {
         	inventory.getKeyLocker().lockKey(inventory.getDropKey());
         	flagManager.unsetFlag("hasGivenSwordItem");
-        	flagManager.setFlag("hasDroppedSword");
+        	flagManager.setFlag("hasDropped");
         	
         	if(this.dropCheck) {
         		inventory.dropCheck = true;
@@ -581,7 +581,7 @@ public abstract class Map {
         	hasChangedCoins = false;
         }
         
-        if (flagManager != null && !flagManager.isFlagSet("hasGivenSwordItem") && flagManager.isFlagSet("hasDroppedSword"))
+        if (flagManager != null && !flagManager.isFlagSet("hasGivenSwordItem") && flagManager.isFlagSet("hasDropped"))
         {
         	this.sword = new Sword(getMapTile(21, 23).getLocation(), this);
         	addEnhancedMapTile(sword);
@@ -710,6 +710,10 @@ public abstract class Map {
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
+    
+    public void setCoinCounter(CoinCounter coinCounter) {
+    	this.coinCounter = coinCounter;
+    }
     
     public CoinCounter getCoinCounter() {
     	return this.coinCounter;

@@ -1,6 +1,10 @@
 package MapEditor;
 
 import Level.Map;
+import Maps.SummerMap;
+import Maps.WinterMap;
+import Maps.FallMap;
+import Maps.InteriorMap;
 import Maps.TestMap;
 import Maps.TitleScreenMap;
 
@@ -11,6 +15,10 @@ public class EditorMaps {
         return new ArrayList<String>() {{
             add("TestMap");
             add("TitleScreen");
+            add("SummerMap");
+            add("WinterMap");
+            add("FallMap");
+            add("InteriorMap");
         }};
     }
 
@@ -20,6 +28,14 @@ public class EditorMaps {
                 return new TestMap();
             case "TitleScreen":
                 return new TitleScreenMap();
+            case "SummerMap":
+        	return new SummerMap();
+            case "WinterMap":
+        	return new WinterMap();
+            case "FallMap":
+        	return new FallMap();
+            case "InteriorMap":
+        	return new InteriorMap();
             default:
                 throw new RuntimeException("Unrecognized map name");
         }

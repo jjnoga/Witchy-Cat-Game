@@ -37,7 +37,7 @@ public class Sword extends EnhancedMapTile {
         
         if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
       		map.getFlagManager().setFlag("hasGivenSwordItem");
-          	map.getFlagManager().unsetFlag("hasDroppedSword");
+          	map.getFlagManager().unsetFlag("hasDropped");
               playSE(1);
               this.isHidden = true;
       	}
