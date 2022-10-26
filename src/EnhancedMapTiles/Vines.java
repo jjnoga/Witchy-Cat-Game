@@ -20,29 +20,30 @@ import Utils.Point;
 
 public class Vines extends EnhancedMapTile{
 	protected TestMap map;
-	protected Key INTERACT_KEY = Key.SPACE;
+	public int vineCounter = 0;
 
 	public Vines(Point location, TestMap testMap) {
 		 super(location.x, location.y, new SpriteSheet(ImageLoader.load("Vines.png"),16, 16), TileType.NOT_PASSABLE);
 	        this.map = testMap;
 	}
 	
-	 /* @Override
+	  @Override
 	    public void update(Player player) {
 	        super.update(player);
 	        
-	        if (player.overlaps(this) && Keyboard.isKeyDown(INTERACT_KEY));
+	       if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) 
 	        {
 	            this.isHidden = true;
+	            
 	       }
 	   }
-	  */
+	  
 	  @Override
 	    protected GameObject loadBottomLayer(SpriteSheet spriteSheet) {
 	        Frame frame = new FrameBuilder(spriteSheet.getSubImage(0, 0))
 	                .withScale(1.5f)
 	                .build();
 	        		
-	        return new GameObject(x, y, frame);
+	        return new GameObject(x + 16, y + 12, frame);
 	    }
 }

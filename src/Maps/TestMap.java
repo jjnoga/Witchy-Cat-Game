@@ -46,14 +46,30 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Coin(getMapTile(15, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(13, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(12, 20).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(4, 20).getLocation(), this));
+	
+	//vines for the demo
+	enhancedMapTiles.add(new Vines(getMapTile(9, 4).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(9, 5).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(9, 6).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(10, 6).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(11, 6).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(12, 6).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(13, 6).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(13, 5).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(13, 4).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(13, 3).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(12, 3).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(11, 3).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(10, 3).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(9, 3).getLocation(), this));
+	enhancedMapTiles.add(new Vines(getMapTile(10, 4).getLocation(), this));
 
 	/*
 	 * enhancedMapTiles.add(new Coin(getMapTile(55, 23).getLocation(), this));
 	 * enhancedMapTiles.add(new Coin(getMapTile(65, 3).getLocation(), this));
 	 * 
 	 */
-	// enhancedMapTiles.add(new Sword(getMapTile(11, 19).getLocation(), this));
+	//enhancedMapTiles.add(new Sword(getMapTile(18, 23).getLocation(), this));
 
 	return enhancedMapTiles;
     }
