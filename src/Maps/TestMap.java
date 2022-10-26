@@ -5,6 +5,8 @@ import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
 import EnhancedMapTiles.Vines;
 
+import EnhancedMapTiles.GoldLeaf;
+import EnhancedMapTiles.IceSphere;
 import Level.EnhancedMapTile;
 import Level.Inventory;
 import Level.Map;
@@ -35,6 +37,7 @@ public class TestMap extends Map {
     public TestMap() {
 	super("test_map.txt", new CommonTileset());
 	this.playerStartPosition = getMapTile(17, 20).getLocation();
+	this.isSpring = true;
     }
 
     @Override
@@ -46,7 +49,7 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Coin(getMapTile(15, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(13, 19).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(12, 20).getLocation(), this));
-	
+
 	//vines for the demo
 	enhancedMapTiles.add(new Vines(getMapTile(9, 4).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(9, 5).getLocation(), this));
@@ -63,6 +66,9 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Vines(getMapTile(10, 3).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(9, 3).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(10, 4).getLocation(), this));
+	enhancedMapTiles.add(new GoldLeaf(getMapTile(15, 25).getLocation(), this));
+	enhancedMapTiles.add(new IceSphere(getMapTile(16, 25).getLocation(), this));
+
 
 	/*
 	 * enhancedMapTiles.add(new Coin(getMapTile(55, 23).getLocation(), this));
@@ -121,6 +127,8 @@ public class TestMap extends Map {
 	getMapTile(20, 4).setInteractScript(new SimpleTextScript("Dino's house"));
 
 	getMapTile(2, 6).setInteractScript(new TreeScript());
+	
+	//getMapTile(15, 25).setInteractScript(new GoldLeafScript());
 
     }
 }

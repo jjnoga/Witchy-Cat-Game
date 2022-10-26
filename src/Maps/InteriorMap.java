@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class InteriorMap extends Map {
 
 	public InteriorMap() {
-		super("interior_map.txt", new CommonTileset());		
+		super("interior_map.txt", new CommonTileset());	
 	}
 
 	@Override

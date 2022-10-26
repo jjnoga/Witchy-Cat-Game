@@ -19,12 +19,12 @@ import Utils.Direction;
 import Utils.Point;
 
 // for collecting the coins
-public class Sword extends EnhancedMapTile {
+public class IceSphere extends EnhancedMapTile {
 	protected Sounds sound;
 	protected Map map;
 	
-    public Sword(Point location, Map testMap) {
-        super(location.x, location.y, new SpriteSheet(ImageLoader.load("Sword.png"),16, 16), TileType.PASSABLE);
+    public IceSphere(Point location, Map testMap) {
+        super(location.x, location.y, new SpriteSheet(ImageLoader.load("IceSphere.png"),16, 16), TileType.NOT_PASSABLE);
         sound  = new Sounds();
         this.map = testMap;
     }
@@ -32,16 +32,13 @@ public class Sword extends EnhancedMapTile {
 	@Override
     public void update(Player player) {
         super.update(player);
-        
-        
-        
         if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
-      		map.getFlagManager().setFlag("hasGivenSwordItem");
-          	map.getFlagManager().unsetFlag("hasDropped");
-              playSE(1);
-             this.isHidden = true;
+      		map.getFlagManager().setFlag("hasIceSphere");
+      		//sound.stop();
+            playSE(3);
+            this.isHidden = true;
       	}
-          else this.isHidden = true;
+        else this.isHidden = false;
         
         
     }

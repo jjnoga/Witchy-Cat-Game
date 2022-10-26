@@ -98,12 +98,17 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorbo", false);
 	flagManager.addFlag("hasTalkedtoPizza", false);
 	flagManager.addFlag("hasGivenSwordItem", false);
-	flagManager.addFlag("hasDroppedSword", false);
+	flagManager.addFlag("hasDropped", false);
 	flagManager.addFlag("hasTalkedtoBruce", false);
+	flagManager.addFlag("hasGoldLeaf", false);
+	flagManager.addFlag("hasIceSphere", false);
+	flagManager.addFlag("hasFireRose", false);
+	flagManager.addFlag("inSpringArea", false);
 
 	// define/setup map
 	springMap = new TestMap();
 	summerMap = new SummerMap();
+	summerMap.setCameraX(48);
 	winterMap = new WinterMap();
 	fallMap = new FallMap();
 	interiorMap = new InteriorMap();
@@ -178,12 +183,12 @@ public class PlayLevelScreen extends Screen {
 	    keyLocker.unlockKey(Key.ESC);
 	}
 
-	//////////// Temporary thing, get player location and map name by pressing B
+	//////////// Temporary thing, get player location by pressing B
 	//////////// ///////////
 	if (Keyboard.isKeyDown(Key.B) && !keyLocker.isKeyLocked(Key.B)) {
-	    System.out.println(player.getLocation());
-	    System.out.println(this.map.getMapFileName());
-	    System.out.println(this.map.getEndBoundX());
+	    System.out.println("player coords: " + player.getLocation());
+	    System.out.println("cameraY: " + this.map.getCamera().getY());
+	    System.out.println("cameraX: " + this.map.getCamera().getX());
 	}
 	////////////////////////////////////////////////////////////////////////////////////////
 
@@ -208,6 +213,7 @@ public class PlayLevelScreen extends Screen {
 		if (player.getLocation().x > this.map.getEndBoundX() - 426) {
 		    springMap = this.map;
 		    summerMap.setCoinCounter(this.map.getCoinCounter());
+		    summerMap.setCameraY(this.map.getCamera().getY());
 		    this.player.setLocation(438,
 			    (player.getLocation().y / springMap.getHeight()) * summerMap.getHeight());
 		    this.map = summerMap;
@@ -230,6 +236,9 @@ public class PlayLevelScreen extends Screen {
 		if (player.getLocation().x < 438) {
 		    summerMap = this.map;
 		    springMap.setCoinCounter(this.map.getCoinCounter());
+		    //System.out.println("springPre: " + springMap.getCamera().getY());
+		    springMap.setCameraY(this.map.getCamera().getY());
+		    //System.out.println("springPost: " + springMap.getCamera().getY());
 		    this.player.setLocation(springMap.getEndBoundX() - 426,
 			    (player.getLocation().y / summerMap.getHeight()) * springMap.getHeight());
 		    this.map = springMap;
