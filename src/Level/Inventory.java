@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
+import Scripts.Sounds;
 import SpriteFont.SpriteFont;
 
 import java.awt.*;
@@ -46,6 +47,8 @@ public class Inventory {
     private ImageIcon goldLeafHidden;
     private ImageIcon iceSphereHidden;
     private ImageIcon fireRoseHidden;
+    
+    protected Sounds sound = new Sounds();
     
     
     
@@ -132,6 +135,7 @@ public class Inventory {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+        playSE(6);
     }
 
     public void setInteractKey(Key interactKey) {
@@ -165,5 +169,10 @@ public class Inventory {
     public void setCurrItem(int item)
     {
     	this.currItem = item;
+    }
+    
+    public void playSE(int i) {
+    	sound.setFile(i);
+    	sound.play();
     }
 }

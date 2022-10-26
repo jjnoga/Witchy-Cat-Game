@@ -24,6 +24,8 @@ public class Sounds {
 		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav");
 		soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav");
 		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav");
+		soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav");
+		soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
 	}
 	
 	public void setFile(int i) {

@@ -766,7 +766,7 @@ public abstract class Map {
     }
     
     public void playSE(int i) {
+    	sound.setFile(i);
     	sound.play();
-    	sound.stop();
     }
 }

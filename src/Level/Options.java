@@ -38,7 +38,7 @@ public class Options {
 //	protected int textX;
 //	protected int textY;
 	protected Sounds sound;
-	protected String text = "Volume Options";
+	protected String text = "Volume Controls";
 
 
 	private KeyLocker keyLocker = new KeyLocker();

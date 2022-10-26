@@ -146,7 +146,7 @@ public class Textbox {
 	if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
 	    keyLocker.lockKey(interactKey);
 	    textQueue.poll();
-	    playSE(5);
+	    playSE(4);
 	    if (!decideTurn.isEmpty()) {
 		if (decideTurn.peek().equals("1")) {
 		    while (!textQueue.isEmpty()) {
@@ -169,14 +169,14 @@ public class Textbox {
 	    
 	    if (currentTextItemHovered != compiledCount - 1) {
 		currentTextItemHovered++;
-		playSE(4);
+		playSE(5);
 	    }
 	} else if (Keyboard.isKeyDown(Key.LEFT) && keyTimer.isTimeUp() && selectionText[0] != null) {
 	    keyTimer.reset();
 	    
 	    if (currentTextItemHovered != 1) {
 		currentTextItemHovered--;
-		playSE(4);
+		playSE(5);
 	    }
 	}
 
