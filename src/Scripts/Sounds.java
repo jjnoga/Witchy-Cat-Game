@@ -22,6 +22,8 @@ public class Sounds {
 		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav");
 		soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
 		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav");
+		soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav");
+		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav");
 	}
 	
 	public void setFile(int i) {

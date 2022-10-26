@@ -11,6 +11,7 @@ import Engine.GraphicsHandler;
 import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
+import Scripts.Sounds;
 import SpriteFont.SpriteFont;
 import Utils.Stopwatch;
 
@@ -26,31 +27,26 @@ public class Options {
 	protected int height = 350;
 	protected Graphics2D g2;
 	protected GamePanel gp;
-	protected Font font;
+	protected Font font= new Font(Font.SANS_SERIF, Font.BOLD, 15);
+	protected SpriteFont sFont;
 
-	protected static int currentMenuItemHovered = 0;
-	protected static int menuItemSelected = -1;
-	protected static Stopwatch keyTimer = new Stopwatch();
-	protected static int pointerLocationX;
-	protected static int pointerLocationY;
-	protected int textX;
-	protected int textY;
+//	protected static int currentMenuItemHovered = 0;
+//	protected static int menuItemSelected = -1;
+//	protected static Stopwatch keyTimer = new Stopwatch();
+//	protected static int pointerLocationX;
+//	protected static int pointerLocationY;
+//	protected int textX;
+//	protected int textY;
+	protected Sounds sound;
+	protected String text = "Volume Options";
 
 
 	private KeyLocker keyLocker = new KeyLocker();
 	private Map map;
-	private Key interactKey = Key.O;
+	private Key interactKey = Key.I;
 
 	public Options(Map map) {
 		this.map = map;
-	}
-
-	public void intialize() {
-	
-		String text = "Options";
-		font = new Font(text, 10, (int) 6.5);
-		
-		g2.drawString(text, textX, textY);
 	}
 
 	public void update() {
@@ -60,42 +56,30 @@ public class Options {
 		} else if (Keyboard.isKeyUp(interactKey)) {
 			keyLocker.unlockKey(interactKey);
 		}
-
-		if (Keyboard.isKeyDown(Key.DOWN) && keyTimer.isTimeUp()) {
-			keyTimer.reset();
-			currentMenuItemHovered++;
-		} else if (Keyboard.isKeyDown(Key.UP) && keyTimer.isTimeUp()) {
-			keyTimer.reset();
-			currentMenuItemHovered--;
-		}
-
-		if (currentMenuItemHovered > 2 || currentMenuItemHovered < 0) {
-			currentMenuItemHovered = 0;
-		} else if (currentMenuItemHovered > 0 && currentMenuItemHovered < 2) {
-			currentMenuItemHovered = 1;
-		} else if (currentMenuItemHovered > 1) {
-			currentMenuItemHovered = 2;
-		}
-		System.out.println(g2.getFontMetrics());
-
+		
+		//font = new Font(Font.SANS_SERIF, Font.BOLD, 20);
 	}
 
 	public void draw(GraphicsHandler graphicsHandler) {
 		//displays the options menu near the center of the screen, from the top.
-		if (!map.getCamera().isAtTopOfMap()) {
-			graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 5);
+		if (!map.getCamera().isAtBottomOfMap()) {
+			graphicsHandler.drawFilledRectangleWithBorder(x*7/2, topY/2, width/2, height/2, Color.black, Color.white, 5);
 			// graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width / 2, height,
 			// Color.black, Color.white, 4);
+			graphicsHandler.drawString(text, x*(39/8), topY+12, font, Color.white);
+			graphicsHandler.drawString("A: Volume Up", x*15/4, topY*3, font, Color.white);
+			graphicsHandler.drawString("D: Volume Down", x*15/4, topY*5, font, Color.white);
+			graphicsHandler.drawString("S: Mute", x*15/4, topY*7, font, Color.white);
+			
 		} else {
-			graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 5);
+			graphicsHandler.drawFilledRectangleWithBorder(x*7/2, bottomY+75, width/2, height/2, Color.black, Color.white, 5);
+			graphicsHandler.drawString(text, x*(39/8), bottomY+100, font, Color.white);
+			graphicsHandler.drawString("A: Volume Up", x*15/4, bottomY+135, font, Color.white);
+			graphicsHandler.drawString("D: Volume Down", x*15/4, bottomY+175, font, Color.white);
+			graphicsHandler.drawString("S: Mute", x*15/4, bottomY+215, font, Color.white);
 			// graphicsHandler.drawFilledRectangleWithBorder(x, topY, width / 2, height,
 			// Color.black, Color.white, 4);
 		}
-
-		String text = "Options";
-		textX = getXCenteredText(text);
-		textY = topY + width;
-		g2.drawString(text, textX, textY);
 
 	}
 
@@ -119,17 +103,4 @@ public class Options {
 		return keyLocker;
 	}
 
-	public int getMenuItemSelected() {
-		return menuItemSelected;
-	}
-
-	public int getXCenteredText(String text) {
-
-		// String textS = "Options";
-		font = new Font(Font.SANS_SERIF, Font.ITALIC, 11);
-		g2.getFontMetrics(font);
-		int length = (int) g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-		int x = this.width / 2 - length / 2;
-		return x;
-	}
 }

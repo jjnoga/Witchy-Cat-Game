@@ -2,10 +2,13 @@ package Level;
 
 import Engine.Config;
 import Engine.GraphicsHandler;
+import Engine.Key;
+import Engine.KeyLocker;
 import Engine.Keyboard;
 import Engine.ScreenManager;
 import EnhancedMapTiles.Sword;
 import GameObject.Rectangle;
+import Scripts.Sounds;
 import Utils.Direction;
 import Utils.Point;
 
@@ -90,6 +93,12 @@ public abstract class Map {
 
     protected Options options;
     protected boolean optionsCheck = true;
+    
+    private Key volUpKey = Key.A;
+	private Key volDownKey = Key.D;
+	private Key volMuteKey = Key.S;
+	protected KeyLocker keyLocker = new KeyLocker();
+	protected Sounds sound = new Sounds();
 
     public Map(String mapFileName, Tileset tileset) {
         this.mapFileName = mapFileName;
@@ -619,6 +628,28 @@ public abstract class Map {
         	}
         	else optionsCheck = true;
         }
+        
+        if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
+			keyLocker.lockKey(volUpKey);
+			sound.volumeUp();
+		} else if (Keyboard.isKeyUp(volUpKey)) {
+			keyLocker.unlockKey(volUpKey);
+		}
+		
+		if (Keyboard.isKeyDown(volDownKey) && !keyLocker.isKeyLocked(volDownKey)) {
+			keyLocker.lockKey(volDownKey);
+			sound.volumeDown();
+		} else if (Keyboard.isKeyUp(volDownKey)) {
+			keyLocker.unlockKey(volDownKey);
+		}
+		
+		if (Keyboard.isKeyDown(volMuteKey) && !keyLocker.isKeyLocked(volMuteKey)) {
+			keyLocker.lockKey(volMuteKey);
+			sound.volumeMute();
+		} else if (Keyboard.isKeyUp(volMuteKey)) {
+			keyLocker.unlockKey(volMuteKey);
+		}
+        
      }
       
       
