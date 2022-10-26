@@ -4,6 +4,7 @@ import Engine.GraphicsHandler;
 import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
+import Scripts.Sounds;
 import SpriteFont.SpriteFont;
 import Utils.Stopwatch;
 
@@ -41,6 +42,8 @@ public class Textbox {
     private Map map;
     private Key interactKey = Key.SPACE;
     private Stopwatch keyTimer = new Stopwatch();
+    
+    protected Sounds sound = new Sounds();
 
     public Textbox(Map map) {
 	this.map = map;
@@ -125,7 +128,7 @@ public class Textbox {
 	// if interact key is pressed, remove the current text from the queue to prepare
 	if (!textQueue.isEmpty() && keyLocker.isKeyLocked(interactKey)) {
 	    String next = textQueue.peek();
-
+	    
 	    // if camera is at bottom of screen, text is drawn at top of screen instead of
 	    // the bottom like usual
 	    // to prevent it from covering the player
@@ -136,7 +139,6 @@ public class Textbox {
 		fontY = fontTopY;
 	    }
 	    text = new SpriteFont(next, fontX, fontY, "Arial", 30, Color.black);
-
 	}
 
 	// if interact key is pressed, remove the current text from the queue to prepare
@@ -144,6 +146,7 @@ public class Textbox {
 	if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
 	    keyLocker.lockKey(interactKey);
 	    textQueue.poll();
+	    playSE(5);
 	    if (!decideTurn.isEmpty()) {
 		if (decideTurn.peek().equals("1")) {
 		    while (!textQueue.isEmpty()) {
@@ -163,13 +166,17 @@ public class Textbox {
 
 	if (Keyboard.isKeyDown(Key.RIGHT) && keyTimer.isTimeUp() && selectionText[0] != null) {
 	    keyTimer.reset();
+	    
 	    if (currentTextItemHovered != compiledCount - 1) {
 		currentTextItemHovered++;
+		playSE(4);
 	    }
 	} else if (Keyboard.isKeyDown(Key.LEFT) && keyTimer.isTimeUp() && selectionText[0] != null) {
 	    keyTimer.reset();
+	    
 	    if (currentTextItemHovered != 1) {
 		currentTextItemHovered--;
+		playSE(4);
 	    }
 	}
 
@@ -227,6 +234,11 @@ public class Textbox {
 
     public void setInteractKey(Key interactKey) {
 	this.interactKey = interactKey;
+    }
+    
+    public void playSE(int i) {
+    	sound.setFile(i);
+    	sound.play();
     }
 
 }

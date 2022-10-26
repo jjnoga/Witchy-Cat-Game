@@ -721,6 +721,7 @@ public abstract class Map {
         if (textbox.isActive()) {
             textbox.draw(graphicsHandler);
         }
+        
         if(inventory.isActive() && !textbox.isActive()) { //won't appear concurrently with textboxes
         	inventory.draw(graphicsHandler);
         }
@@ -762,5 +763,10 @@ public abstract class Map {
     
     public void setHasChangedCoins(boolean status) {
     	hasChangedCoins = status;
+    }
+    
+    public void playSE(int i) {
+    	sound.play();
+    	sound.stop();
     }
 }

@@ -2,6 +2,7 @@ package Scripts.TestMap;
 
 import Level.Script;
 import Level.ScriptState;
+import Scripts.Sounds;
 
 public class CertainAreaScript extends Script {
 
@@ -14,7 +15,6 @@ public class CertainAreaScript extends Script {
 		// vs talking to him afterwards (flag is set)
 		if (!isFlagSet("rightSpot")) {
 			addTextToTextboxQueue("You made it to just the right spot");
-			
 		}
 
 	}
@@ -37,5 +37,4 @@ public class CertainAreaScript extends Script {
 		}
 		return ScriptState.COMPLETED;
 	}
-
 }
