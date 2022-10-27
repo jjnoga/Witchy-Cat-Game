@@ -831,7 +831,7 @@ public class CommonTileset extends Tileset {
 		MapTileBuilder redTile = new MapTileBuilder(redFrame);
 
 		mapTiles.add(redTile);
-		
+
 		// cliff down
 		Frame cliffDownFrame = new FrameBuilder(getSubImage(12, 0)).withScale(tileScale).build();
 
@@ -841,7 +841,7 @@ public class CommonTileset extends Tileset {
 
 		// cliff up
 		Frame cliffUpFrame = new FrameBuilder(getSubImage(12, 0)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+				.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
 
 		MapTileBuilder cliffUpTile = new MapTileBuilder(cliffUpFrame).withTileType(TileType.NOT_PASSABLE);
 
@@ -849,7 +849,7 @@ public class CommonTileset extends Tileset {
 
 		// cliff right
 		Frame cliffRightFrame = new FrameBuilder(getSubImage(12, 1)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+				.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
 
 		MapTileBuilder cliffRightTile = new MapTileBuilder(cliffRightFrame).withTileType(TileType.NOT_PASSABLE);
 
@@ -864,196 +864,193 @@ public class CommonTileset extends Tileset {
 
 		// cliff out corner top left
 		Frame cliffOutCornerTopLeftFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+				.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
 
 		MapTileBuilder cliffOutCornerTopLeftTile = new MapTileBuilder(cliffOutCornerTopLeftFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffOutCornerTopLeftTile);
 
 		// cliff out corner top right
-		Frame cliffOutCornerTopRightFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
-			.build();
+		Frame cliffOutCornerTopRightFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale).build();
 
 		MapTileBuilder cliffOutCornerTopRightTile = new MapTileBuilder(cliffOutCornerTopRightFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffOutCornerTopRightTile);
 
 		// cliff out corner bottom left
 		Frame cliffOutCornerBottomRightFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+				.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
 
 		MapTileBuilder cliffOutCornerBottomRightTile = new MapTileBuilder(cliffOutCornerBottomRightFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffOutCornerBottomRightTile);
 
 		// cliff out corner bottom right
 		Frame cliffOutCornerBottomLeftFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+				.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
 
 		MapTileBuilder cliffOutCornerBottomLeftTile = new MapTileBuilder(cliffOutCornerBottomLeftFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffOutCornerBottomLeftTile);
 
 		// cliff in corner top left
 		Frame cliffInCornerTopLeftFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+				.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
 
 		MapTileBuilder cliffInCornerTopLeftTile = new MapTileBuilder(cliffInCornerTopLeftFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffInCornerTopLeftTile);
 
 		// cliff in corner top right
-		Frame cliffInCornerTopRightFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
-			.build();
+		Frame cliffInCornerTopRightFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale).build();
 
 		MapTileBuilder cliffInCornerTopRightTile = new MapTileBuilder(cliffInCornerTopRightFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffInCornerTopRightTile);
 
 		// cliff in corner bottom left
 		Frame cliffInCornerBottomRightFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+				.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
 
 		MapTileBuilder cliffInCornerBottomRightTile = new MapTileBuilder(cliffInCornerBottomRightFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffInCornerBottomRightTile);
 
 		// cliff in corner bottom right
 		Frame cliffInCornerBottomLeftFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
-			.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+				.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
 
 		MapTileBuilder cliffInCornerBottomLeftTile = new MapTileBuilder(cliffInCornerBottomLeftFrame)
-			.withTileType(TileType.NOT_PASSABLE);
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffInCornerBottomLeftTile);
-		
+
 		// sand house wall left
 
-				Frame sandHouseLeftWallFrame = new FrameBuilder(getSubImage(8, 6)).withScale(tileScale).build();
+		Frame sandHouseLeftWallFrame = new FrameBuilder(getSubImage(8, 6)).withScale(tileScale).build();
 
-				MapTileBuilder sandHouseLeftWallTile = new MapTileBuilder(sandHouseLeftWallFrame)
-						.withTileType(TileType.NOT_PASSABLE);
-				
-				mapTiles.add(sandHouseLeftWallTile);
+		MapTileBuilder sandHouseLeftWallTile = new MapTileBuilder(sandHouseLeftWallFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				// sand house mid wall
+		mapTiles.add(sandHouseLeftWallTile);
 
-				Frame sandHouseMidWallFrame = new FrameBuilder(getSubImage(8, 7)).withScale(tileScale).build();
+		// sand house mid wall
 
-				MapTileBuilder sandHouseMidWallTile = new MapTileBuilder(sandHouseMidWallFrame)
-						.withTileType(TileType.NOT_PASSABLE);
+		Frame sandHouseMidWallFrame = new FrameBuilder(getSubImage(8, 7)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseMidWallTile);
+		MapTileBuilder sandHouseMidWallTile = new MapTileBuilder(sandHouseMidWallFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				// sand house wall right
+		mapTiles.add(sandHouseMidWallTile);
 
-				Frame sandHouseRightWallFrame = new FrameBuilder(getSubImage(8, 8)).withScale(tileScale).build();
+		// sand house wall right
 
-				MapTileBuilder sandHouseRightWallTile = new MapTileBuilder(sandHouseRightWallFrame)
-						.withTileType(TileType.NOT_PASSABLE);
+		Frame sandHouseRightWallFrame = new FrameBuilder(getSubImage(8, 8)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseRightWallTile);
+		MapTileBuilder sandHouseRightWallTile = new MapTileBuilder(sandHouseRightWallFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				// sand house Flag top
+		mapTiles.add(sandHouseRightWallTile);
 
-				Frame sandHouseFlagTopFrame = new FrameBuilder(getSubImage(8, 9)).withScale(tileScale).build();
+		// sand house Flag top
 
-				MapTileBuilder sandHouseFlagTopTile = new MapTileBuilder(desertSandFrame).withTopLayer(sandHouseFlagTopFrame)
-						.withTileType(TileType.PASSABLE);
+		Frame sandHouseFlagTopFrame = new FrameBuilder(getSubImage(8, 9)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseFlagTopTile);
+		MapTileBuilder sandHouseFlagTopTile = new MapTileBuilder(desertSandFrame).withTopLayer(sandHouseFlagTopFrame)
+				.withTileType(TileType.PASSABLE);
 
-				// sand house left corner
+		mapTiles.add(sandHouseFlagTopTile);
 
-				Frame sandHouseLeftCornerFrame = new FrameBuilder(getSubImage(9, 5)).withScale(tileScale).build();
+		// sand house left corner
 
-				MapTileBuilder sandHouseLeftCornerTile = new MapTileBuilder(sandHouseLeftCornerFrame)
-						.withTileType(TileType.NOT_PASSABLE);
+		Frame sandHouseLeftCornerFrame = new FrameBuilder(getSubImage(9, 5)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseLeftCornerTile);
+		MapTileBuilder sandHouseLeftCornerTile = new MapTileBuilder(sandHouseLeftCornerFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				// sand house bottom
+		mapTiles.add(sandHouseLeftCornerTile);
 
-				Frame sandHouseBottomFrame = new FrameBuilder(getSubImage(9, 6)).withScale(tileScale).build();
+		// sand house bottom
 
-				MapTileBuilder sandHouseBottomTile = new MapTileBuilder(sandHouseBottomFrame)
-						.withTileType(TileType.NOT_PASSABLE);
+		Frame sandHouseBottomFrame = new FrameBuilder(getSubImage(9, 6)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseBottomTile);
+		MapTileBuilder sandHouseBottomTile = new MapTileBuilder(sandHouseBottomFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				// sand house right corner
+		mapTiles.add(sandHouseBottomTile);
 
-				Frame sandHouseRightCornerFrame = new FrameBuilder(getSubImage(9, 7)).withScale(tileScale).build();
+		// sand house right corner
 
-				MapTileBuilder sandHouseRightCornerTile = new MapTileBuilder(sandHouseRightCornerFrame)
-						.withTileType(TileType.NOT_PASSABLE);
+		Frame sandHouseRightCornerFrame = new FrameBuilder(getSubImage(9, 7)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseRightCornerTile);
+		MapTileBuilder sandHouseRightCornerTile = new MapTileBuilder(sandHouseRightCornerFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				// sand house door
+		mapTiles.add(sandHouseRightCornerTile);
 
-				Frame sandHouseDoorFrame = new FrameBuilder(getSubImage(9, 8)).withScale(tileScale).build();
+		// sand house door
 
-				MapTileBuilder sandHouseDoorTile = new MapTileBuilder(sandHouseDoorFrame).withTileType(TileType.NOT_PASSABLE);
+		Frame sandHouseDoorFrame = new FrameBuilder(getSubImage(9, 8)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseDoorTile);
+		MapTileBuilder sandHouseDoorTile = new MapTileBuilder(sandHouseDoorFrame).withTileType(TileType.NOT_PASSABLE);
 
-				// sand house top
+		mapTiles.add(sandHouseDoorTile);
 
-				Frame sandHouseTopFrame = new FrameBuilder(getSubImage(9, 9)).withScale(tileScale).build();
+		// sand house top
 
-				MapTileBuilder sandHouseTopTile = new MapTileBuilder(desertSandFrame).withTopLayer(sandHouseTopFrame)
-						.withTileType(TileType.PASSABLE);
+		Frame sandHouseTopFrame = new FrameBuilder(getSubImage(9, 9)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseTopTile);
-				
-				// sand house door deco
-				
-				Frame sandHouseDoorDecoFrame = new FrameBuilder(getSubImage(10, 5)).withScale(tileScale).build();
+		MapTileBuilder sandHouseTopTile = new MapTileBuilder(desertSandFrame).withTopLayer(sandHouseTopFrame)
+				.withTileType(TileType.PASSABLE);
 
-				MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame);
+		mapTiles.add(sandHouseTopTile);
 
-				mapTiles.add(sandHouseDoorDecoTile);
-				
-				// sand house right window wall
-				
-				Frame sandHouseRightWindowWallFrame = new FrameBuilder(getSubImage(10, 6)).withScale(tileScale).build();
+		// sand house door deco
 
-				MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame);
+		Frame sandHouseDoorDecoFrame = new FrameBuilder(getSubImage(10, 5)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseRightWindowWallTile);
-				
-				// sand house left window wall
-				
-				Frame sandHouseLeftWindowWallFrame = new FrameBuilder(getSubImage(10, 7)).withScale(tileScale).build();
+		MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame);
 
-				MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame);
+		mapTiles.add(sandHouseDoorDecoTile);
 
-				mapTiles.add(sandHouseLeftWindowWellTile);
-				
-				// sand house left window
-				
-				Frame sandHouseLeftWindowFrame = new FrameBuilder(getSubImage(10, 8)).withScale(tileScale).build();
+		// sand house right window wall
 
-				MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame);
+		Frame sandHouseRightWindowWallFrame = new FrameBuilder(getSubImage(10, 6)).withScale(tileScale).build();
 
-				mapTiles.add(sandHouseLeftWindowTile);
-				
-				// sand house right window
-				
-				Frame sandHouseRightWindowFrame = new FrameBuilder(getSubImage(10, 9)).withScale(tileScale).build();
+		MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame);
 
-				MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame);
+		mapTiles.add(sandHouseRightWindowWallTile);
 
-				mapTiles.add(sandHouseRightWindowTile);
+		// sand house left window wall
 
+		Frame sandHouseLeftWindowWallFrame = new FrameBuilder(getSubImage(10, 7)).withScale(tileScale).build();
+
+		MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame);
+
+		mapTiles.add(sandHouseLeftWindowWellTile);
+
+		// sand house left window
+
+		Frame sandHouseLeftWindowFrame = new FrameBuilder(getSubImage(10, 8)).withScale(tileScale).build();
+
+		MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame);
+
+		mapTiles.add(sandHouseLeftWindowTile);
+
+		// sand house right window
+
+		Frame sandHouseRightWindowFrame = new FrameBuilder(getSubImage(10, 9)).withScale(tileScale).build();
+
+		MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame);
+
+		mapTiles.add(sandHouseRightWindowTile);
 
 		return mapTiles;
 
