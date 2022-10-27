@@ -637,26 +637,7 @@ public abstract class Map {
         
       
         
-        if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
-			keyLocker.lockKey(volUpKey);
-			sound.volumeUp();
-		} else if (Keyboard.isKeyUp(volUpKey)) {
-			keyLocker.unlockKey(volUpKey);
-		}
-		
-		if (Keyboard.isKeyDown(volDownKey) && !keyLocker.isKeyLocked(volDownKey)) {
-			keyLocker.lockKey(volDownKey);
-			sound.volumeDown();
-		} else if (Keyboard.isKeyUp(volDownKey)) {
-			keyLocker.unlockKey(volDownKey);
-		}
-		
-		if (Keyboard.isKeyDown(volMuteKey) && !keyLocker.isKeyLocked(volMuteKey)) {
-			keyLocker.lockKey(volMuteKey);
-			sound.volumeMute();
-		} else if (Keyboard.isKeyUp(volMuteKey)) {
-			keyLocker.unlockKey(volMuteKey);
-		}
+        
         
      }
       
