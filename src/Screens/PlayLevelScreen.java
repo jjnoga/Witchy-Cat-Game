@@ -262,6 +262,11 @@ public class PlayLevelScreen extends Screen {
 			this.player.setLocation(374, 408);
 			map.setFlagManager(flagManager);
 			this.player.setMap(map);
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
 		    }
 
 		    // summer map
@@ -324,6 +329,12 @@ public class PlayLevelScreen extends Screen {
 				winterMap.addNPC(npc);
 				;
 			    }
+			    
+			    if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+				else map.getInventory().setIsActive(true);
+				
+				if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+				else map.getOptions().setIsActive(true);
 			}
 			this.player.setLocation((player.getLocation().x - 384), (winterMap.getEndBoundY() - 333));
 			this.map = winterMap;
@@ -361,6 +372,7 @@ public class PlayLevelScreen extends Screen {
 				fallMap.addNPC(npc);
 				;
 			    }
+			    
 			}
 			this.player.setLocation(fallMap.getEndBoundX() - 474, (player.getLocation().y - 336));
 			this.map = fallMap;
