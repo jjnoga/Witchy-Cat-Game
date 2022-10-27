@@ -630,7 +630,7 @@ public abstract class Map {
         
         if (flagManager != null && !flagManager.isFlagSet("hasGivenSwordItem") && flagManager.isFlagSet("hasDropped") && isSpring)
         {
-        	this.sword = new Sword(getMapTile(21, 23).getLocation(), this);
+        	this.sword = new Sword(getMapTile(30, 30).getLocation(), this);
         	addEnhancedMapTile(sword);
         	sword.isHidden = false;
         }
