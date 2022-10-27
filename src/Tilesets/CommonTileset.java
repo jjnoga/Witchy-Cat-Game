@@ -933,6 +933,127 @@ public class CommonTileset extends Tileset {
 			.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cliffInCornerBottomLeftTile);
+		
+		// sand house wall left
+
+				Frame sandHouseLeftWallFrame = new FrameBuilder(getSubImage(8, 6)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseLeftWallTile = new MapTileBuilder(sandHouseLeftWallFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+				
+				mapTiles.add(sandHouseLeftWallTile);
+
+				// sand house mid wall
+
+				Frame sandHouseMidWallFrame = new FrameBuilder(getSubImage(8, 7)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseMidWallTile = new MapTileBuilder(sandHouseMidWallFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(sandHouseMidWallTile);
+
+				// sand house wall right
+
+				Frame sandHouseRightWallFrame = new FrameBuilder(getSubImage(8, 8)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseRightWallTile = new MapTileBuilder(sandHouseRightWallFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(sandHouseRightWallTile);
+
+				// sand house Flag top
+
+				Frame sandHouseFlagTopFrame = new FrameBuilder(getSubImage(8, 9)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseFlagTopTile = new MapTileBuilder(desertSandFrame).withTopLayer(sandHouseFlagTopFrame)
+						.withTileType(TileType.PASSABLE);
+
+				mapTiles.add(sandHouseFlagTopTile);
+
+				// sand house left corner
+
+				Frame sandHouseLeftCornerFrame = new FrameBuilder(getSubImage(9, 5)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseLeftCornerTile = new MapTileBuilder(sandHouseLeftCornerFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(sandHouseLeftCornerTile);
+
+				// sand house bottom
+
+				Frame sandHouseBottomFrame = new FrameBuilder(getSubImage(9, 6)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseBottomTile = new MapTileBuilder(sandHouseBottomFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(sandHouseBottomTile);
+
+				// sand house right corner
+
+				Frame sandHouseRightCornerFrame = new FrameBuilder(getSubImage(9, 7)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseRightCornerTile = new MapTileBuilder(sandHouseRightCornerFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(sandHouseRightCornerTile);
+
+				// sand house door
+
+				Frame sandHouseDoorFrame = new FrameBuilder(getSubImage(9, 8)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseDoorTile = new MapTileBuilder(sandHouseDoorFrame).withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(sandHouseDoorTile);
+
+				// sand house top
+
+				Frame sandHouseTopFrame = new FrameBuilder(getSubImage(9, 9)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseTopTile = new MapTileBuilder(desertSandFrame).withTopLayer(sandHouseTopFrame)
+						.withTileType(TileType.PASSABLE);
+
+				mapTiles.add(sandHouseTopTile);
+				
+				// sand house door deco
+				
+				Frame sandHouseDoorDecoFrame = new FrameBuilder(getSubImage(10, 5)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame);
+
+				mapTiles.add(sandHouseDoorDecoTile);
+				
+				// sand house right window wall
+				
+				Frame sandHouseRightWindowWallFrame = new FrameBuilder(getSubImage(10, 6)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame);
+
+				mapTiles.add(sandHouseRightWindowWallTile);
+				
+				// sand house left window wall
+				
+				Frame sandHouseLeftWindowWallFrame = new FrameBuilder(getSubImage(10, 7)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame);
+
+				mapTiles.add(sandHouseLeftWindowWellTile);
+				
+				// sand house left window
+				
+				Frame sandHouseLeftWindowFrame = new FrameBuilder(getSubImage(10, 8)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame);
+
+				mapTiles.add(sandHouseLeftWindowTile);
+				
+				// sand house right window
+				
+				Frame sandHouseRightWindowFrame = new FrameBuilder(getSubImage(10, 9)).withScale(tileScale).build();
+
+				MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame);
+
+				mapTiles.add(sandHouseRightWindowTile);
+
 
 		return mapTiles;
 
