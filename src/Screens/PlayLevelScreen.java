@@ -255,13 +255,18 @@ public class PlayLevelScreen extends Screen {
 		if (map.getMapFileName().equals("test_map.txt")) {
 
 		    // Walrus house interior
-		    if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
+		    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596) {
 			springMap = this.map;
 			interiorMap.setCoinCounter(this.map.getCoinCounter());
 			this.map = interiorMap;
 			this.player.setLocation(374, 408);
 			map.setFlagManager(flagManager);
 			this.player.setMap(map);
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
 		    }
 
 		    // summer map
@@ -324,6 +329,12 @@ public class PlayLevelScreen extends Screen {
 				winterMap.addNPC(npc);
 				;
 			    }
+			    
+			    if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+				else map.getInventory().setIsActive(true);
+				
+				if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+				else map.getOptions().setIsActive(true);
 			}
 			this.player.setLocation((player.getLocation().x - 384), (winterMap.getEndBoundY() - 333));
 			this.map = winterMap;
@@ -361,6 +372,7 @@ public class PlayLevelScreen extends Screen {
 				fallMap.addNPC(npc);
 				;
 			    }
+			    
 			}
 			this.player.setLocation(fallMap.getEndBoundX() - 474, (player.getLocation().y - 336));
 			this.map = fallMap;
@@ -526,7 +538,7 @@ public class PlayLevelScreen extends Screen {
 			interiorMap = this.map;
 			springMap.setCoinCounter(this.map.getCoinCounter());
 			this.map = springMap;
-			this.player.setLocation(173, 1264);
+			this.player.setLocation(612, 1600);
 			map.setFlagManager(flagManager);
 			this.player.setMap(map);
 			

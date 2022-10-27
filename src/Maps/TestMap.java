@@ -95,15 +95,11 @@ public class TestMap extends Map {
 	dinosaur.setInteractScript(new DinoScriptItemGive());
 	npcs.add(dinosaur);
 
-	Pizza pizza = new Pizza(3, getMapTile(19, 32).getLocation());
-	pizza.setInteractScript(new PizzaScript());
-	npcs.add(pizza);
-
-	Blorbo blorbo = new Blorbo(4, getMapTile(21, 28).getLocation());
+	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
 	blorbo.setInteractScript(new BlorboScript());
 	npcs.add(blorbo);
 
-	Bruce bruce = new Bruce(5, getMapTile(35, 26).getLocation());
+	Bruce bruce = new Bruce(4, getMapTile(35, 26).getLocation());
 	bruce.setInteractScript(new BruceScript());
 	npcs.add(bruce);
 
