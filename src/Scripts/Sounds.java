@@ -26,6 +26,8 @@ public class Sounds {
 		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav");
 		soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav");
 		soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
+		soundURL[8] = getClass().getResource("/Sounds/VineCut.wav");
+		soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav");
 	}
 	
 	public void setFile(int i) {

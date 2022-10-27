@@ -21,6 +21,7 @@ import Utils.Point;
 public class Vines extends EnhancedMapTile{
 	protected TestMap map;
 	public int vineCounter = 0;
+	protected Sounds sound = new Sounds();
 
 	public Vines(Point location, TestMap testMap) {
 		 super(location.x, location.y, new SpriteSheet(ImageLoader.load("Vines.png"),16, 16), TileType.NOT_PASSABLE);
@@ -31,10 +32,11 @@ public class Vines extends EnhancedMapTile{
 	    public void update(Player player) {
 	        super.update(player);
 	        
-	       if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) 
+	       if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden && map.getFlagManager().isFlagSet("hasGivenSwordItem")) 
 	        {
 	            this.isHidden = true;
-	            
+	            sound.setFile(8);
+	            sound.play();
 	       }
 	   }
 	  

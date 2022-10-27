@@ -545,15 +545,18 @@ public abstract class Map {
             textbox.update();
         }
         
+        inventory.update();
         //if "i" is pressed
         if (Keyboard.isKeyDown(inventory.getInteractKey()))
         {
         	inventory.getKeyLocker().lockKey(inventory.getInteractKey());
         	if (inventoryCheck) {
             	inventory.setIsActive(true);
+            	flagManager.unsetFlag("inventoryCheck");
         	}
         	else { 
         		inventory.setIsActive(false); 
+        		flagManager.setFlag("inventoryCheck");
         	}
         	
         }
@@ -569,6 +572,31 @@ public abstract class Map {
         
         if(inventory.getCurrItem() != inventory.EMPTY) {
         	this.dropCheck = true;
+        }
+        
+        options.update();
+      //if "o" is pressed
+        if (Keyboard.isKeyDown(options.getInteractKey()))
+        {
+        	options.getKeyLocker().lockKey(options.getInteractKey());
+        	if (optionsCheck) {
+            	options.setIsActive(true);
+            	flagManager.unsetFlag("optionsCheck");
+        	}
+        	else { 
+        		options.setIsActive(false); 
+        		flagManager.setFlag("optionsCheck");
+        	}
+        	
+        }
+        //once "o" is released
+        if (Keyboard.isKeyUp(options.getInteractKey()))
+        {
+        	options.getKeyLocker().unlockKey(options.getInteractKey());
+        	if (options.isActive()) { 
+            	optionsCheck = false;
+        	}
+        	else optionsCheck = true;
         }
         
         if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()))
@@ -607,27 +635,7 @@ public abstract class Map {
         	sword.isHidden = false;
         }
         
-      //if "o" is pressed
-        if (Keyboard.isKeyDown(options.getInteractKey()))
-        {
-        	options.getKeyLocker().lockKey(options.getInteractKey());
-        	if (optionsCheck) {
-            	options.setIsActive(true);
-        	}
-        	else { 
-        		options.setIsActive(false); 
-        	}
-        	
-        }
-        //once "o" is released
-        if (Keyboard.isKeyUp(options.getInteractKey()))
-        {
-        	options.getKeyLocker().unlockKey(options.getInteractKey());
-        	if (options.isActive()) { 
-            	optionsCheck = false;
-        	}
-        	else optionsCheck = true;
-        }
+      
         
         if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
 			keyLocker.lockKey(volUpKey);
@@ -768,5 +776,17 @@ public abstract class Map {
     public void playSE(int i) {
     	sound.setFile(i);
     	sound.play();
+    }
+    
+    public Sounds getSE() {
+    	return this.sound;
+    }
+    
+    public Inventory getInventory() {
+    	return inventory;
+    }
+    
+    public Options getOptions() {
+    	return options;
     }
 }

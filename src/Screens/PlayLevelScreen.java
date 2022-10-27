@@ -48,16 +48,10 @@ public class PlayLevelScreen extends Screen {
 	private Key volUpKey = Key.A;
 	private Key volDownKey = Key.D;
 	private Key volMuteKey = Key.S;
-//<<<<<< HEAD
 	protected GamePanel gp;
-
-///=======
-
-//>>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
 	Sounds sound = new Sounds();
 
 	public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
-//<<<<<<< HEAD
 		this.screenCoordinator = screenCoordinator;
 
 //       
@@ -97,6 +91,8 @@ public class PlayLevelScreen extends Screen {
 //        
 //        frame.pack();
 //        frame.setVisible(true);
+		
+		
 
 		playMusic(0);
 	}
@@ -118,6 +114,8 @@ public class PlayLevelScreen extends Screen {
 		flagManager.addFlag("hasIceSphere", false);
 		flagManager.addFlag("hasFireRose", false);
 		flagManager.addFlag("inSpringArea", false);
+		flagManager.addFlag("inventoryCheck",true);
+		flagManager.addFlag("optionsCheck",true);
 
 		// define/setup map
 		springMap = new TestMap();
@@ -130,7 +128,6 @@ public class PlayLevelScreen extends Screen {
 		map.reset();
 		map.setFlagManager(flagManager);
 
-//<<<<<<< HEAD
 		// setup player
 		this.player = new Cat(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
 		this.player.setMap(map);
@@ -140,8 +137,6 @@ public class PlayLevelScreen extends Screen {
 		this.player.setFacingDirection(Direction.LEFT);
 
 		this.options = new UI(gp);
-//=======
-///>>>>>>> 76b9b7df3111fcf0df28252fbce6b01269ddfd45
 
 		// let pieces of map know which button to listen for as the "interact" button
 		map.getTextbox().setInteractKey(player.getInteractKey());
@@ -217,6 +212,8 @@ public class PlayLevelScreen extends Screen {
 		if (map.getFlagManager().isFlagSet("hasFoundBall")) {
 			playLevelScreenState = PlayLevelScreenState.LEVEL_COMPLETED;
 		}
+		
+		
 
 		//////////// Temporary thing, get player location by pressing B
 		//////////// ///////////
@@ -241,6 +238,12 @@ public class PlayLevelScreen extends Screen {
 				this.player.setLocation(374, 408);
 				map.setFlagManager(flagManager);
 				this.player.setMap(map);
+				
+				if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+				else map.getInventory().setIsActive(true);
+				
+				if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+				else map.getOptions().setIsActive(true);
 			}
 
 			// summer map
@@ -254,6 +257,12 @@ public class PlayLevelScreen extends Screen {
 					this.map = summerMap;
 					map.setFlagManager(flagManager);
 					this.player.setMap(map);
+					
+					if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+					else map.getInventory().setIsActive(true);
+					
+					if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+					else map.getOptions().setIsActive(true);
 				}
 			}
 

@@ -49,7 +49,7 @@ public class Inventory {
     private ImageIcon fireRoseHidden;
     
     protected Sounds sound = new Sounds();
-    
+    private boolean isPressed = false;
     
     
     protected boolean dropCheck = false;
@@ -73,9 +73,13 @@ public class Inventory {
     	
     	 if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
              keyLocker.lockKey(interactKey);
+             if(!isPressed) playSE(6);
+             isPressed = true;
          }
     	 else if (Keyboard.isKeyUp(interactKey)) {
              keyLocker.unlockKey(interactKey);
+             isPressed = false;
+             
          }
     	 
     	 if(dropCheck) currItem = EMPTY;
@@ -135,7 +139,6 @@ public class Inventory {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
-        playSE(6);
     }
 
     public void setInteractKey(Key interactKey) {

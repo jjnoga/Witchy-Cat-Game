@@ -37,13 +37,14 @@ public class Options {
 //	protected static int pointerLocationY;
 //	protected int textX;
 //	protected int textY;
-	protected Sounds sound;
+	protected Sounds sound = new Sounds();
 	protected String text = "Volume Controls";
+	private boolean isPressed = false;
 
 
 	private KeyLocker keyLocker = new KeyLocker();
 	private Map map;
-	private Key interactKey = Key.I;
+	private Key interactKey = Key.O;
 
 	public Options(Map map) {
 		this.map = map;
@@ -53,8 +54,12 @@ public class Options {
 
 		if (Keyboard.isKeyDown(interactKey) && !keyLocker.isKeyLocked(interactKey)) {
 			keyLocker.lockKey(interactKey);
+			
+			if(!isPressed) playSE(9);
+            isPressed = true;
 		} else if (Keyboard.isKeyUp(interactKey)) {
 			keyLocker.unlockKey(interactKey);
+			isPressed = false;
 		}
 		
 		//font = new Font(Font.SANS_SERIF, Font.BOLD, 20);
@@ -102,5 +107,10 @@ public class Options {
 	public KeyLocker getKeyLocker() {
 		return keyLocker;
 	}
+	
+	public void playSE(int i) {
+    	sound.setFile(i);
+    	sound.play();
+    }
 
 }
