@@ -34,7 +34,7 @@ public class GoldLeaf extends EnhancedMapTile {
         super.update(player);
         if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
       		map.getFlagManager().setFlag("hasGoldLeaf");
-      		sound.stop();
+      		//sound.stop();
             playSE(3);
             this.isHidden = true;
       	}
