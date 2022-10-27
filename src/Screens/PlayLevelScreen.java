@@ -122,7 +122,9 @@ public class PlayLevelScreen extends Screen {
 		summerMap = new SummerMap();
 		summerMap.setCameraX(48);
 		winterMap = new WinterMap();
+		winterMap.setCameraY(winterMap.getEndBoundY() - 619);
 		fallMap = new FallMap();
+		fallMap.setCameraX(fallMap.getEndBoundX() - 867);
 		interiorMap = new InteriorMap();
 		this.map = springMap;
 		map.reset();
@@ -237,12 +239,12 @@ public class PlayLevelScreen extends Screen {
 		
 		
 
-		//////////// Temporary thing, get player location by pressing B
+		//////////// Temporary thing, get player and camera location by pressing B
 		//////////// ///////////
 		if (Keyboard.isKeyDown(Key.B) && !keyLocker.isKeyLocked(Key.B)) {
-			System.out.println("player coords: " + player.getLocation());
-			System.out.println("cameraY: " + this.map.getCamera().getY());
-			System.out.println("cameraX: " + this.map.getCamera().getX());
+		    System.out.println("player coords: " + player.getLocation());
+		    System.out.println(
+			    "camera coords: (" + this.map.getCamera().getX() + ", " + this.map.getCamera().getY() + ")");
 		}
 		////////////////////////////////////////////////////////////////////////////////////////
 
@@ -252,96 +254,270 @@ public class PlayLevelScreen extends Screen {
 		// leaving spring
 		if (map.getMapFileName().equals("test_map.txt")) {
 
-			// Walrus house interior
-			if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
-				springMap = this.map;
-				interiorMap.setCoinCounter(this.map.getCoinCounter());
-				this.map = interiorMap;
-				this.player.setLocation(374, 408);
-				map.setFlagManager(flagManager);
-				this.player.setMap(map);
-				
-				if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-				else map.getInventory().setIsActive(true);
-				
-				if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-				else map.getOptions().setIsActive(true);
+		    // Walrus house interior
+		    if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
+			springMap = this.map;
+			interiorMap.setCoinCounter(this.map.getCoinCounter());
+			this.map = interiorMap;
+			this.player.setLocation(374, 408);
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+		    }
+
+		    // summer map
+		    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {
+			springMap = this.map;
+			summerMap.setCoinCounter(this.map.getCoinCounter());
+			summerMap.setCameraY(this.map.getCamera().getY() - 336);
+			for (int i = 0; i < springMap.getActiveEnhancedMapTiles().size(); i++) {
+			    if (springMap.getActiveEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
+				EnhancedMapTile enhancedMapTile = springMap.getActiveEnhancedMapTiles().get(i);
+				enhancedMapTile.setX(
+					springMap.getActiveEnhancedMapTiles().get(i).getX() - (springMap.getEndBoundX() - 864));
+				enhancedMapTile.setY(springMap.getActiveEnhancedMapTiles().get(i).getY() - 336);
+				enhancedMapTile.setMap(summerMap);
+				summerMap.addEnhancedMapTile(enhancedMapTile);
+			    }
 			}
-
-			// summer map
-			if (player.getFacingDirection().getVelocity() > 0) {
-				if (player.getLocation().x > this.map.getEndBoundX() - 426) {
-					springMap = this.map;
-					summerMap.setCoinCounter(this.map.getCoinCounter());
-					summerMap.setCameraY(this.map.getCamera().getY());
-					this.player.setLocation(438,
-							(player.getLocation().y / springMap.getHeight()) * summerMap.getHeight());
-					this.map = summerMap;
-					map.setFlagManager(flagManager);
-					this.player.setMap(map);
-					
-					if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-					else map.getInventory().setIsActive(true);
-					
-					if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-					else map.getOptions().setIsActive(true);
-				}
+			for (int i = 0; i < springMap.getActiveNPCs().size(); i++) {
+			    if (springMap.getActiveNPCs().get(i).getX() > springMap.getEndBoundX() - 730) {
+				NPC npc = springMap.getActiveNPCs().get(i);
+				npc.setX(springMap.getActiveNPCs().get(i).getX() - (springMap.getEndBoundX() - 864));
+				npc.setY(springMap.getActiveNPCs().get(i).getY() - 336);
+				npc.setMap(summerMap);
+				summerMap.addNPC(npc);
+			    }
 			}
+			this.player.setLocation(438, (player.getLocation().y - 336));
+			this.map = summerMap;
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
 
-			// winter map
+		    // winter map
+		    else if (player.getLocation().y < 300) {
+			springMap = this.map;
+			winterMap.setCoinCounter(this.map.getCoinCounter());
+			winterMap.setCameraX(this.map.getCamera().getX() - 384);
+			for (int i = 0; i < springMap.getActiveEnhancedMapTiles().size(); i++) {
+			    if (springMap.getActiveEnhancedMapTiles().get(i).getY() < 500) {
+				EnhancedMapTile enhancedMapTile = springMap.getActiveEnhancedMapTiles().get(i);
+				enhancedMapTile.setX(springMap.getActiveEnhancedMapTiles().get(i).getX() - 384);
+				enhancedMapTile.setY(
+					springMap.getActiveEnhancedMapTiles().get(i).getY() + (winterMap.getEndBoundY() - 634));
+				enhancedMapTile.setMap(winterMap);
+				winterMap.addEnhancedMapTile(enhancedMapTile);
+			    }
+			}
+			for (int i = 0; i < springMap.getActiveNPCs().size(); i++) {
+			    if (springMap.getActiveNPCs().get(i).getY() < 500) {
+				NPC npc = springMap.getActiveNPCs().get(i);
+				npc.setX(springMap.getActiveNPCs().get(i).getX() - 384);
+				npc.setY(springMap.getActiveNPCs().get(i).getY() + (winterMap.getEndBoundY() - 634));
+				npc.setMap(winterMap);
+				winterMap.addNPC(npc);
+				;
+			    }
+			}
+			this.player.setLocation((player.getLocation().x - 384), (winterMap.getEndBoundY() - 333));
+			this.map = winterMap;
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
 
-			// fall map
+		    // fall map
+		    else if (player.getLocation().x < 390) {
+			springMap = this.map;
+			fallMap.setCoinCounter(this.map.getCoinCounter());
+			fallMap.setCameraY(this.map.getCamera().getY() - 336);
+			for (int i = 0; i < springMap.getActiveEnhancedMapTiles().size(); i++) {
+			    if (springMap.getActiveEnhancedMapTiles().get(i).getX() < 730) {
+				EnhancedMapTile enhancedMapTile = springMap.getActiveEnhancedMapTiles().get(i);
+				enhancedMapTile.setX(
+					springMap.getActiveEnhancedMapTiles().get(i).getX() + (fallMap.getEndBoundX() - 864));
+				enhancedMapTile.setY(springMap.getActiveEnhancedMapTiles().get(i).getY() - 336);
+				enhancedMapTile.setMap(fallMap);
+				fallMap.addEnhancedMapTile(enhancedMapTile);
+			    }
+			}
+			for (int i = 0; i < springMap.getActiveNPCs().size(); i++) {
+			    if (springMap.getActiveNPCs().get(i).getX() < 730) {
+				NPC npc = springMap.getActiveNPCs().get(i);
+				npc.setX(springMap.getActiveNPCs().get(i).getX() + (fallMap.getEndBoundX() - 864));
+				npc.setY(springMap.getActiveNPCs().get(i).getY() - 336);
+				npc.setMap(fallMap);
+				fallMap.addNPC(npc);
+				;
+			    }
+			}
+			this.player.setLocation(fallMap.getEndBoundX() - 474, (player.getLocation().y - 336));
+			this.map = fallMap;
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
 
+		}
+
+		// leaving winter
+		if (map.getMapFileName().equals("winter_map.txt")) {
+
+		    // spring map
+		    if (player.getLocation().y > this.map.getEndBoundY() - 333) {
+			winterMap = this.map;
+			springMap.setCoinCounter(this.map.getCoinCounter());
+			springMap.setCameraX(this.map.getCamera().getX() + 384);
+			for (int i = 0; i < winterMap.getActiveEnhancedMapTiles().size(); i++) {
+			    if (winterMap.getActiveEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 634) {
+				EnhancedMapTile enhancedMapTile = winterMap.getActiveEnhancedMapTiles().get(i);
+				enhancedMapTile.setX(winterMap.getActiveEnhancedMapTiles().get(i).getX() + 384);
+				enhancedMapTile.setY(
+					winterMap.getActiveEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 634));
+				enhancedMapTile.setMap(springMap);
+				springMap.addEnhancedMapTile(enhancedMapTile);
+			    }
+
+			}
+			for (int i = 0; i < winterMap.getActiveNPCs().size(); i++) {
+			    if (winterMap.getActiveNPCs().get(i).getY() > winterMap.getEndBoundY() - 634) {
+				NPC npc = winterMap.getActiveNPCs().get(i);
+				npc.setX(winterMap.getActiveNPCs().get(i).getX() + 384);
+				npc.setY(winterMap.getActiveNPCs().get(i).getY() - (winterMap.getEndBoundY() - 634));
+				npc.setMap(springMap);
+				springMap.addNPC(npc);
+				;
+			    }
+			}
+			this.player.setLocation(player.getLocation().x + 384, 300);
+			this.map = springMap;
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
+		}
+
+		// leaving fall
+		if (map.getMapFileName().equals("fall_map.txt")) {
+
+		    // spring map
+		    if (player.getLocation().x > this.map.getEndBoundX() - 474) {
+			fallMap = this.map;
+			springMap.setCoinCounter(this.map.getCoinCounter());
+			springMap.setCameraY(this.map.getCamera().getY() + 336);
+			for (int i = 0; i < fallMap.getActiveEnhancedMapTiles().size(); i++) {
+			    if (fallMap.getActiveEnhancedMapTiles().get(i).getX() > fallMap.getEndBoundX() - 730) {
+				EnhancedMapTile enhancedMapTile = fallMap.getActiveEnhancedMapTiles().get(i);
+				enhancedMapTile.setX(
+					fallMap.getActiveEnhancedMapTiles().get(i).getX() - (fallMap.getEndBoundX() - 864));
+				enhancedMapTile.setY(fallMap.getActiveEnhancedMapTiles().get(i).getY() + 336);
+				enhancedMapTile.setMap(springMap);
+				springMap.addEnhancedMapTile(enhancedMapTile);
+			    }
+			}
+			for (int i = 0; i < fallMap.getActiveNPCs().size(); i++) {
+			    if (fallMap.getActiveNPCs().get(i).getX() > fallMap.getEndBoundX() - 730) {
+				NPC npc = fallMap.getActiveNPCs().get(i);
+				npc.setX(fallMap.getActiveNPCs().get(i).getX() - (fallMap.getEndBoundX() - 864));
+				npc.setY(fallMap.getActiveNPCs().get(i).getY() + 336);
+				npc.setMap(springMap);
+				springMap.addNPC(npc);
+			    }
+			}
+			this.player.setLocation(390, (player.getLocation().y + 336));
+			this.map = springMap;
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
 		}
 
 		// leaving summer
 		if (map.getMapFileName().equals("summer_map.txt")) {
 
-			// spring map
-			if (player.getFacingDirection().getVelocity() < 0) {
-				if (player.getLocation().x < 438) {
-					summerMap = this.map;
-					springMap.setCoinCounter(this.map.getCoinCounter());
-					// System.out.println("springPre: " + springMap.getCamera().getY());
-					springMap.setCameraY(this.map.getCamera().getY());
-					// System.out.println("springPost: " + springMap.getCamera().getY());
-					this.player.setLocation(springMap.getEndBoundX() - 426,
-							(player.getLocation().y / summerMap.getHeight()) * springMap.getHeight());
-					this.map = springMap;
-					map.setFlagManager(flagManager);
-					this.player.setMap(map);
-					
-					if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-					else map.getInventory().setIsActive(true);
-					
-					if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-					else map.getOptions().setIsActive(true);
-				}
+		    // spring map
+		    if (player.getLocation().x < 438) {
+			summerMap = this.map;
+			springMap.setCoinCounter(this.map.getCoinCounter());
+			springMap.setCameraY(this.map.getCamera().getY() + 336);
+			for (int i = 0; i < summerMap.getActiveEnhancedMapTiles().size(); i++) {
+			    if (summerMap.getActiveEnhancedMapTiles().get(i).getX() < 730) {
+				EnhancedMapTile enhancedMapTile = summerMap.getActiveEnhancedMapTiles().get(i);
+				enhancedMapTile.setX(
+					summerMap.getActiveEnhancedMapTiles().get(i).getX() + (springMap.getEndBoundX() - 864));
+				enhancedMapTile.setY(summerMap.getActiveEnhancedMapTiles().get(i).getY() + 336);
+				enhancedMapTile.setMap(springMap);
+				springMap.addEnhancedMapTile(enhancedMapTile);
+			    }
 			}
+			for (int i = 0; i < summerMap.getActiveNPCs().size(); i++) {
+			    if (summerMap.getActiveNPCs().get(i).getX() < 730) {
+				NPC npc = summerMap.getActiveNPCs().get(i);
+				npc.setX(summerMap.getActiveNPCs().get(i).getX() + (springMap.getEndBoundX() - 864));
+				npc.setY(summerMap.getActiveNPCs().get(i).getY() + 336);
+				npc.setMap(springMap);
+				springMap.addNPC(npc);
+				;
+			    }
+			}
+			this.player.setLocation(springMap.getEndBoundX() - 426, (player.getLocation().y + 336));
+			this.map = springMap;
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
+
 		}
 
 		// leaving interior
 		if (map.getMapFileName().equals("interior_map.txt")) {
-			if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
-				interiorMap = this.map;
-				springMap.setCoinCounter(this.map.getCoinCounter());
-				this.map = springMap;
-				this.player.setLocation(173, 1264);
-				map.setFlagManager(flagManager);
-				this.player.setMap(map);
-				
-				if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-				else map.getInventory().setIsActive(true);
-				
-				if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-				else map.getOptions().setIsActive(true);
-			}
+		    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
+			interiorMap = this.map;
+			springMap.setCoinCounter(this.map.getCoinCounter());
+			this.map = springMap;
+			this.player.setLocation(173, 1264);
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+			
+			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+			else map.getInventory().setIsActive(true);
+			
+			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+			else map.getOptions().setIsActive(true);
+		    }
 		}
-		
-		
-		
-		
-	}
+	    }
 
 	public void draw(GraphicsHandler graphicsHandler) {
 // based on screen state, draw appropriate graphics

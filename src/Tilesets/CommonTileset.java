@@ -831,6 +831,108 @@ public class CommonTileset extends Tileset {
 		MapTileBuilder redTile = new MapTileBuilder(redFrame);
 
 		mapTiles.add(redTile);
+		
+		// cliff down
+		Frame cliffDownFrame = new FrameBuilder(getSubImage(12, 0)).withScale(tileScale).build();
+
+		MapTileBuilder cliffDownTile = new MapTileBuilder(cliffDownFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffDownTile);
+
+		// cliff up
+		Frame cliffUpFrame = new FrameBuilder(getSubImage(12, 0)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+		MapTileBuilder cliffUpTile = new MapTileBuilder(cliffUpFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffUpTile);
+
+		// cliff right
+		Frame cliffRightFrame = new FrameBuilder(getSubImage(12, 1)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+		MapTileBuilder cliffRightTile = new MapTileBuilder(cliffRightFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffRightTile);
+
+		// cliff left
+		Frame cliffLeftFrame = new FrameBuilder(getSubImage(12, 1)).withScale(tileScale).build();
+
+		MapTileBuilder cliffLeftTile = new MapTileBuilder(cliffLeftFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffLeftTile);
+
+		// cliff out corner top left
+		Frame cliffOutCornerTopLeftFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+		MapTileBuilder cliffOutCornerTopLeftTile = new MapTileBuilder(cliffOutCornerTopLeftFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffOutCornerTopLeftTile);
+
+		// cliff out corner top right
+		Frame cliffOutCornerTopRightFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
+			.build();
+
+		MapTileBuilder cliffOutCornerTopRightTile = new MapTileBuilder(cliffOutCornerTopRightFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffOutCornerTopRightTile);
+
+		// cliff out corner bottom left
+		Frame cliffOutCornerBottomRightFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+		MapTileBuilder cliffOutCornerBottomRightTile = new MapTileBuilder(cliffOutCornerBottomRightFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffOutCornerBottomRightTile);
+
+		// cliff out corner bottom right
+		Frame cliffOutCornerBottomLeftFrame = new FrameBuilder(getSubImage(12, 2)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+
+		MapTileBuilder cliffOutCornerBottomLeftTile = new MapTileBuilder(cliffOutCornerBottomLeftFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffOutCornerBottomLeftTile);
+
+		// cliff in corner top left
+		Frame cliffInCornerTopLeftFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+		MapTileBuilder cliffInCornerTopLeftTile = new MapTileBuilder(cliffInCornerTopLeftFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffInCornerTopLeftTile);
+
+		// cliff in corner top right
+		Frame cliffInCornerTopRightFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
+			.build();
+
+		MapTileBuilder cliffInCornerTopRightTile = new MapTileBuilder(cliffInCornerTopRightFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffInCornerTopRightTile);
+
+		// cliff in corner bottom left
+		Frame cliffInCornerBottomRightFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+		MapTileBuilder cliffInCornerBottomRightTile = new MapTileBuilder(cliffInCornerBottomRightFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffInCornerBottomRightTile);
+
+		// cliff in corner bottom right
+		Frame cliffInCornerBottomLeftFrame = new FrameBuilder(getSubImage(12, 3)).withScale(tileScale)
+			.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+
+		MapTileBuilder cliffInCornerBottomLeftTile = new MapTileBuilder(cliffInCornerBottomLeftFrame)
+			.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cliffInCornerBottomLeftTile);
 
 		return mapTiles;
 
