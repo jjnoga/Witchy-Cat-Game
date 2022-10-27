@@ -288,6 +288,12 @@ public class PlayLevelScreen extends Screen {
 					this.map = springMap;
 					map.setFlagManager(flagManager);
 					this.player.setMap(map);
+					
+					if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+					else map.getInventory().setIsActive(true);
+					
+					if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+					else map.getOptions().setIsActive(true);
 				}
 			}
 		}
@@ -301,6 +307,12 @@ public class PlayLevelScreen extends Screen {
 				this.player.setLocation(173, 1264);
 				map.setFlagManager(flagManager);
 				this.player.setMap(map);
+				
+				if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
+				else map.getInventory().setIsActive(true);
+				
+				if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
+				else map.getOptions().setIsActive(true);
 			}
 		}
 		
