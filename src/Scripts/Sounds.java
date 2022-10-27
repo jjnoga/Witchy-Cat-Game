@@ -8,12 +8,12 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
 public class Sounds {
-	static Clip clip;
-	static URL soundURL[] = new URL[30];
-	static FloatControl fc;
-	static float previousVolume = 0;
-    static float currentVolume = 0;
-	static boolean mute = false;
+	Clip clip;
+	URL soundURL[] = new URL[30];
+	FloatControl fc;
+	float previousVolume = 0;
+    float currentVolume = 0;
+	boolean mute = false;
 	int volumeScale = 3;
 	float volume;
 	
@@ -46,7 +46,7 @@ public class Sounds {
 		clip.start();
 	}
 	
-	public static void loop() {
+	public void loop() {
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 	

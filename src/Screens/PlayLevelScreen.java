@@ -207,6 +207,28 @@ public class PlayLevelScreen extends Screen {
 //			keyLocker.unlockKey(volMuteKey);
 //			
 //		}
+		
+		if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
+			keyLocker.lockKey(volUpKey);
+			sound.volumeUp();
+			System.out.println("works");
+		} else if (Keyboard.isKeyUp(volUpKey)) {
+			keyLocker.unlockKey(volUpKey);
+		}
+		
+		if (Keyboard.isKeyDown(volDownKey) && !keyLocker.isKeyLocked(volDownKey)) {
+			keyLocker.lockKey(volDownKey);
+			sound.volumeDown();
+		} else if (Keyboard.isKeyUp(volDownKey)) {
+			keyLocker.unlockKey(volDownKey);
+		}
+		
+		if (Keyboard.isKeyDown(volMuteKey) && !keyLocker.isKeyLocked(volMuteKey)) {
+			keyLocker.lockKey(volMuteKey);
+			sound.volumeMute();
+		} else if (Keyboard.isKeyUp(volMuteKey)) {
+			keyLocker.unlockKey(volMuteKey);
+		}
 
 		// if flag is set at any point during gameplay, game is "won"
 		if (map.getFlagManager().isFlagSet("hasFoundBall")) {
