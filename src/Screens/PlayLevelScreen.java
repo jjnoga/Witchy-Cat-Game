@@ -255,7 +255,7 @@ public class PlayLevelScreen extends Screen {
 		if (map.getMapFileName().equals("test_map.txt")) {
 
 		    // Walrus house interior
-		    if (player.getLocation().x > 160 && player.getLocation().x < 196 && player.getLocation().y == 1260) {
+		    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596) {
 			springMap = this.map;
 			interiorMap.setCoinCounter(this.map.getCoinCounter());
 			this.map = interiorMap;
@@ -506,7 +506,7 @@ public class PlayLevelScreen extends Screen {
 			interiorMap = this.map;
 			springMap.setCoinCounter(this.map.getCoinCounter());
 			this.map = springMap;
-			this.player.setLocation(173, 1264);
+			this.player.setLocation(612, 1600);
 			map.setFlagManager(flagManager);
 			this.player.setMap(map);
 			
