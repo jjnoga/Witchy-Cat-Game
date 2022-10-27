@@ -5,6 +5,8 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Pizza;
+import Scripts.TestMap.PizzaScript;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;
@@ -46,6 +48,11 @@ public class SummerMap extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		
+		Pizza pizza = new Pizza(1, getMapTile(50, 27).getLocation());
+		pizza.setInteractScript(new PizzaScript());
+		npcs.add(pizza);
+		
 		return npcs;
 	}
 
