@@ -122,7 +122,7 @@ public class PlayLevelScreen extends Screen {
 	summerMap = new SummerMap();
 	summerMap.setCameraX(48);
 	winterMap = new WinterMap();
-	winterMap.setCameraY(winterMap.getEndBoundY() - 619);
+	winterMap.setCameraY(winterMap.getEndBoundY() - 604);
 	fallMap = new FallMap();
 	fallMap.setCameraX(fallMap.getEndBoundX() - 867);
 	interiorMap = new InteriorMap();
@@ -274,21 +274,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
-		for (int i = 0; i < springMap.getActiveEnhancedMapTiles().size(); i++) {
-		    if (springMap.getActiveEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
-			EnhancedMapTile enhancedMapTile = springMap.getActiveEnhancedMapTiles().get(i);
+		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
+		    if (springMap.getEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
+			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
 			enhancedMapTile.setX(
-				springMap.getActiveEnhancedMapTiles().get(i).getX() - (springMap.getEndBoundX() - 864));
-			enhancedMapTile.setY(springMap.getActiveEnhancedMapTiles().get(i).getY() - 336);
+				springMap.getEnhancedMapTiles().get(i).getX() - (springMap.getEndBoundX() - 864));
+			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
 		    }
 		}
-		for (int i = 0; i < springMap.getActiveNPCs().size(); i++) {
-		    if (springMap.getActiveNPCs().get(i).getX() > springMap.getEndBoundX() - 730) {
-			NPC npc = springMap.getActiveNPCs().get(i);
-			npc.setX(springMap.getActiveNPCs().get(i).getX() - (springMap.getEndBoundX() - 864));
-			npc.setY(springMap.getActiveNPCs().get(i).getY() - 336);
+		for (int i = 0; i < springMap.getNPCs().size(); i++) {
+		    if (springMap.getNPCs().get(i).getX() > springMap.getEndBoundX() - 730) {
+			NPC npc = springMap.getNPCs().get(i);
+			npc.setX(springMap.getNPCs().get(i).getX() - (springMap.getEndBoundX() - 864));
+			npc.setY(springMap.getNPCs().get(i).getY() - 336);
 			npc.setMap(summerMap);
 			summerMap.addNPC(npc);
 		    }
@@ -315,21 +315,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
-		for (int i = 0; i < springMap.getActiveEnhancedMapTiles().size(); i++) {
-		    if (springMap.getActiveEnhancedMapTiles().get(i).getY() < 500) {
-			EnhancedMapTile enhancedMapTile = springMap.getActiveEnhancedMapTiles().get(i);
-			enhancedMapTile.setX(springMap.getActiveEnhancedMapTiles().get(i).getX() - 384);
+		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
+		    if (springMap.getEnhancedMapTiles().get(i).getY() < 548) {
+			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
+			enhancedMapTile.setX(springMap.getEnhancedMapTiles().get(i).getX() - 384);
 			enhancedMapTile.setY(
-				springMap.getActiveEnhancedMapTiles().get(i).getY() + (winterMap.getEndBoundY() - 634));
+				springMap.getEnhancedMapTiles().get(i).getY() + (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(winterMap);
 			winterMap.addEnhancedMapTile(enhancedMapTile);
 		    }
 		}
-		for (int i = 0; i < springMap.getActiveNPCs().size(); i++) {
-		    if (springMap.getActiveNPCs().get(i).getY() < 500) {
-			NPC npc = springMap.getActiveNPCs().get(i);
-			npc.setX(springMap.getActiveNPCs().get(i).getX() - 384);
-			npc.setY(springMap.getActiveNPCs().get(i).getY() + (winterMap.getEndBoundY() - 634));
+		for (int i = 0; i < springMap.getNPCs().size(); i++) {
+		    if (springMap.getNPCs().get(i).getY() < 548) {
+			NPC npc = springMap.getNPCs().get(i);
+			npc.setX(springMap.getNPCs().get(i).getX() - 384);
+			npc.setY(springMap.getNPCs().get(i).getY() + (winterMap.getEndBoundY() - 634));
 			npc.setMap(winterMap);
 			winterMap.addNPC(npc);
 			;
@@ -345,7 +345,7 @@ public class PlayLevelScreen extends Screen {
 		    else
 			map.getOptions().setIsActive(true);
 		}
-		this.player.setLocation((player.getLocation().x - 384), (winterMap.getEndBoundY() - 333));
+		this.player.setLocation((player.getLocation().x - 384), (winterMap.getEndBoundY() - 322));
 		this.map = winterMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
@@ -367,21 +367,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
-		for (int i = 0; i < springMap.getActiveEnhancedMapTiles().size(); i++) {
-		    if (springMap.getActiveEnhancedMapTiles().get(i).getX() < 730) {
-			EnhancedMapTile enhancedMapTile = springMap.getActiveEnhancedMapTiles().get(i);
+		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
+		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
+			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
 			enhancedMapTile.setX(
-				springMap.getActiveEnhancedMapTiles().get(i).getX() + (fallMap.getEndBoundX() - 864));
-			enhancedMapTile.setY(springMap.getActiveEnhancedMapTiles().get(i).getY() - 336);
+				springMap.getEnhancedMapTiles().get(i).getX() + (fallMap.getEndBoundX() - 864));
+			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
 		    }
 		}
-		for (int i = 0; i < springMap.getActiveNPCs().size(); i++) {
-		    if (springMap.getActiveNPCs().get(i).getX() < 730) {
-			NPC npc = springMap.getActiveNPCs().get(i);
-			npc.setX(springMap.getActiveNPCs().get(i).getX() + (fallMap.getEndBoundX() - 864));
-			npc.setY(springMap.getActiveNPCs().get(i).getY() - 336);
+		for (int i = 0; i < springMap.getNPCs().size(); i++) {
+		    if (springMap.getNPCs().get(i).getX() < 730) {
+			NPC npc = springMap.getNPCs().get(i);
+			npc.setX(springMap.getNPCs().get(i).getX() + (fallMap.getEndBoundX() - 864));
+			npc.setY(springMap.getNPCs().get(i).getY() - 336);
 			npc.setMap(fallMap);
 			fallMap.addNPC(npc);
 			;
@@ -411,26 +411,26 @@ public class PlayLevelScreen extends Screen {
 	if (map.getMapFileName().equals("winter_map.txt")) {
 
 	    // spring map
-	    if (player.getLocation().y > this.map.getEndBoundY() - 333) {
+	    if (player.getLocation().y > this.map.getEndBoundY() - 322) {
 		winterMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraX(this.map.getCamera().getX() + 384);
-		for (int i = 0; i < winterMap.getActiveEnhancedMapTiles().size(); i++) {
-		    if (winterMap.getActiveEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 634) {
-			EnhancedMapTile enhancedMapTile = winterMap.getActiveEnhancedMapTiles().get(i);
-			enhancedMapTile.setX(winterMap.getActiveEnhancedMapTiles().get(i).getX() + 384);
+		for (int i = 0; i < winterMap.getEnhancedMapTiles().size(); i++) {
+		    if (winterMap.getEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 682) {
+			EnhancedMapTile enhancedMapTile = winterMap.getEnhancedMapTiles().get(i);
+			enhancedMapTile.setX(winterMap.getEnhancedMapTiles().get(i).getX() + 384);
 			enhancedMapTile.setY(
-				winterMap.getActiveEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 634));
+				winterMap.getEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
 		    }
 
 		}
-		for (int i = 0; i < winterMap.getActiveNPCs().size(); i++) {
-		    if (winterMap.getActiveNPCs().get(i).getY() > winterMap.getEndBoundY() - 634) {
-			NPC npc = winterMap.getActiveNPCs().get(i);
-			npc.setX(winterMap.getActiveNPCs().get(i).getX() + 384);
-			npc.setY(winterMap.getActiveNPCs().get(i).getY() - (winterMap.getEndBoundY() - 634));
+		for (int i = 0; i < winterMap.getNPCs().size(); i++) {
+		    if (winterMap.getNPCs().get(i).getY() > winterMap.getEndBoundY() - 682) {
+			NPC npc = winterMap.getNPCs().get(i);
+			npc.setX(winterMap.getNPCs().get(i).getX() + 384);
+			npc.setY(winterMap.getNPCs().get(i).getY() - (winterMap.getEndBoundY() - 634));
 			npc.setMap(springMap);
 			springMap.addNPC(npc);
 			;
@@ -462,21 +462,21 @@ public class PlayLevelScreen extends Screen {
 		fallMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
-		for (int i = 0; i < fallMap.getActiveEnhancedMapTiles().size(); i++) {
-		    if (fallMap.getActiveEnhancedMapTiles().get(i).getX() > fallMap.getEndBoundX() - 730) {
-			EnhancedMapTile enhancedMapTile = fallMap.getActiveEnhancedMapTiles().get(i);
+		for (int i = 0; i < fallMap.getEnhancedMapTiles().size(); i++) {
+		    if (fallMap.getEnhancedMapTiles().get(i).getX() > fallMap.getEndBoundX() - 730) {
+			EnhancedMapTile enhancedMapTile = fallMap.getEnhancedMapTiles().get(i);
 			enhancedMapTile.setX(
-				fallMap.getActiveEnhancedMapTiles().get(i).getX() - (fallMap.getEndBoundX() - 864));
-			enhancedMapTile.setY(fallMap.getActiveEnhancedMapTiles().get(i).getY() + 336);
+				fallMap.getEnhancedMapTiles().get(i).getX() - (fallMap.getEndBoundX() - 864));
+			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
 		    }
 		}
-		for (int i = 0; i < fallMap.getActiveNPCs().size(); i++) {
-		    if (fallMap.getActiveNPCs().get(i).getX() > fallMap.getEndBoundX() - 730) {
-			NPC npc = fallMap.getActiveNPCs().get(i);
-			npc.setX(fallMap.getActiveNPCs().get(i).getX() - (fallMap.getEndBoundX() - 864));
-			npc.setY(fallMap.getActiveNPCs().get(i).getY() + 336);
+		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
+		    if (fallMap.getNPCs().get(i).getX() > fallMap.getEndBoundX() - 730) {
+			NPC npc = fallMap.getNPCs().get(i);
+			npc.setX(fallMap.getNPCs().get(i).getX() - (fallMap.getEndBoundX() - 864));
+			npc.setY(fallMap.getNPCs().get(i).getY() + 336);
 			npc.setMap(springMap);
 			springMap.addNPC(npc);
 		    }
@@ -507,21 +507,21 @@ public class PlayLevelScreen extends Screen {
 		summerMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
-		for (int i = 0; i < summerMap.getActiveEnhancedMapTiles().size(); i++) {
-		    if (summerMap.getActiveEnhancedMapTiles().get(i).getX() < 730) {
-			EnhancedMapTile enhancedMapTile = summerMap.getActiveEnhancedMapTiles().get(i);
+		for (int i = 0; i < summerMap.getEnhancedMapTiles().size(); i++) {
+		    if (summerMap.getEnhancedMapTiles().get(i).getX() < 730) {
+			EnhancedMapTile enhancedMapTile = summerMap.getEnhancedMapTiles().get(i);
 			enhancedMapTile.setX(
-				summerMap.getActiveEnhancedMapTiles().get(i).getX() + (springMap.getEndBoundX() - 864));
-			enhancedMapTile.setY(summerMap.getActiveEnhancedMapTiles().get(i).getY() + 336);
+				summerMap.getEnhancedMapTiles().get(i).getX() + (springMap.getEndBoundX() - 864));
+			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
 		    }
 		}
-		for (int i = 0; i < summerMap.getActiveNPCs().size(); i++) {
-		    if (summerMap.getActiveNPCs().get(i).getX() < 730) {
-			NPC npc = summerMap.getActiveNPCs().get(i);
-			npc.setX(summerMap.getActiveNPCs().get(i).getX() + (springMap.getEndBoundX() - 864));
-			npc.setY(summerMap.getActiveNPCs().get(i).getY() + 336);
+		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
+		    if (summerMap.getNPCs().get(i).getX() < 730) {
+			NPC npc = summerMap.getNPCs().get(i);
+			npc.setX(summerMap.getNPCs().get(i).getX() + (springMap.getEndBoundX() - 864));
+			npc.setY(summerMap.getNPCs().get(i).getY() + 336);
 			npc.setMap(springMap);
 			springMap.addNPC(npc);
 			;
