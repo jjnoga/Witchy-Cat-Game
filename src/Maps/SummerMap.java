@@ -6,7 +6,7 @@ import Level.Map;
 import Level.NPC;
 import Level.Trigger;
 import NPCs.Pizza;
-import Scripts.TestMap.PizzaScript;
+import Scripts.SummerMap.PizzaScript;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;
