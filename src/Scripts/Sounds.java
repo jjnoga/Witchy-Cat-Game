@@ -18,7 +18,7 @@ public class Sounds {
 	float volume;
 	
 	public Sounds() {
-		soundURL[0] = getClass().getResource("/Sounds/brilliant-life-60sec.wav");
+		soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav");
 		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav");
 		soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
 		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav");
@@ -28,10 +28,11 @@ public class Sounds {
 		soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
 		soundURL[8] = getClass().getResource("/Sounds/VineCut.wav");
 		soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav");
-		soundURL[10] = getClass().getResource("/Sounds/083-Ecruteak-City.wav");
-		soundURL[11] = getClass().getResource("/Sounds/25.-Rustboro-City.wav");
+		soundURL[10] = getClass().getResource("/Sounds/Auburn_Thicket_Autumn.wav");
+		soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav");
 		soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
-		soundURL[13] = getClass().getResource("/Sounds/79-The-Frozen-City.wav");
+		soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav");
+		
 	}
 	
 	public void setFile(int i) {
@@ -91,6 +92,8 @@ public class Sounds {
 		}
 		fc.setValue(currentVolume);
 	}
+	
+
 	
 	
 	//May use this to completely redo the volume system and eliminate the mute button and just make a volume control
