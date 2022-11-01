@@ -28,6 +28,10 @@ public class Sounds {
 		soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
 		soundURL[8] = getClass().getResource("/Sounds/VineCut.wav");
 		soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav");
+		soundURL[10] = getClass().getResource("/Sounds/083-Ecruteak-City.wav");
+		soundURL[11] = getClass().getResource("/Sounds/25.-Rustboro-City.wav");
+		soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
+		soundURL[13] = getClass().getResource("/Sounds/79-The-Frozen-City.wav");
 	}
 	
 	public void setFile(int i) {

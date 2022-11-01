@@ -424,6 +424,7 @@ public class PlayLevelScreen extends Screen {
 					winterMap.getActiveEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 634));
 				enhancedMapTile.setMap(springMap);
 				springMap.addEnhancedMapTile(enhancedMapTile);
+				
 			    }
 
 			}
