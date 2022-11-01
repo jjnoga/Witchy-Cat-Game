@@ -1,11 +1,11 @@
-package Scripts.SummerMap;
+package Scripts;
 
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
 
 //script for talking to Pizza npc
-public class PizzaScript extends Script<NPC> {
+public class TerryScript extends Script<NPC> {
 
 	@Override
 	protected void setup() {
@@ -14,11 +14,11 @@ public class PizzaScript extends Script<NPC> {
 
 		// changes what pizza says when talking to him the first time (flag is not set)
 		// vs talking to him afterwards (flag is set)
-		if (!isFlagSet("hasTalkedtoPizza")) {
-			addTextToTextboxQueue("You talked to Pizza the Snake, Hooray!");
+		if (!isFlagSet("hasTalkedtoTerry")) {
+			addTextToTextboxQueue("Hi I'm Terry the turtle, you can speak to me \nwhenever there's something you need to buy!");
 
 		} else {
-			addTextToTextboxQueue("Hi Anita, I love Pizza");
+			addTextToTextboxQueue("What would you like to buy?");
 		}
 		entity.facePlayer(player);
 
@@ -30,7 +30,7 @@ public class PizzaScript extends Script<NPC> {
 	        hideTextbox();
 
 	        // set flag so that if walrus is talked to again after the first time, what he says changes
-	        setFlag("hasTalkedtoPizza");
+	        setFlag("hasTalkedtoTerry");
 	    }
 
 	    @Override

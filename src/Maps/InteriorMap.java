@@ -5,6 +5,10 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Terry;
+import NPCs.Walrus;
+import Scripts.TerryScript;
+import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;
@@ -25,6 +29,11 @@ public class InteriorMap extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		
+		Terry terry = new Terry(1, getMapTile(5, 4).getLocation());
+		terry.setInteractScript(new TerryScript());
+		npcs.add(terry);
+		
 		return npcs;
 	}
 
