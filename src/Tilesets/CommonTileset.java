@@ -1016,7 +1016,7 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseDoorDecoFrame = new FrameBuilder(getSubImage(10, 5)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame);
+		MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame).withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseDoorDecoTile);
 
@@ -1024,7 +1024,7 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseRightWindowWallFrame = new FrameBuilder(getSubImage(10, 6)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame);
+		MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame).withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseRightWindowWallTile);
 
@@ -1032,7 +1032,7 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseLeftWindowWallFrame = new FrameBuilder(getSubImage(10, 7)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame);
+		MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame).withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseLeftWindowWellTile);
 
@@ -1040,7 +1040,7 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseLeftWindowFrame = new FrameBuilder(getSubImage(10, 8)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame);
+		MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame).withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseLeftWindowTile);
 
@@ -1048,7 +1048,7 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseRightWindowFrame = new FrameBuilder(getSubImage(10, 9)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame);
+		MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame).withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseRightWindowTile);
 

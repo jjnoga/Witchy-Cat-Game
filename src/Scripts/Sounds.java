@@ -18,16 +18,21 @@ public class Sounds {
 	float volume;
 	
 	public Sounds() {
-		soundURL[0] = getClass().getResource("/Sounds/brilliant-life-60sec.wav");
-		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav");
+		soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav"); //using
+		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav"); //using
 		soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
-		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav");
-		soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav");
-		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav");
-		soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav");
+		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav"); //using
+		soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav"); //using
+		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav"); //using
+		soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav"); //using
 		soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
-		soundURL[8] = getClass().getResource("/Sounds/VineCut.wav");
-		soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav");
+		soundURL[8] = getClass().getResource("/Sounds/VineCut.wav"); //using
+		soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav"); //using
+		soundURL[10] = getClass().getResource("/Sounds/Auburn_Thicket_Autumn.wav"); //using
+		soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav"); //using
+		soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav"); 
+		soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav"); //using
+		
 	}
 	
 	public void setFile(int i) {
@@ -87,6 +92,8 @@ public class Sounds {
 		}
 		fc.setValue(currentVolume);
 	}
+	
+
 	
 	
 	//May use this to completely redo the volume system and eliminate the mute button and just make a volume control

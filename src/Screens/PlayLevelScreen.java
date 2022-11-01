@@ -282,6 +282,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(11);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -323,6 +325,8 @@ public class PlayLevelScreen extends Screen {
 				springMap.getEnhancedMapTiles().get(i).getY() + (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(winterMap);
 			winterMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(13);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -375,6 +379,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(10);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -423,6 +429,8 @@ public class PlayLevelScreen extends Screen {
 				winterMap.getEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(0);
 		    }
 
 		}
@@ -470,6 +478,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -515,6 +525,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
