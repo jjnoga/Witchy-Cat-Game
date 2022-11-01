@@ -262,178 +262,11 @@ public class PlayLevelScreen extends Screen {
 		else
 		    map.getInventory().setIsActive(true);
 
-<<<<<<< HEAD
-			 if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
-					keyLocker.lockKey(volUpKey);
-					sound.volumeUp();
-				} else if (Keyboard.isKeyUp(volUpKey)) {
-					keyLocker.unlockKey(volUpKey);
-				}
-				
-				if (Keyboard.isKeyDown(volDownKey) && !keyLocker.isKeyLocked(volDownKey)) {
-					keyLocker.lockKey(volDownKey);
-					sound.volumeDown();
-				} else if (Keyboard.isKeyUp(volDownKey)) {
-					keyLocker.unlockKey(volDownKey);
-				}
-				
-				if (Keyboard.isKeyDown(volMuteKey) && !keyLocker.isKeyLocked(volMuteKey)) {
-					keyLocker.lockKey(volMuteKey);
-					sound.volumeMute();
-				} else if (Keyboard.isKeyUp(volMuteKey)) {
-					keyLocker.unlockKey(volMuteKey);
-				}
-		}
-
-		// leaving winter
-		if (map.getMapFileName().equals("winter_map.txt")) {
-
-		    // spring map
-		    if (player.getLocation().y > this.map.getEndBoundY() - 333) {
-			winterMap = this.map;
-			springMap.setCoinCounter(this.map.getCoinCounter());
-			springMap.setCameraX(this.map.getCamera().getX() + 384);
-			for (int i = 0; i < winterMap.getActiveEnhancedMapTiles().size(); i++) {
-			    if (winterMap.getActiveEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 634) {
-				EnhancedMapTile enhancedMapTile = winterMap.getActiveEnhancedMapTiles().get(i);
-				enhancedMapTile.setX(winterMap.getActiveEnhancedMapTiles().get(i).getX() + 384);
-				enhancedMapTile.setY(
-					winterMap.getActiveEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 634));
-				enhancedMapTile.setMap(springMap);
-				springMap.addEnhancedMapTile(enhancedMapTile);
-				
-			    }
-
-			}
-			for (int i = 0; i < winterMap.getActiveNPCs().size(); i++) {
-			    if (winterMap.getActiveNPCs().get(i).getY() > winterMap.getEndBoundY() - 634) {
-				NPC npc = winterMap.getActiveNPCs().get(i);
-				npc.setX(winterMap.getActiveNPCs().get(i).getX() + 384);
-				npc.setY(winterMap.getActiveNPCs().get(i).getY() - (winterMap.getEndBoundY() - 634));
-				npc.setMap(springMap);
-				springMap.addNPC(npc);
-				;
-			    }
-			}
-			this.player.setLocation(player.getLocation().x + 384, 300);
-			this.map = springMap;
-			map.setFlagManager(flagManager);
-			this.player.setMap(map);
-			
-			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-			else map.getInventory().setIsActive(true);
-			
-			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-			else map.getOptions().setIsActive(true);
-		    }
-		}
-
-		// leaving fall
-		if (map.getMapFileName().equals("fall_map.txt")) {
-
-		    // spring map
-		    if (player.getLocation().x > this.map.getEndBoundX() - 474) {
-			fallMap = this.map;
-			springMap.setCoinCounter(this.map.getCoinCounter());
-			springMap.setCameraY(this.map.getCamera().getY() + 336);
-			for (int i = 0; i < fallMap.getActiveEnhancedMapTiles().size(); i++) {
-			    if (fallMap.getActiveEnhancedMapTiles().get(i).getX() > fallMap.getEndBoundX() - 730) {
-				EnhancedMapTile enhancedMapTile = fallMap.getActiveEnhancedMapTiles().get(i);
-				enhancedMapTile.setX(
-					fallMap.getActiveEnhancedMapTiles().get(i).getX() - (fallMap.getEndBoundX() - 864));
-				enhancedMapTile.setY(fallMap.getActiveEnhancedMapTiles().get(i).getY() + 336);
-				enhancedMapTile.setMap(springMap);
-				springMap.addEnhancedMapTile(enhancedMapTile);
-			    }
-			}
-			for (int i = 0; i < fallMap.getActiveNPCs().size(); i++) {
-			    if (fallMap.getActiveNPCs().get(i).getX() > fallMap.getEndBoundX() - 730) {
-				NPC npc = fallMap.getActiveNPCs().get(i);
-				npc.setX(fallMap.getActiveNPCs().get(i).getX() - (fallMap.getEndBoundX() - 864));
-				npc.setY(fallMap.getActiveNPCs().get(i).getY() + 336);
-				npc.setMap(springMap);
-				springMap.addNPC(npc);
-			    }
-			}
-			this.player.setLocation(390, (player.getLocation().y + 336));
-			this.map = springMap;
-			map.setFlagManager(flagManager);
-			this.player.setMap(map);
-			
-			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-			else map.getInventory().setIsActive(true);
-			
-			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-			else map.getOptions().setIsActive(true);
-		    }
-		}
-
-		// leaving summer
-		if (map.getMapFileName().equals("summer_map.txt")) {
-
-		    // spring map
-		    if (player.getLocation().x < 438) {
-			summerMap = this.map;
-			springMap.setCoinCounter(this.map.getCoinCounter());
-			springMap.setCameraY(this.map.getCamera().getY() + 336);
-			for (int i = 0; i < summerMap.getActiveEnhancedMapTiles().size(); i++) {
-			    if (summerMap.getActiveEnhancedMapTiles().get(i).getX() < 730) {
-				EnhancedMapTile enhancedMapTile = summerMap.getActiveEnhancedMapTiles().get(i);
-				enhancedMapTile.setX(
-					summerMap.getActiveEnhancedMapTiles().get(i).getX() + (springMap.getEndBoundX() - 864));
-				enhancedMapTile.setY(summerMap.getActiveEnhancedMapTiles().get(i).getY() + 336);
-				enhancedMapTile.setMap(springMap);
-				springMap.addEnhancedMapTile(enhancedMapTile);
-			    }
-			}
-			for (int i = 0; i < summerMap.getActiveNPCs().size(); i++) {
-			    if (summerMap.getActiveNPCs().get(i).getX() < 730) {
-				NPC npc = summerMap.getActiveNPCs().get(i);
-				npc.setX(summerMap.getActiveNPCs().get(i).getX() + (springMap.getEndBoundX() - 864));
-				npc.setY(summerMap.getActiveNPCs().get(i).getY() + 336);
-				npc.setMap(springMap);
-				springMap.addNPC(npc);
-				;
-			    }
-			}
-			this.player.setLocation(springMap.getEndBoundX() - 426, (player.getLocation().y + 336));
-			this.map = springMap;
-			map.setFlagManager(flagManager);
-			this.player.setMap(map);
-			
-			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-			else map.getInventory().setIsActive(true);
-			
-			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-			else map.getOptions().setIsActive(true);
-		    }
-
-		}
-
-		// leaving interior
-		if (map.getMapFileName().equals("interior_map.txt")) {
-		    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
-			interiorMap = this.map;
-			springMap.setCoinCounter(this.map.getCoinCounter());
-			this.map = springMap;
-			this.player.setLocation(612, 1600);
-			map.setFlagManager(flagManager);
-			this.player.setMap(map);
-			
-			if(map.getFlagManager().isFlagSet("inventoryCheck")) map.getInventory().setIsActive(false);
-			else map.getInventory().setIsActive(true);
-			
-			if(map.getFlagManager().isFlagSet("optionsCheck")) map.getOptions().setIsActive(false);
-			else map.getOptions().setIsActive(true);
-		    }
-		}
-=======
 		if (map.getFlagManager().isFlagSet("optionsCheck"))
 		    map.getOptions().setIsActive(false);
 		else
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
->>>>>>> f51bace771be9bfa0ac1e4860b6334a232ffd258
 	    }
 
 	    // summer map
@@ -449,6 +282,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(11);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -490,6 +325,8 @@ public class PlayLevelScreen extends Screen {
 				springMap.getEnhancedMapTiles().get(i).getY() + (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(winterMap);
 			winterMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(13);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -542,6 +379,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(10);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -590,6 +429,8 @@ public class PlayLevelScreen extends Screen {
 				winterMap.getEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(0);
 		    }
 
 		}
@@ -637,6 +478,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -682,6 +525,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+			stopMusic();
+			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
