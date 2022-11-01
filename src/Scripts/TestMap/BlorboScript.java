@@ -1,5 +1,9 @@
 package Scripts.TestMap;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
@@ -11,11 +15,20 @@ public class BlorboScript extends Script<NPC> {
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-
-		// changes what walrus says when talking to him the first time (flag is not set)
-		// vs talking to him afterwards (flag is set)
+		File tester = new File("testerScript.txt");
+		Scanner fileInput = null;
 		if (!isFlagSet("hasTalkedToBlorbo")) {
-			addTextToTextboxQueue("You talked to Blorbo, Hooray!");
+//			addTextToTextboxQueue("You talked to Blorbo, Hooray!");
+			try {
+				// **** THIS IS THE LINE WHERE THE FILE IS ACTUALLY READ INTO THE SCANNER ****
+				fileInput = new Scanner(tester);
+			} catch (FileNotFoundException e) {
+				System.out.println("Unable to load file!"); // print out to user that file cannot be loaded in
+				e.printStackTrace();
+				System.exit(1); 
+			}
+			addTextToTextboxQueue(fileInput.nextLine());
+
 
 		} else {
 			addTextToTextboxQueue("Hi Anita!");
@@ -24,22 +37,23 @@ public class BlorboScript extends Script<NPC> {
 
 	}
 
-	  @Override
-	    protected void cleanup() {
-	        unlockPlayer();
-	        hideTextbox();
+	@Override
+	protected void cleanup() {
+		unlockPlayer();
+		hideTextbox();
 
-	        // set flag so that if walrus is talked to again after the first time, what he says changes
-	        setFlag("hasTalkedToBlorbo");
-	    }
+		// set flag so that if walrus is talked to again after the first time, what he
+		// says changes
+		setFlag("hasTalkedToBlorbo");
+	}
 
-	    @Override
-	    public ScriptState execute() {
-	        start();
-	        if (!isTextboxQueueEmpty()) {
-	            return ScriptState.RUNNING;
-	        }
-	        end();
-	        return ScriptState.COMPLETED;
-	    }
+	@Override
+	public ScriptState execute() {
+		start();
+		if (!isTextboxQueueEmpty()) {
+			return ScriptState.RUNNING;
+		}
+		end();
+		return ScriptState.COMPLETED;
+	}
 }
