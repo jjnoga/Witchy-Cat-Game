@@ -59,7 +59,7 @@ public class Inventory {
     private String sword = "Sword";
     private String swordFlavorText = "A blade far too big for a cat to carry. Use it to slash down vines!";
     
-    private String staff = "Staff";
+    private String staff = "Staff of Moving";
     private String staffFlavorText = "A staff brimming with unearthly strength. Use it to move boulders!";
 
     public Inventory(Map map) {
