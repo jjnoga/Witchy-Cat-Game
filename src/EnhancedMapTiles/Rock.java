@@ -6,6 +6,7 @@ import GameObject.Frame;
 import GameObject.GameObject;
 import GameObject.SpriteSheet;
 import Level.EnhancedMapTile;
+import Level.Map;
 import Level.Player;
 import Level.PlayerState;
 import Level.TileType;
@@ -13,14 +14,17 @@ import Utils.Direction;
 import Utils.Point;
 
 public class Rock extends EnhancedMapTile {
-    public Rock(Point location) {
+	protected Map map;
+	
+    public Rock(Point location, Map map) {
         super(location.x, location.y, new SpriteSheet(ImageLoader.load("Rock.png"), 16, 16), TileType.NOT_PASSABLE);
+        this.map = map;
     }
 
     @Override
     public void update(Player player) {
         super.update(player);
-        if (player.overlaps(this) && player.getPlayerState() == PlayerState.WALKING) {
+        if (player.overlaps(this) && player.getPlayerState() == PlayerState.WALKING && map.getFlagManager().isFlagSet("hasGivenStaffItem")) {
             if (player.getCurrentWalkingXDirection() == Direction.LEFT) {
                 if (canMoveLeft(player)) {
                     moveXHandleCollision(-1);

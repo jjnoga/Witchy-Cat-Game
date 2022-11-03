@@ -115,6 +115,10 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("inSpringArea", false);
 	flagManager.addFlag("inventoryCheck", true);
 	flagManager.addFlag("optionsCheck", true);
+	flagManager.addFlag("hasGivenStaffItem", false);
+	flagManager.addFlag("hasDroppedStaff", false);
+	flagManager.addFlag("discoveredSword", false);
+	flagManager.addFlag("discoveredStaff", false);
 
 	// define/setup map
 	mapChanged = false;
