@@ -110,6 +110,11 @@ public abstract class Script<T extends MapEntity> {
 	return map.getTextbox().getChoice();
     }
 
+    // sets the value of the last choice made from a selectable textbox
+    protected void setChoice(int choice) {
+	map.getTextbox().setChoice(choice);
+    }
+    
     // adds a series of text to be shown in textbox
     protected void addTextToTextboxQueue(String[] text) {
         map.getTextbox().addText(text);

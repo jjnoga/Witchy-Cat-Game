@@ -29,7 +29,7 @@ public class Textbox {
     protected int currentTextItemHovered = 1;
     protected final int textItemSelected = -1;
     protected int compiledCount = 0;
-    protected int choice = 0;
+    protected int choice = -1;
 
     private Queue<String> textQueue = new LinkedList<String>();
     private Queue<String> textQueueFlip = new LinkedList<String>();
@@ -182,6 +182,7 @@ public class Textbox {
 	}
 
     }
+    
 
     public void draw(GraphicsHandler graphicsHandler) {
 	// if camera is at bottom of screen, textbox is drawn at top of screen instead
@@ -223,6 +224,10 @@ public class Textbox {
 
     public int getChoice() {
 	return choice;  
+    }
+    
+    public void setChoice(int choice) {
+	this.choice = choice;
     }
     
     public boolean isActive() {
