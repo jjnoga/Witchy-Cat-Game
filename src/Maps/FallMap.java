@@ -24,7 +24,7 @@ public class FallMap extends Map {
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();	
 		enhancedMapTiles.add(new GoldLeaf(getMapTile(21, 15).getLocation(), this));
-		/*
+		
 		enhancedMapTiles.add(new Vines(getMapTile(21, 21).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(22, 21).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(31, 21).getLocation(), this));
@@ -81,7 +81,7 @@ public class FallMap extends Map {
 		enhancedMapTiles.add(new Vines(getMapTile(27, 12).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(26, 12).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(25, 12).getLocation(), this));
-		*/
+		
 		return enhancedMapTiles;
 	}
 
