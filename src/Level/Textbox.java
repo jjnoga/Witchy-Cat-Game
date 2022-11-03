@@ -36,7 +36,7 @@ public class Textbox {
     private Queue<String> selectionQueue = new LinkedList<String>();
     private Queue<String> decideTurn = new LinkedList<String>();
     private SpriteFont text = null;
-    private SpriteFont[] selectionText = new SpriteFont[10];
+    private SpriteFont[] selectionText = new SpriteFont[100];
     private String[] responseText = new String[10];
     private KeyLocker keyLocker = new KeyLocker();
     private Map map;
@@ -85,6 +85,7 @@ public class Textbox {
 	    selectionQueue.add(selectionText[i]);
 	}
 	for (int i = 0; i < selectionText.length + 1; i++) {
+	    
 	    this.selectionText[compiledCount] = spriteFontCompile(selectionQueue);
 	    compiledCount++;
 	}
