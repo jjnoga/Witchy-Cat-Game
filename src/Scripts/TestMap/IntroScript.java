@@ -1,5 +1,9 @@
 package Scripts.TestMap;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import Level.Script;
 import Level.ScriptState;
 
@@ -9,18 +13,38 @@ public class IntroScript extends Script {
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-		String[] selections = { "Here", "   Summer", "   Fall", "Winter" };
-		String[] answers = { "I guess I should look around for anything useful here\nfirst. Time to explore!",
-				"Summer should be a good start and I can get some\nsun. Off to find the burning flower!",
-				"Fall is festive and should have the golden leaf.\nLets go!",
-				"I better get ready for the cold in Winter.\nAt least the magic ice will be there" };
-		addTextToTextboxQueue("Come on Anita, I can't believe you forgot to restock\nthe ingredients.");
-		addTextToTextboxQueue("Welp, time to go get them. I got to collect just 3\nspecial ingredients though.");
-		addTextToTextboxQueue("A perfect sphere of ice that never warms or melts\nfrom the Winter area,");
-		addTextToTextboxQueue("a golden leaf from the biggest and oldest tree in\nthe Fall area,");
-		addTextToTextboxQueue(
-				"and a rare flower that burns with red fire but is\ncool to the touch in the Summer area.");
-		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
+//		String[] selections = { "Here", "   Summer", "   Fall", "Winter" };
+//		String[] answers = { "I guess I should look around for anything useful here\nfirst. Time to explore!",
+//				"Summer should be a good start and I can get some\nsun. Off to find the burning flower!",
+//				"Fall is festive and should have the golden leaf.\nLets go!",
+//				"I better get ready for the cold in Winter.\nAt least the magic ice will be there" };
+
+//		addTextToTextboxQueue(
+//				"and a rare flower that burns with red fire but is\ncool to the touch in the Summer area.");
+//		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
+
+		File tester = new File("Resources/BeginningScript.txt");
+		Scanner fileInput = null;
+
+		try {
+			fileInput = new Scanner(tester);
+		} catch (FileNotFoundException e) {
+			System.out.println("Unable to load file!"); // print out to user that file cannot be loaded in
+			e.printStackTrace();
+			System.exit(1);
+		}
+
+		for (int i = 0; i <= 4; i++) {
+			String str = fileInput.nextLine();
+			String multiLine = "\\n";
+			Boolean isMulti = str.contains(multiLine);
+			if (isMulti == true) {
+				addTextToTextboxQueue(fileInput.nextLine() + "\n" + fileInput.nextLine());
+			} else if (isMulti == false) {
+				addTextToTextboxQueue(str);
+			}
+		}
+
 	}
 
 	@Override
