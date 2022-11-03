@@ -27,9 +27,9 @@ public class BlorboScript extends Script<NPC> {
 		}
 		
 		if (!isFlagSet("hasTalkedToBlorbo")) {
-			if (fileInput.findInLine("\")) {
-				
-			}
+//			if (fileInput.findInLine(""\"")) {
+//				
+//			}
 			for (int i = 0; i <= 1; i++) {
 				addTextToTextboxQueue(fileInput.nextLine());
 			}
