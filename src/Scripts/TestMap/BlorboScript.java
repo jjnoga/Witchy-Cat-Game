@@ -27,10 +27,17 @@ public class BlorboScript extends Script<NPC> {
 		}
 		
 		if (!isFlagSet("hasTalkedToBlorbo")) {
-			addTextToTextboxQueue(fileInput.nextLine());
+			if (fileInput.findInLine("\")) {
+				
+			}
+			for (int i = 0; i <= 1; i++) {
+				addTextToTextboxQueue(fileInput.nextLine());
+			}
 
 		} else {
-			fileInput.nextLine();
+			for (int i = 0; i <= 2; i++) {
+				fileInput.nextLine();
+			}
 			addTextToTextboxQueue(fileInput.nextLine());
 		}
 		entity.facePlayer(player);
