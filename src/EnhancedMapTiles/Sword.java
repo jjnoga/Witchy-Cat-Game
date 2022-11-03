@@ -40,7 +40,7 @@ public class Sword extends EnhancedMapTile {
       		map.getFlagManager().unsetFlag("hasGivenStaffItem");
           	map.getFlagManager().unsetFlag("hasDropped");
           	if(map.getFlagManager().isFlagSet("discoveredStaff")) map.getFlagManager().setFlag("hasDroppedStaff");
-              playSE(1);
+              playSE(2);
              this.isHidden = true;
       	}
           else this.isHidden = true;
