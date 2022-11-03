@@ -1,3 +1,8 @@
+*ans
+I guess I should look in Spring for anything useful
+*ans\ntest
+Summer has the burning flower, a good place to start
+exploring the area.
 \ntest		
 Come on Anita, I can't believe you forgot to restock
 the ingredients.
