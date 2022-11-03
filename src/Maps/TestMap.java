@@ -20,7 +20,8 @@ import NPCs.Bruce;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemGive;
-import Scripts.TestMap.LostBallScript;
+import Scripts.TestMap.DinoScriptItemGiveSword;
+import Scripts.TestMap.IntroScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
@@ -42,9 +43,9 @@ public class TestMap extends Map {
     @Override
     public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 	ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-	enhancedMapTiles.add(new Rock(getMapTile(11, 14).getLocation()));
-	enhancedMapTiles.add(new Rock(getMapTile(45, 16).getLocation()));
-	enhancedMapTiles.add(new Rock(getMapTile(30, 9).getLocation()));
+//	enhancedMapTiles.add(new Rock(getMapTile(11, 14).getLocation()));
+//	enhancedMapTiles.add(new Rock(getMapTile(45, 16).getLocation()));
+//	enhancedMapTiles.add(new Rock(getMapTile(30, 9).getLocation()));
 
 	enhancedMapTiles.add(new Coin(getMapTile(23, 27).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(24, 26).getLocation(), this));
@@ -67,7 +68,7 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Vines(getMapTile(19, 10).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(18, 10).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(19, 11).getLocation(), this));
-	enhancedMapTiles.add(new GoldLeaf(getMapTile(24, 32).getLocation(), this));
+	//enhancedMapTiles.add(new GoldLeaf(getMapTile(24, 32).getLocation(), this));
 	enhancedMapTiles.add(new IceSphere(getMapTile(25, 32).getLocation(), this));
 
 
@@ -76,7 +77,7 @@ public class TestMap extends Map {
 	 * enhancedMapTiles.add(new Coin(getMapTile(65, 3).getLocation(), this));
 	 * 
 	 */
-	//enhancedMapTiles.add(new Sword(getMapTile(18, 23).getLocation(), this));
+	//enhancedMapTiles.add(new Sword(getMapTile(18, 10).getLocation(), this));
 
 	return enhancedMapTiles;
     }
@@ -92,6 +93,10 @@ public class TestMap extends Map {
 	Dinosaur dinosaur = new Dinosaur(2, getMapTile(19, 33).getLocation());
 	dinosaur.setInteractScript(new DinoScriptItemGive());
 	npcs.add(dinosaur);
+	
+	Dinosaur dinosaurToo = new Dinosaur(2, getMapTile(19, 36).getLocation());
+	dinosaurToo.setInteractScript(new DinoScriptItemGiveSword());
+	npcs.add(dinosaurToo);
 
 	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
 	blorbo.setInteractScript(new BlorboScript());
@@ -107,9 +112,9 @@ public class TestMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
 	ArrayList<Trigger> triggers = new ArrayList<>();
-	triggers.add(new Trigger(1222, 1366, 100, 10, new LostBallScript(), "hasLostBall"));
-	triggers.add(new Trigger(1222, 1296, 10, 80, new LostBallScript(), "hasLostBall"));
-	triggers.add(new Trigger(1322, 1296, 10, 80, new LostBallScript(), "hasLostBall"));
+	triggers.add(new Trigger(1222, 1366, 100, 10, new IntroScript(), "hasBeginning"));
+	triggers.add(new Trigger(1222, 1296, 10, 80, new IntroScript(), "hasBeginning"));
+	triggers.add(new Trigger(1322, 1296, 10, 80, new IntroScript(), "hasBeginning"));
 	triggers.add(new Trigger(1322, 1116, 100, 25, new CertainAreaScript(), "rightSpot"));
 
 	return triggers;

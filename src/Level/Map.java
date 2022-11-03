@@ -6,6 +6,7 @@ import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
 import Engine.ScreenManager;
+import EnhancedMapTiles.Staff;
 import EnhancedMapTiles.Sword;
 import GameObject.Rectangle;
 import Scripts.Sounds;
@@ -88,11 +89,13 @@ public abstract class Map {
     protected boolean dropCheck = false;
     
     protected Sword sword;
+    protected Staff staff;
     
     protected boolean isSpring = false;
 
     protected Options options;
     protected boolean optionsCheck = true;
+    private boolean justLoaded = false;
     
     private Key volUpKey = Key.A;
 	private Key volDownKey = Key.D;
@@ -146,6 +149,8 @@ public abstract class Map {
         this.coinCounter = new CoinCounter(this);
         this.inventory = new Inventory(this);
         this.options = new Options(this);
+
+    	
         
     }
 
@@ -602,8 +607,19 @@ public abstract class Map {
         if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()))
         {
         	inventory.getKeyLocker().lockKey(inventory.getDropKey());
-        	flagManager.unsetFlag("hasGivenSwordItem");
-        	flagManager.setFlag("hasDropped");
+        	if(flagManager.isFlagSet("hasGivenSwordItem"))
+        	{
+        		flagManager.unsetFlag("hasGivenSwordItem");
+        		flagManager.setFlag("hasDropped");
+        	}
+        	else if (flagManager.isFlagSet("hasGivenStaffItem")) {
+
+        		flagManager.unsetFlag("hasGivenStaffItem");
+        		flagManager.setFlag("hasDroppedStaff");
+        	}
+
+        	
+    		
         	
         	if(this.dropCheck) {
         		inventory.dropCheck = true;
@@ -619,6 +635,7 @@ public abstract class Map {
         }
         
         if(flagManager != null && flagManager.isFlagSet("hasGivenSwordItem")) inventory.setCurrItem(inventory.SWORD);
+        else if(flagManager != null && flagManager.isFlagSet("hasGivenStaffItem")) inventory.setCurrItem(inventory.STAFF);
         else inventory.setCurrItem(inventory.EMPTY);
         
         if (hasChangedCoins)
@@ -635,8 +652,12 @@ public abstract class Map {
         	sword.isHidden = false;
         }
         
-      
-        
+        if (flagManager != null && !flagManager.isFlagSet("hasGivenStaffItem") && flagManager.isFlagSet("hasDroppedStaff") && isSpring)
+        {
+        	this.staff = new Staff(getMapTile(28, 30).getLocation(), this);
+        	addEnhancedMapTile(staff);
+        	staff.isHidden = false;
+        }
         
         
      }
@@ -703,6 +724,7 @@ public abstract class Map {
 
     public void draw(GraphicsHandler graphicsHandler) {
         camera.draw(graphicsHandler);
+        
     }
 
     public void draw(Player player, GraphicsHandler graphicsHandler) {

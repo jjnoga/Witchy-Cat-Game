@@ -19,12 +19,12 @@ import Utils.Direction;
 import Utils.Point;
 
 // for collecting the coins
-public class Sword extends EnhancedMapTile {
+public class Staff extends EnhancedMapTile {
 	protected Sounds sound;
 	protected Map map;
 	
-    public Sword(Point location, Map testMap) {
-        super(location.x, location.y, new SpriteSheet(ImageLoader.load("GardenSheers.png"),16, 16), TileType.PASSABLE);
+    public Staff(Point location, Map testMap) {
+        super(location.x, location.y, new SpriteSheet(ImageLoader.load("StaffOfMoving.png"),16, 16), TileType.PASSABLE);
         sound  = new Sounds();
         this.map = testMap;
     }
@@ -36,10 +36,10 @@ public class Sword extends EnhancedMapTile {
         
         
         if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
-      		map.getFlagManager().setFlag("hasGivenSwordItem");
-      		map.getFlagManager().unsetFlag("hasGivenStaffItem");
-          	map.getFlagManager().unsetFlag("hasDropped");
-          	if(map.getFlagManager().isFlagSet("discoveredStaff")) map.getFlagManager().setFlag("hasDroppedStaff");
+      		map.getFlagManager().setFlag("hasGivenStaffItem");
+      		map.getFlagManager().unsetFlag("hasGivenSwordItem");
+          	map.getFlagManager().unsetFlag("hasDroppedStaff");
+          	if(map.getFlagManager().isFlagSet("discoveredSword")) map.getFlagManager().setFlag("hasDropped");
               playSE(1);
              this.isHidden = true;
       	}

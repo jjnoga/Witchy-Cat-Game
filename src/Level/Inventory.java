@@ -32,6 +32,7 @@ public class Inventory {
     
     public final int EMPTY = 0;
     public final int SWORD = 1;
+    public final int STAFF = 2;
     
     protected int currItem = EMPTY;
     private KeyLocker keyLocker = new KeyLocker();
@@ -41,6 +42,7 @@ public class Inventory {
     
     //public Image testImage;
     private ImageIcon imageIcon;
+    private ImageIcon staffIcon;
     private ImageIcon goldLeaf;
     private ImageIcon iceSphere;
     private ImageIcon fireRose;
@@ -56,10 +58,14 @@ public class Inventory {
     
     private String sword = "Sword";
     private String swordFlavorText = "A blade far too big for a cat to carry. Use it to slash down vines!";
+    
+    private String staff = "Staff of Moving";
+    private String staffFlavorText = "A staff brimming with unearthly strength. Use it to move boulders!";
 
     public Inventory(Map map) {
         this.map = map;
         imageIcon = new ImageIcon("Resources/Sword.png");
+        staffIcon = new ImageIcon("Resources/StaffOfMoving.png");
         goldLeaf = new ImageIcon("Resources/GoldLeaf.png");
         iceSphere = new ImageIcon("Resources/iceSphere.png");
         fireRose = new ImageIcon("Resources/fireRose.png");
@@ -127,6 +133,19 @@ public class Inventory {
                     	graphicsHandler.drawImage(imageIcon, x + 15, topY, width / 4, height, null);
                     	graphicsHandler.drawString(sword, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
             			graphicsHandler.drawString(swordFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
+                    }
+            	}
+            	break;
+            	case STAFF: {
+            		if (!map.getCamera().isAtBottomOfMap()) {
+            			graphicsHandler.drawImage(staffIcon, x + 15, bottomY, width / 4, height, null);
+            			graphicsHandler.drawString(staff, x + 172, bottomY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+            			graphicsHandler.drawString(staffFlavorText, x + 172, bottomY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
+            		}
+                    else {
+                    	graphicsHandler.drawImage(staffIcon, x + 15, topY, width / 4, height, null);
+                    	graphicsHandler.drawString(sword, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+            			graphicsHandler.drawString(staffFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
                     }
             	}
             	break;

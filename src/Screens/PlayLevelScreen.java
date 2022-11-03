@@ -55,44 +55,6 @@ public class PlayLevelScreen extends Screen {
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
 	this.screenCoordinator = screenCoordinator;
 
-//       
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setLayout(new GridLayout(1,3));
-//        
-//        JButton volUp = new JButton("Volume Up");
-//        volUp.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				sound.volumeUp();
-//			}
-//		});
-//        frame.add(volUp);
-//        
-//        JButton volDown = new JButton("Volume Down");
-//        volDown.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				sound.volumeDown();
-//			}
-//		});
-//        frame.add(volDown);
-//        
-//        JButton mute = new JButton("Mute/Unmute");
-//        mute.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				sound.volumeMute();
-//			}
-//		});
-//        frame.add(mute);
-//        
-//        frame.pack();
-//        frame.setVisible(true);
-
 	playMusic(0);
     }
 
@@ -100,7 +62,7 @@ public class PlayLevelScreen extends Screen {
 	// setup state
 	flagManager = new FlagManager();
 	flagManager.addFlag("rightSpot", false);
-	flagManager.addFlag("hasLostBall", false);
+	flagManager.addFlag("hasBeginning", false);
 	flagManager.addFlag("hasTalkedToWalrus", false);
 	flagManager.addFlag("hasTalkedToDinosaur", false);
 	flagManager.addFlag("hasFoundBall", false);
@@ -116,6 +78,10 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("inSpringArea", false);
 	flagManager.addFlag("inventoryCheck", true);
 	flagManager.addFlag("optionsCheck", true);
+	flagManager.addFlag("hasGivenStaffItem", false);
+	flagManager.addFlag("hasDroppedStaff", false);
+	flagManager.addFlag("discoveredSword", false);
+	flagManager.addFlag("discoveredStaff", false);
 
 	// define/setup map
 	mapChanged = false;
