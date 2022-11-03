@@ -17,20 +17,30 @@ public class BlorboScript extends Script<NPC> {
 		showTextbox();
 		File tester = new File("Resources/testerScript.txt");
 		Scanner fileInput = null;
-		
+
 		try {
 			fileInput = new Scanner(tester);
 		} catch (FileNotFoundException e) {
 			System.out.println("Unable to load file!"); // print out to user that file cannot be loaded in
 			e.printStackTrace();
-			System.exit(1); 
+			System.exit(1);
 		}
-		
-		if (!isFlagSet("hasTalkedToBlorbo")) {
-			addTextToTextboxQueue(fileInput.nextLine());
 
+		if (!isFlagSet("hasTalkedToBlorbo")) {
+			for (int i = 0; i <= 1; i++) {
+				String str = fileInput.nextLine();
+				String multiLine = "\\n";
+				Boolean isMulti = str.contains(multiLine);
+				if (isMulti == true) {
+						addTextToTextboxQueue(fileInput.nextLine() + "\n" + fileInput.nextLine());
+				} else if (isMulti == false) {
+					addTextToTextboxQueue(str);
+				}
+			}
 		} else {
-			fileInput.nextLine();
+			for (int i = 0; i <= 2; i++) {
+				fileInput.nextLine();
+			}
 			addTextToTextboxQueue(fileInput.nextLine());
 		}
 		entity.facePlayer(player);

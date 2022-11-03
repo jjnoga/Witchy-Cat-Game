@@ -21,7 +21,7 @@ import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemGive;
 import Scripts.TestMap.DinoScriptItemGiveSword;
-import Scripts.TestMap.LostBallScript;
+import Scripts.TestMap.IntroScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
@@ -112,9 +112,9 @@ public class TestMap extends Map {
     @Override
     public ArrayList<Trigger> loadTriggers() {
 	ArrayList<Trigger> triggers = new ArrayList<>();
-	triggers.add(new Trigger(1222, 1366, 100, 10, new LostBallScript(), "hasLostBall"));
-	triggers.add(new Trigger(1222, 1296, 10, 80, new LostBallScript(), "hasLostBall"));
-	triggers.add(new Trigger(1322, 1296, 10, 80, new LostBallScript(), "hasLostBall"));
+	triggers.add(new Trigger(1222, 1366, 100, 10, new IntroScript(), "hasBeginning"));
+	triggers.add(new Trigger(1222, 1296, 10, 80, new IntroScript(), "hasBeginning"));
+	triggers.add(new Trigger(1322, 1296, 10, 80, new IntroScript(), "hasBeginning"));
 	triggers.add(new Trigger(1322, 1116, 100, 25, new CertainAreaScript(), "rightSpot"));
 
 	return triggers;
