@@ -76,8 +76,8 @@ public class Sounds {
 	}
 	
 	public void volumeUp() {
-		currentVolume += 1.0f;
-		//System.out.println("Current Volume: " + currentVolume);
+		currentVolume += 3.0f;
+		System.out.println("Current Volume: " + currentVolume);
 		if (currentVolume > 6.0f) {
 			currentVolume = 6.0f;
 		}
@@ -85,7 +85,7 @@ public class Sounds {
 	}
 	
 	public void volumeDown() {
-		currentVolume -= 5.0f;
+		currentVolume -= 3.0f;
 		System.out.println("Current Volume: " + currentVolume);
 		if (currentVolume < -80.0f) {
 			currentVolume = -80.0f;
@@ -95,6 +95,7 @@ public class Sounds {
 	
 	public void volumeChangeDown() {
 		currentVolume -= 5.0f;
+		System.out.println(currentVolume);
 		 if (currentVolume < -29.0) {
 			 currentVolume = -29.0f;
 		 }
@@ -103,6 +104,7 @@ public class Sounds {
 	
 	public void volumeChangeUp() {
 		currentVolume += 5.0f;
+		System.out.println(currentVolume);
 		 if (currentVolume > 6.0) {
 			 currentVolume = 6.0f;
 		 }

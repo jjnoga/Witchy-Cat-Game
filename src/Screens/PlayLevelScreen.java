@@ -282,10 +282,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
-			sound.volumeChangeDown();
 			stopMusic();
 			playMusic(11);
-			sound.volumeChangeUp();
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -650,6 +648,13 @@ public class PlayLevelScreen extends Screen {
 
     public void stopMusic() {
 	sound.stop();
+    }
+    
+    public void soundDown() {
+    	sound.volumeChangeDown();
+    }
+    public void soundUp() {
+    	sound.volumeChangeUp();
     }
 
 }
