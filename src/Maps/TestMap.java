@@ -68,7 +68,7 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Vines(getMapTile(19, 10).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(18, 10).getLocation(), this));
 	enhancedMapTiles.add(new Vines(getMapTile(19, 11).getLocation(), this));
-	enhancedMapTiles.add(new GoldLeaf(getMapTile(24, 32).getLocation(), this));
+	//enhancedMapTiles.add(new GoldLeaf(getMapTile(24, 32).getLocation(), this));
 	enhancedMapTiles.add(new IceSphere(getMapTile(25, 32).getLocation(), this));
 
 
@@ -77,7 +77,7 @@ public class TestMap extends Map {
 	 * enhancedMapTiles.add(new Coin(getMapTile(65, 3).getLocation(), this));
 	 * 
 	 */
-	//enhancedMapTiles.add(new Sword(getMapTile(18, 23).getLocation(), this));
+	//enhancedMapTiles.add(new Sword(getMapTile(18, 10).getLocation(), this));
 
 	return enhancedMapTiles;
     }
