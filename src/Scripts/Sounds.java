@@ -20,7 +20,7 @@ public class Sounds {
 	public Sounds() {
 		soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav"); //using
 		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav"); //using
-		soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
+		soundURL[2] = getClass().getResource("/Sounds/itemPickedUp.wav"); //using
 		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav"); //using
 		soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav"); //using
 		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav"); //using

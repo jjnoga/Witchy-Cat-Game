@@ -19,13 +19,13 @@ import Utils.Direction;
 import Utils.Point;
 
 public class Vines extends EnhancedMapTile{
-	protected TestMap map;
+	protected Map map;
 	public int vineCounter = 0;
 	protected Sounds sound = new Sounds();
 
-	public Vines(Point location, TestMap testMap) {
+	public Vines(Point location, Map map) {
 		 super(location.x + 16, location.y + 12, new SpriteSheet(ImageLoader.load("Vines.png"),16, 16), TileType.NOT_PASSABLE);
-	        this.map = testMap;
+	        this.map = map;
 	}
 	
 	  @Override
