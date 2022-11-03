@@ -24,7 +24,7 @@ public class Sword extends EnhancedMapTile {
 	protected Map map;
 	
     public Sword(Point location, Map testMap) {
-        super(location.x, location.y, new SpriteSheet(ImageLoader.load("Sword.png"),16, 16), TileType.PASSABLE);
+        super(location.x, location.y, new SpriteSheet(ImageLoader.load("GardenSheers.png"),16, 16), TileType.PASSABLE);
         sound  = new Sounds();
         this.map = testMap;
     }
