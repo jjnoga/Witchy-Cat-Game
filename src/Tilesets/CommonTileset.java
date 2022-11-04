@@ -25,7 +25,6 @@ public class CommonTileset extends Tileset {
 
 		///////////// spring /////////////
 
-
 		// grass
 		Frame grassFrame = new FrameBuilder(getSubImage(0, 0)).withScale(tileScale).build();
 
@@ -678,34 +677,6 @@ public class CommonTileset extends Tileset {
 		MapTileBuilder autumnFadeFullTopLeftTile = new MapTileBuilder(autumnFadeFullTopLeftFrame);
 
 		mapTiles.add(autumnFadeFullTopLeftTile);
-		
-		// autumnPath
-				Frame autumnPathFrame = new FrameBuilder(getSubImage(11, 3)).withScale(tileScale).build();
-
-				MapTileBuilder autumnPathTile = new MapTileBuilder(autumnPathFrame);
-
-				mapTiles.add(autumnPathTile);
-				
-		// autumnLeavePile
-				Frame autumnLeavePileFrame = new FrameBuilder(getSubImage(11, 4)).withScale(tileScale).build();
-
-				MapTileBuilder autumnLeavePileTile = new MapTileBuilder(autumnLeavePileFrame);
-
-				mapTiles.add(autumnLeavePileTile);
-				
-		// autumnGate
-				Frame autumnGateFrame = new FrameBuilder(getSubImage(11, 5)).withScale(tileScale).build();
-
-				MapTileBuilder autumnGateTile = new MapTileBuilder(autumnGateFrame).withTileType(TileType.NOT_PASSABLE);
-
-				mapTiles.add(autumnGateTile);
-				
-		// autumnSideGate
-				Frame autumnSideGateFrame = new FrameBuilder(getSubImage(12, 4)).withScale(tileScale).build();
-
-				MapTileBuilder autumnSideGateTile = new MapTileBuilder(autumnSideGateFrame).withTileType(TileType.NOT_PASSABLE);
-
-				mapTiles.add(autumnSideGateTile);
 
 		///////////////// More Winter////////////////
 		// middle winter branch
@@ -961,15 +932,6 @@ public class CommonTileset extends Tileset {
 
 		mapTiles.add(cliffInCornerBottomLeftTile);
 
-		// sand house wall left
-
-		Frame sandHouseLeftWallFrame = new FrameBuilder(getSubImage(8, 6)).withScale(tileScale).build();
-
-		MapTileBuilder sandHouseLeftWallTile = new MapTileBuilder(sandHouseLeftWallFrame)
-				.withTileType(TileType.NOT_PASSABLE);
-
-		mapTiles.add(sandHouseLeftWallTile);
-
 		// sand house mid wall
 
 		Frame sandHouseMidWallFrame = new FrameBuilder(getSubImage(8, 7)).withScale(tileScale).build();
@@ -1045,7 +1007,8 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseDoorDecoFrame = new FrameBuilder(getSubImage(10, 5)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame).withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder sandHouseDoorDecoTile = new MapTileBuilder(sandHouseDoorDecoFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseDoorDecoTile);
 
@@ -1053,7 +1016,8 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseRightWindowWallFrame = new FrameBuilder(getSubImage(10, 6)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame).withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder sandHouseRightWindowWallTile = new MapTileBuilder(sandHouseRightWindowWallFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseRightWindowWallTile);
 
@@ -1061,7 +1025,8 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseLeftWindowWallFrame = new FrameBuilder(getSubImage(10, 7)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame).withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder sandHouseLeftWindowWellTile = new MapTileBuilder(sandHouseLeftWindowWallFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseLeftWindowWellTile);
 
@@ -1069,7 +1034,8 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseLeftWindowFrame = new FrameBuilder(getSubImage(10, 8)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame).withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder sandHouseLeftWindowTile = new MapTileBuilder(sandHouseLeftWindowFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseLeftWindowTile);
 
@@ -1077,13 +1043,40 @@ public class CommonTileset extends Tileset {
 
 		Frame sandHouseRightWindowFrame = new FrameBuilder(getSubImage(10, 9)).withScale(tileScale).build();
 
-		MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame).withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder sandHouseRightWindowTile = new MapTileBuilder(sandHouseRightWindowFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(sandHouseRightWindowTile);
 
+		// autumnPath
+		Frame autumnPathFrame = new FrameBuilder(getSubImage(11, 3)).withScale(tileScale).build();
+
+		MapTileBuilder autumnPathTile = new MapTileBuilder(autumnPathFrame);
+
+		mapTiles.add(autumnPathTile);
+
+// autumnLeavePile
+		Frame autumnLeavePileFrame = new FrameBuilder(getSubImage(11, 4)).withScale(tileScale).build();
+
+		MapTileBuilder autumnLeavePileTile = new MapTileBuilder(autumnLeavePileFrame);
+
+		mapTiles.add(autumnLeavePileTile);
+
+// autumnGate
+		Frame autumnGateFrame = new FrameBuilder(getSubImage(11, 5)).withScale(tileScale).build();
+
+		MapTileBuilder autumnGateTile = new MapTileBuilder(autumnGateFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(autumnGateTile);
+
+// autumnSideGate
+		Frame autumnSideGateFrame = new FrameBuilder(getSubImage(12, 4)).withScale(tileScale).build();
+
+		MapTileBuilder autumnSideGateTile = new MapTileBuilder(autumnSideGateFrame).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(autumnSideGateTile);
+
 		return mapTiles;
-		
-		
 
 	}
 }
