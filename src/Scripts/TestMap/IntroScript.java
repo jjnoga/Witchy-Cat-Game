@@ -13,13 +13,6 @@ public class IntroScript extends Script {
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-//		String[] answers = { "I guess I should look around for anything useful here\nfirst. Time to explore!",
-//				"Fall is festive and should have the golden leaf.\nLets go!",
-//				"I better get ready for the cold in Winter.\nAt least the magic ice will be there" };
-
-//		addTextToTextboxQueue(
-//				"and a rare flower that burns with red fire but is\ncool to the touch in the Summer area.");
-//		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
 
 		File tester = new File("Resources/BeginningScript.txt");
 		Scanner fileInput = null;
@@ -35,7 +28,7 @@ public class IntroScript extends Script {
 			System.exit(1);
 		}
 		
-		for (int i = 0; i <= 6; i++) {
+		for (int i = 0; i <= 8; i++) {
 			String str = fileInput.nextLine();
 			String multiLine = "\\n";
 			String select = "*ans";
@@ -53,6 +46,8 @@ public class IntroScript extends Script {
 				addTextToTextboxQueue(str);
 			}
 		}
+		
+		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
 	}
 
 	@Override

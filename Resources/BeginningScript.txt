@@ -1,8 +1,15 @@
-*ans
-I guess I should look in Spring for anything useful
+*ans\ntest
+I guess I should look around here in Spring first 
+before I head out.
 *ans\ntest
 Summer has the burning flower, a good place to start
 exploring the area.
+*ans\ntest
+The golden leaf should be in Fall, hopefully the
+weather is nice and there are leaves on the ground. 
+*ans\ntest
+I better get ready for the cold in Winter. I wonder
+if there will be any new friends there.
 \ntest		
 Come on Anita, I can't believe you forgot to restock
 the ingredients.
