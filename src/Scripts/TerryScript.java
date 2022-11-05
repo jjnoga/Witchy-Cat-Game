@@ -3,9 +3,6 @@ package Scripts;
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
-import Screens.PlayLevelScreen;
-import Level.Inventory;
-import Level.Map;
 
 //script for talking to Pizza npc
 public class TerryScript extends Script<NPC> {
