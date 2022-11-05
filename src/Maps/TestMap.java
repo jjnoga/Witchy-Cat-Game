@@ -105,7 +105,7 @@ public class TestMap extends Map {
 	npcs.add(dinosaurTooToo);
 	
 	Dinosaur dinosaurTooTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
-	dinosaurToo.setInteractScript(new DinoScriptItemFish());
+	dinosaurTooTooToo.setInteractScript(new DinoScriptItemFish());
 	npcs.add(dinosaurTooTooToo);
 
 	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
