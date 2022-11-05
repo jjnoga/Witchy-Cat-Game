@@ -5,6 +5,8 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Percival;
+import Scripts.TestMap.PercivalScript;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;
@@ -25,6 +27,9 @@ public class WinterMap extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		Percival percival = new Percival(2, getMapTile(5, 23).getLocation());
+		percival.setInteractScript(new PercivalScript());
+		npcs.add(percival);
 		return npcs;
 	}
 
