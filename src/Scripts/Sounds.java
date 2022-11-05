@@ -93,8 +93,8 @@ public class Sounds {
 		fc.setValue(currentVolume);
 	}
 	
-	public void volumeChangeDown() {
-		currentVolume -= 5.0f;
+	public void volumeChangeDown(float f) {
+		currentVolume -= f;
 		System.out.println(currentVolume);
 		 if (currentVolume < -29.0) {
 			 currentVolume = -29.0f;
@@ -102,8 +102,8 @@ public class Sounds {
 		 fc.setValue(currentVolume);
 	}
 	
-	public void volumeChangeUp() {
-		currentVolume += 5.0f;
+	public void volumeChangeUp(float f) {
+		currentVolume += f;
 		System.out.println(currentVolume);
 		 if (currentVolume > 6.0) {
 			 currentVolume = 6.0f;
@@ -111,7 +111,9 @@ public class Sounds {
 		 fc.setValue(currentVolume);
 	}
 	
-
+	public void getVolume(float f) {
+		
+	}
 	
 	
 	//May use this to completely redo the volume system and eliminate the mute button and just make a volume control

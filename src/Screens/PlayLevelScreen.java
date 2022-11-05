@@ -248,8 +248,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(11);
+//			stopMusic();
+//			playMusic(11);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -265,6 +265,8 @@ public class PlayLevelScreen extends Screen {
 		this.map = summerMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		stopMusic();
+		playMusic(11);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -345,8 +347,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(10);
+//			stopMusic();
+//			playMusic(10);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -364,6 +366,8 @@ public class PlayLevelScreen extends Screen {
 		this.map = fallMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		stopMusic();
+		playMusic(10);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -444,8 +448,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(0);
+//			stopMusic();
+//			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -461,6 +465,8 @@ public class PlayLevelScreen extends Screen {
 		this.map = springMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		stopMusic();
+		playMusic(0);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -491,8 +497,8 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(0);
+//			stopMusic();
+//			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
@@ -502,13 +508,14 @@ public class PlayLevelScreen extends Screen {
 			npc.setY(summerMap.getNPCs().get(i).getY() + 336);
 			npc.setMap(springMap);
 			springMap.addNPC(npc);
-			;
 		    }
 		}
 		this.player.setLocation(springMap.getEndBoundX() - 426, (player.getLocation().y + 336));
 		this.map = springMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		stopMusic();
+		playMusic(0);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -616,11 +623,6 @@ public class PlayLevelScreen extends Screen {
 	sound.stop();
     }
     
-    public void soundDown() {
-    	sound.volumeChangeDown();
-    }
-    public void soundUp() {
-    	sound.volumeChangeUp();
-    }
+    
 
 }
