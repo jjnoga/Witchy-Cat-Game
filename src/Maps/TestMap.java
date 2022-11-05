@@ -14,6 +14,7 @@ import Level.Map;
 import Level.NPC;
 import Level.Trigger;
 import NPCs.Dinosaur;
+import NPCs.Percival;
 import NPCs.Walrus;
 import NPCs.Blorbo;
 import NPCs.Bruce;
@@ -24,6 +25,7 @@ import Scripts.TestMap.DinoScriptItemGiveSkates;
 import Scripts.TestMap.DinoScriptItemGiveStaff;
 import Scripts.TestMap.DinoScriptItemGiveSword;
 import Scripts.TestMap.IntroScript;
+import Scripts.TestMap.PercivalScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
@@ -100,13 +102,9 @@ public class TestMap extends Map {
 	dinosaurToo.setInteractScript(new DinoScriptItemGiveSword());
 	npcs.add(dinosaurToo);
 	
-	Dinosaur dinosaurTooToo = new Dinosaur(2, getMapTile(21, 35).getLocation());
-	dinosaurTooToo.setInteractScript(new DinoScriptItemGiveSkates());
+	Dinosaur dinosaurTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
+	dinosaurTooToo.setInteractScript(new DinoScriptItemFish());
 	npcs.add(dinosaurTooToo);
-	
-	Dinosaur dinosaurTooTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
-	dinosaurTooTooToo.setInteractScript(new DinoScriptItemFish());
-	npcs.add(dinosaurTooTooToo);
 
 	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
 	blorbo.setInteractScript(new BlorboScript());
