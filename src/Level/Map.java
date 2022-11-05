@@ -626,9 +626,9 @@ public abstract class Map {
         		flagManager.unsetFlag("hasGivenSkatesItem");
         		flagManager.setFlag("hasDroppedSkates");
         	}
-        	else if (flagManager.isFlagSet("hasGiveFishItem")) {
+        	else if (flagManager.isFlagSet("hasGivenFishItem")) {
 
-        		flagManager.unsetFlag("hasGivenFishSkatesItem");
+        		flagManager.unsetFlag("hasGivenFishItem");
         		flagManager.setFlag("hasDroppedFish");
         	}
         	

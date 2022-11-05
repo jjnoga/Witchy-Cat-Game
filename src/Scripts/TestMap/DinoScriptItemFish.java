@@ -36,7 +36,7 @@ public class DinoScriptItemFish extends Script<NPC> {
 	        unlockPlayer();
 	        hideTextbox();
 
-	        if (!isFlagSet("hasGivenSwordItem") && !isFlagSet("hasGivenStaffItem") && !isFlagSet("hasGivenFishItem") && !isFlagSet("hasGivenSkatesItem")) {
+	        if (!isFlagSet("hasGivenSwordItem") && !isFlagSet("hasGivenStaffItem") && !isFlagSet("hasGivenFishItem") && !isFlagSet("hasGivenSkatesItem") && !given) {
 				setFlag("hasGivenFishItem");
 				setFlag("discoveredFish");
 				given = true;
