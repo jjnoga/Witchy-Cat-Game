@@ -41,6 +41,14 @@ public class CoinCounter {
         update();
        
     }
+    
+    public int getCoinCount() {
+	return count;
+    }
+    
+    public void setCoinCount(int count) {
+	this.count = count;
+    }
 
     public void update() {
     	if (!map.getCamera().isAtBottomOfMap()) {

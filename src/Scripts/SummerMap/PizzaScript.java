@@ -3,7 +3,6 @@ package Scripts.SummerMap;
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
-import Maps.SummerMap;
 
 //script for talking to Pizza npc
 public class PizzaScript extends Script<NPC> {

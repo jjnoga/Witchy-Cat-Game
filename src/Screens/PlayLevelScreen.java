@@ -68,7 +68,9 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasFoundBall", false);
 	flagManager.addFlag("hasTalkedToBlorbo", false);
 	flagManager.addFlag("hasTalkedtoPizza", false);
+	flagManager.addFlag("hasTalkedtoTerry", false);
 	flagManager.addFlag("hasGivenSwordItem", false);
+	flagManager.addFlag("hasBoughtShears", false);
 	flagManager.addFlag("hasDropped", false);
 	flagManager.addFlag("hasTalkedtoBruce", false);
 	flagManager.addFlag("hasGoldLeaf", false);
@@ -79,8 +81,14 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("optionsCheck", true);
 	flagManager.addFlag("hasGivenStaffItem", false);
 	flagManager.addFlag("hasDroppedStaff", false);
+	flagManager.addFlag("hasGivenFishItem", false);
+	flagManager.addFlag("hasDroppedFish", false);
+	flagManager.addFlag("hasGivenSkatesItem", false);
+	flagManager.addFlag("hasDroppedSkates", false);
 	flagManager.addFlag("discoveredSword", false);
 	flagManager.addFlag("discoveredStaff", false);
+	flagManager.addFlag("discoveredFish", false);
+	flagManager.addFlag("discoveredSkates", false);
 
 	// define/setup map
 	mapChanged = false;

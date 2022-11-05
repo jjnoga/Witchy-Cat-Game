@@ -45,6 +45,7 @@ public abstract class Player extends GameObject {
     protected boolean onIce = false;
     protected boolean inWinter = false;
     protected boolean inMotion = false;
+    protected boolean skatesEquipped = false;
     protected int currDir = 0;
 
     public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName) {

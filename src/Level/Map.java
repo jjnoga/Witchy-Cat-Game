@@ -6,6 +6,8 @@ import Engine.Key;
 import Engine.KeyLocker;
 import Engine.Keyboard;
 import Engine.ScreenManager;
+import EnhancedMapTiles.Fish;
+import EnhancedMapTiles.IceSkates;
 import EnhancedMapTiles.Staff;
 import EnhancedMapTiles.Sword;
 import GameObject.Rectangle;
@@ -90,6 +92,8 @@ public abstract class Map {
     
     protected Sword sword;
     protected Staff staff;
+    protected Fish fish;
+    protected IceSkates skates;
     
     protected boolean isSpring = false;
 
@@ -604,7 +608,7 @@ public abstract class Map {
         	else optionsCheck = true;
         }
         
-        if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()))
+        if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()) && !player.onIce)
         {
         	inventory.getKeyLocker().lockKey(inventory.getDropKey());
         	if(flagManager.isFlagSet("hasGivenSwordItem"))
@@ -617,7 +621,16 @@ public abstract class Map {
         		flagManager.unsetFlag("hasGivenStaffItem");
         		flagManager.setFlag("hasDroppedStaff");
         	}
+        	else if (flagManager.isFlagSet("hasGivenSkatesItem")) {
 
+        		flagManager.unsetFlag("hasGivenSkatesItem");
+        		flagManager.setFlag("hasDroppedSkates");
+        	}
+        	else if (flagManager.isFlagSet("hasGivenFishItem")) {
+
+        		flagManager.unsetFlag("hasGivenFishItem");
+        		flagManager.setFlag("hasDroppedFish");
+        	}
         	
     		
         	
@@ -636,7 +649,14 @@ public abstract class Map {
         
         if(flagManager != null && flagManager.isFlagSet("hasGivenSwordItem")) inventory.setCurrItem(inventory.SWORD);
         else if(flagManager != null && flagManager.isFlagSet("hasGivenStaffItem")) inventory.setCurrItem(inventory.STAFF);
+        else if(flagManager != null && flagManager.isFlagSet("hasGivenFishItem")) inventory.setCurrItem(inventory.FISH);
+        else if(flagManager != null && flagManager.isFlagSet("hasGivenSkatesItem")) inventory.setCurrItem(inventory.SKATES);
         else inventory.setCurrItem(inventory.EMPTY);
+        
+        if(player != null) {
+            if(inventory.getCurrItem() == inventory.SKATES) player.skatesEquipped = true;  
+            else player.skatesEquipped = false;
+        }
         
         if (hasChangedCoins)
         {
@@ -657,6 +677,20 @@ public abstract class Map {
         	this.staff = new Staff(getMapTile(28, 30).getLocation(), this);
         	addEnhancedMapTile(staff);
         	staff.isHidden = false;
+        }
+        
+        if (flagManager != null && !flagManager.isFlagSet("hasGivenFishItem") && flagManager.isFlagSet("hasDroppedFish") && isSpring)
+        {
+        	this.fish = new Fish(getMapTile(29, 31).getLocation(), this);
+        	addEnhancedMapTile(fish);
+        	fish.isHidden = false;
+        }
+        
+        if (flagManager != null && !flagManager.isFlagSet("hasGivenSkatesItem") && flagManager.isFlagSet("hasDroppedSkates") && isSpring)
+        {
+        	this.skates = new IceSkates(getMapTile(29, 29).getLocation(), this);
+        	addEnhancedMapTile(skates);
+        	skates.isHidden = false;
         }
      }
       
@@ -758,6 +792,10 @@ public abstract class Map {
     }
 
     public Textbox getTextbox() { return textbox; }
+    
+    public void setTextbox(Textbox textbox) {
+	this.textbox = textbox;
+    }
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
@@ -785,6 +823,10 @@ public abstract class Map {
     
     public Inventory getInventory() {
     	return inventory;
+    }
+    
+    public void setInventory(Inventory inventory) {
+	this.inventory = inventory;
     }
     
     public Options getOptions() {

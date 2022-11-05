@@ -19,12 +19,12 @@ import Utils.Direction;
 import Utils.Point;
 
 // for collecting the coins
-public class Staff extends EnhancedMapTile {
+public class Fish extends EnhancedMapTile {
 	protected Sounds sound;
 	protected Map map;
 	
-    public Staff(Point location, Map testMap) {
-        super(location.x, location.y, new SpriteSheet(ImageLoader.load("StaffOfMoving.png"),16, 16), TileType.PASSABLE);
+    public Fish(Point location, Map testMap) {
+        super(location.x, location.y, new SpriteSheet(ImageLoader.load("Fish.png"),16, 16), TileType.PASSABLE);
         sound  = new Sounds();
         this.map = testMap;
     }
@@ -36,14 +36,14 @@ public class Staff extends EnhancedMapTile {
         
         
         if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
-      		map.getFlagManager().setFlag("hasGivenStaffItem");
+      		map.getFlagManager().setFlag("hasGivenFishItem");
       		map.getFlagManager().unsetFlag("hasGivenSwordItem");
+      		map.getFlagManager().unsetFlag("hasGivenStaffItem");
       		map.getFlagManager().unsetFlag("hasGivenSkatesItem");
-      		map.getFlagManager().unsetFlag("hasGivenFishItem");
-          	map.getFlagManager().unsetFlag("hasDroppedStaff");
+          	map.getFlagManager().unsetFlag("hasDroppedFish");
           	if(map.getFlagManager().isFlagSet("discoveredSword")) map.getFlagManager().setFlag("hasDropped");
+          	if(map.getFlagManager().isFlagSet("discoveredStaff")) map.getFlagManager().setFlag("hasDroppedStaff");
           	if(map.getFlagManager().isFlagSet("discoveredSkates")) map.getFlagManager().setFlag("hasDroppedSkates");
-          	if(map.getFlagManager().isFlagSet("discoveredFish")) map.getFlagManager().setFlag("hasDroppedFish");
               playSE(2);
              this.isHidden = true;
       	}
