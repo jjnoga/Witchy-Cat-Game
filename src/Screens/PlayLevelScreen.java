@@ -250,11 +250,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
-<<<<<<< HEAD
-//			stopMusic();
-//			playMusic(11);
-=======
->>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(11);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -354,11 +354,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
-<<<<<<< HEAD
-//			stopMusic();
-//			playMusic(10);
-=======
->>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(10);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -460,11 +460,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-<<<<<<< HEAD
-//			stopMusic();
-//			playMusic(0);
-=======
->>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(0);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -514,11 +514,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-<<<<<<< HEAD
-//			stopMusic();
-//			playMusic(0);
-=======
->>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(0);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
