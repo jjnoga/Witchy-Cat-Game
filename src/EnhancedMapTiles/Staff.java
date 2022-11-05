@@ -40,7 +40,7 @@ public class Staff extends EnhancedMapTile {
       		map.getFlagManager().unsetFlag("hasGivenSwordItem");
           	map.getFlagManager().unsetFlag("hasDroppedStaff");
           	if(map.getFlagManager().isFlagSet("discoveredSword")) map.getFlagManager().setFlag("hasDropped");
-              playSE(1);
+              playSE(2);
              this.isHidden = true;
       	}
           else this.isHidden = true;

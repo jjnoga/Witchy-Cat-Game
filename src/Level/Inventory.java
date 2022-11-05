@@ -56,15 +56,15 @@ public class Inventory {
     
     protected boolean dropCheck = false;
     
-    private String sword = "Sword";
-    private String swordFlavorText = "A blade far too big for a cat to carry. Use it to slash down vines!";
+    private String sword = "Gardening Shears";
+    private String swordFlavorText = "Shears far too big for a cat to carry. Use it to slash down vines!";
     
     private String staff = "Staff of Moving";
     private String staffFlavorText = "A staff brimming with unearthly strength. Use it to move boulders!";
 
     public Inventory(Map map) {
         this.map = map;
-        imageIcon = new ImageIcon("Resources/Sword.png");
+        imageIcon = new ImageIcon("Resources/GardenSheers.png");
         staffIcon = new ImageIcon("Resources/StaffOfMoving.png");
         goldLeaf = new ImageIcon("Resources/GoldLeaf.png");
         iceSphere = new ImageIcon("Resources/iceSphere.png");
@@ -125,12 +125,12 @@ public class Inventory {
             {
             	case SWORD: {
             		if (!map.getCamera().isAtBottomOfMap()) {
-            			graphicsHandler.drawImage(imageIcon, x + 15, bottomY, width / 4, height, null);
+            			graphicsHandler.drawImage(imageIcon, x + 30, bottomY + 3, width / 4, height, null);
             			graphicsHandler.drawString(sword, x + 172, bottomY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
             			graphicsHandler.drawString(swordFlavorText, x + 172, bottomY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
             		}
                     else {
-                    	graphicsHandler.drawImage(imageIcon, x + 15, topY, width / 4, height, null);
+                    	graphicsHandler.drawImage(imageIcon, x + 30, topY + 3, width / 4, height, null);
                     	graphicsHandler.drawString(sword, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
             			graphicsHandler.drawString(swordFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
                     }

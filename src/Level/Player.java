@@ -41,6 +41,11 @@ public abstract class Player extends GameObject {
     protected Key MOVE_DOWN_KEY = Key.DOWN;
     protected Key INTERACT_KEY = Key.SPACE;
     protected Key SPRINT_KEY = Key.SHIFT;
+    
+    protected boolean onIce = false;
+    protected boolean inWinter = false;
+    protected boolean inMotion = false;
+    protected int currDir = 0;
 
     public Player(SpriteSheet spriteSheet, float x, float y, String startingAnimationName) {
 	super(spriteSheet, x, y, startingAnimationName);
@@ -75,6 +80,8 @@ public abstract class Player extends GameObject {
 
 	// update player's animation
 	super.update();
+	
+	
     }
 
     // based on player's current state, call appropriate player state handling
@@ -95,16 +102,21 @@ public abstract class Player extends GameObject {
 
     // player STANDING state logic
     protected void playerStanding() {
-	if (!keyLocker.isKeyLocked(INTERACT_KEY) && Keyboard.isKeyDown(INTERACT_KEY)) {
-	    keyLocker.lockKey(INTERACT_KEY);
-	    map.entityInteract(this);
-	}
+	    
+    		if (!keyLocker.isKeyLocked(INTERACT_KEY) && Keyboard.isKeyDown(INTERACT_KEY)) {
+    		    keyLocker.lockKey(INTERACT_KEY);
+    		    map.entityInteract(this);
+    		}
 
-	// if a walk key is pressed, player enters WALKING state
-	if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY) || Keyboard.isKeyDown(MOVE_UP_KEY)
-		|| Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
-	    playerState = PlayerState.WALKING;
-	}
+    		// if a walk key is pressed, player enters WALKING state
+    		if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY) || Keyboard.isKeyDown(MOVE_UP_KEY)
+    			|| Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
+    			playerState = PlayerState.WALKING;
+    		}
+    	
+	
+    		
+	
     }
 
     // player WALKING state logic
@@ -116,14 +128,16 @@ public abstract class Player extends GameObject {
 
 	// if walk left key is pressed, move player to the left
 	if (Keyboard.isKeyDown(MOVE_LEFT_KEY)) {
+		currDir = 1;
+		inMotion = true;
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
 		if (Keyboard.isKeyDown(MOVE_UP_KEY) || Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
-		    moveAmountX -= walkSpeed + 2.12132;
+			if (!onIce) moveAmountX -= walkSpeed + 2.12132;
 		} else {
-		    moveAmountX -= walkSpeed + 3;
+			if (!onIce) moveAmountX -= walkSpeed + 3;
 		}
 	    } else {
-		moveAmountX -= walkSpeed;
+	    	if (!onIce) moveAmountX -= walkSpeed;
 	    }
 	    facingDirection = Direction.LEFT;
 	    currentWalkingXDirection = Direction.LEFT;
@@ -132,14 +146,16 @@ public abstract class Player extends GameObject {
 
 	// if walk right key is pressed, move player to the right
 	else if (Keyboard.isKeyDown(MOVE_RIGHT_KEY)) {
+		currDir = 2;
+		inMotion = true;
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
 		if (Keyboard.isKeyDown(MOVE_UP_KEY) || Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
-		    moveAmountX += walkSpeed + 2.12132;
+			if (!onIce) moveAmountX += walkSpeed + 2.12132;
 		} else {
-		    moveAmountX += walkSpeed + 3;
+			if (!onIce) moveAmountX += walkSpeed + 3;
 		}
 	    } else {
-		moveAmountX += walkSpeed;
+	    	if (!onIce) moveAmountX += walkSpeed;
 	    }
 	    facingDirection = Direction.RIGHT;
 	    currentWalkingXDirection = Direction.RIGHT;
@@ -149,26 +165,32 @@ public abstract class Player extends GameObject {
 	}
 
 	if (Keyboard.isKeyDown(MOVE_UP_KEY)) {
+		currDir = 3;
+		inMotion = true;
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
 		if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY)) {
-		    moveAmountY -= walkSpeed + 2.12132;
+			if (!onIce) moveAmountY -= walkSpeed + 2.12132;
 		} else {
-		    moveAmountY -= walkSpeed + 3;
+			if (!onIce) moveAmountY -= walkSpeed + 3;
 		}
 	    } else {
-		moveAmountY -= walkSpeed;
+	    	if (!onIce) moveAmountY -= walkSpeed;
 	    }
 	    currentWalkingYDirection = Direction.UP;
 	    lastWalkingYDirection = Direction.UP;
-	} else if (Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
+	} 
+	
+	else if (Keyboard.isKeyDown(MOVE_DOWN_KEY)) {
+		currDir = 4;
+		inMotion = true;
 	    if (Keyboard.isKeyDown(SPRINT_KEY)) {
 		if (Keyboard.isKeyDown(MOVE_LEFT_KEY) || Keyboard.isKeyDown(MOVE_RIGHT_KEY)) {
-		    moveAmountY += walkSpeed + 2.12132;
+		    if (!onIce) moveAmountY += walkSpeed + 2.12132;
 		} else {
-		    moveAmountY += walkSpeed + 3;
+			if (!onIce) moveAmountY += walkSpeed + 3;
 		}
 	    } else {
-		moveAmountY += walkSpeed;
+	    	if (!onIce) moveAmountY += walkSpeed;
 	    }
 	    currentWalkingYDirection = Direction.DOWN;
 	    lastWalkingYDirection = Direction.DOWN;
@@ -185,11 +207,47 @@ public abstract class Player extends GameObject {
 		&& currentWalkingXDirection == Direction.NONE) {
 	    lastWalkingXDirection = Direction.NONE;
 	}
+	
+	if(onIce) {
+			inMotion = true;
+			MOVE_LEFT_KEY = null;
+			MOVE_RIGHT_KEY = null;
+			MOVE_UP_KEY = null;
+			MOVE_DOWN_KEY = null;
+			switch(currDir) {
+				case 1:
+					MOVE_LEFT_KEY = Key.LEFT;
+					moveAmountX -= walkSpeed + 4;
+					break;
+				case 2:
+					MOVE_RIGHT_KEY = Key.RIGHT;
+					moveAmountX += walkSpeed + 4;
+					break;
+				case 3: 
+					MOVE_UP_KEY = Key.UP;
+					moveAmountY -= walkSpeed + 4;
+					break;
+				case 4:
+					MOVE_DOWN_KEY = Key.DOWN;
+					moveAmountY += walkSpeed + 4;
+					break;
+			}
+			
+			
+			
+	}
 
 	if (Keyboard.isKeyUp(MOVE_LEFT_KEY) && Keyboard.isKeyUp(MOVE_RIGHT_KEY) && Keyboard.isKeyUp(MOVE_UP_KEY)
 		&& Keyboard.isKeyUp(MOVE_DOWN_KEY)) {
-	    playerState = PlayerState.STANDING;
+		if(!onIce) {
+		    playerState = PlayerState.STANDING;
+		}
+		
+	    
 	}
+	
+	
+	
     }
 
     // player INTERACTING state logic -- intentionally does nothing so player is
@@ -198,9 +256,10 @@ public abstract class Player extends GameObject {
     }
 
     protected void updateLockedKeys() {
-	if (Keyboard.isKeyUp(INTERACT_KEY) && playerState != PlayerState.INTERACTING) {
-	    keyLocker.unlockKey(INTERACT_KEY);
-	}
+    	if (Keyboard.isKeyUp(INTERACT_KEY) && playerState != PlayerState.INTERACTING) {
+    		keyLocker.unlockKey(INTERACT_KEY);
+    	}
+    	
     }
 
     // anything extra the player should do based on interactions can be handled here
