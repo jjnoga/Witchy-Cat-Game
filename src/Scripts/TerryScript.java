@@ -13,15 +13,15 @@ public class TerryScript extends Script<NPC> {
     // value of 0 means not purchases, 1 is purchased
     // sheers, potion, exit (always 0)
     private int[] itemsBought = new int[2];
-    private String[] selections = { "Shears (2¢)", "Potion (10¢)", "Nothing (Exit)" };
-    private String[] answers = { "Here you are, I reckon these could cut some vines.",
-	    "We're all out I'm afraid, \nlooks like you'll have to make your own.", "Have a nice day!" };
 
     @Override
     protected void setup() {
 	lockPlayer();
 	showTextbox();
 	setChoice(-1);
+	String[] selections = { "Shears (2¢)", "Potion (10¢)", "Nothing (Exit)" };
+	String[] answers = { "Here you are, I reckon these could cut some vines.",
+		"We're all out I'm afraid, \nlooks like you'll have to make your own.", "Have a nice day!" };
 	if (getMap().getCoinCounter().getCoinCount() < 2) {
 	    answers[0] = "You can't afford these.";
 	}
@@ -48,16 +48,10 @@ public class TerryScript extends Script<NPC> {
 	unlockPlayer();
 	hideTextbox();
 	if (getChoice() == 0) {
-	    if (getMap().getCoinCounter().getCoinCount() > 2) {
+	    if (getMap().getCoinCounter().getCoinCount() >= 2 && !isFlagSet("hasGivenSwordItem")) {
 		getMap().getCoinCounter().setCoinCount(getMap().getCoinCounter().getCoinCount() - 2);
 		itemsBought[getChoice()] = 1;
 		setFlag("hasGivenSwordItem");
-
-		Map newMap = map;
-		Inventory newInventory = map.getInventory();
-		newInventory.setCurrItem(1);
-		newMap.setInventory(newInventory);
-		this.map = newMap;
 
 	    }
 	}
