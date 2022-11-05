@@ -228,14 +228,14 @@ public class CommonTileset extends Tileset {
 		// snow
 		Frame snowFrame = new FrameBuilder(getSubImage(0, 5)).withScale(tileScale).build();
 
-		MapTileBuilder snowTile = new MapTileBuilder(snowFrame);
+		MapTileBuilder snowTile = new MapTileBuilder(snowFrame).withTileType(TileType.PASSABLE);
 
 		mapTiles.add(snowTile);
 
 		// ice
 		Frame iceFrame = new FrameBuilder(getSubImage(0, 6)).withScale(tileScale).build();
 
-		MapTileBuilder iceTile = new MapTileBuilder(iceFrame);
+		MapTileBuilder iceTile = new MapTileBuilder(iceFrame).withTileType(TileType.ICY);
 
 		mapTiles.add(iceTile);
 

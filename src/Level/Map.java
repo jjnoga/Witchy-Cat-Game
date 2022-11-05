@@ -658,8 +658,6 @@ public abstract class Map {
         	addEnhancedMapTile(staff);
         	staff.isHidden = false;
         }
-        
-        
      }
       
       

@@ -3,16 +3,20 @@ package Players;
 import Builders.FrameBuilder;
 import Engine.GraphicsHandler;
 import Engine.ImageLoader;
+import Engine.Keyboard;
 import GameObject.Frame;
 import GameObject.ImageEffect;
 import GameObject.SpriteSheet;
 import Level.Player;
+import Utils.Direction;
 
 import java.util.HashMap;
 
 // This is the class for the Cat player character
 // basically just sets some values for physics and then defines animations
 public class Cat extends Player {
+	
+	
 
     public Cat(float x, float y) {
         super(new SpriteSheet(ImageLoader.load("Cat.png"), 24, 24), x, y, "STAND_RIGHT");
@@ -21,6 +25,8 @@ public class Cat extends Player {
 
     public void update() {
         super.update();
+        //System.out.println(onIce);
+		
     }
 
     public void draw(GraphicsHandler graphicsHandler) {

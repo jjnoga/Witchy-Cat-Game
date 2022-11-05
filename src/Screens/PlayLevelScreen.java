@@ -240,6 +240,8 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
+		stopMusic();
+		playMusic(11);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -248,8 +250,6 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(11);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -283,6 +283,8 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
+		stopMusic();
+		playMusic(13);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getY() < 548) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -291,8 +293,6 @@ public class PlayLevelScreen extends Screen {
 				springMap.getEnhancedMapTiles().get(i).getY() + (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(winterMap);
 			winterMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(13);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -337,6 +337,8 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
+		stopMusic();
+		playMusic(10);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -345,8 +347,6 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(10);
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -387,6 +387,8 @@ public class PlayLevelScreen extends Screen {
 		winterMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraX(this.map.getCamera().getX() + 384);
+		stopMusic();
+		playMusic(0);
 		for (int i = 0; i < winterMap.getEnhancedMapTiles().size(); i++) {
 		    if (winterMap.getEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 682) {
 			EnhancedMapTile enhancedMapTile = winterMap.getEnhancedMapTiles().get(i);
@@ -395,8 +397,6 @@ public class PlayLevelScreen extends Screen {
 				winterMap.getEnhancedMapTiles().get(i).getY() - (winterMap.getEndBoundY() - 622));
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(0);
 		    }
 
 		}
@@ -436,6 +436,8 @@ public class PlayLevelScreen extends Screen {
 		fallMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
+		stopMusic();
+		playMusic(0);
 		for (int i = 0; i < fallMap.getEnhancedMapTiles().size(); i++) {
 		    if (fallMap.getEnhancedMapTiles().get(i).getX() > fallMap.getEndBoundX() - 730) {
 			EnhancedMapTile enhancedMapTile = fallMap.getEnhancedMapTiles().get(i);
@@ -444,8 +446,6 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -483,6 +483,8 @@ public class PlayLevelScreen extends Screen {
 		summerMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
+		stopMusic();
+		playMusic(0);
 		for (int i = 0; i < summerMap.getEnhancedMapTiles().size(); i++) {
 		    if (summerMap.getEnhancedMapTiles().get(i).getX() < 730) {
 			EnhancedMapTile enhancedMapTile = summerMap.getEnhancedMapTiles().get(i);
@@ -491,8 +493,6 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-			stopMusic();
-			playMusic(0);
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
