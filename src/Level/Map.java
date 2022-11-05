@@ -608,7 +608,7 @@ public abstract class Map {
         	else optionsCheck = true;
         }
         
-        if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()))
+        if(flagManager != null && inventory.isActive() && Keyboard.isKeyDown(inventory.getDropKey()) && !player.onIce)
         {
         	inventory.getKeyLocker().lockKey(inventory.getDropKey());
         	if(flagManager.isFlagSet("hasGivenSwordItem"))
