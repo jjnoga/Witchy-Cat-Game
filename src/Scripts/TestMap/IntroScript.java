@@ -13,18 +13,12 @@ public class IntroScript extends Script {
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-//		String[] selections = { "Here", "   Summer", "   Fall", "Winter" };
-//		String[] answers = { "I guess I should look around for anything useful here\nfirst. Time to explore!",
-//				"Summer should be a good start and I can get some\nsun. Off to find the burning flower!",
-//				"Fall is festive and should have the golden leaf.\nLets go!",
-//				"I better get ready for the cold in Winter.\nAt least the magic ice will be there" };
-
-//		addTextToTextboxQueue(
-//				"and a rare flower that burns with red fire but is\ncool to the touch in the Summer area.");
-//		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
 
 		File tester = new File("Resources/BeginningScript.txt");
 		Scanner fileInput = null;
+		String[] selections = { "Here", "   Summer", "   Fall", "Winter" };
+		String [] answers = new String [4];
+		int numAnswer = -1;
 
 		try {
 			fileInput = new Scanner(tester);
@@ -33,18 +27,27 @@ public class IntroScript extends Script {
 			e.printStackTrace();
 			System.exit(1);
 		}
-
-		for (int i = 0; i <= 4; i++) {
+		
+		for (int i = 0; i <= 8; i++) {
 			String str = fileInput.nextLine();
 			String multiLine = "\\n";
+			String select = "*ans";
 			Boolean isMulti = str.contains(multiLine);
-			if (isMulti == true) {
+			Boolean isAns = str.contains(select);
+			if (isAns == true && isMulti == true) {
+				numAnswer += 1;
+				answers[numAnswer] = fileInput.nextLine() + "\n" + fileInput.nextLine();
+			} else if (isAns == true && isMulti == false) {
+				numAnswer += 1;
+				answers[numAnswer] = fileInput.nextLine();
+			} else if (isMulti == true) {
 				addTextToTextboxQueue(fileInput.nextLine() + "\n" + fileInput.nextLine());
 			} else if (isMulti == false) {
 				addTextToTextboxQueue(str);
 			}
 		}
-
+		
+		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
 	}
 
 	@Override
