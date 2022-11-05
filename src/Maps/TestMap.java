@@ -19,7 +19,9 @@ import NPCs.Blorbo;
 import NPCs.Bruce;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
-import Scripts.TestMap.DinoScriptItemGive;
+import Scripts.TestMap.DinoScriptItemFish;
+import Scripts.TestMap.DinoScriptItemGiveSkates;
+import Scripts.TestMap.DinoScriptItemGiveStaff;
 import Scripts.TestMap.DinoScriptItemGiveSword;
 import Scripts.TestMap.IntroScript;
 import Scripts.TestMap.TreeScript;
@@ -91,12 +93,20 @@ public class TestMap extends Map {
 	npcs.add(walrus);
 
 	Dinosaur dinosaur = new Dinosaur(2, getMapTile(19, 33).getLocation());
-	dinosaur.setInteractScript(new DinoScriptItemGive());
+	dinosaur.setInteractScript(new DinoScriptItemGiveStaff());
 	npcs.add(dinosaur);
 	
 	Dinosaur dinosaurToo = new Dinosaur(2, getMapTile(19, 36).getLocation());
 	dinosaurToo.setInteractScript(new DinoScriptItemGiveSword());
 	npcs.add(dinosaurToo);
+	
+	Dinosaur dinosaurTooToo = new Dinosaur(2, getMapTile(21, 35).getLocation());
+	dinosaurTooToo.setInteractScript(new DinoScriptItemGiveSkates());
+	npcs.add(dinosaurTooToo);
+	
+	Dinosaur dinosaurTooTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
+	dinosaurToo.setInteractScript(new DinoScriptItemFish());
+	npcs.add(dinosaurTooTooToo);
 
 	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
 	blorbo.setInteractScript(new BlorboScript());

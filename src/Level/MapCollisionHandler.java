@@ -214,6 +214,7 @@ public class MapCollisionHandler {
                 case ICY: {
                 	if (gameObject instanceof Cat) {
                 		Cat player = (Cat) gameObject;
+                		if(!player.skatesEquipped) return gameObject.intersects(mapTile); 
                 		if(player.overlaps(mapTile)) {
                     		player.onIce = true;
                 		}

@@ -33,6 +33,8 @@ public class Inventory {
     public final int EMPTY = 0;
     public final int SWORD = 1;
     public final int STAFF = 2;
+    public final int FISH = 3;
+    public final int SKATES = 4;
     
     protected int currItem = EMPTY;
     private KeyLocker keyLocker = new KeyLocker();
@@ -41,8 +43,11 @@ public class Inventory {
     private Key dropKey = Key.E;
     
     //public Image testImage;
-    private ImageIcon imageIcon;
+    private ImageIcon shearsIcon;
     private ImageIcon staffIcon;
+    private ImageIcon fishIcon;
+    private ImageIcon skatesIcon;
+    
     private ImageIcon goldLeaf;
     private ImageIcon iceSphere;
     private ImageIcon fireRose;
@@ -61,11 +66,20 @@ public class Inventory {
     
     private String staff = "Staff of Moving";
     private String staffFlavorText = "A staff brimming with unearthly strength. Use it to move boulders!";
+    
+    private String fish = "A Dead Fish";
+    private String fishFlavorText = "Its pungent aroma humbles even the most stubborn penguin...";
+    
+    private String skates = "Ice Skates";
+    private String skatesFlavorText = "Footwear suitable for braving even the most slippery terrain!";
 
     public Inventory(Map map) {
         this.map = map;
-        imageIcon = new ImageIcon("Resources/GardenSheers.png");
+        shearsIcon = new ImageIcon("Resources/GardenSheers.png");
         staffIcon = new ImageIcon("Resources/StaffOfMoving.png");
+        fishIcon = new ImageIcon("Resources/Fish.png");
+        skatesIcon = new ImageIcon("Resources/IceSkate.png");
+        
         goldLeaf = new ImageIcon("Resources/GoldLeaf.png");
         iceSphere = new ImageIcon("Resources/iceSphere.png");
         fireRose = new ImageIcon("Resources/fireRose.png");
@@ -125,12 +139,12 @@ public class Inventory {
             {
             	case SWORD: {
             		if (!map.getCamera().isAtBottomOfMap()) {
-            			graphicsHandler.drawImage(imageIcon, x + 30, bottomY + 3, width / 4, height, null);
+            			graphicsHandler.drawImage(shearsIcon, x + 30, bottomY + 3, width / 4, height, null);
             			graphicsHandler.drawString(sword, x + 172, bottomY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
             			graphicsHandler.drawString(swordFlavorText, x + 172, bottomY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
             		}
                     else {
-                    	graphicsHandler.drawImage(imageIcon, x + 30, topY + 3, width / 4, height, null);
+                    	graphicsHandler.drawImage(shearsIcon, x + 30, topY + 3, width / 4, height, null);
                     	graphicsHandler.drawString(sword, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
             			graphicsHandler.drawString(swordFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
                     }
@@ -144,8 +158,34 @@ public class Inventory {
             		}
                     else {
                     	graphicsHandler.drawImage(staffIcon, x + 15, topY, width / 4, height, null);
-                    	graphicsHandler.drawString(sword, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+                    	graphicsHandler.drawString(staff, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
             			graphicsHandler.drawString(staffFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
+                    }
+            	}
+            	break;
+            	case FISH: {
+            		if (!map.getCamera().isAtBottomOfMap()) {
+            			graphicsHandler.drawImage(fishIcon, x + 15, bottomY, width / 4, height, null);
+            			graphicsHandler.drawString(fish, x + 172, bottomY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+            			graphicsHandler.drawString(fishFlavorText, x + 172, bottomY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
+            		}
+                    else {
+                    	graphicsHandler.drawImage(fishIcon, x + 15, topY, width / 4, height, null);
+                    	graphicsHandler.drawString(fish, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+            			graphicsHandler.drawString(fishFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
+                    }
+            	}
+            	break;
+            	case SKATES: {
+            		if (!map.getCamera().isAtBottomOfMap()) {
+            			graphicsHandler.drawImage(skatesIcon, x + 15, bottomY, width / 4, height, null);
+            			graphicsHandler.drawString(skates, x + 172, bottomY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+            			graphicsHandler.drawString(skatesFlavorText, x + 172, bottomY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
+            		}
+                    else {
+                    	graphicsHandler.drawImage(skatesIcon, x + 15, topY, width / 4, height, null);
+                    	graphicsHandler.drawString(skates, x + 172, topY + 18, new Font(Font.SANS_SERIF, Font.BOLD, 16), Color.orange);
+            			graphicsHandler.drawString(skatesFlavorText, x + 172, topY + 35, new Font(Font.SANS_SERIF, Font.ITALIC, 11), Color.lightGray);
                     }
             	}
             	break;

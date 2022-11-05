@@ -10,19 +10,22 @@ import Utils.Point;
 
 // script for talking to dino npc
 // the script is segmented -- it has multiple setups, cleanups, and executions based on its current action
-public class DinoScriptItemGiveSword extends Script<NPC> {
+public class DinoScriptItemFish extends Script<NPC> {
 	
+	private boolean given = false;
 	@Override
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
 		
-		if (!isFlagSet("hasGivenSwordItem")) {
-			addTextToTextboxQueue("Have some shears!");
+		
+		if (!isFlagSet("hasGivenFishItem") && !given) {
+			addTextToTextboxQueue("Have a fish!");
+			
 			
 
-		} else if (isFlagSet("hasGivenSwordItem")) {
-			addTextToTextboxQueue("Gimme your shears!");
+		} else if (given) {
+			addTextToTextboxQueue("...I'm not giving you another fish.");
 		}
 		entity.facePlayer(player);
 
@@ -32,16 +35,12 @@ public class DinoScriptItemGiveSword extends Script<NPC> {
 	    protected void cleanup() {
 	        unlockPlayer();
 	        hideTextbox();
+
 	        if (!isFlagSet("hasGivenSwordItem") && !isFlagSet("hasGivenStaffItem") && !isFlagSet("hasGivenFishItem") && !isFlagSet("hasGivenSkatesItem")) {
-	        	
-	        	setFlag("hasGivenSwordItem");
-				setFlag("discoveredSword");
+				setFlag("hasGivenFishItem");
+				setFlag("discoveredFish");
+				given = true;
 				//unsetFlag("hasDroppedSword");
-			} else if (isFlagSet("hasGivenSwordItem")) {
-				//unsetFlag("hasGivenStaffItem");
-				unsetFlag("hasGivenSwordItem");
-				unsetFlag("discoveredSword");
-				//setFlag("hasDroppedSword");
 			}
 	    }
 
