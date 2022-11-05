@@ -36,13 +36,13 @@ public class Textbox {
     private Queue<String> selectionQueue = new LinkedList<String>();
     private Queue<String> decideTurn = new LinkedList<String>();
     private SpriteFont text = null;
-    private SpriteFont[] selectionText = new SpriteFont[100];
+    private SpriteFont[] selectionText = new SpriteFont[10];
     private String[] responseText = new String[10];
     private KeyLocker keyLocker = new KeyLocker();
     private Map map;
     private Key interactKey = Key.SPACE;
     private Stopwatch keyTimer = new Stopwatch();
-    
+
     protected Sounds sound = new Sounds();
 
     public Textbox(Map map) {
@@ -73,6 +73,8 @@ public class Textbox {
 
     // adds text followed by selection options underneath (up to 10)
     public void addSelectableText(String textChat, String[] selectionText) {
+	selectionQueue.clear();
+	compiledCount = 0;
 	if (textQueue.isEmpty()) {
 	    keyLocker.lockKey(interactKey);
 	}
@@ -85,7 +87,7 @@ public class Textbox {
 	    selectionQueue.add(selectionText[i]);
 	}
 	for (int i = 0; i < selectionText.length + 1; i++) {
-	    
+
 	    this.selectionText[compiledCount] = spriteFontCompile(selectionQueue);
 	    compiledCount++;
 	}
@@ -119,8 +121,10 @@ public class Textbox {
     }
 
     public void setResponses(String[] responses) {
+
 	for (int i = 0; i < responses.length; i++) {
 	    this.responseText[i] = responses[i];
+
 	}
     }
 
@@ -129,7 +133,7 @@ public class Textbox {
 	// if interact key is pressed, remove the current text from the queue to prepare
 	if (!textQueue.isEmpty() && keyLocker.isKeyLocked(interactKey)) {
 	    String next = textQueue.peek();
-	    
+
 	    // if camera is at bottom of screen, text is drawn at top of screen instead of
 	    // the bottom like usual
 	    // to prevent it from covering the player
@@ -167,14 +171,14 @@ public class Textbox {
 
 	if (Keyboard.isKeyDown(Key.RIGHT) && keyTimer.isTimeUp() && selectionText[0] != null) {
 	    keyTimer.reset();
-	    
+
 	    if (currentTextItemHovered != compiledCount - 1) {
 		currentTextItemHovered++;
 		playSE(5);
 	    }
 	} else if (Keyboard.isKeyDown(Key.LEFT) && keyTimer.isTimeUp() && selectionText[0] != null) {
 	    keyTimer.reset();
-	    
+
 	    if (currentTextItemHovered != 1) {
 		currentTextItemHovered--;
 		playSE(5);
@@ -182,7 +186,6 @@ public class Textbox {
 	}
 
     }
-    
 
     public void draw(GraphicsHandler graphicsHandler) {
 	// if camera is at bottom of screen, textbox is drawn at top of screen instead
@@ -223,13 +226,13 @@ public class Textbox {
     }
 
     public int getChoice() {
-	return choice;  
+	return choice;
     }
-    
+
     public void setChoice(int choice) {
 	this.choice = choice;
     }
-    
+
     public boolean isActive() {
 	return isActive;
     }
@@ -241,10 +244,10 @@ public class Textbox {
     public void setInteractKey(Key interactKey) {
 	this.interactKey = interactKey;
     }
-    
+
     public void playSE(int i) {
-    	sound.setFile(i);
-    	sound.play();
+	sound.setFile(i);
+	sound.play();
     }
 
 }

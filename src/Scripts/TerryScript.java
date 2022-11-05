@@ -4,6 +4,8 @@ import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
 import Screens.PlayLevelScreen;
+import Level.Inventory;
+import Level.Map;
 
 //script for talking to Pizza npc
 public class TerryScript extends Script<NPC> {
@@ -11,15 +13,15 @@ public class TerryScript extends Script<NPC> {
     // value of 0 means not purchases, 1 is purchased
     // sheers, potion, exit (always 0)
     private int[] itemsBought = new int[2];
+    private String[] selections = { "Shears (2¢)", "Potion (10¢)", "Nothing (Exit)" };
+    private String[] answers = { "Here you are, I reckon these could cut some vines.",
+	    "We're all out I'm afraid, \nlooks like you'll have to make your own.", "Have a nice day!" };
 
     @Override
     protected void setup() {
 	lockPlayer();
 	showTextbox();
 	setChoice(-1);
-	String[] selections = { "Sheers (2¢)", "Potion (10¢)", "Nothing (Exit)" };
-	String[] answers = { "Here you are, I reckon these could cut some vines.",
-		"We're all out I'm afraid, \nlooks like you'll have to make your own.", "Have a nice day!" };
 	if (getMap().getCoinCounter().getCoinCount() < 2) {
 	    answers[0] = "You can't afford these.";
 	}
@@ -45,22 +47,27 @@ public class TerryScript extends Script<NPC> {
     protected void cleanup() {
 	unlockPlayer();
 	hideTextbox();
-
-	System.out.println("pre:" + getChoice());
 	if (getChoice() == 0) {
 	    if (getMap().getCoinCounter().getCoinCount() > 2) {
 		getMap().getCoinCounter().setCoinCount(getMap().getCoinCounter().getCoinCount() - 2);
 		itemsBought[getChoice()] = 1;
+		setFlag("hasGivenSwordItem");
+
+		Map newMap = map;
+		Inventory newInventory = map.getInventory();
+		newInventory.setCurrItem(1);
+		newMap.setInventory(newInventory);
+		this.map = newMap;
+
 	    }
 	}
 
-	System.out.println(getChoice());
-
 	entity.facePlayer(player);
-	
+
 	// set flag so that if walrus is talked to again after the first time, what he
 	// says changes
 	setFlag("hasTalkedtoTerry");
+
     }
 
     @Override

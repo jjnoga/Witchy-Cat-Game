@@ -70,6 +70,7 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedtoPizza", false);
 	flagManager.addFlag("hasTalkedtoTerry", false);
 	flagManager.addFlag("hasGivenSwordItem", false);
+	flagManager.addFlag("hasBoughtShears", false);
 	flagManager.addFlag("hasDropped", false);
 	flagManager.addFlag("hasTalkedtoBruce", false);
 	flagManager.addFlag("hasGoldLeaf", false);

@@ -760,6 +760,10 @@ public abstract class Map {
     }
 
     public Textbox getTextbox() { return textbox; }
+    
+    public void setTextbox(Textbox textbox) {
+	this.textbox = textbox;
+    }
 
     public int getEndBoundX() { return endBoundX; }
     public int getEndBoundY() { return endBoundY; }
@@ -787,6 +791,10 @@ public abstract class Map {
     
     public Inventory getInventory() {
     	return inventory;
+    }
+    
+    public void setInventory(Inventory inventory) {
+	this.inventory = inventory;
     }
     
     public Options getOptions() {
