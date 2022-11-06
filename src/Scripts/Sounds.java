@@ -126,8 +126,9 @@ public class Sounds {
 		 fc.setValue(currentVolume);
 	}
 	
-	public void getVolume(float f) {
-		
+	public float getVolume(float f) {
+		currentVolume = f;
+		return f;
 	}
 	
 	
