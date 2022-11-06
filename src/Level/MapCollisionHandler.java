@@ -192,7 +192,7 @@ public class MapCollisionHandler {
                 		Cat player = (Cat) gameObject;
                 		if(player.intersects(mapTile)) {
                     		player.onIce = false;
-                    		if(player.inMotion) {
+                    		if(player.inMotion && player.skatesEquipped) {
                     			player.onIce = true;
                     			player.inMotion = false;
                     			player.playerState = PlayerState.STANDING;
