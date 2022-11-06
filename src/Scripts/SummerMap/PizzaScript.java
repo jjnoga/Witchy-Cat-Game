@@ -46,9 +46,4 @@ public class PizzaScript extends Script<NPC> {
 	        return ScriptState.COMPLETED;
 	    }
 
-		@Override
-		protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
-			// TODO Auto-generated method stub
-			return null;
-		}
 }

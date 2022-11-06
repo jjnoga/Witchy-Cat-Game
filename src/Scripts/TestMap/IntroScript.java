@@ -71,10 +71,4 @@ public class IntroScript extends Script {
 		}
 		return ScriptState.COMPLETED;
 	}
-
-	@Override
-	protected SpriteFont spriteFontCompile(Queue selectionQueue) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

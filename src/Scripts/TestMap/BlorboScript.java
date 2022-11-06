@@ -65,7 +65,6 @@ public class BlorboScript extends Script<NPC> {
 //			if (getChoice() == 0) {
 //				choice = "Spring";
 //			}
-
 			addTextToTextboxQueue(fileInput.nextLine(), option, answers);
 
 		}
@@ -93,9 +92,4 @@ public class BlorboScript extends Script<NPC> {
 		return ScriptState.COMPLETED;
 	}
 
-	@Override
-	protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
