@@ -105,6 +105,10 @@ public abstract class Script<T extends MapEntity> {
         map.getTextbox().addSelectableText(text, selectableText);
     }
     
+//    protected void emptyAnswers(String[] responses) {
+//		map.getTextbox().
+//	}
+    
     // returns the value of the last choice made from a selectable textbox
     protected int getChoice() {
 	return map.getTextbox().getChoice();
