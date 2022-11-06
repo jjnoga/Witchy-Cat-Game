@@ -17,6 +17,12 @@ public class BlorboScript extends Script<NPC> {
 		showTextbox();
 		File tester = new File("Resources/testerScript.txt");
 		Scanner fileInput = null;
+		String[] selections = new String[2];
+		selections[0] = "Yes";
+		selections[1] = "No";
+		String [] answers = new String [2];
+		int numAnswer = -1;
+		String choice = "empty";
 
 		try {
 			fileInput = new Scanner(tester);
@@ -27,21 +33,34 @@ public class BlorboScript extends Script<NPC> {
 		}
 
 		if (!isFlagSet("hasTalkedToBlorbo")) {
-			for (int i = 0; i <= 1; i++) {
+			for (int i = 0; i <= 6; i++) {
 				String str = fileInput.nextLine();
 				String multiLine = "\\n";
+				String select = "*ans";
 				Boolean isMulti = str.contains(multiLine);
-				if (isMulti == true) {
-						addTextToTextboxQueue(fileInput.nextLine() + "\n" + fileInput.nextLine());
+				Boolean isAns = str.contains(select);
+				if (isAns == true && isMulti == true) {
+					numAnswer += 1;
+					answers[numAnswer] = fileInput.nextLine() + "\n" + fileInput.nextLine();
+				} else if (isAns == true && isMulti == false) {
+					numAnswer += 1;
+					answers[numAnswer] = fileInput.nextLine();
+				} else if (isMulti == true) {
+					addTextToTextboxQueue(fileInput.nextLine() + "\n" + fileInput.nextLine());
 				} else if (isMulti == false) {
 					addTextToTextboxQueue(str);
 				}
 			}
 		} else {
-			for (int i = 0; i <= 2; i++) {
+			for (int i = 0; i <= 14; i++) {
 				fileInput.nextLine();
 			}
-			addTextToTextboxQueue(fileInput.nextLine());
+			
+			if (getChoice() == 0) {
+				choice = "Spring";
+			}
+			addTextToTextboxQueue(choice, selections, answers); 
+			
 		}
 		entity.facePlayer(player);
 
