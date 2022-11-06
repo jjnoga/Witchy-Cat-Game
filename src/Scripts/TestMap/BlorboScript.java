@@ -10,19 +10,20 @@ import Level.ScriptState;
 
 //script for talking to Blorbo npc
 public class BlorboScript extends Script<NPC> {
+	
+	File tester = new File("Resources/testerScript.txt");
+	Scanner fileInput = null;
+	String[] selections = new String[2];
+	String[] answers = new String[2];
+	int numAnswer = -1;
+	String choice = "empty";
 
 	@Override
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-		File tester = new File("Resources/testerScript.txt");
-		Scanner fileInput = null;
-		String[] selections = new String[2];
 		selections[0] = "Yes";
 		selections[1] = "No";
-		String [] answers = new String [2];
-		int numAnswer = -1;
-		String choice = "empty";
 
 		try {
 			fileInput = new Scanner(tester);
@@ -50,17 +51,19 @@ public class BlorboScript extends Script<NPC> {
 				} else if (isMulti == false) {
 					addTextToTextboxQueue(str);
 				}
+
 			}
 		} else {
 			for (int i = 0; i <= 14; i++) {
 				fileInput.nextLine();
 			}
-			
-			if (getChoice() == 0) {
-				choice = "Spring";
-			}
-			addTextToTextboxQueue(choice, selections, answers); 
-			
+
+//			if (getChoice() == 0) {
+//				choice = "Spring";
+//			}
+
+			addTextToTextboxQueue(fileInput.nextLine(), selections, answers);
+
 		}
 		entity.facePlayer(player);
 
