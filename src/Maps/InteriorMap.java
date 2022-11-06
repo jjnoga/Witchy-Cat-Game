@@ -7,7 +7,7 @@ import Level.NPC;
 import Level.Trigger;
 import NPCs.Terry;
 import NPCs.Walrus;
-import Scripts.TerryScript;
+import Scripts.TestMap.TerryScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 

@@ -2,23 +2,26 @@ package Scripts.TestMap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Queue;
 import java.util.Scanner;
 
 import Level.Script;
 import Level.ScriptState;
+import SpriteFont.SpriteFont;
 
 // trigger script at beginning of game to set that heavy emotional plot
 public class IntroScript extends Script {
+	
+	File tester = new File("Resources/BeginningScript.txt");
+	Scanner fileInput = null;
+	String[] selections = { "Here", "  Summer", " Fall" , "Winter" };
+	String [] answers = new String [4];
+	int numAnswer = -1;
+	
 	@Override
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-
-		File tester = new File("Resources/BeginningScript.txt");
-		Scanner fileInput = null;
-		String[] selections = { "Here", "   Summer", "   Fall", "Winter" };
-		String [] answers = new String [4];
-		int numAnswer = -1;
 
 		try {
 			fileInput = new Scanner(tester);
@@ -67,5 +70,11 @@ public class IntroScript extends Script {
 			end();
 		}
 		return ScriptState.COMPLETED;
+	}
+
+	@Override
+	protected SpriteFont spriteFontCompile(Queue selectionQueue) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

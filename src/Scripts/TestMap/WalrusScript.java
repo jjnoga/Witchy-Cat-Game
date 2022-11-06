@@ -1,8 +1,11 @@
 package Scripts.TestMap;
 
+import java.util.Queue;
+
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
+import SpriteFont.SpriteFont;
 
 // script for talking to walrus npc
 public class WalrusScript extends Script<NPC> {
@@ -42,4 +45,10 @@ public class WalrusScript extends Script<NPC> {
         end();
         return ScriptState.COMPLETED;
     }
+
+	@Override
+	protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

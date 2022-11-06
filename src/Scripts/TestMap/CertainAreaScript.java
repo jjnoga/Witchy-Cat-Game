@@ -1,8 +1,11 @@
 package Scripts.TestMap;
 
+import java.util.Queue;
+
 import Level.Script;
 import Level.ScriptState;
 import Scripts.Sounds;
+import SpriteFont.SpriteFont;
 
 public class CertainAreaScript extends Script {
 
@@ -36,5 +39,11 @@ public class CertainAreaScript extends Script {
 			end();
 		}
 		return ScriptState.COMPLETED;
+	}
+
+	@Override
+	protected SpriteFont spriteFontCompile(Queue selectionQueue) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

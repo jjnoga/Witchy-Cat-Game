@@ -2,18 +2,21 @@ package Scripts.TestMap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Queue;
 import java.util.Scanner;
 
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
+import Level.Textbox;
+import SpriteFont.SpriteFont;
 
 //script for talking to Blorbo npc
 public class BlorboScript extends Script<NPC> {
 	
 	File tester = new File("Resources/testerScript.txt");
 	Scanner fileInput = null;
-	String[] selections = new String[2];
+	String[] option = {"Yes " , "No " };
 	String[] answers = new String[2];
 	int numAnswer = -1;
 	String choice = "empty";
@@ -22,8 +25,9 @@ public class BlorboScript extends Script<NPC> {
 	protected void setup() {
 		lockPlayer();
 		showTextbox();
-		selections[0] = "Yes";
-		selections[1] = "No";
+//		selections[0] = "Yes";
+//		selections[1] = "   No";
+//		Textbox.addSelectableText("balls ", option);
 
 		try {
 			fileInput = new Scanner(tester);
@@ -62,7 +66,7 @@ public class BlorboScript extends Script<NPC> {
 //				choice = "Spring";
 //			}
 
-			addTextToTextboxQueue(fileInput.nextLine(), selections, answers);
+			addTextToTextboxQueue(fileInput.nextLine(), option, answers);
 
 		}
 		entity.facePlayer(player);
@@ -87,5 +91,11 @@ public class BlorboScript extends Script<NPC> {
 		}
 		end();
 		return ScriptState.COMPLETED;
+	}
+
+	@Override
+	protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

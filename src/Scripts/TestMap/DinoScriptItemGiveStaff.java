@@ -1,10 +1,13 @@
 package Scripts.TestMap;
 
+import java.util.Queue;
+
 import Builders.FrameBuilder;
 import Builders.MapTileBuilder;
 import GameObject.Frame;
 import Level.*;
 import Maps.TestMap;
+import SpriteFont.SpriteFont;
 import Utils.Direction;
 import Utils.Point;
 
@@ -56,5 +59,11 @@ public class DinoScriptItemGiveStaff extends Script<NPC> {
 	        end();
 	        return ScriptState.COMPLETED;
 	    }
+
+		@Override
+		protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }
 
