@@ -1,8 +1,11 @@
 package Scripts.SummerMap;
 
+import java.util.Queue;
+
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
+import SpriteFont.SpriteFont;
 
 //script for talking to Pizza npc
 public class PizzaScript extends Script<NPC> {
@@ -42,4 +45,10 @@ public class PizzaScript extends Script<NPC> {
 	        end();
 	        return ScriptState.COMPLETED;
 	    }
+
+		@Override
+		protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 }

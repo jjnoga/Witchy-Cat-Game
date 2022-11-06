@@ -1,7 +1,10 @@
 package Scripts;
 
+import java.util.Queue;
+
 import Level.Script;
 import Level.ScriptState;
+import SpriteFont.SpriteFont;
 
 // Reusable simple interact script
 // Just shows text upon interacting with the associated entity
@@ -45,4 +48,10 @@ public class SimpleTextScript extends Script {
         // script ends
         return ScriptState.COMPLETED;
     }
+
+	@Override
+	protected SpriteFont spriteFontCompile(Queue selectionQueue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

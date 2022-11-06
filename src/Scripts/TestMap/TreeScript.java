@@ -1,7 +1,10 @@
 package Scripts.TestMap;
 
+import java.util.Queue;
+
 import Level.Script;
 import Level.ScriptState;
+import SpriteFont.SpriteFont;
 
 // script for talking to tree with hole in it
 public class TreeScript extends Script {
@@ -32,5 +35,11 @@ public class TreeScript extends Script {
         }
         return ScriptState.COMPLETED;
     }
+
+	@Override
+	protected SpriteFont spriteFontCompile(Queue selectionQueue) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
