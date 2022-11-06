@@ -1,4 +1,17 @@
-My name is Blorbo!
-What's yours?
+*ans\ntest
+My advice would be to explore and look around. You
+never know what you'll find. 
+*ans
+Okay, good luck in 
+Hey Anita! Whatcha up to?
+Weren't you busy with a potion tonight?
+\ntest
+Oh no! You ran out of your ingredients? Thats no 
+good. 
+\ntest
+If you need any help, let me know and I'll aid you
+however I can.
+I swear it! On my name, Blorbo the owl!
 
-Hi Anita!
+Hi again Anita, do you need help?
+
