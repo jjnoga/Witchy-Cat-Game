@@ -15,3 +15,10 @@ I swear it! On my name, Blorbo the owl!
 
 Hi again Anita, do you need help?
 
+*ans\ntest
+Look around and talk to other creatures. They will
+help you get your potion ingredients if you help them. 
+*ans\ntest
+Then why are you here?? Hurry, you have to go collect
+those ingredients.
+Back again Anita? What can I help you with?
