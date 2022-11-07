@@ -1,7 +1,8 @@
 package Maps;
 
 import Level.EnhancedMapTile;
-
+import EnhancedMapTiles.Barrel;
+import EnhancedMapTiles.Coin;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
@@ -22,7 +23,8 @@ public class InteriorMap extends Map {
 
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
-		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();		
+		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
+		enhancedMapTiles.add(new Barrel(getMapTile(6, 7).getLocation(), this));
 		return enhancedMapTiles;
 	}
 
@@ -30,7 +32,7 @@ public class InteriorMap extends Map {
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
 		
-		Terry terry = new Terry(1, getMapTile(5, 4).getLocation());
+		Terry terry = new Terry(1, getMapTile(5, 3).getLocation());
 		terry.setInteractScript(new TerryScript());
 		npcs.add(terry);
 		
