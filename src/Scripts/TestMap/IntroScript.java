@@ -12,6 +12,8 @@ import SpriteFont.SpriteFont;
 // trigger script at beginning of game to set that heavy emotional plot
 public class IntroScript extends Script {
 	
+	public static int firstPick = -2;
+	
 	File tester = new File("Resources/BeginningScript.txt");
 	Scanner fileInput = null;
 	String[] selections = { "Here", "  Summer", " Fall" , "Winter" };
@@ -51,11 +53,15 @@ public class IntroScript extends Script {
 		}
 		
 		addTextToTextboxQueue("Hmmm, where should I start?", selections, answers);
+	
 	}
+	
+	
 
 	@Override
 	protected void cleanup() {
 		setFlag("hasBeginning");
+		firstPick = getChoice();
 		hideTextbox();
 		unlockPlayer();
 	}
