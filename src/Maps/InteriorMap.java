@@ -1,7 +1,8 @@
 package Maps;
 
 import Level.EnhancedMapTile;
-
+import EnhancedMapTiles.Barrel;
+import EnhancedMapTiles.Coin;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
@@ -22,7 +23,8 @@ public class InteriorMap extends Map {
 
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
-		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();		
+		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
+		enhancedMapTiles.add(new Barrel(getMapTile(6, 7).getLocation(), this));
 		return enhancedMapTiles;
 	}
 

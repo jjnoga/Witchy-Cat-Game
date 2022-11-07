@@ -1080,7 +1080,7 @@ public class CommonTileset extends Tileset {
 
 	// tileFloor
 
-	Frame tileFloorFrame = new FrameBuilder(getSubImage(12, 9)).withScale(tileScale).build();
+	Frame tileFloorFrame = new FrameBuilder(getSubImage(12, 5)).withScale(tileScale).build();
 
 	MapTileBuilder tileFloorTile = new MapTileBuilder(tileFloorFrame);
 
@@ -1139,6 +1139,140 @@ public class CommonTileset extends Tileset {
 		.withTileType(TileType.PASSABLE);
 
 	mapTiles.add(counterTopLeftTile);
+
+	// shopWall
+
+	Frame shopWallFrame = new FrameBuilder(getSubImage(13, 8)).withScale(tileScale).build();
+
+	MapTileBuilder shopWallTile = new MapTileBuilder(shopWallFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallTile);
+
+	// shopWallVoidLeft
+
+	Frame shopWallVoidLeftFrame = new FrameBuilder(getSubImage(13, 9)).withScale(tileScale).build();
+
+	MapTileBuilder shopWallVoidLeftTile = new MapTileBuilder(shopWallVoidLeftFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidLeftTile);
+
+	// shopWallVoidRight
+
+	Frame shopWallVoidRightFrame = new FrameBuilder(getSubImage(13, 9)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder shopWallVoidRightTile = new MapTileBuilder(shopWallVoidRightFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidRightTile);
+
+	// shopWallVoidUp
+
+	Frame shopWallVoidUpFrame = new FrameBuilder(getSubImage(13, 2)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+	MapTileBuilder shopWallVoidUpTile = new MapTileBuilder(shopWallVoidUpFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidUpTile);
+
+	// shopWallVoidDown
+
+	Frame shopWallVoidDownFrame = new FrameBuilder(getSubImage(13, 2)).withScale(tileScale).build();
+
+	MapTileBuilder shopWallVoidDownTile = new MapTileBuilder(shopWallVoidDownFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidDownTile);
+
+	// shopWallVoidUpLeft
+
+	Frame shopWallVoidUpLeftFrame = new FrameBuilder(getSubImage(13, 6)).withScale(tileScale).build();
+
+	MapTileBuilder shopWallVoidUpLeftTile = new MapTileBuilder(shopWallVoidUpLeftFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidUpLeftTile);
+
+	// shopWallVoidUpRight
+
+	Frame shopWallVoidUpRightFrame = new FrameBuilder(getSubImage(13, 6)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+	MapTileBuilder shopWallVoidUpRightTile = new MapTileBuilder(shopWallVoidUpRightFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidUpRightTile);
+
+	// shopWallVoidDownLeft
+
+	Frame shopWallVoidDownLeftFrame = new FrameBuilder(getSubImage(13, 6)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+
+	MapTileBuilder shopWallVoidDownLeftTile = new MapTileBuilder(shopWallVoidDownLeftFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidDownLeftTile);
+
+	// shopWallVoidDownRight
+
+	Frame shopWallVoidDownRightFrame = new FrameBuilder(getSubImage(13, 6)).withScale(tileScale)
+		.withImageEffect(ImageEffect.FLIP_H_AND_V).build();
+
+	MapTileBuilder shopWallVoidDownRightTile = new MapTileBuilder(shopWallVoidDownRightFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shopWallVoidDownRightTile);
+
+	// void
+
+	Frame voidFrame = new FrameBuilder(getSubImage(13, 7)).withScale(tileScale).build();
+
+	MapTileBuilder voidTile = new MapTileBuilder(voidFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(voidTile);
+
+	// shelfOne
+
+	Frame shelfOneFrame = new FrameBuilder(getSubImage(11, 9)).withScale(tileScale).build();
+
+	MapTileBuilder shelfOneTile = new MapTileBuilder(shelfOneFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shelfOneTile);
+
+	// shelfTwo
+
+	Frame shelfTwoFrame = new FrameBuilder(getSubImage(12, 9)).withScale(tileScale).build();
+
+	MapTileBuilder shelfTwoTile = new MapTileBuilder(shelfTwoFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(shelfTwoTile);
+
+	// shelfTopOne
+
+	Frame shelfTopOneFrame = new FrameBuilder(getSubImage(13, 3)).withScale(tileScale).build();
+
+	MapTileBuilder shelfTopOneTile = new MapTileBuilder(tileFloorFrame).withTopLayer(shelfTopOneFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(shelfTopOneTile);
+
+	// shelfTopTwo
+
+	Frame shelfTopTwoFrame = new FrameBuilder(getSubImage(13, 4)).withScale(tileScale).build();
+
+	MapTileBuilder shelfTopTwoTile = new MapTileBuilder(tileFloorFrame).withTopLayer(shelfTopTwoFrame)
+		.withTileType(TileType.PASSABLE);
+
+	mapTiles.add(shelfTopTwoTile);
+
+	// barrel
+
+	Frame barrelFrame = new FrameBuilder(getSubImage(13, 5)).withScale(tileScale).build();
+
+	MapTileBuilder barrelTile = new MapTileBuilder(barrelFrame).withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(barrelTile);
 
 	return mapTiles;
 
