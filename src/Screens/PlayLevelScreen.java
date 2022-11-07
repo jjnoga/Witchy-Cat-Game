@@ -161,26 +161,6 @@ public class PlayLevelScreen extends Screen {
 	    break;
 	}
 
-//		if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
-//			keyLocker.lockKey(volUpKey);
-//		} else if (Keyboard.isKeyUp(volUpKey)) {
-//			keyLocker.unlockKey(volUpKey);
-//		}
-//		
-//		if (Keyboard.isKeyDown(volDownKey) && !keyLocker.isKeyLocked(volDownKey)) {
-//			keyLocker.lockKey(volDownKey);
-//		} else if (Keyboard.isKeyUp(volDownKey)) {
-//			keyLocker.unlockKey(volDownKey);
-//		}
-//		
-//		if (Keyboard.isKeyDown(volMuteKey) && !keyLocker.isKeyLocked(volMuteKey)) {
-//			keyLocker.lockKey(volMuteKey);
-//			
-////		} else if (Keyboard.isKeyUp(volMuteKey)) {
-//			keyLocker.unlockKey(volMuteKey);
-//			
-//		}
-
 	if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
 	    keyLocker.lockKey(volUpKey);
 	    sound.volumeUp();

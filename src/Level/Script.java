@@ -1,11 +1,5 @@
 package Level;
-import java.util.LinkedList;
-import java.util.Queue;
-
-import Engine.Key;
-import Engine.KeyLocker;
 import GameObject.Rectangle;
-import SpriteFont.SpriteFont;
 import Utils.Direction;
 import Utils.Stopwatch;
 
@@ -14,19 +8,6 @@ import Utils.Stopwatch;
 // Each script defines a set of instructions that will be carried out by the game when it is set to active
 // Some examples include interact scripts (such as talking to an NPC) and trigger scripts (scripts that activate when the player walks on them)
 public abstract class Script<T extends MapEntity> {
-    protected final int x = 22;
-    protected final int bottomY = 460;
-    protected final int topY = 22;
-    protected final int fontX = 35;
-    protected final int fontBottomY = 500;
-    protected final int fontTopY = 62;
-    protected final int width = 750;
-    protected final int height = 100;
-    protected int currentTextItemHovered = 1;
-    protected final int textItemSelected = -1;
-    protected int compiledCount = 0;
-    protected int choice = -1;
-
     // this is set to true if script is currently being executed
     protected boolean isActive = false;
 
@@ -52,18 +33,6 @@ public abstract class Script<T extends MapEntity> {
     public void setMapEntity(T entity) {
         this.entity = entity;
     }
-    public Queue<String> textQueue = new LinkedList<String>();
-    public Queue<String> textQueueFlip = new LinkedList<String>();
-    public Queue<String> selectionQueue = new LinkedList<String>();
-    public Queue<String> decideTurn = new LinkedList<String>();
-    public SpriteFont text = null;
-    public SpriteFont[] selectionText = new SpriteFont[10];
-    public String[] responseText = new String[10];
-    public KeyLocker keyLocker = new KeyLocker();
-    public Key interactKey = Key.SPACE;
-    public Stopwatch keyTimer = new Stopwatch();
-    
-    protected abstract SpriteFont spriteFontCompile(Queue<String> selectionQueue);
 
     // "setup" logic for a script to prepare for execution update cycle
     protected abstract void setup();
@@ -136,6 +105,10 @@ public abstract class Script<T extends MapEntity> {
         map.getTextbox().addSelectableText(text, selectableText);
     }
     
+//    protected void emptyAnswers(String[] responses) {
+//		map.getTextbox().
+//	}
+    
     // returns the value of the last choice made from a selectable textbox
     protected int getChoice() {
 	return map.getTextbox().getChoice();
@@ -150,31 +123,8 @@ public abstract class Script<T extends MapEntity> {
     protected void addTextToTextboxQueue(String[] text) {
         map.getTextbox().addText(text);
     }
-    
- // adds text followed by selection options underneath (up to 10)
-    public void addSelectableText(String textChat, String[] selectionText) {
-	selectionQueue.clear();
-	compiledCount = 0;
-	if (textQueue.isEmpty()) {
-	    keyLocker.lockKey(interactKey);
-	}
-	textQueue.add(textChat);
-	if (selectionQueue.isEmpty()) {
-	    keyLocker.lockKey(interactKey);
-	}
-	selectionQueue.add(textChat);
-	for (int i = 0; i < selectionText.length; i++) {
-	    selectionQueue.add(selectionText[i]);
-	}
-	for (int i = 0; i < selectionText.length + 1; i++) {
 
-	    this.selectionText[compiledCount] = spriteFontCompile(selectionQueue);
-	    compiledCount++;
-	}
-	decideTurn.add("1");
-    }
-
-	// checks if textbox has already shown all text in its queue
+    // checks if textbox has already shown all text in its queue
     protected boolean isTextboxQueueEmpty() {
         return map.getTextbox().isTextQueueEmpty();
     }

@@ -59,11 +59,5 @@ public class DinoScriptItemGiveStaff extends Script<NPC> {
 	        end();
 	        return ScriptState.COMPLETED;
 	    }
-
-		@Override
-		protected SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
-			// TODO Auto-generated method stub
-			return null;
-		}
 }
 

@@ -75,6 +75,16 @@ public class Textbox {
     public void addSelectableText(String textChat, String[] selectionText) {
 	selectionQueue.clear();
 	compiledCount = 0;
+	/*
+	int fontY;
+	if (!map.getCamera().isAtBottomOfMap()) {
+	    fontY = fontBottomY;
+	} else {
+	    fontY = fontTopY;
+	}
+	for (int i = 0; i < this.selectionText.length; i++) {
+	    this.selectionText[i] = new SpriteFont("", fontX, fontY, "Arial", 30, Color.black);
+	}*/
 	if (textQueue.isEmpty()) {
 	    keyLocker.lockKey(interactKey);
 	}
@@ -90,6 +100,15 @@ public class Textbox {
 
 	    this.selectionText[compiledCount] = spriteFontCompile(selectionQueue);
 	    compiledCount++;
+	}
+	    int fontY;
+	    if (!map.getCamera().isAtBottomOfMap()) {
+		fontY = fontBottomY;
+	    } else {
+		fontY = fontTopY;
+	    }
+	for (int i = selectionText.length + 1; i < this.selectionText.length; i++) {
+	    this.selectionText[i] = new SpriteFont("", fontX, fontY, "Arial", 30, Color.black);
 	}
 	decideTurn.add("1");
     }
@@ -107,15 +126,17 @@ public class Textbox {
 
     // creates spriteFont for each string in a queue
     public SpriteFont spriteFontCompile(Queue<String> selectionQueue) {
-	if (!selectionQueue.isEmpty() && keyLocker.isKeyLocked(interactKey)) {
-	    String next = selectionQueue.poll();
 	    int fontY;
 	    if (!map.getCamera().isAtBottomOfMap()) {
 		fontY = fontBottomY;
 	    } else {
 		fontY = fontTopY;
 	    }
+	if (!selectionQueue.isEmpty() && keyLocker.isKeyLocked(interactKey)) {
+	    String next = selectionQueue.poll();
 	    return new SpriteFont(next, fontX, fontY, "Arial", 30, Color.black);
+	} else if (selectionQueue.isEmpty() && keyLocker.isKeyLocked(interactKey)) {
+	    return new SpriteFont("", fontX, fontY, "Arial", 30, Color.black);
 	}
 	return null;
     }
@@ -159,6 +180,7 @@ public class Textbox {
 		    }
 		    textQueue.add(responseText[currentTextItemHovered - 1]);
 		    choice = currentTextItemHovered - 1;
+		    currentTextItemHovered = 1;
 		    while (!textQueueFlip.isEmpty()) {
 			textQueue.add(textQueueFlip.poll());
 		    }
