@@ -228,10 +228,8 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
-		for (float f = 1.0f; sound.getVolume(f)< -80.0f; f--) {
-			sound.volumeDown();
-		}
 		stopMusic();
+		
 		playMusic(11);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
@@ -262,8 +260,8 @@ public class PlayLevelScreen extends Screen {
 		this.map = summerMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
-		stopMusic();
-		playMusic(11);
+//		stopMusic();
+//		playMusic(11);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -629,6 +627,11 @@ public class PlayLevelScreen extends Screen {
 	sound.setFile(i);
 	sound.play();
 	sound.loop();
+    }
+    
+    public void playSE(int i) {
+    	sound.setFile(i);
+    	sound.play();
     }
 
     public void stopMusic() {
