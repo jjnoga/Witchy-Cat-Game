@@ -30,7 +30,7 @@ public class InteriorMap extends Map {
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
 		
-		Terry terry = new Terry(1, getMapTile(5, 4).getLocation());
+		Terry terry = new Terry(1, getMapTile(5, 3).getLocation());
 		terry.setInteractScript(new TerryScript());
 		npcs.add(terry);
 		
