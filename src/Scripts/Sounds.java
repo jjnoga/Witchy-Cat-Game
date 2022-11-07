@@ -128,7 +128,7 @@ public class Sounds {
 	
 	public float getVolume(float f) {
 		currentVolume = f;
-		return f;
+		return currentVolume;
 	}
 	
 	

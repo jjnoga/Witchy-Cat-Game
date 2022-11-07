@@ -248,6 +248,9 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
+		for (float f = 1.0f; sound.getVolume(f)< -80.0f; f--) {
+			sound.volumeDown();
+		}
 		stopMusic();
 		playMusic(11);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
@@ -258,6 +261,7 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
+			
 //<<<<<<< HEAD
 ////			stopMusic();
 ////			playMusic(11);
