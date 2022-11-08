@@ -34,7 +34,7 @@ public class BruceScript extends Script<NPC> {
 		// changes what Bruce says when talking to him the first time (flag is not set)
 		// vs talking to him afterwards (flag is set)
 		if (!isFlagSet("hasTalkedtoBruce")) {
-			for (int i = 0; i <= 0; i++) {
+			for (int i = 0; i <= 15; i++) {
 				String str = fileInput.nextLine();
 				String multiLine = "\\n";
 				String select = "*ans";
@@ -53,9 +53,11 @@ public class BruceScript extends Script<NPC> {
 				}
 
 			}
+			
+			setFlag("hasTalkedtoBruce");
 
 		} else {
-			for (int i = 0; i <= 1; i++) {
+			for (int i = 0; i <= 34; i++) {
 				fileInput.nextLine();
 			}
 			
@@ -70,8 +72,6 @@ public class BruceScript extends Script<NPC> {
 	protected void cleanup() {
 		unlockPlayer();
 		hideTextbox();
-
-		setFlag("hasTalkedtoBruce");
 	}
 
 	@Override
