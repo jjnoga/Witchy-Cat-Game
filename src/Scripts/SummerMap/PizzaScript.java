@@ -10,6 +10,7 @@ import SpriteFont.SpriteFont;
 //script for talking to Pizza npc
 public class PizzaScript extends Script<NPC> {
 
+	private boolean hasGivenStaff = false;
 	@Override
 	protected void setup() {
 		lockPlayer();
@@ -19,7 +20,7 @@ public class PizzaScript extends Script<NPC> {
 		// vs talking to him afterwards (flag is set)
 		if (!isFlagSet("hasTalkedtoPizza")) {
 			addTextToTextboxQueue("You talked to Pizza the Snake, Hooray!");
-
+			hasGivenStaff = true;
 		} else {
 			addTextToTextboxQueue("Hi Anita, I love Pizza");
 		}
@@ -34,6 +35,11 @@ public class PizzaScript extends Script<NPC> {
 
 	        // set flag so that if walrus is talked to again after the first time, what he says changes
 	        setFlag("hasTalkedtoPizza");
+	        if (!isFlagSet("hasGivenSwordItem") && !isFlagSet("hasGivenStaffItem") && !isFlagSet("hasGivenFishItem") && !isFlagSet("hasGivenSkatesItem") && hasGivenStaff) {
+				setFlag("hasGivenStaffItem");
+				setFlag("discoveredStaff");
+				hasGivenStaff = false;
+			}
 	    }
 
 	    @Override

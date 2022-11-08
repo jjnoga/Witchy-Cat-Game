@@ -51,6 +51,7 @@ public class PlayLevelScreen extends Screen {
     private boolean mapChanged;
     protected GamePanel gp;
     Sounds sound = new Sounds();
+    protected int count = 0;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
 	this.screenCoordinator = screenCoordinator;
@@ -231,7 +232,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		//stopMusic();
 		playMusic(11);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
@@ -241,6 +256,12 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
+			
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(11);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -256,6 +277,8 @@ public class PlayLevelScreen extends Screen {
 		this.map = summerMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+//		stopMusic();
+//		playMusic(11);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -274,7 +297,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(13);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getY() < 548) {
@@ -328,7 +365,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(10);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
@@ -338,6 +389,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(10);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -355,6 +411,22 @@ public class PlayLevelScreen extends Screen {
 		this.map = fallMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
+		playMusic(10);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -378,7 +450,21 @@ public class PlayLevelScreen extends Screen {
 		winterMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraX(this.map.getCamera().getX() + 384);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(0);
 		for (int i = 0; i < winterMap.getEnhancedMapTiles().size(); i++) {
 		    if (winterMap.getEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 682) {
@@ -437,6 +523,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(0);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -452,6 +543,22 @@ public class PlayLevelScreen extends Screen {
 		this.map = springMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
+		playMusic(0);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -484,6 +591,11 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
+//<<<<<<< HEAD
+////			stopMusic();
+////			playMusic(0);
+//=======
+//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
@@ -493,13 +605,28 @@ public class PlayLevelScreen extends Screen {
 			npc.setY(summerMap.getNPCs().get(i).getY() + 336);
 			npc.setMap(springMap);
 			springMap.addNPC(npc);
-			;
 		    }
 		}
 		this.player.setLocation(springMap.getEndBoundX() - 426, (player.getLocation().y + 336));
 		this.map = springMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
+		playMusic(0);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -602,9 +729,16 @@ public class PlayLevelScreen extends Screen {
 	sound.play();
 	sound.loop();
     }
+    
+    public void playSE(int i) {
+    	sound.setFile(i);
+    	sound.play();
+    }
 
     public void stopMusic() {
 	sound.stop();
     }
+    
+    
 
 }
