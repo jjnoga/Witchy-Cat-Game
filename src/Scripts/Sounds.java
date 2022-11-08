@@ -18,19 +18,6 @@ public class Sounds {
 	float volume;
 	
 	public Sounds() {
-////<<<<<<< HEAD
-//		soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav"); 
-//		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav"); 
-//		//soundURL[2] = getClass().getResource("/Sounds/mixkit-arcade-game-complete-or-approved-mission-205.wav");
-//		soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav"); 
-//		soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav"); 
-//		soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav"); 
-//		soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav"); 
-//		//soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
-//		soundURL[8] = getClass().getResource("/Sounds/VineCut.wav"); 
-//		soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav"); 
-//		soundURL[10] = getClass().getResource("/Sounds/Auburn_Thicket_Autumn.wav"); 
-//		soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav"); 
 
 		soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav"); //using
 		soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav"); //using
