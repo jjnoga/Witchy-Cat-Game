@@ -91,6 +91,8 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("discoveredFish", false);
 	flagManager.addFlag("discoveredSkates", false);
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
+	flagManager.addFlag("hasTalkedtoBruceTwo", false);
+	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
 
 	// define/setup map
 	mapChanged = false;
