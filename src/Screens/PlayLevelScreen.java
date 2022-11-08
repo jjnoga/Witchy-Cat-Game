@@ -51,6 +51,7 @@ public class PlayLevelScreen extends Screen {
     private boolean mapChanged;
     protected GamePanel gp;
     Sounds sound = new Sounds();
+    protected int count = 0;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
 	this.screenCoordinator = screenCoordinator;
@@ -229,8 +230,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
-		stopMusic();
-		
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		//stopMusic();
 		playMusic(11);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
@@ -281,7 +295,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(13);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getY() < 548) {
@@ -335,7 +363,21 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(10);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
@@ -367,7 +409,21 @@ public class PlayLevelScreen extends Screen {
 		this.map = fallMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(10);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
@@ -392,7 +448,21 @@ public class PlayLevelScreen extends Screen {
 		winterMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraX(this.map.getCamera().getX() + 384);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(0);
 		for (int i = 0; i < winterMap.getEnhancedMapTiles().size(); i++) {
 		    if (winterMap.getEnhancedMapTiles().get(i).getY() > winterMap.getEndBoundY() - 682) {
@@ -471,7 +541,21 @@ public class PlayLevelScreen extends Screen {
 		this.map = springMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(0);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
@@ -525,7 +609,21 @@ public class PlayLevelScreen extends Screen {
 		this.map = springMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
-		stopMusic();
+		while(count < 80){
+			count += 1;
+				try{
+				  Thread.sleep(25);
+				}catch(InterruptedException ex){
+				  System.out.println("Welp");
+				}
+//			for (float f = 0; f > sound.getVolMin(); f--) {
+				sound.volumeDown();
+				//stopMusic();
+//			}
+			
+		}
+		count = 0;
+		
 		playMusic(0);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))

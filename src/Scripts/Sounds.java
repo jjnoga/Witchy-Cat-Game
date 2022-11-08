@@ -100,7 +100,7 @@ public class Sounds {
 	}
 	
 	public void volumeDown() {
-		currentVolume -= 3.0f;
+		currentVolume -= 1.0f;
 		System.out.println("Current Volume: " + currentVolume);
 		if (currentVolume < -80.0f) {
 			currentVolume = -80.0f;
@@ -126,8 +126,13 @@ public class Sounds {
 		 fc.setValue(currentVolume);
 	}
 	
-	public float getVolume(float f) {
-		currentVolume = f;
+	public float getVolume() {
+		return currentVolume;
+	}
+	
+	public float getVolMin() {
+		currentVolume = -80.0f;
+		
 		return currentVolume;
 	}
 	
