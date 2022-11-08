@@ -5,6 +5,10 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Bruce;
+import NPCs.Walrus;
+import Scripts.TestMap.BruceScript;
+import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
@@ -90,6 +94,9 @@ public class FallMap extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		Bruce bruce = new Bruce(1, getMapTile(12, 23).getLocation());
+		bruce.setInteractScript(new BruceScript());
+		npcs.add(bruce);
 		return npcs;
 	}
 
