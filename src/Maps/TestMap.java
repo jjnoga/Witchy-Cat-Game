@@ -21,9 +21,7 @@ import NPCs.Bruce;
 import Scripts.SimpleTextScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemFish;
-import Scripts.TestMap.DinoScriptItemGiveSkates;
 import Scripts.TestMap.DinoScriptItemGiveStaff;
-import Scripts.TestMap.DinoScriptItemGiveSword;
 import Scripts.TestMap.IntroScript;
 import Scripts.TestMap.PercivalScript;
 import Scripts.TestMap.TreeScript;
@@ -93,14 +91,6 @@ public class TestMap extends Map {
 	Walrus walrus = new Walrus(1, getMapTile(13, 35).getLocation().subtractY(40));
 	walrus.setInteractScript(new WalrusScript());
 	npcs.add(walrus);
-
-	Dinosaur dinosaur = new Dinosaur(2, getMapTile(19, 33).getLocation());
-	dinosaur.setInteractScript(new DinoScriptItemGiveStaff());
-	npcs.add(dinosaur);
-	
-	Dinosaur dinosaurToo = new Dinosaur(2, getMapTile(19, 36).getLocation());
-	dinosaurToo.setInteractScript(new DinoScriptItemGiveSword());
-	npcs.add(dinosaurToo);
 	
 	Dinosaur dinosaurTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
 	dinosaurTooToo.setInteractScript(new DinoScriptItemFish());
