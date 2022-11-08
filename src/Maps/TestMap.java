@@ -4,6 +4,7 @@ import EnhancedMapTiles.Rock;
 import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
 import EnhancedMapTiles.Vines;
+import EnhancedMapTiles.Boat;
 
 import EnhancedMapTiles.GoldLeaf;
 import EnhancedMapTiles.IceSphere;
@@ -53,25 +54,8 @@ public class TestMap extends Map {
 	enhancedMapTiles.add(new Coin(getMapTile(24, 26).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(22, 26).getLocation(), this));
 	enhancedMapTiles.add(new Coin(getMapTile(21, 27).getLocation(), this));
+	enhancedMapTiles.add(new Boat(getMapTile(21, 38).getLocation(), this));
 	
-	//vines for the demo
-	enhancedMapTiles.add(new Vines(getMapTile(18, 11).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(18, 12).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(18, 13).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(19, 13).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(20, 13).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(21, 13).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(22, 13).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(22, 12).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(22, 11).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(22, 10).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(21, 10).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(20, 10).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(19, 10).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(18, 10).getLocation(), this));
-	enhancedMapTiles.add(new Vines(getMapTile(19, 11).getLocation(), this));
-	//enhancedMapTiles.add(new GoldLeaf(getMapTile(24, 32).getLocation(), this));
-	enhancedMapTiles.add(new IceSphere(getMapTile(25, 32).getLocation(), this));
 
 
 	/*
