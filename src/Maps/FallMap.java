@@ -30,6 +30,7 @@ public class FallMap extends Map {
 		enhancedMapTiles.add(new Vines(getMapTile(31, 21).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(33, 21).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(32, 20).getLocation(), this));
+		enhancedMapTiles.add(new Vines(getMapTile(31, 20).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(26, 20).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(25, 20).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(24, 20).getLocation(), this));
@@ -41,11 +42,11 @@ public class FallMap extends Map {
 		enhancedMapTiles.add(new Vines(getMapTile(31, 19).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(32, 18).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(29, 18).getLocation(), this));
-		enhancedMapTiles.add(new Vines(getMapTile(18, 18).getLocation(), this));
+		enhancedMapTiles.add(new Vines(getMapTile(28, 18).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(26, 18).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(23, 18).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(21, 18).getLocation(), this));
-		enhancedMapTiles.add(new Vines(getMapTile(20, 18).getLocation(), this));
+		enhancedMapTiles.add(new Vines(getMapTile(20, 17).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(21, 17).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(23, 17).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(25, 17).getLocation(), this));
@@ -57,9 +58,10 @@ public class FallMap extends Map {
 		enhancedMapTiles.add(new Vines(getMapTile(33, 16).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(30, 16).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(28, 16).getLocation(), this));
-		enhancedMapTiles.add(new Vines(getMapTile(26, 16).getLocation(), this));
+		enhancedMapTiles.add(new Vines(getMapTile(23, 16).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(20, 16).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(20, 15).getLocation(), this));
+		enhancedMapTiles.add(new Vines(getMapTile(23, 15).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(22, 15).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(22, 15).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(21, 15).getLocation(), this));

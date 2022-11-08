@@ -1,5 +1,4 @@
 package EnhancedMapTiles;
-
 import Builders.FrameBuilder;
 import Engine.ImageLoader;
 import Engine.Key;
@@ -18,34 +17,29 @@ import Scripts.Sounds;
 import Utils.Direction;
 import Utils.Point;
 
-public class Vines extends EnhancedMapTile{
+public class Boat extends EnhancedMapTile {
 	protected Map map;
 	public int vineCounter = 0;
 	protected Sounds sound = new Sounds();
 
-	public Vines(Point location, Map map) {
-		 super(location.x + 16, location.y + 12, new SpriteSheet(ImageLoader.load("Vines.png"),16, 16), TileType.NOT_PASSABLE);
+	public Boat(Point location, Map map) {
+		 super(location.x + 16, location.y + 12, new SpriteSheet(ImageLoader.load("Boat.png"),16, 16), TileType.PASSABLE);
 	        this.map = map;
 	}
 	
 	  @Override
 	    public void update(Player player) {
 	        super.update(player);
-	        
-	       if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden && map.getFlagManager().isFlagSet("hasGivenSwordItem")) 
-	        {
-	            this.isHidden = true;
-	            sound.setFile(8);
-	            sound.play();
-	       }
+	      
 	   }
 	  
 	  @Override
 	    protected GameObject loadBottomLayer(SpriteSheet spriteSheet) {
 	        Frame frame = new FrameBuilder(spriteSheet.getSubImage(0, 0))
-	                .withScale(2.5f)
+	                .withScale(4f)
 	                .build();
 	        		
 	        return new GameObject(x, y, frame);
 	    }
+
 }
