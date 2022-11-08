@@ -1273,6 +1273,72 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder barrelTile = new MapTileBuilder(barrelFrame).withTileType(TileType.NOT_PASSABLE);
 
 	mapTiles.add(barrelTile);
+	
+	// hauntedHouseLeft
+			Frame hauntedHouseLeftFrame = new FrameBuilder(getSubImage(13, 0)).withScale(tileScale).build();
+
+			MapTileBuilder hauntedHouseLeftTile = new MapTileBuilder(hauntedHouseLeftFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseLeftTile);
+			
+		// hauntedHouseRight
+			Frame hauntedHouseRightFrame = new FrameBuilder(getSubImage(13, 0)).withScale(tileScale)
+					.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+			MapTileBuilder hauntedHouseRightTile = new MapTileBuilder(hauntedHouseRightFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseRightTile);
+			
+		// hauntedHouse
+			Frame hauntedHouseFrame = new FrameBuilder(getSubImage(13, 1)).withScale(tileScale).build();
+
+			MapTileBuilder hauntedHouseTile = new MapTileBuilder(hauntedHouseFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseTile);
+		// hauntedHouseRoofLeft
+			Frame hauntedHouseRoofLeftFrame = new FrameBuilder(getSubImage(14, 2)).withScale(tileScale).build();
+
+			MapTileBuilder hauntedHouseLeftRoofTile = new MapTileBuilder(hauntedHouseRoofLeftFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseLeftRoofTile);
+					
+		// hauntedHouseRoofRight
+			Frame hauntedHouseRightRoofFrame = new FrameBuilder(getSubImage(14, 2)).withScale(tileScale)
+					.withImageEffect(ImageEffect.FLIP_HORIZONTAL).build();
+
+			MapTileBuilder hauntedHouseRightRoofTile = new MapTileBuilder(hauntedHouseRightRoofFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseRightRoofTile);
+			
+		// hauntedHouseWindow
+			Frame hauntedHouseWindowFrame = new FrameBuilder(getSubImage(14, 1)).withScale(tileScale).build();
+			
+			MapTileBuilder hauntedHouseWindowTile = new MapTileBuilder(hauntedHouseWindowFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseWindowTile);					
+					
+		// hauntedHouseRoof
+			Frame hauntedHouseRoofFrame = new FrameBuilder(getSubImage(14, 0)).withScale(tileScale).build();
+
+			MapTileBuilder hauntedHouseRoofTile = new MapTileBuilder(hauntedHouseRoofFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(hauntedHouseRoofTile);
+		// hauntedHouseRoofBlack
+				Frame hauntedHouseRoofBlackFrame = new FrameBuilder(getSubImage(14, 3)).withScale(tileScale).build();
+
+				MapTileBuilder hauntedHouseRoofBlackTile = new MapTileBuilder(hauntedHouseRoofBlackFrame)
+					.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(hauntedHouseRoofBlackTile);
+							
+			
 
 	return mapTiles;
 

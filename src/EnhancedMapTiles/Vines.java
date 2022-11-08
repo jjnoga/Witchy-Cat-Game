@@ -43,7 +43,7 @@ public class Vines extends EnhancedMapTile{
 	  @Override
 	    protected GameObject loadBottomLayer(SpriteSheet spriteSheet) {
 	        Frame frame = new FrameBuilder(spriteSheet.getSubImage(0, 0))
-	                .withScale(1.5f)
+	                .withScale(2.5f)
 	                .build();
 	        		
 	        return new GameObject(x, y, frame);
