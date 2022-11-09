@@ -6,8 +6,8 @@ Okay, good luck in
 Hey Anita! Whatcha up to?
 Weren't you busy with a potion tonight?
 \ntest
-Oh no! You ran out of your ingredients? Thats no 
-good. 
+Oh no! You ran out of your special ingredients? 
+That's no good. 
 \ntest
 If you need any help, let me know and I'll aid you
 however I can.

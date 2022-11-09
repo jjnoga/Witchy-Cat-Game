@@ -1,5 +1,11 @@
+*ans\ntest
+Well I don't know anything! That house is definitely,
+100%, totally, empty and has nothing useful for sure.
+*ans\ntest
+Good! Cause I know nothing useful, now go away! I'm 
+sulking over the fact that you're leaving me again.
 \ntest
-Heyy! Its Anita!!! It has been awhile since you have 
+Heyy! Its Anita!!! It has been awhile since you've 
 been to Fall.
 Have you come to visit your's truly?
 \ntest
@@ -10,15 +16,15 @@ No one can forget a relationship with Bruce the catch!
 Wait, what do you mean you aren't here to get back
 together? What else would you be here for?
 \ntest
-Oh! I know! You are here for a night with me. While it
-is not night time, I am ready! Be ready for Bruce the f-
+Oh! I know! You're here for a night with me. While it
+isn't night time, I am ready! Be ready for Bruce the f-
 ...
 \ntest
 O-oh, okay. First of all ouch, that hurt way more than
 I thought it would.
 Second of all, that was very rude and hurt my feelings.
 \ntest
-Third of all, there is literally no other reason you
+Third of all, there's literally no other reason you
 would be here if not for a "meet up" or a date. 
 (I would be doing finger quotes if I could)
 ...
@@ -30,7 +36,15 @@ Okay okay, I assumed, my bad. You know where that
 the leaves are in that sca- 
 I mean, normal house's yard. 
 \ntest
-I don't know anything else! Now leave me be, I have 
+I don't know anything else! Now leave me be, I've got 
 to nurse my wounds and my pride.
 
-Do you need any help?
+Are you stumped? You must be if you are back here
+
+*ans\ntest
+That sucks for you, cause I'm not gonna tell you about 
+a store in Spring has an item that cuts the vines.
+*ans\ntest
+Why are you back here then??? Are you having fun 
+torturing me?? Stop bugging me!
+For God's sake, what do you want? Do you need help?
