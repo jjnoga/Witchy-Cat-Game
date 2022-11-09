@@ -6,7 +6,7 @@ import Level.Map;
 import Level.NPC;
 import Level.Trigger;
 import NPCs.Percival;
-import Scripts.TestMap.PercivalScript;
+import Scripts.WinterMap.PercivalScript;
 import Tilesets.CommonTileset;
 import EnhancedMapTiles.Boat;
 import EnhancedMapTiles.IceSphere;

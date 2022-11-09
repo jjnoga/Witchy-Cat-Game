@@ -1,4 +1,4 @@
-package Scripts.TestMap;
+package Scripts.WinterMap;
 
 import java.util.Queue;
 
