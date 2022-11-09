@@ -18,7 +18,7 @@ import EnhancedMapTiles.Vines;
 
 // Represents a test map to be used in a level
 public class SummerMap extends Map {
-
+ 
 	public SummerMap() {
 		super("summer_map.txt", new CommonTileset());
 	}

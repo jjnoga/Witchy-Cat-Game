@@ -9,6 +9,9 @@ Weren't you busy with a potion tonight?
 Oh no! You ran out of your special ingredients? 
 That's no good. 
 \ntest
+You'll have to hurry by holding SHIFT when walking
+to sprint to all the different ingredient's areas.
+\ntest
 If you need any help, let me know and I'll aid you
 however I can.
 I swear it! On my name, Blorbo the owl!

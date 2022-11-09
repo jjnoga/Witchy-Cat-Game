@@ -16,7 +16,6 @@ public class BruceScript extends Script<NPC> {
 	String[] selections = { "Yes ", "No " };
 	String[] answers = new String[2];
 	int numAnswer = -1;
-	String option = "empty";
 
 	@Override
 	protected void setup() {

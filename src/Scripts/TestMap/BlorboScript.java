@@ -33,7 +33,7 @@ public class BlorboScript extends Script<NPC> {
 		}
 
 		if (!isFlagSet("hasTalkedToBlorbo")) {
-			for (int i = 0; i <= 6; i++) {
+			for (int i = 0; i <= 7; i++) {
 				String str = fileInput.nextLine();
 				String multiLine = "\\n";
 				String select = "*ans";
@@ -55,7 +55,7 @@ public class BlorboScript extends Script<NPC> {
 			
 			setFlag("hasTalkedToBlorbo");
 		} else if (isFlagSet("hasTalkedToBlorbo") && !isFlagSet("hasTalkedToBlorboTwo")){
-			for (int i = 0; i <= 14; i++) {
+			for (int i = 0; i <= 17; i++) {
 				fileInput.nextLine();
 			}
 
@@ -72,7 +72,7 @@ public class BlorboScript extends Script<NPC> {
 			addTextToTextboxQueue(fileInput.nextLine(), selections, answers);
 			setFlag("hasTalkedToBlorboTwo");
 		} else {
-			for (int i = 0; i <= 16; i++) {
+			for (int i = 0; i <= 19; i++) {
 				fileInput.nextLine();
 			}
 			numAnswer = -1;
