@@ -234,11 +234,7 @@ public class PlayLevelScreen extends Screen {
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
 		while(count < 80){
 			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
+				
 //			for (float f = 0; f > sound.getVolMin(); f--) {
 				sound.volumeDown();
 				//stopMusic();
@@ -299,11 +295,7 @@ public class PlayLevelScreen extends Screen {
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
 		while(count < 80){
 			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
+				
 //			for (float f = 0; f > sound.getVolMin(); f--) {
 				sound.volumeDown();
 				//stopMusic();
@@ -367,11 +359,7 @@ public class PlayLevelScreen extends Screen {
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
 		while(count < 80){
 			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
+				
 //			for (float f = 0; f > sound.getVolMin(); f--) {
 				sound.volumeDown();
 				//stopMusic();
@@ -379,7 +367,6 @@ public class PlayLevelScreen extends Screen {
 			
 		}
 		count = 0;
-		
 		playMusic(10);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
@@ -411,22 +398,22 @@ public class PlayLevelScreen extends Screen {
 		this.map = fallMap;
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
-		while(count < 80){
-			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
-//			for (float f = 0; f > sound.getVolMin(); f--) {
-				sound.volumeDown();
-				//stopMusic();
-//			}
-			
-		}
-		count = 0;
-		
-		playMusic(10);
+//		while(count < 80){
+//			count += 1;
+//				try{
+//				  Thread.sleep(25);
+//				}catch(InterruptedException ex){
+//				  System.out.println("Welp");
+//				}
+////			for (float f = 0; f > sound.getVolMin(); f--) {
+//				sound.volumeDown();
+//				//stopMusic();
+////			}
+//			
+//		}
+//		count = 0;
+//		
+//		playMusic(10);
 
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
@@ -452,11 +439,7 @@ public class PlayLevelScreen extends Screen {
 		springMap.setCameraX(this.map.getCamera().getX() + 384);
 		while(count < 80){
 			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
+				
 //			for (float f = 0; f > sound.getVolMin(); f--) {
 				sound.volumeDown();
 				//stopMusic();
@@ -513,8 +496,8 @@ public class PlayLevelScreen extends Screen {
 		fallMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
-		stopMusic();
-		playMusic(0);
+//		stopMusic();
+//		playMusic(0);
 		for (int i = 0; i < fallMap.getEnhancedMapTiles().size(); i++) {
 		    if (fallMap.getEnhancedMapTiles().get(i).getX() > fallMap.getEndBoundX() - 730) {
 			EnhancedMapTile enhancedMapTile = fallMap.getEnhancedMapTiles().get(i);
@@ -545,11 +528,7 @@ public class PlayLevelScreen extends Screen {
 		this.player.setMap(map);
 		while(count < 80){
 			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
+				
 //			for (float f = 0; f > sound.getVolMin(); f--) {
 				sound.volumeDown();
 				//stopMusic();
@@ -581,8 +560,7 @@ public class PlayLevelScreen extends Screen {
 		summerMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
-		stopMusic();
-		playMusic(0);
+
 		for (int i = 0; i < summerMap.getEnhancedMapTiles().size(); i++) {
 		    if (summerMap.getEnhancedMapTiles().get(i).getX() < 730) {
 			EnhancedMapTile enhancedMapTile = summerMap.getEnhancedMapTiles().get(i);
@@ -613,11 +591,7 @@ public class PlayLevelScreen extends Screen {
 		this.player.setMap(map);
 		while(count < 80){
 			count += 1;
-				try{
-				  Thread.sleep(25);
-				}catch(InterruptedException ex){
-				  System.out.println("Welp");
-				}
+				
 //			for (float f = 0; f > sound.getVolMin(); f--) {
 				sound.volumeDown();
 				//stopMusic();

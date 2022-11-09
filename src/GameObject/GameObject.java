@@ -50,7 +50,7 @@ public class GameObject extends AnimatedSprite {
 		this.startPositionY = y;
 		this.previousX = x;
 		this.previousY = y;
-	}
+	} 
 
 	public GameObject(float x, float y, Frame[] frames) {
 		super(x, y, frames);

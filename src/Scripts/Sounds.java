@@ -77,7 +77,7 @@ public class Sounds {
 	}
 	
 	public void volumeUp() {
-		currentVolume += 3.0f;
+		currentVolume += 1.0f;
 		System.out.println("Current Volume: " + currentVolume);
 		if (currentVolume > 6.0f) {
 			currentVolume = 6.0f;
