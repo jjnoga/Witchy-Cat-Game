@@ -1,4 +1,4 @@
-package Scripts.TestMap;
+package Scripts.FallMap;
 
 import java.io.File;
 import java.io.FileNotFoundException;

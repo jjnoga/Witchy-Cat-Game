@@ -7,7 +7,7 @@ import Level.NPC;
 import Level.Trigger;
 import NPCs.Bruce;
 import NPCs.Walrus;
-import Scripts.TestMap.BruceScript;
+import Scripts.FallMap.BruceScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 import EnhancedMapTiles.Sword;

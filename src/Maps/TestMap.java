@@ -20,6 +20,7 @@ import NPCs.Walrus;
 import NPCs.Blorbo;
 import NPCs.Bruce;
 import Scripts.SimpleTextScript;
+import Scripts.FallMap.BruceScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemFish;
 import Scripts.TestMap.DinoScriptItemGiveStaff;
@@ -28,7 +29,6 @@ import Scripts.TestMap.PercivalScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
-import Scripts.TestMap.BruceScript;
 import Scripts.TestMap.CertainAreaScript;
 import Tilesets.CommonTileset;
 
