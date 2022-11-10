@@ -6,8 +6,10 @@ import Level.Map;
 import Level.NPC;
 import Level.Trigger;
 import NPCs.Percival;
-import Scripts.TestMap.PercivalScript;
+import Scripts.WinterMap.PercivalScript;
 import Tilesets.CommonTileset;
+import EnhancedMapTiles.Boat;
+import EnhancedMapTiles.IceSphere;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,8 @@ public class WinterMap extends Map {
 
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
-		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();	
+		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
+		enhancedMapTiles.add(new IceSphere(getMapTile(14, 25).getLocation(), this));
 		return enhancedMapTiles;
 	}
 

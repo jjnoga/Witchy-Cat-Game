@@ -18,7 +18,7 @@ import EnhancedMapTiles.Vines;
 
 // Represents a test map to be used in a level
 public class SummerMap extends Map {
-
+ 
 	public SummerMap() {
 		super("summer_map.txt", new CommonTileset());
 	}
@@ -48,7 +48,6 @@ public class SummerMap extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
-		
 		Pizza pizza = new Pizza(1, getMapTile(50, 27).getLocation());
 		pizza.setInteractScript(new PizzaScript());
 		npcs.add(pizza);

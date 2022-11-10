@@ -1,0 +1,53 @@
+*ans\ntest tetst
+YES! LET'S GOOOOOO PIZZA SLICE WOOOO. MY
+BEST FRIEND IS A PIZZA SLICE!!!!
+*ans\ntest
+Aw man, I thought that one was gonna be perfect
+cause my name is pizza and you're a home slice...
+YOOOOOOO!!! ITS ANITA THE BESTIE
+\ntest
+What are you doing all the way out here? Most of the 
+time you don't randomly show up out of the sand.
+...
+\ntest
+Damn, I even reminded you to check your ingredient
+stock before today. 
+You don't got much time Pizza Slice, you gotta motor.
+\ntest
+The nickname? Oh yeah, I have been work shopping it.
+You need a bestie nickname that is funny but fits.
+I'm still working on it, but do you like it? 
+\ntest
+Anyway, I'm not sure where, but the ingredient you
+need is in that maze. I'm still trying to figure out
+why the maze showed up or how it changes everyday.
+\ntest
+Maybe it is the lizards lololol, I am sure you saw
+how many there are out and about.
+\ntest
+Today there seems to be rocks in the maze, those are
+new. Welp I guess I can help you out with that. 
+\ntest
+I know you're too small to push those big rocks out 
+of the way, so I'll give you a little something.
+...
+\ntest
+No no, not my "special" ingredients. Those, while fun, 
+will only distract you.
+\ntest
+I was saving this, but I suppose I owe you one after 
+you took the fall for me having "special" ingredients.
+\ntest
+Here you go, the Staff of Moving! It'll help you with
+those rocks. Press i to check what you have with you.
+\ntest
+Good luck! Tell the Lizards I said Hi! Remember that
+pressing e sends stuff back to your house!
+
+*ans\ntest flag
+Remember, press i to see what you have and press e 
+to send it back to your house to grab something else.
+*ans\ntest
+Okay! Get going then and then press e to send it to 
+your house when you are done. I'll get it back later.
+You stuck 

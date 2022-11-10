@@ -1,0 +1,64 @@
+Oh, Anita, your timing is impeccable!
+\ntest
+Pray tell you could not forget me? After all,
+I am Percival the Great!
+\ntest
+...Well, not 'the Great' just yet, I'm still working
+on that.
+\ntest
+*ehem* Anyways, I fear my insatiable appetite has
+once again arisen from its slumber.
+\ntest
+Why, by Jove, this pain in my gut has me rendered
+immobile!
+\ntest
+Anita, could you be a doll and fetch me some fish?
+Preferably one that has sufficiently aged.
+Oh, who am I kidding, you will deliver this to me.
+\ntest
+After all, your reward for doing so will be quite
+handsome, indeed.
+\ntest
+I hear you're pursuing the Sphere of Ice beyond
+those frozen ponds.
+\ntest
+Bold indeed, but a useless pursuit without ice
+skates.
+\ntest
+What say you scratch my back and I scratch yours?
+I'll be waiting here.
+
+*ans\ntest
+Anitaaa, it is obvious that you need to check the other
+seasons so you can find a delectable fish for me.
+*ans\ntest
+Please do not talk to me until you have a fish then.
+My gut cannot take it.
+\ntest
+Well, Anita? Quit loitering and get me that fish
+already!
+Is there an obstacle in your way?
+
+*sniff* *sniff* ...Is that...?
+\ntest
+"Ohhhhhh~~, divinely malodorous indeed! This fish will
+do just fine, I daresay.
+*GULP GULP GULP GULP*
+\ntest
+I knew I could rely on your service. As promise, here
+are the skates.
+\ntest
+Movement with them is limited on ice, but I'm positive
+you will get the hang of it!
+
+*ans\ntest
+With the skates you glide to the other side until you 
+hit a rock, you must find the best way by yourself.
+*ans\ntest
+Dear Anita, do I look like I go to the other seasons?
+Talk to the peasants in those seasons. 
+\ntest
+I'd love to have casual banter with you, but currently
+I'm occupied digesting. Kindly go away.
+...
+Why have you got gone away? I had even said it kindly

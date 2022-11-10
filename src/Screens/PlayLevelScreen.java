@@ -77,7 +77,7 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasGivenSwordItem", false);
 	flagManager.addFlag("hasBoughtShears", false);
 	flagManager.addFlag("hasDropped", false);
-	flagManager.addFlag("hasTalkedtoBruce", false);
+	flagManager.addFlag("hasTalkedtoBruce", false); 
 	flagManager.addFlag("hasGoldLeaf", false);
 	flagManager.addFlag("hasIceSphere", false);
 	flagManager.addFlag("hasFireRose", false);
@@ -89,6 +89,8 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasGivenFishItem", false);
 	flagManager.addFlag("hasDroppedFish", false);
 	flagManager.addFlag("hasGivenSkatesItem", false);
+	flagManager.addFlag("hasTalkedtoPercival", false);
+	flagManager.addFlag("hasTalkedtoPercivalTwo", false);
 	flagManager.addFlag("hasDroppedSkates", false);
 	flagManager.addFlag("discoveredSword", false);
 	flagManager.addFlag("discoveredStaff", false);

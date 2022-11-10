@@ -20,15 +20,15 @@ import NPCs.Walrus;
 import NPCs.Blorbo;
 import NPCs.Bruce;
 import Scripts.SimpleTextScript;
+import Scripts.FallMap.BruceScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemFish;
 import Scripts.TestMap.DinoScriptItemGiveStaff;
 import Scripts.TestMap.IntroScript;
-import Scripts.TestMap.PercivalScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
+import Scripts.WinterMap.PercivalScript;
 import Scripts.TestMap.BlorboScript;
-import Scripts.TestMap.BruceScript;
 import Scripts.TestMap.CertainAreaScript;
 import Tilesets.CommonTileset;
 
@@ -83,10 +83,6 @@ public class TestMap extends Map {
 	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
 	blorbo.setInteractScript(new BlorboScript());
 	npcs.add(blorbo);
-
-	Bruce bruce = new Bruce(4, getMapTile(35, 26).getLocation());
-	bruce.setInteractScript(new BruceScript());
-	npcs.add(bruce);
 
 	return npcs;
     }
