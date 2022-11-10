@@ -46,6 +46,7 @@ public class Sounds {
 		}catch(Exception e) {
 			
 		}
+		
 	}
 	
 	public void play() {
@@ -112,8 +113,28 @@ public class Sounds {
 		 fc.setValue(currentVolume);
 	}
 	
+	public FloatControl getFc() {
+	    return this.fc;
+	}
+	
+	public void setFc(FloatControl fc) {
+	    this.fc = fc;
+	}
+	
 	public float getVolume() {
 		return currentVolume;
+	}
+	
+	public void setVolume(float volume) {
+	    this.volume = volume;
+	}
+	
+	public float getCurrentVolume() {
+	    return currentVolume;
+	}
+	
+	public void setCurrentVolume(float currentVolume) {
+	    this.currentVolume = currentVolume;
 	}
 	
 	public float getVolMin() {
