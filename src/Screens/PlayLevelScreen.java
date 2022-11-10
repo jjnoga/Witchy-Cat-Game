@@ -54,8 +54,8 @@ public class PlayLevelScreen extends Screen {
     Sounds sound = new Sounds();
     protected int count = 0;
     int value = 0;
-    boolean first = true;
-    int previousX = 0;
+    boolean first;
+    int previousX;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
 	this.screenCoordinator = screenCoordinator;
@@ -99,6 +99,9 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
 	flagManager.addFlag("hasTalkedtoBruceTwo", false);
 	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
+	
+	previousX=0;
+	first = true;
 
 	// define/setup map
 	mapChanged = false;
@@ -224,27 +227,30 @@ public class PlayLevelScreen extends Screen {
 	    }
 	    value++;
 	    */
-	    /*
-	    if (first = true) {
+	    
+	    if (first == true) {
 		previousX = springMap.getEndBoundX() - 730;
 		first = false;
 	    }
-	    if (player.getLocation().x > springMap.getEndBoundX() - 730) {
-		int dif = (int) player.getLocation().x - previousX;
+	    if (player.getLocation().x > springMap.getEndBoundX() - 930) {
+		int dif = 0;
+		dif = (int) player.getLocation().x - previousX;
 		System.out.println(dif);
-		if (dif > 100) {
+		//System.out.println("prevX: "+ previousX + ", currX: " + player.getLocation().x);
+		if (dif > 10) {
 		    System.out.println(player.getLocation().x - previousX);
 		    previousX = (int) player.getLocation().x;
 		    sound.volumeDown();
-		    System.out.println("down");
-		} else if (previousX - player.getLocation().x > 100) {
+		    System.out.println("volDown");
+		    previousX = (int) player.getLocation().x;
+		} else if (previousX - player.getLocation().x > 10) {
 		    previousX = (int) player.getLocation().x;
 		    sound.volumeUp();
-		    System.out.println("up");
+		    System.out.println("volUp");
 		}
 		//System.out.println(previousX);
 	    }
-	    */
+	    
 
 	    /*
 	     * if (player.getLocation().x > springMap.getEndBoundX() - 730) {
@@ -715,7 +721,7 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving interior
 	if (map.getMapFileName().equals("interior_map.txt")) {
-	    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 423) {
+	    if (player.getLocation().x > 364 && player.getLocation().x < 380 && player.getLocation().y > 422) {
 		interiorMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = springMap;
