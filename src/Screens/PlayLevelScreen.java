@@ -52,6 +52,7 @@ public class PlayLevelScreen extends Screen {
     protected GamePanel gp;
     Sounds sound = new Sounds();
     protected int count = 0;
+    protected int value = 0;
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
 	this.screenCoordinator = screenCoordinator;
@@ -208,6 +209,17 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
+		if (value > 2 && (sound.getVolume() > -50 || sound.getVolume() < -1)) {
+			if (player.getLocation().x > springMap.getEndBoundX()-730 || player.getLocation().x < 600) {
+				sound.volumeDown();
+			}else if (value > 1 && (sound.getVolume() != 0)){
+				sound.volumeUp();
+			}else if (value > 1 && (sound.getVolume() <= -81)) {
+				sound.volumeUp();
+			}
+			value = 0;
+		}
+		value++;
 
 	    // Walrus house interior
 	    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596) {
@@ -215,6 +227,7 @@ public class PlayLevelScreen extends Screen {
 		interiorMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = interiorMap;
 		this.player.setLocation(374, 408);
+		
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
@@ -234,18 +247,20 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
-		while(count < 80){
-			count += 1;
-				
-//			for (float f = 0; f > sound.getVolMin(); f--) {
-				sound.volumeDown();
-				//stopMusic();
-//			}
-			
-		}
-		count = 0;
-		//stopMusic();
+//		while(count < 80){
+//			count += 1;
+//				
+////			for (float f = 0; f > sound.getVolMin(); f--) {
+//				sound.volumeDown();
+//				//stopMusic();
+////			}
+//			
+//		}
+//		count = 0;
+//		//stopMusic();
+		
 		playMusic(11);
+		
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() > springMap.getEndBoundX() - 730) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -287,24 +302,33 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(false);
 		else
 		    map.getOptions().setIsActive(true);
+		
+//		int volumeLevel = 80;
+//	    while (volumeLevel > 0) {
+//	    	sound.volumeDown();
+//	    	volumeLevel--;
+//	    }
 		mapChanged = true;
 	    }
+	    
+	    
+	    
 
 	    // winter map
 	    else if (player.getLocation().y < 300) {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
-		while(count < 80){
-			count += 1;
-				
-//			for (float f = 0; f > sound.getVolMin(); f--) {
-				sound.volumeDown();
-				//stopMusic();
-//			}
-			
-		}
-		count = 0;
+//		while(count < 80){
+//			count += 1;
+//				
+////			for (float f = 0; f > sound.getVolMin(); f--) {
+//				sound.volumeDown();
+//				//stopMusic();
+////			}
+//			
+//		}
+//		count = 0;
 		
 		playMusic(13);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
@@ -359,16 +383,16 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
-		while(count < 80){
-			count += 1;
-				
-//			for (float f = 0; f > sound.getVolMin(); f--) {
-				sound.volumeDown();
-				//stopMusic();
-//			}
-			
-		}
-		count = 0;
+//		while(count < 80){
+//			count += 1;
+//				
+////			for (float f = 0; f > sound.getVolMin(); f--) {
+//				sound.volumeDown();
+//				//stopMusic();
+////			}
+//			
+//		}
+//		count = 0;
 		playMusic(10);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
@@ -556,6 +580,7 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving summer
 	if (map.getMapFileName().equals("summer_map.txt")) {
+		
 
 	    // spring map
 	    if (player.getLocation().x < 438) {
