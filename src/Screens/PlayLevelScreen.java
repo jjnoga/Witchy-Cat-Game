@@ -245,12 +245,12 @@ public class PlayLevelScreen extends Screen {
 		if (dif > 10) {
 		    System.out.println(player.getLocation().x - previousX);
 		    previousX = (int) player.getLocation().x;
-		    sound.volumeUp();
+		    sound.volumeDown();
 		    System.out.println("volDown");
 		    previousX = (int) player.getLocation().x;
-		} else if (previousX - player.getLocation().x < 10) {
+		} else if (previousX - player.getLocation().x > 10) {
 		    previousX = (int) player.getLocation().x;
-		    sound.volumeDown();
+		    sound.volumeUp();
 		    System.out.println("volUp");
 		}
 		//System.out.println(previousX);
@@ -320,7 +320,7 @@ public class PlayLevelScreen extends Screen {
 		 * 
 		 * }
 		 */
-		count = 0;
+		//count = 0;
 		// stopMusic();
 		playMusic(11);
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
