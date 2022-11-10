@@ -51,28 +51,28 @@ public class CoinCounter {
     }
 
     public void update() {
-    	if (!map.getCamera().isAtBottomOfMap()) {
+//    	if (!map.getCamera().isAtBottomOfMap()) {
     		text = new SpriteFont("Coins: " + String.valueOf(count), fontX, fontTopY, "Arial", 12, Color.white);
-    	}
-    	else {
-    		text = new SpriteFont("Coins: " + String.valueOf(count), fontX, fontBottomY, "Arial", 12, Color.white);
-    	}
+//    	}
+//    	else {
+//    		text = new SpriteFont("Coins: " + String.valueOf(count), fontX, fontBottomY, "Arial", 12, Color.white);
+//    	}
     }
 
     public void draw(GraphicsHandler graphicsHandler) {
         // if camera is at bottom of screen, textbox is drawn at top of screen instead of the bottom like usual
         // to prevent it from covering the player
-        if (!map.getCamera().isAtBottomOfMap()) {
+//        if (!map.getCamera().isAtBottomOfMap()) {
         	update();
             graphicsHandler.drawFilledRectangleWithBorder(x, topY, width, height, Color.black, Color.white, 2);
             text.draw(graphicsHandler);
-        }
-        else {
-        	update();
-            graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 2);
-            text.draw(graphicsHandler);
-            
-        }
+//        }
+//        else {
+//        	update();
+//            graphicsHandler.drawFilledRectangleWithBorder(x, bottomY, width, height, Color.black, Color.white, 2);
+//            text.draw(graphicsHandler);
+//            
+//        }
     }
 
     public boolean isActive() {
