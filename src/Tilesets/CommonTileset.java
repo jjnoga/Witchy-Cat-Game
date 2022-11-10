@@ -1331,12 +1331,25 @@ public class CommonTileset extends Tileset {
 
 			mapTiles.add(hauntedHouseRoofTile);
 		// hauntedHouseRoofBlack
-				Frame hauntedHouseRoofBlackFrame = new FrameBuilder(getSubImage(14, 3)).withScale(tileScale).build();
+			Frame hauntedHouseRoofBlackFrame = new FrameBuilder(getSubImage(14, 3)).withScale(tileScale).build();
 
-				MapTileBuilder hauntedHouseRoofBlackTile = new MapTileBuilder(hauntedHouseRoofBlackFrame)
-					.withTileType(TileType.NOT_PASSABLE);
+			MapTileBuilder hauntedHouseRoofBlackTile = new MapTileBuilder(hauntedHouseRoofBlackFrame)
+				.withTileType(TileType.NOT_PASSABLE);
 
-				mapTiles.add(hauntedHouseRoofBlackTile);
+			mapTiles.add(hauntedHouseRoofBlackTile);
+		// table
+			Frame tableFrame = new FrameBuilder(getSubImage(14, 6)).withScale(tileScale).build();
+
+			MapTileBuilder tableTile = new MapTileBuilder(tableFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+			mapTiles.add(tableTile);
+		// hauntedHouseRoofBlack
+			Frame hauntedHouseFloorFrame = new FrameBuilder(getSubImage(14, 4)).withScale(tileScale).build();
+
+			MapTileBuilder hauntedHouseFloorTile = new MapTileBuilder(hauntedHouseFloorFrame);
+
+			mapTiles.add(hauntedHouseFloorTile);
 							
 			
 
