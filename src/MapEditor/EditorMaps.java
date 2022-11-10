@@ -6,6 +6,7 @@ import Maps.WinterMap;
 import Maps.FallMap;
 import Maps.InteriorMap;
 import Maps.TestMap;
+import Maps.HauntedHouse;
 import Maps.TitleScreenMap;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class EditorMaps {
             add("WinterMap");
             add("FallMap");
             add("InteriorMap");
+            add("HauntedHouse");
         }};
     }
 
@@ -36,6 +38,8 @@ public class EditorMaps {
         	return new FallMap();
             case "InteriorMap":
         	return new InteriorMap();
+            case "HauntedHouse":
+                return new HauntedHouse();
             default:
                 throw new RuntimeException("Unrecognized map name");
         }
