@@ -261,12 +261,31 @@ public class PlayLevelScreen extends Screen {
 		    isInitialPreviousX = false;
 		}
 		int dif = (int) player.getLocation().x - previousX;
-		if (dif > 10) {
+		if (dif > 5) {
 		    previousX = (int) player.getLocation().x;
 		    sound.volumeUp();
 		    previousX = (int) player.getLocation().x;
 		} else if (previousX - player.getLocation().x > 10) {
 		    previousX = (int) player.getLocation().x;
+		    sound.volumeDown();
+		}
+	    } else if (player.getLocation().y < 690) {
+		if (isInitialPreviousX == true) {
+		    if (player.getCurrentWalkingYDirection() == Direction.UP) {
+			previousX = 690;
+
+		    } else {
+			previousX = 0;
+		    }
+		    isInitialPreviousX = false;
+		}
+		int dif = (int) player.getLocation().y - previousX;
+		if (dif > 5) {
+		    previousX = (int) player.getLocation().y;
+		    sound.volumeUp();
+		    previousX = (int) player.getLocation().y;
+		} else if (previousX - player.getLocation().y > 10) {
+		    previousX = (int) player.getLocation().y;
 		    sound.volumeDown();
 		}
 	    }
@@ -319,6 +338,7 @@ public class PlayLevelScreen extends Screen {
 	    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {
 		stopMusic();
 		playMusicZero(11);
+		isInitialPreviousX = true;
 		springMap = this.map;
 		summerMap.setCoinCounter(this.map.getCoinCounter());
 		summerMap.setCameraY(this.map.getCamera().getY() - 336);
@@ -389,6 +409,7 @@ public class PlayLevelScreen extends Screen {
 	    else if (player.getLocation().y < 300) {
 		stopMusic();
 		playMusicZero(13);
+		isInitialPreviousX = true;
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
@@ -459,6 +480,7 @@ public class PlayLevelScreen extends Screen {
 	    else if (player.getLocation().x < 390) {
 		stopMusic();
 		playMusicZero(10);
+		isInitialPreviousX = true;
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
@@ -542,10 +564,32 @@ public class PlayLevelScreen extends Screen {
 	// leaving winter
 	if (map.getMapFileName().equals("winter_map.txt")) {
 
+	    if (player.getLocation().y > winterMap.getEndBoundY() - 690) {
+		if (isInitialPreviousX == true) {
+		    if (player.getCurrentWalkingYDirection() == Direction.UP) {
+			previousX = winterMap.getEndBoundY();
+
+		    } else {
+			previousX = winterMap.getEndBoundY() - 690;
+		    }
+		    isInitialPreviousX = false;
+		}
+		int dif = (int) player.getLocation().y - previousX;
+		if (dif > 10) {
+		    previousX = (int) player.getLocation().y;
+		    sound.volumeDown();
+		    previousX = (int) player.getLocation().y;
+		} else if (previousX - player.getLocation().y > 10) {
+		    previousX = (int) player.getLocation().y;
+		    sound.volumeUp();
+		}
+	    }
+
 	    // spring map
 	    if (player.getLocation().y > this.map.getEndBoundY() - 322) {
 		stopMusic();
 		playMusicZero(0);
+		isInitialPreviousX = true;
 		winterMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraX(this.map.getCamera().getX() + 384);
@@ -607,7 +651,7 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving fall
 	if (map.getMapFileName().equals("fall_map.txt")) {
-	    
+
 	    if (player.getLocation().x > fallMap.getEndBoundX() - 930) {
 		if (isInitialPreviousX == true) {
 		    if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
@@ -633,6 +677,7 @@ public class PlayLevelScreen extends Screen {
 	    if (player.getLocation().x > this.map.getEndBoundX() - 474) {
 		stopMusic();
 		playMusicZero(0);
+		isInitialPreviousX = true;
 		fallMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		springMap.setCameraY(this.map.getCamera().getY() + 336);
@@ -696,7 +741,7 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving summer
 	if (map.getMapFileName().equals("summer_map.txt")) {
-	    
+
 	    if (player.getLocation().x < 790) {
 		if (isInitialPreviousX == true) {
 		    if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
@@ -875,8 +920,8 @@ public class PlayLevelScreen extends Screen {
     }
 
     public void playMusicZero(int i) {
-	sound.setFile(i, -80.0f);
-	sound.setCurrentVolume(-80.0f);
+	sound.setFile(i, -50.0f);
+	//sound.setCurrentVolume(-80.0f);
 	sound.play();
 	sound.loop();
     }
