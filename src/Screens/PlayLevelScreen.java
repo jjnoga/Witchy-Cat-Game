@@ -65,6 +65,10 @@ public class PlayLevelScreen extends Screen {
     boolean isInitialPreviousX;
 
     int previousX;
+    
+    boolean isInitialPreviousY;
+
+    int previousY;
 //>>>>>>> 1c28ac2f19054bad41263aaccb71ad2ae37f3c27
 
     public PlayLevelScreen(ScreenCoordinator screenCoordinator) {
@@ -112,6 +116,8 @@ public class PlayLevelScreen extends Screen {
 
 	previousX = 0;
 	isInitialPreviousX = true;
+	previousY = 0;
+	isInitialPreviousY = true;
 
 	// define/setup map
 	mapChanged = false;
@@ -279,6 +285,25 @@ public class PlayLevelScreen extends Screen {
 		    previousX = (int) player.getLocation().x;
 		    sound.volumeDown();
 		}
+	    }else if (player.getLocation().y < 470) {
+	    	if (isInitialPreviousY == true) {
+			    if (player.getCurrentWalkingYDirection() == Direction.DOWN) {
+				previousY = 0;
+
+			    } else {
+				previousY = 790;
+			    }
+			    isInitialPreviousY = false;
+			}
+			int dif = (int) player.getLocation().y - previousY;
+			if (dif > 10) {
+			    previousY = (int) player.getLocation().y;
+			    sound.volumeUp();
+			    previousY = (int) player.getLocation().y;
+			} else if (previousY - player.getLocation().y > 10) {
+			    previousY = (int) player.getLocation().y;
+			    sound.volumeDown();
+			}
 	    }
 
 	    /*
@@ -552,6 +577,49 @@ public class PlayLevelScreen extends Screen {
 	// leaving winter
 	if (map.getMapFileName().equals("winter_map.txt")) {
 
+//		 if (player.getLocation().y < 470) {
+//				if (isInitialPreviousX == true) {
+//				    if (player.getCurrentWalkingXDirection() == Direction.DOWN) {
+//					previousY = 0;
+//
+//				    } else {
+//					previousY = 470;
+//				    }
+//				    isInitialPreviousY = false;
+//				}
+//				int dif = (int) player.getLocation().y - previousY;
+//				if (dif > 10) {
+//				    previousY = (int) player.getLocation().y;
+//				    sound.volumeUp();
+//				    previousY = (int) player.getLocation().y;
+//				} else if (previousX - player.getLocation().y > 10) {
+//				    previousY = (int) player.getLocation().y;
+//				    sound.volumeDown();
+//				}
+//			    }
+		 
+		 
+
+		    if (player.getLocation().y > winterMap.getEndBoundY() - 470) {
+			if (isInitialPreviousY == true) {
+			    if (player.getCurrentWalkingYDirection() == Direction.DOWN) {
+				previousY = winterMap.getEndBoundY() - 470;
+
+			    } else {
+				previousY = springMap.getEndBoundY();
+			    }
+			    isInitialPreviousY = false;
+			}
+			int dif = (int) player.getLocation().y - previousY;
+			if (dif > 10) {
+			    previousY = (int) player.getLocation().y;
+			    sound.volumeDown();
+			    previousY = (int) player.getLocation().y;
+			} else if (previousY - player.getLocation().y > 10) {
+			    previousY = (int) player.getLocation().y;
+			    sound.volumeUp();
+			}
+		    }
 	    // spring map
 	    if (player.getLocation().y > this.map.getEndBoundY() - 322) {
 		stopMusic();
