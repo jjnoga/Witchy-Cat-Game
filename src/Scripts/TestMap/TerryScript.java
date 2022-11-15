@@ -1,11 +1,8 @@
 package Scripts.TestMap;
 
-import java.util.Queue;
-
 import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
-import SpriteFont.SpriteFont;
 
 //script for talking to Pizza npc
 public class TerryScript extends Script<NPC> {
