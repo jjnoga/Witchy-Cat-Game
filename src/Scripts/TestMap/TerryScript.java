@@ -48,8 +48,20 @@ public class TerryScript extends Script<NPC> {
 	    if (getMap().getCoinCounter().getCoinCount() >= 2 && !isFlagSet("hasGivenSwordItem")) {
 		getMap().getCoinCounter().setCoinCount(getMap().getCoinCounter().getCoinCount() - 2);
 		itemsBought[getChoice()] = 1;
+		setFlag("discoveredSword");
 		setFlag("hasGivenSwordItem");
-
+		if(isFlagSet("hasGivenStaffItem")) {
+			unsetFlag("hasGivenStaffItem");
+			setFlag("hasDroppedStaff");
+		}
+		if(isFlagSet("hasGivenFishItem")) {
+			unsetFlag("hasGivenFishItem");
+			setFlag("hasDroppedFish");
+		}
+		if(isFlagSet("hasGivenSkatesItem")) {
+			unsetFlag("hasGivenSkatesItem");
+			setFlag("hasDroppedSkates");
+		}
 	    }
 	}
 
