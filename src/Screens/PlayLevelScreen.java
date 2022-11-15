@@ -231,7 +231,7 @@ public class PlayLevelScreen extends Screen {
 	     */
 
 	    ///////// sound fade spring////////
-	    if (player.getLocation().x > springMap.getEndBoundX() - 930 && player.getLocation().y > 470) {
+	    if (player.getLocation().x > springMap.getEndBoundX() - 930 && player.getLocation().y > 570) {
 		if (isInitialPreviousX == true) {
 		    if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
 			previousX = springMap.getEndBoundX() - 930;
@@ -250,7 +250,7 @@ public class PlayLevelScreen extends Screen {
 		    previousX = (int) player.getLocation().x;
 		    sound.volumeUp();
 		}
-	    } else if (player.getLocation().x < 790 && player.getLocation().y > 470) {
+	    } else if (player.getLocation().x < 790 && player.getLocation().y > 570) {
 		if (isInitialPreviousX == true) {
 		    if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
 			previousX = 0;
@@ -280,11 +280,11 @@ public class PlayLevelScreen extends Screen {
 		    isInitialPreviousX = false;
 		}
 		int dif = (int) player.getLocation().y - previousX;
-		if (dif > 5) {
+		if (dif > 4) {
 		    previousX = (int) player.getLocation().y;
 		    sound.volumeUp();
 		    previousX = (int) player.getLocation().y;
-		} else if (previousX - player.getLocation().y > 10) {
+		} else if (previousX - player.getLocation().y > 5) {
 		    previousX = (int) player.getLocation().y;
 		    sound.volumeDown();
 		}
@@ -564,18 +564,18 @@ public class PlayLevelScreen extends Screen {
 	// leaving winter
 	if (map.getMapFileName().equals("winter_map.txt")) {
 
-	    if (player.getLocation().y > winterMap.getEndBoundY() - 690) {
+	    if (player.getLocation().y > winterMap.getEndBoundY() - 790) {
 		if (isInitialPreviousX == true) {
 		    if (player.getCurrentWalkingYDirection() == Direction.UP) {
 			previousX = winterMap.getEndBoundY();
 
 		    } else {
-			previousX = winterMap.getEndBoundY() - 690;
+			previousX = winterMap.getEndBoundY() - 790;
 		    }
 		    isInitialPreviousX = false;
 		}
 		int dif = (int) player.getLocation().y - previousX;
-		if (dif > 10) {
+		if (dif > 8) {
 		    previousX = (int) player.getLocation().y;
 		    sound.volumeDown();
 		    previousX = (int) player.getLocation().y;
@@ -742,18 +742,18 @@ public class PlayLevelScreen extends Screen {
 	// leaving summer
 	if (map.getMapFileName().equals("summer_map.txt")) {
 
-	    if (player.getLocation().x < 790) {
+	    if (player.getLocation().x < 890) {
 		if (isInitialPreviousX == true) {
 		    if (player.getCurrentWalkingXDirection() == Direction.RIGHT) {
 			previousX = 0;
 
 		    } else {
-			previousX = 790;
+			previousX = 890;
 		    }
 		    isInitialPreviousX = false;
 		}
 		int dif = (int) player.getLocation().x - previousX;
-		if (dif > 10) {
+		if (dif > 8) {
 		    previousX = (int) player.getLocation().x;
 		    sound.volumeUp();
 		    previousX = (int) player.getLocation().x;
