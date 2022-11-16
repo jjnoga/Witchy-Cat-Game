@@ -91,7 +91,7 @@ public class Sounds {
     }
 
     public void volumeUp() {
-	currentVolume += 3.0f;
+	currentVolume += 2.0f;
 	//System.out.println("Current Volume: " + currentVolume);
 	if (currentVolume > 6.0f) {
 	    currentVolume = 6.0f;
@@ -100,7 +100,7 @@ public class Sounds {
     }
 
     public void volumeDown() {
-	currentVolume -= 1.0f;
+	currentVolume -= 2.0f;
 	//System.out.println("Current Volume: " + currentVolume);
 	if (currentVolume < -80.0f) {
 	    currentVolume = -80.0f;
@@ -161,11 +161,21 @@ public class Sounds {
     public void setCurrentVolume(float currentVolume) {
 	if (this.currentVolume < currentVolume) {
 	    while (this.currentVolume < currentVolume) {
-		volumeUp();
+		this.currentVolume += 9.0f;
+		//System.out.println("Current Volume: " + currentVolume);
+		if (this.currentVolume > 6.0f) {
+		    this.currentVolume = 6.0f;
+		}
+		fc.setValue(currentVolume);
 	    }
 	} else if (this.currentVolume > currentVolume) {
 	    while (this.currentVolume > currentVolume) {
-		volumeDown();
+		this.currentVolume -= 9.0f;
+		//System.out.println("Current Volume: " + currentVolume);
+		if (this.currentVolume < -80.0f) {
+		    this.currentVolume = -80.0f;
+		}
+		fc.setValue(currentVolume);
 	    }
 	}
 
