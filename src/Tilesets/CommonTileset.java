@@ -1379,6 +1379,55 @@ public class CommonTileset extends Tileset {
 				MapTileBuilder anitaRightBottomFloorTile = new MapTileBuilder(anitaRightBottomFloorFrame);
 
 				mapTiles.add(anitaRightBottomFloorTile);
+		// mourningGrass
+				Frame mourningGrassFrame = new FrameBuilder(getSubImage(14, 9)).withScale(tileScale).build();
+							
+				MapTileBuilder mourningGrassTile = new MapTileBuilder(mourningGrassFrame);
+
+				mapTiles.add(mourningGrassTile);
+	// mourningRoots
+				Frame mourningRootsFrame = new FrameBuilder(getSubImage(15, 0)).withScale(tileScale).build();
+							
+				MapTileBuilder mourningRootsTile = new MapTileBuilder(mourningRootsFrame)
+								.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(mourningRootsTile);
+	// mourningTree
+				Frame mourningTreeFrame = new FrameBuilder(getSubImage(15, 1)).withScale(tileScale).build();
+							
+				MapTileBuilder mourningTreeTile = new MapTileBuilder(mourningTreeFrame)
+								.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(mourningTreeTile);	
+	// mourningWood
+				Frame mourningWoodFrame = new FrameBuilder(getSubImage(15, 2)).withScale(tileScale).build();
+							
+				MapTileBuilder mourningWoodTile = new MapTileBuilder(mourningWoodFrame)
+						.withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(mourningWoodTile);					
+									
+	// mourningLeaves
+				Frame mourningLeavesFrame = new FrameBuilder(getSubImage(15, 3)).withScale(tileScale).build();
+							
+				MapTileBuilder mourningLeavesTile = new MapTileBuilder(mourningLeavesFrame);
+
+				mapTiles.add(mourningLeavesTile);
+	// mourningWater
+				Frame[] mourningWaterFrames = new Frame[] { new FrameBuilder(getSubImage(5, 0), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 1), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 2), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 1), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 0), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 3), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 4), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
+					new FrameBuilder(getSubImage(5, 3), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build() };
+
+				MapTileBuilder mourningWaterTile = new MapTileBuilder(mourningWaterFrames).withTileType(TileType.NOT_PASSABLE);
+
+				mapTiles.add(mourningWaterTile);
+
+			
 
 		return mapTiles;
 
