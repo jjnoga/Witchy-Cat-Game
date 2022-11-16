@@ -336,6 +336,28 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	    
+	    //Anita House Interior
+	    if (player.getLocation().x > 1225 && player.getLocation().x < 1250 && player.getLocation().y == 1260)
+
+	    {
+		springMap = this.map;
+		anitaHouseInteriorMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = anitaHouseInteriorMap;
+		this.player.setLocation(343, 480);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
 
 	    // summer map
 	    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {
@@ -372,11 +394,6 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setMap(summerMap);
 			summerMap.addEnhancedMapTile(enhancedMapTile);
 
-//<<<<<<< HEAD
-////			stopMusic();
-////			playMusic(11);
-//=======
-//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -511,11 +528,7 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(springMap.getEnhancedMapTiles().get(i).getY() - 336);
 			enhancedMapTile.setMap(fallMap);
 			fallMap.addEnhancedMapTile(enhancedMapTile);
-//<<<<<<< HEAD
-////			stopMusic();
-////			playMusic(10);
-//=======
-//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+			
 		    }
 		}
 		for (int i = 0; i < springMap.getNPCs().size(); i++) {
@@ -841,6 +854,29 @@ public class PlayLevelScreen extends Screen {
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = springMap;
 		this.player.setLocation(612, 1600);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
+	}
+	
+	// leaving Anita's house
+	if (map.getMapFileName().equals("anita_house_interior_map.txt")) {
+	    if (player.getLocation().x > 335 && player.getLocation().x < 355 && player.getLocation().y > 519) {
+		anitaHouseInteriorMap = this.map;
+		springMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = springMap;
+		this.player.setLocation(1236, 1263);
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
 
