@@ -22,6 +22,7 @@ import Level.*;
 import Maps.SummerMap;
 import Maps.TestMap;
 import Maps.WinterMap;
+import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.InteriorMap;
 import Players.Cat;
@@ -39,6 +40,7 @@ public class PlayLevelScreen extends Screen {
     protected Map winterMap;
     protected Map fallMap;
     protected Map interiorMap;
+    protected Map anitaHouseInteriorMap;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
@@ -129,6 +131,7 @@ public class PlayLevelScreen extends Screen {
 	fallMap = new FallMap();
 	fallMap.setCameraX(fallMap.getEndBoundX() - 867);
 	interiorMap = new InteriorMap();
+	anitaHouseInteriorMap = new AnitaHouseInterior();
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
