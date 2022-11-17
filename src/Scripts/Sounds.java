@@ -33,6 +33,8 @@ public class Sounds {
 	soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav"); // using
 	soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
 	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav");
+	soundURL[14] = getClass().getResource("/Sounds/Clover-Super-Music-Collection-134-Poclo-Sound-Team-Bad-Ending.wav");
+	soundURL[15] = getClass().getResource("/Sounds/The_Mourning_Woods.wav");
 
     }
 
