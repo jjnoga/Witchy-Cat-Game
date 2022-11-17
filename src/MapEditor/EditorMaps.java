@@ -7,6 +7,7 @@ import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.InteriorMap;
 import Maps.TestMap;
+import Maps.MourningWoodMap;
 import Maps.HauntedHouse;
 import Maps.TitleScreenMap;
 
@@ -24,6 +25,7 @@ public class EditorMaps {
 				add("InteriorMap");
 				add("HauntedHouse");
 				add("AnitaHouseInterior");
+				add("MourningWoodMap");
 			}
 		};
 	}
@@ -46,6 +48,8 @@ public class EditorMaps {
 			return new HauntedHouse();
 		case "AnitaHouseInterior":
 			return new AnitaHouseInterior();
+		case "MourningWoodMap":
+			return new MourningWoodMap();
 		default:
 			throw new RuntimeException("Unrecognized map name");
 		}
