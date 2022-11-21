@@ -68,6 +68,7 @@ public class PlayLevelScreen extends Screen {
     public void initialize() {
 	// setup state
 	flagManager = new FlagManager();
+	flagManager.addFlag("firstTimeInHouse", false);
 	flagManager.addFlag("rightSpot", false);
 	flagManager.addFlag("hasBeginning", false);
 	flagManager.addFlag("hasTalkedToWalrus", false);
@@ -705,11 +706,7 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(fallMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-//<<<<<<< HEAD
-////			stopMusic();
-////			playMusic(0);
-//=======
-//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+
 		    }
 		}
 		for (int i = 0; i < fallMap.getNPCs().size(); i++) {
@@ -796,11 +793,7 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-//<<<<<<< HEAD
-////			stopMusic();
-////			playMusic(0);
-//=======
-//>>>>>>> 240ab0988003ee626e77937fd4bfa8e21557d59f
+
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {

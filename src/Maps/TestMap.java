@@ -24,6 +24,7 @@ import Scripts.FallMap.BruceScript;
 import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemFish;
 import Scripts.TestMap.DinoScriptItemGiveStaff;
+import Scripts.TestMap.HouseIntro;
 import Scripts.TestMap.IntroScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
@@ -93,7 +94,7 @@ public class TestMap extends Map {
 	triggers.add(new Trigger(1222, 1366, 100, 10, new IntroScript(), "hasBeginning"));
 	triggers.add(new Trigger(1222, 1296, 10, 80, new IntroScript(), "hasBeginning"));
 	triggers.add(new Trigger(1322, 1296, 10, 80, new IntroScript(), "hasBeginning"));
-	triggers.add(new Trigger(1322, 1116, 100, 25, new CertainAreaScript(), "rightSpot"));
+	triggers.add(new Trigger(1322, 1116, 100, 25, new HouseIntro(), "rightSpot"));
 
 	return triggers;
     }
