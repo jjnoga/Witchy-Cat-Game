@@ -1,34 +1,19 @@
 package Maps;
 
-import EnhancedMapTiles.Rock;
-import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Coin;
-import EnhancedMapTiles.Vines;
 import EnhancedMapTiles.Boat;
-
-import EnhancedMapTiles.GoldLeaf;
-import EnhancedMapTiles.IceSphere;
 import Level.EnhancedMapTile;
-import Level.Inventory;
-import Level.Options;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
 import NPCs.Dinosaur;
-import NPCs.Percival;
 import NPCs.Walrus;
 import NPCs.Blorbo;
-import NPCs.Bruce;
 import Scripts.SimpleTextScript;
-import Scripts.FallMap.BruceScript;
-import Scripts.TestMap.DinoScript;
 import Scripts.TestMap.DinoScriptItemFish;
-import Scripts.TestMap.DinoScriptItemGiveStaff;
-import Scripts.TestMap.HouseIntro;
 import Scripts.TestMap.IntroScript;
 import Scripts.TestMap.TreeScript;
 import Scripts.TestMap.WalrusScript;
-import Scripts.WinterMap.PercivalScript;
 import Scripts.TestMap.BlorboScript;
 import Scripts.TestMap.CertainAreaScript;
 import Tilesets.CommonTileset;
@@ -94,7 +79,7 @@ public class TestMap extends Map {
 	triggers.add(new Trigger(1222, 1366, 100, 10, new IntroScript(), "hasBeginning"));
 	triggers.add(new Trigger(1222, 1296, 10, 80, new IntroScript(), "hasBeginning"));
 	triggers.add(new Trigger(1322, 1296, 10, 80, new IntroScript(), "hasBeginning"));
-	triggers.add(new Trigger(1322, 1116, 100, 25, new HouseIntro(), "rightSpot"));
+	triggers.add(new Trigger(1322, 1116, 100, 25, new CertainAreaScript(), "rightSpot"));
 
 	return triggers;
     }

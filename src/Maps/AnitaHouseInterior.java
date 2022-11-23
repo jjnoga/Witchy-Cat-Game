@@ -4,7 +4,7 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
-import Scripts.TestMap.CertainAreaScript;
+import Scripts.TestMap.HouseIntro;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ public class AnitaHouseInterior extends Map {
 	@Override
 	public ArrayList<Trigger> loadTriggers() {
 		ArrayList<Trigger> triggers = new ArrayList<>();	
-		triggers.add(new Trigger(343, 450, 100, 25, new CertainAreaScript(), "firstTimeInHouse"));
+		triggers.add(new Trigger(343, 450, 100, 25, new HouseIntro(), "firstTimeInHouse"));
 		return triggers;
 	}
 
