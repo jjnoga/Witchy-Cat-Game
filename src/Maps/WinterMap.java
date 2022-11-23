@@ -23,7 +23,7 @@ public class WinterMap extends Map {
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-		enhancedMapTiles.add(new IceSphere(getMapTile(14, 25).getLocation(), this));
+		enhancedMapTiles.add(new IceSphere(getMapTile(24, 20).getLocation(), this));
 		return enhancedMapTiles;
 	}
 
