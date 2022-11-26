@@ -1,6 +1,5 @@
 package Scripts.TestMap;
 
-import java.awt.datatransfer.SystemFlavorMap;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;

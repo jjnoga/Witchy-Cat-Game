@@ -10,6 +10,7 @@ import Scripts.WinterMap.PercivalScript;
 import Tilesets.CommonTileset;
 import EnhancedMapTiles.Boat;
 import EnhancedMapTiles.IceSphere;
+import EnhancedMapTiles.Coin;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,9 @@ public class WinterMap extends Map {
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-		enhancedMapTiles.add(new IceSphere(getMapTile(14, 25).getLocation(), this));
+		enhancedMapTiles.add(new IceSphere(getMapTile(24, 20).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(12, 21).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(21, 20).getLocation(), this));
 		return enhancedMapTiles;
 	}
 

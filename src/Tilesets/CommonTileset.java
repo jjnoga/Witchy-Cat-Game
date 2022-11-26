@@ -1371,63 +1371,76 @@ public class CommonTileset extends Tileset {
 		MapTileBuilder anitaLeftBottomFloorTile = new MapTileBuilder(anitaLeftBottomFloorFrame);
 
 		mapTiles.add(anitaLeftBottomFloorTile);
-		
+
 		// rightBottomWood
-				Frame anitaRightBottomFloorFrame = new FrameBuilder(getSubImage(14, 7)).withScale(tileScale)
-						.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
+		Frame anitaRightBottomFloorFrame = new FrameBuilder(getSubImage(14, 7)).withScale(tileScale)
+				.withImageEffect(ImageEffect.FLIP_VERTICAL).build();
 
-				MapTileBuilder anitaRightBottomFloorTile = new MapTileBuilder(anitaRightBottomFloorFrame);
+		MapTileBuilder anitaRightBottomFloorTile = new MapTileBuilder(anitaRightBottomFloorFrame);
 
-				mapTiles.add(anitaRightBottomFloorTile);
+		mapTiles.add(anitaRightBottomFloorTile);
 		// mourningGrass
-				Frame mourningGrassFrame = new FrameBuilder(getSubImage(14, 9)).withScale(tileScale).build();
-							
-				MapTileBuilder mourningGrassTile = new MapTileBuilder(mourningGrassFrame);
+		Frame mourningGrassFrame = new FrameBuilder(getSubImage(14, 9)).withScale(tileScale).build();
 
-				mapTiles.add(mourningGrassTile);
-	// mourningRoots
-				Frame mourningRootsFrame = new FrameBuilder(getSubImage(15, 0)).withScale(tileScale).build();
-							
-				MapTileBuilder mourningRootsTile = new MapTileBuilder(mourningRootsFrame)
-								.withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder mourningGrassTile = new MapTileBuilder(mourningGrassFrame);
 
-				mapTiles.add(mourningRootsTile);
-	// mourningTree
-				Frame mourningTreeFrame = new FrameBuilder(getSubImage(15, 1)).withScale(tileScale).build();
-							
-				MapTileBuilder mourningTreeTile = new MapTileBuilder(mourningTreeFrame)
-								.withTileType(TileType.NOT_PASSABLE);
+		mapTiles.add(mourningGrassTile);
+		// mourningRoots
+		Frame mourningRootsFrame = new FrameBuilder(getSubImage(15, 0)).withScale(tileScale).build();
 
-				mapTiles.add(mourningTreeTile);	
-	// mourningWood
-				Frame mourningWoodFrame = new FrameBuilder(getSubImage(15, 2)).withScale(tileScale).build();
-							
-				MapTileBuilder mourningWoodTile = new MapTileBuilder(mourningWoodFrame)
-						.withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder mourningRootsTile = new MapTileBuilder(mourningRootsFrame).withTileType(TileType.NOT_PASSABLE);
 
-				mapTiles.add(mourningWoodTile);					
-									
-	// mourningLeaves
-				Frame mourningLeavesFrame = new FrameBuilder(getSubImage(15, 3)).withScale(tileScale).build();
-							
-				MapTileBuilder mourningLeavesTile = new MapTileBuilder(mourningLeavesFrame);
+		mapTiles.add(mourningRootsTile);
+		// mourningTree
+		Frame mourningTreeFrame = new FrameBuilder(getSubImage(15, 1)).withScale(tileScale).build();
 
-				mapTiles.add(mourningLeavesTile);
-	// mourningWater
-				Frame[] mourningWaterFrames = new Frame[] { new FrameBuilder(getSubImage(5, 0), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 1), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 2), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 1), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 0), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 3), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 4), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build(),
-					new FrameBuilder(getSubImage(5, 3), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL).build() };
+		MapTileBuilder mourningTreeTile = new MapTileBuilder(mourningTreeFrame).withTileType(TileType.NOT_PASSABLE);
 
-				MapTileBuilder mourningWaterTile = new MapTileBuilder(mourningWaterFrames).withTileType(TileType.NOT_PASSABLE);
+		mapTiles.add(mourningTreeTile);
+		// mourningWood
+		Frame mourningWoodFrame = new FrameBuilder(getSubImage(15, 2)).withScale(tileScale).build();
 
-				mapTiles.add(mourningWaterTile);
+		MapTileBuilder mourningWoodTile = new MapTileBuilder(mourningWoodFrame).withTileType(TileType.NOT_PASSABLE);
 
-			
+		mapTiles.add(mourningWoodTile);
+
+		// mourningLeaves
+		Frame mourningLeavesFrame = new FrameBuilder(getSubImage(15, 3)).withScale(tileScale).build();
+
+		MapTileBuilder mourningLeavesTile = new MapTileBuilder(mourningLeavesFrame);
+
+		mapTiles.add(mourningLeavesTile);
+		// mourningWater
+		Frame[] mourningWaterFrames = new Frame[] {
+				new FrameBuilder(getSubImage(5, 0), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 1), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 2), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 1), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 0), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 3), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 4), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build(),
+				new FrameBuilder(getSubImage(5, 3), 500).withScale(tileScale).withImageEffect(ImageEffect.FLIP_VERTICAL)
+						.build() };
+
+		MapTileBuilder mourningWaterTile = new MapTileBuilder(mourningWaterFrames).withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(mourningWaterTile);
+		
+		// cauldron
+		
+		Frame cauldronFrame = new FrameBuilder(getSubImage(14, 8)).withScale(tileScale).build();
+
+		MapTileBuilder cauldronTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(cauldronFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(cauldronTile);
 
 		return mapTiles;
 
