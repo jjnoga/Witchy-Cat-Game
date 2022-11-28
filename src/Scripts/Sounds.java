@@ -26,13 +26,15 @@ public class Sounds {
 	soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav"); // using
 	soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav"); // using
 	soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav"); // using
-	soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav");
+	soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav"); //using
 	soundURL[8] = getClass().getResource("/Sounds/VineCut.wav"); // using
 	soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav"); // using
 	soundURL[10] = getClass().getResource("/Sounds/Auburn_Thicket_Autumn.wav"); // using
 	soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav"); // using
 	soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
-	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav");
+	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav"); //using
+	soundURL[14] = getClass().getResource("/Sounds/The_Mourning_Woods.wav"); //using
+			
 
     }
 

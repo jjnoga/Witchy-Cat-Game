@@ -11,6 +11,7 @@ import Scripts.FallMap.BruceScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 import EnhancedMapTiles.Sword;
+import EnhancedMapTiles.Boat;
 import EnhancedMapTiles.Coin;
 import EnhancedMapTiles.Vines;
 import EnhancedMapTiles.GoldLeaf;
@@ -22,11 +23,14 @@ public class MourningWoodMap extends Map {
 
 	public MourningWoodMap() {
 		super("mourning_wood_map.txt", new CommonTileset());
+		this.playerStartPosition = getMapTile(5, 1).getLocation();
+		this.isSpring = false;
 	}
 
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();	
+		enhancedMapTiles.add(new Boat(getMapTile(5, 1).getLocation(), this));
 		
 		return enhancedMapTiles;
 	}

@@ -25,6 +25,7 @@ import Maps.WinterMap;
 import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.InteriorMap;
+import Maps.MourningWoodMap;
 import Players.Cat;
 import Scripts.Sounds;
 import Scripts.UI;
@@ -41,6 +42,7 @@ public class PlayLevelScreen extends Screen {
     protected Map fallMap;
     protected Map interiorMap;
     protected Map anitaHouseInteriorMap;
+    protected Map islandMap;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
@@ -102,6 +104,10 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
 	flagManager.addFlag("hasTalkedtoBruceTwo", false);
 	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
+	flagManager.addFlag("boatSpawned", false);
+	flagManager.addFlag("isOnBoat", false);
+	flagManager.addFlag("hasLandedOnIsland",false);
+	flagManager.addFlag("canBeRidden",true);
 
 	previousX = 0;
 	isInitialPreviousX = true;
@@ -117,6 +123,7 @@ public class PlayLevelScreen extends Screen {
 	fallMap.setCameraX(fallMap.getEndBoundX() - 867);
 	interiorMap = new InteriorMap();
 	anitaHouseInteriorMap = new AnitaHouseInterior();
+	islandMap = new MourningWoodMap();
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
@@ -359,6 +366,32 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	    
+	  //To Island
+	    if (this.flagManager.isFlagSet("hasLandedOnIsland")) {
+	    stopMusic();
+		playMusic(14);
+		springMap = this.map;
+		islandMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = islandMap;
+		this.player.setLocation(250, 70);
+		this.player.setLeftKey(Key.LEFT);
+  		this.player.setUpKey(Key.UP);
+  		this.player.setRightKey(Key.RIGHT);
+  		this.player.setDownKey(Key.DOWN);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
 
 	    // summer map
 	    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {
@@ -434,22 +467,7 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
-		/*
-		 * while (count < 80) {
-		 * count += 1;
-		 * try {
-		 * Thread.sleep(25);
-		 * } catch (InterruptedException ex) {
-		 * System.out.println("Welp");
-		 * }
-		 * // for (float f = 0; f > sound.getVolMin(); f--) {
-		 * sound.volumeDown();
-		 * // stopMusic();
-		 * // }
-		 * 
-		 * }
-		 * count = 0;
-		 */
+		
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getY() < 548) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -505,22 +523,7 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		fallMap.setCameraY(this.map.getCamera().getY() - 336);
-		/*
-		 * while (count < 80) {
-		 * count += 1;
-		 * try {
-		 * Thread.sleep(25);
-		 * } catch (InterruptedException ex) {
-		 * System.out.println("Welp");
-		 * }
-		 * // for (float f = 0; f > sound.getVolMin(); f--) {
-		 * sound.volumeDown();
-		 * // stopMusic();
-		 * // }
-		 * 
-		 * }
-		 * count = 0;
-		 */
+		
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getX() < 730) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -577,6 +580,8 @@ public class PlayLevelScreen extends Screen {
 	    }
 
 	}
+	
+	
 
 	// leaving winter
 	if (map.getMapFileName().equals("winter_map.txt")) {
