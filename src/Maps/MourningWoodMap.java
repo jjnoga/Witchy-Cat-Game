@@ -5,9 +5,13 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Blorbo;
 import NPCs.Bruce;
+import NPCs.Moyai;
 import NPCs.Walrus;
+import Scripts.MoyaiScript;
 import Scripts.FallMap.BruceScript;
+import Scripts.TestMap.BlorboScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
 import EnhancedMapTiles.Sword;
@@ -38,6 +42,10 @@ public class MourningWoodMap extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		
+		Moyai moyai = new Moyai(3, getMapTile(24, 5).getLocation());
+		moyai.setInteractScript(new MoyaiScript());
+		npcs.add(moyai);
 
 		return npcs;
 	}

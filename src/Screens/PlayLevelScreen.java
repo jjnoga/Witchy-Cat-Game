@@ -108,6 +108,7 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("isOnBoat", false);
 	flagManager.addFlag("hasLandedOnIsland",false);
 	flagManager.addFlag("canBeRidden",true);
+	flagManager.addFlag("end",false);
 
 	previousX = 0;
 	isInitialPreviousX = true;
@@ -181,6 +182,7 @@ public class PlayLevelScreen extends Screen {
 	    break;
 	// if level has been completed, bring up level cleared screen
 	case LEVEL_COMPLETED:
+		sound.stop();
 	    winScreen.update();
 	    break;
 	}
@@ -208,7 +210,7 @@ public class PlayLevelScreen extends Screen {
 	}
 
 	// if flag is set at any point during gameplay, game is "won"
-	if (map.getFlagManager().isFlagSet("hasFoundBall")) {
+	if (map.getFlagManager().isFlagSet("end")) {
 	    playLevelScreenState = PlayLevelScreenState.LEVEL_COMPLETED;
 	}
 
@@ -958,7 +960,6 @@ public class PlayLevelScreen extends Screen {
 
     public void playMusicZero(int i) {
 	sound.setFile(i, -50.0f);
-	//sound.setCurrentVolume(-80.0f);
 	sound.play();
 	sound.loop();
     }

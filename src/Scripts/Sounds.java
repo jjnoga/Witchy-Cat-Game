@@ -34,6 +34,7 @@ public class Sounds {
 	soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
 	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav"); //using
 	soundURL[14] = getClass().getResource("/Sounds/The_Mourning_Woods.wav"); //using
+	soundURL[15] = getClass().getResource("/Sounds/endingTheme.wav");
 			
 
     }

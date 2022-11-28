@@ -1408,7 +1408,7 @@ public class CommonTileset extends Tileset {
 		Frame mourningLeavesFrame = new FrameBuilder(getSubImage(15, 3)).withScale(tileScale).build();
 
 		MapTileBuilder mourningLeavesTile = new MapTileBuilder(mourningGrassFrame)
-				.withTopLayer(mourningLeavesFrame).withTileType(TileType.PASSABLE);
+				.withTopLayer(mourningLeavesFrame).withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(mourningLeavesTile);
 		// mourningWater
