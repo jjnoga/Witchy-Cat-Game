@@ -19,28 +19,23 @@ public class Sounds {
 
     public Sounds() {
 
-	soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav"); // using
-	soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav"); // using
-	soundURL[2] = getClass().getResource("/Sounds/itemPickedUp.wav"); // using
-	soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav"); // using
-	soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav"); // using
-	soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav"); // using
-	soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav"); // using
-	soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav"); //using
-	soundURL[8] = getClass().getResource("/Sounds/VineCut.wav"); // using
-	soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav"); // using
-	soundURL[10] = getClass().getResource("/Sounds/Auburn_Thicket_Autumn.wav"); // using
-	soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav"); // using
-	soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
-//<<<<<<< HEAD
-	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav");
-	soundURL[14] = getClass().getResource("/Sounds/Clover-Super-Music-Collection-134-Poclo-Sound-Team-Bad-Ending.wav");
-	soundURL[15] = getClass().getResource("/Sounds/The_Mourning_Woods.wav");
-//=======
-//	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav"); //using
-//	soundURL[14] = getClass().getResource("/Sounds/The_Mourning_Woods.wav"); //using
-//			
-//>>>>>>> 7f572710ccd851f6454fb5a01a2ec8e0e8152471
+    	soundURL[0] = getClass().getResource("/Sounds/The_Winds_of_Destiny_Beckon_Anita_Spring.wav"); // using
+    	soundURL[1] = getClass().getResource("/Sounds/mixkit-space-coin-win-notification-271.wav"); // using
+    	soundURL[2] = getClass().getResource("/Sounds/itemPickedUp.wav"); // using
+    	soundURL[3] = getClass().getResource("/Sounds/KeyItemFound.wav"); // using
+    	soundURL[4] = getClass().getResource("/Sounds/pokemon-a-button.wav"); // using
+    	soundURL[5] = getClass().getResource("/Sounds/se_gui_choose.wav"); // using
+    	soundURL[6] = getClass().getResource("/Sounds/beep-6-96243.wav"); // using
+    	soundURL[7] = getClass().getResource("/Sounds/GUI menu open.wav"); //using
+    	soundURL[8] = getClass().getResource("/Sounds/VineCut.wav"); // using
+    	soundURL[9] = getClass().getResource("/Sounds/OptionsMenu.wav"); // using
+    	soundURL[10] = getClass().getResource("/Sounds/Auburn_Thicket_Autumn.wav"); // using
+    	soundURL[11] = getClass().getResource("/Sounds/Sandy_Barrens_Summer1.wav"); // using
+    	soundURL[12] = getClass().getResource("/Sounds/77-How-About-a-Song-An-Unwavering-Heart.wav");
+    	soundURL[13] = getClass().getResource("/Sounds/Frozen_Grounds_Winter.wav"); //using
+    	soundURL[14] = getClass().getResource("/Sounds/The_Mourning_Woods.wav"); //using
+    	soundURL[15] = getClass().getResource("/Sounds/endingTheme.wav");
+    	soundURL[16] = getClass().getResource("/Sounds/Clover-Super-Music-Collection-134-Poclo-Sound-Team-Bad-Ending.wav");
 
     }
 

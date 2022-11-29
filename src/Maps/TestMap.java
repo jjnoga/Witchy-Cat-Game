@@ -58,13 +58,13 @@ public class TestMap extends Map {
     public ArrayList<NPC> loadNPCs() {
 	ArrayList<NPC> npcs = new ArrayList<>();
 
-	Walrus walrus = new Walrus(1, getMapTile(13, 35).getLocation().subtractY(40));
-	walrus.setInteractScript(new WalrusScript());
-	npcs.add(walrus);
+//	Walrus walrus = new Walrus(1, getMapTile(13, 35).getLocation().subtractY(40));
+//	walrus.setInteractScript(new WalrusScript());
+//	npcs.add(walrus);
 	
-	Dinosaur dinosaurTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
-	dinosaurTooToo.setInteractScript(new DinoScriptItemFish());
-	npcs.add(dinosaurTooToo);
+//	Dinosaur dinosaurTooToo = new Dinosaur(2, getMapTile(20, 37).getLocation());
+//	dinosaurTooToo.setInteractScript(new DinoScriptItemFish());
+//	npcs.add(dinosaurTooToo);
 
 	Blorbo blorbo = new Blorbo(3, getMapTile(21, 28).getLocation());
 	blorbo.setInteractScript(new BlorboScript());
