@@ -227,31 +227,7 @@ public class PlayLevelScreen extends Screen {
 	// map switching, saves state of current map, changes map, places player at
 	// certain location
 	
-	//To Island
-    if (map.getFlagManager().isFlagSet("hasLandedOnIsland")) {
-    stopMusic();
-	playMusic(14);
-	springMap = this.map;
-	islandMap.setCoinCounter(this.map.getCoinCounter());
-	this.map = islandMap;
-	this.player.setLocation(250, 70);
-	this.player.setLeftKey(Key.LEFT);
-		this.player.setUpKey(Key.UP);
-		this.player.setRightKey(Key.RIGHT);
-		this.player.setDownKey(Key.DOWN);
-	map.setFlagManager(flagManager);
-	this.player.setMap(map);
-	if (map.getFlagManager().isFlagSet("inventoryCheck"))
-	    map.getInventory().setIsActive(false);
-	else
-	    map.getInventory().setIsActive(true);
-
-	if (map.getFlagManager().isFlagSet("optionsCheck"))
-	    map.getOptions().setIsActive(false);
-	else
-	    map.getOptions().setIsActive(true);
-	mapChanged = true;
-    }
+	
 
 	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
@@ -352,7 +328,31 @@ public class PlayLevelScreen extends Screen {
 	     */
 
 	    
-	    
+	  //To Island
+	    if (map.getFlagManager().isFlagSet("hasLandedOnIsland")) {
+	    stopMusic();
+		playMusic(14);
+		springMap = this.map;
+		islandMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = islandMap;
+		this.player.setLocation(250, 70);
+		this.player.setLeftKey(Key.LEFT);
+			this.player.setUpKey(Key.UP);
+			this.player.setRightKey(Key.RIGHT);
+			this.player.setDownKey(Key.DOWN);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
 	    
 	    // Walrus house interior
 	    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596)
@@ -377,7 +377,7 @@ public class PlayLevelScreen extends Screen {
 	    }
 	    
 	    //Anita House Interior
-	    if (player.getLocation().x > 1225 && player.getLocation().x < 1250 && player.getLocation().y == 1260)
+	    if (player.getLocation().x > 1225 && player.getLocation().x < 1250 && player.getLocation().y == 1260 && !map.getFlagManager().isFlagSet("hasLandedOnIsland"))
 
 	    {
 		springMap = this.map;
@@ -397,9 +397,6 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
-	    
-	    
-	  
 
 	    // summer map
 	    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {
