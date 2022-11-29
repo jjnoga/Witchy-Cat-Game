@@ -243,21 +243,56 @@ public class PlayLevelScreen extends Screen {
 	// map switching, saves state of current map, changes map, places player at
 	// certain location
 
+	// Walrus house interior
+    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596)
+
+    {
+	springMap = this.map;
+	interiorMap.setCoinCounter(this.map.getCoinCounter());
+	this.map = interiorMap;
+	this.player.setLocation(374, 408);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+	    map.getInventory().setIsActive(false);
+	else
+	    map.getInventory().setIsActive(true);
+
+	if (map.getFlagManager().isFlagSet("optionsCheck"))
+	    map.getOptions().setIsActive(false);
+	else
+	    map.getOptions().setIsActive(true);
+	mapChanged = true;
+    }
+    
+	
+    
+    //Anita House Interior
+    if (player.getLocation().x > 1225 && player.getLocation().x < 1250 && player.getLocation().y == 1260)
+
+    {
+	springMap = this.map;
+	anitaHouseInteriorMap.setCoinCounter(this.map.getCoinCounter());
+	this.map = anitaHouseInteriorMap;
+	this.player.setLocation(343, 480);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+	    map.getInventory().setIsActive(false);
+	else
+	    map.getInventory().setIsActive(true);
+
+	if (map.getFlagManager().isFlagSet("optionsCheck"))
+	    map.getOptions().setIsActive(false);
+	else
+	    map.getOptions().setIsActive(true);
+	mapChanged = true;
+    }
+    
+    
+	
 	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
-	    /*
-	     * if (value > 15 && (sound.getCurrentVolume() >= -81 ||
-	     * sound.getCurrentVolume() <= -1)) {
-	     * if (player.getLocation().x > springMap.getEndBoundX() - 730 ||
-	     * player.getLocation().x < 600) {
-	     * sound.volumeDown();
-	     * } else {
-	     * sound.volumeUp();
-	     * }
-	     * value = 0;
-	     * }
-	     * value++;
-	     */
 
 	    ///////// sound fade spring////////
 	    if (player.getLocation().x > springMap.getEndBoundX() - 930 && player.getLocation().y > 470) {
@@ -341,84 +376,19 @@ public class PlayLevelScreen extends Screen {
 
 	    }
 
-	    /*
-	     * if (player.getLocation().x > springMap.getEndBoundX() - 730) {
-	     * if (value > 10 && sound.getCurrentVolume() >= -60) {
-	     * sound.volumeDown();
-	     * value = 0;
-	     * }
-	     * value++;
-	     * } else if (player.getLocation().x < 600) {
-	     * if (value > 10 && sound.getCurrentVolume() >= -60) {
-	     * sound.volumeDown();
-	     * value = 0;
-	     * }
-	     * value++;
-	     * } else {
-	     * if (value > 10 && sound.getCurrentVolume() <= -1) {
-	     * sound.volumeUp();
-	     * value = 0;
-	     * }
-	     * value++;
-	     * }
-	     */
-
-	    // Walrus house interior
-	    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596)
-
-	    {
-		springMap = this.map;
-		interiorMap.setCoinCounter(this.map.getCoinCounter());
-		this.map = interiorMap;
-		this.player.setLocation(374, 408);
-		map.setFlagManager(flagManager);
-		this.player.setMap(map);
-		if (map.getFlagManager().isFlagSet("inventoryCheck"))
-		    map.getInventory().setIsActive(false);
-		else
-		    map.getInventory().setIsActive(true);
-
-		if (map.getFlagManager().isFlagSet("optionsCheck"))
-		    map.getOptions().setIsActive(false);
-		else
-		    map.getOptions().setIsActive(true);
-		mapChanged = true;
-	    }
-	    
-	    //Anita House Interior
-	    if (player.getLocation().x > 1225 && player.getLocation().x < 1250 && player.getLocation().y == 1260)
-
-	    {
-		springMap = this.map;
-		anitaHouseInteriorMap.setCoinCounter(this.map.getCoinCounter());
-		this.map = anitaHouseInteriorMap;
-		this.player.setLocation(343, 480);
-		map.setFlagManager(flagManager);
-		this.player.setMap(map);
-		if (map.getFlagManager().isFlagSet("inventoryCheck"))
-		    map.getInventory().setIsActive(false);
-		else
-		    map.getInventory().setIsActive(true);
-
-		if (map.getFlagManager().isFlagSet("optionsCheck"))
-		    map.getOptions().setIsActive(false);
-		else
-		    map.getOptions().setIsActive(true);
-		mapChanged = true;
-	    }
-	    
 	  //To Island
-	    if (this.flagManager.isFlagSet("hasLandedOnIsland")) {
+	    if (map.getFlagManager().isFlagSet("hasLandedOnIsland")) {
 	    stopMusic();
 		playMusic(14);
 		springMap = this.map;
 		islandMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = islandMap;
-		this.player.setLocation(250, 70);
-		this.player.setLeftKey(Key.LEFT);
-  		this.player.setUpKey(Key.UP);
-  		this.player.setRightKey(Key.RIGHT);
-  		this.player.setDownKey(Key.DOWN);
+		player.setLeftKey(Key.LEFT);
+		player.setUpKey(Key.UP);
+		player.setRightKey(Key.RIGHT);
+		player.setDownKey(Key.DOWN);
+		this.player.setLocation(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+		
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
@@ -431,7 +401,13 @@ public class PlayLevelScreen extends Screen {
 		else
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
+		
+
+		
+		//if (map.getFlagManager().isFlagSet("isOnBoat")) map.getFlagManager().unsetFlag("isOnBoat");
 	    }
+	    
+
 
 	    // summer map
 	    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {

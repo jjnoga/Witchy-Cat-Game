@@ -95,7 +95,7 @@ public abstract class Map {
     protected Fish fish;
     protected IceSkates skates;
     
-    protected boolean isSpring = false;
+    public boolean isSpring = false;
 
     protected Options options;
     protected boolean optionsCheck = true;

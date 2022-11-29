@@ -6,6 +6,7 @@ import Level.NPC;
 import Level.Trigger;
 import Scripts.TestMap.HouseIntro;
 import Tilesets.CommonTileset;
+import Utils.Point;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,8 @@ public class AnitaHouseInterior extends Map {
 
 	public AnitaHouseInterior() {
 		super("anita_house_interior_map.txt", new CommonTileset());	
+		this.playerStartPosition = getMapTile(7, 10).getLocation();
+		this.isSpring = false;
 	}
 
 	@Override
@@ -35,6 +38,9 @@ public class AnitaHouseInterior extends Map {
 		return npcs;
 	}
 
+	public Point getStartPosition() {
+		return playerStartPosition;
+	}
 
 	@Override
 	public void loadScripts() {	
