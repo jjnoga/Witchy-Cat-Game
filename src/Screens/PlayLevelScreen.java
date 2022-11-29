@@ -22,8 +22,10 @@ import Level.*;
 import Maps.SummerMap;
 import Maps.TestMap;
 import Maps.WinterMap;
+import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.InteriorMap;
+import Maps.MourningWoodMap;
 import Players.Cat;
 import Scripts.Sounds;
 import Scripts.UI;
@@ -39,6 +41,8 @@ public class PlayLevelScreen extends Screen {
     protected Map winterMap;
     protected Map fallMap;
     protected Map interiorMap;
+    protected Map anitaHouseInteriorMap;
+    protected Map islandMap;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
@@ -66,6 +70,7 @@ public class PlayLevelScreen extends Screen {
     public void initialize() {
 	// setup state
 	flagManager = new FlagManager();
+	flagManager.addFlag("firstTimeInHouse", false);
 	flagManager.addFlag("rightSpot", false);
 	flagManager.addFlag("hasBeginning", false);
 	flagManager.addFlag("hasTalkedToWalrus", false);
@@ -99,6 +104,11 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
 	flagManager.addFlag("hasTalkedtoBruceTwo", false);
 	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
+	flagManager.addFlag("boatSpawned", false);
+	flagManager.addFlag("isOnBoat", false);
+	flagManager.addFlag("hasLandedOnIsland",false);
+	flagManager.addFlag("canBeRidden",true);
+	flagManager.addFlag("end",false);
 
 	previousX = 0;
 	isInitialPreviousX = true;
@@ -113,6 +123,8 @@ public class PlayLevelScreen extends Screen {
 	fallMap = new FallMap();
 	fallMap.setCameraX(fallMap.getEndBoundX() - 867);
 	interiorMap = new InteriorMap();
+	anitaHouseInteriorMap = new AnitaHouseInterior();
+	islandMap = new MourningWoodMap();
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
@@ -170,6 +182,7 @@ public class PlayLevelScreen extends Screen {
 	    break;
 	// if level has been completed, bring up level cleared screen
 	case LEVEL_COMPLETED:
+		sound.stop();
 	    winScreen.update();
 	    break;
 	}
@@ -197,7 +210,7 @@ public class PlayLevelScreen extends Screen {
 	}
 
 	// if flag is set at any point during gameplay, game is "won"
-	if (map.getFlagManager().isFlagSet("hasFoundBall")) {
+	if (map.getFlagManager().isFlagSet("end")) {
 	    playLevelScreenState = PlayLevelScreenState.LEVEL_COMPLETED;
 	}
 
@@ -214,6 +227,54 @@ public class PlayLevelScreen extends Screen {
 	// map switching, saves state of current map, changes map, places player at
 	// certain location
 
+	// Walrus house interior
+    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596)
+
+    {
+	springMap = this.map;
+	interiorMap.setCoinCounter(this.map.getCoinCounter());
+	this.map = interiorMap;
+	this.player.setLocation(374, 408);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+	    map.getInventory().setIsActive(false);
+	else
+	    map.getInventory().setIsActive(true);
+
+	if (map.getFlagManager().isFlagSet("optionsCheck"))
+	    map.getOptions().setIsActive(false);
+	else
+	    map.getOptions().setIsActive(true);
+	mapChanged = true;
+    }
+    
+	
+    
+    //Anita House Interior
+    if (player.getLocation().x > 1225 && player.getLocation().x < 1250 && player.getLocation().y == 1260)
+
+    {
+	springMap = this.map;
+	anitaHouseInteriorMap.setCoinCounter(this.map.getCoinCounter());
+	this.map = anitaHouseInteriorMap;
+	this.player.setLocation(343, 480);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+	    map.getInventory().setIsActive(false);
+	else
+	    map.getInventory().setIsActive(true);
+
+	if (map.getFlagManager().isFlagSet("optionsCheck"))
+	    map.getOptions().setIsActive(false);
+	else
+	    map.getOptions().setIsActive(true);
+	mapChanged = true;
+    }
+    
+    
+	
 	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
 
@@ -277,14 +338,25 @@ public class PlayLevelScreen extends Screen {
 		}
 	    }
 
+/*
 	    // shop interior
 	    if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596)
 
 	    {
+	    */
+	  //To Island
+	    if (map.getFlagManager().isFlagSet("hasLandedOnIsland")) {
+	    stopMusic();
+		playMusic(14);
 		springMap = this.map;
-		interiorMap.setCoinCounter(this.map.getCoinCounter());
-		this.map = interiorMap;
-		this.player.setLocation(374, 408);
+		islandMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = islandMap;
+		player.setLeftKey(Key.LEFT);
+		player.setUpKey(Key.UP);
+		player.setRightKey(Key.RIGHT);
+		player.setDownKey(Key.DOWN);
+		this.player.setLocation(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+		
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
@@ -297,7 +369,13 @@ public class PlayLevelScreen extends Screen {
 		else
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
+		
+
+		
+		//if (map.getFlagManager().isFlagSet("isOnBoat")) map.getFlagManager().unsetFlag("isOnBoat");
 	    }
+	    
+
 
 	    // summer map
 	    else if (player.getLocation().x > this.map.getEndBoundX() - 426) {
@@ -354,7 +432,6 @@ public class PlayLevelScreen extends Screen {
 		springMap = this.map;
 		winterMap.setCoinCounter(this.map.getCoinCounter());
 		winterMap.setCameraX(this.map.getCamera().getX() - 384);
-
 		for (int i = 0; i < springMap.getEnhancedMapTiles().size(); i++) {
 		    if (springMap.getEnhancedMapTiles().get(i).getY() < 548) {
 			EnhancedMapTile enhancedMapTile = springMap.getEnhancedMapTiles().get(i);
@@ -449,6 +526,8 @@ public class PlayLevelScreen extends Screen {
 	    }
 
 	}
+	
+	
 
 	// leaving winter
 	if (map.getMapFileName().equals("winter_map.txt")) {
@@ -631,7 +710,6 @@ public class PlayLevelScreen extends Screen {
 			enhancedMapTile.setY(summerMap.getEnhancedMapTiles().get(i).getY() + 336);
 			enhancedMapTile.setMap(springMap);
 			springMap.addEnhancedMapTile(enhancedMapTile);
-			
 		    }
 		}
 		for (int i = 0; i < summerMap.getNPCs().size(); i++) {
@@ -669,6 +747,29 @@ public class PlayLevelScreen extends Screen {
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = springMap;
 		this.player.setLocation(612, 1600);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
+	}
+	
+	// leaving Anita's house
+	if (map.getMapFileName().equals("anita_house_interior_map.txt")) {
+	    if (player.getLocation().x > 335 && player.getLocation().x < 355 && player.getLocation().y > 519) {
+		anitaHouseInteriorMap = this.map;
+		springMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = springMap;
+		this.player.setLocation(1236, 1263);
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
 
@@ -753,7 +854,6 @@ public class PlayLevelScreen extends Screen {
 
     public void playMusicZero(int i) {
 	sound.setFile(i, -50.0f);
-	//sound.setCurrentVolume(-80.0f);
 	sound.play();
 	sound.loop();
     }

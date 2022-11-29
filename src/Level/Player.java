@@ -369,4 +369,20 @@ public abstract class Player extends GameObject {
 	    moveX(speed);
 	}
     }
+    
+    public void setUpKey(Key key) {
+    	this.MOVE_UP_KEY = key;
+    }
+    
+    public void setDownKey(Key key) {
+    	this.MOVE_DOWN_KEY = key;
+    }
+    
+    public void setLeftKey(Key key) {
+    	this.MOVE_LEFT_KEY = key;
+    }
+    
+    public void setRightKey(Key key) {
+    	this.MOVE_RIGHT_KEY = key;
+    }
 }
