@@ -11,6 +11,7 @@ import NPCs.Walrus;
 import Scripts.TestMap.TerryScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
+import Utils.Point;
 
 import java.util.ArrayList;
 
@@ -19,6 +20,8 @@ public class InteriorMap extends Map {
 
 	public InteriorMap() {
 		super("interior_map.txt", new CommonTileset());	
+		this.playerStartPosition = getMapTile(8, 8).getLocation();
+		this.isSpring = false;
 	}
 
 	@Override
@@ -43,6 +46,10 @@ public class InteriorMap extends Map {
 	public ArrayList<Trigger> loadTriggers() {
 		ArrayList<Trigger> triggers = new ArrayList<>();		
 		return triggers;
+	}
+	
+	public Point getStartPosition() {
+		return playerStartPosition;
 	}
 
 	@Override

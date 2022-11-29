@@ -27,6 +27,8 @@ public class TestMap extends Map {
 	super("test_map.txt", new CommonTileset());
 	this.playerStartPosition = getMapTile(26, 27).getLocation();
 	this.isSpring = true;
+	
+	
     }
 
     @Override
@@ -86,13 +88,13 @@ public class TestMap extends Map {
 
     @Override
     public void loadScripts() {
-	getMapTile(30, 26).setInteractScript(new SimpleTextScript("Cat's house"));
-
-	getMapTile(16, 33).setInteractScript(new SimpleTextScript("Walrus's house"));
-
-	getMapTile(29, 11).setInteractScript(new SimpleTextScript("Dino's house"));
-
-	getMapTile(11, 13).setInteractScript(new TreeScript());
+//	getMapTile(30, 26).setInteractScript(new SimpleTextScript("Cat's house"));
+//
+//	getMapTile(16, 33).setInteractScript(new SimpleTextScript("Walrus's house"));
+//
+//	getMapTile(29, 11).setInteractScript(new SimpleTextScript("Dino's house"));
+//
+//	getMapTile(11, 13).setInteractScript(new TreeScript());
 	
 	//getMapTile(24, 32).setInteractScript(new GoldLeafScript());
 

@@ -14,6 +14,7 @@ import Scripts.FallMap.BruceScript;
 import Scripts.TestMap.BlorboScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
+import Utils.Point;
 import EnhancedMapTiles.Sword;
 import EnhancedMapTiles.Boat;
 import EnhancedMapTiles.Coin;
@@ -27,8 +28,9 @@ public class MourningWoodMap extends Map {
 
 	public MourningWoodMap() {
 		super("mourning_wood_map.txt", new CommonTileset());
-		this.playerStartPosition = getMapTile(5, 1).getLocation();
+		this.playerStartPosition = getMapTile(7, 1).getLocation();
 		this.isSpring = false;
+		
 	}
 
 	@Override
@@ -54,6 +56,10 @@ public class MourningWoodMap extends Map {
 	public ArrayList<Trigger> loadTriggers() {
 		ArrayList<Trigger> triggers = new ArrayList<>();	
 		return triggers;
+	}
+	
+	public Point getStartPosition() {
+		return playerStartPosition;
 	}
 
 	@Override

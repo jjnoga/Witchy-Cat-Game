@@ -2,6 +2,7 @@ package EnhancedMapTiles;
 import Builders.FrameBuilder;
 import Engine.ImageLoader;
 import Engine.Key;
+import Engine.KeyLocker;
 import Engine.Keyboard;
 import GameObject.Frame;
 import GameObject.GameObject;
@@ -23,6 +24,7 @@ public class Boat extends EnhancedMapTile {
 	public int vineCounter = 0;
 	protected Sounds sound = new Sounds();
 	private int iterations = 0;
+	private KeyLocker keyLocker = new KeyLocker();
 
 	public Boat(Point location, Map map) {
 		 super(location.x + 16, location.y + 12, new SpriteSheet(ImageLoader.load("Boat.png"),16, 16), TileType.PASSABLE);
@@ -39,7 +41,7 @@ public class Boat extends EnhancedMapTile {
 	        	
 	        
 	        if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden && map.getFlagManager().isFlagSet("canBeRidden")) {
-	        	
+	        	keyLocker.lockKey(Key.SPACE);
 	      		map.getFlagManager().setFlag("isOnBoat");
 	      		//player.setLocation(this.x, this.y);
 	      		player.setLeftKey(null);
@@ -69,6 +71,10 @@ public class Boat extends EnhancedMapTile {
 	        		map.getFlagManager().unsetFlag("canBeRidden");
 	        		map.getFlagManager().setFlag("hasLandedOnIsland");
 	        		//map = new MourningWoodMap();
+	        		player.setLeftKey(Key.LEFT);
+		        	player.setUpKey(Key.UP);
+		        	player.setRightKey(Key.RIGHT);
+		        	player.setDownKey(Key.DOWN);
 	        	}
 	        }
 	          
