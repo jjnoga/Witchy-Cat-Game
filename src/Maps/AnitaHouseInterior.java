@@ -4,6 +4,10 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.Blorbo;
+import NPCs.Cauldron;
+import Scripts.TestMap.BlorboScript;
+import Scripts.TestMap.CauldronScript;
 import Scripts.TestMap.HouseIntro;
 import Tilesets.CommonTileset;
 import Utils.Point;
@@ -35,6 +39,11 @@ public class AnitaHouseInterior extends Map {
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		
+		Cauldron cauldron = new Cauldron(4, getMapTile(8, 2).getLocation());
+		cauldron.setInteractScript(new CauldronScript());
+		npcs.add(cauldron);
+		
 		return npcs;
 	}
 

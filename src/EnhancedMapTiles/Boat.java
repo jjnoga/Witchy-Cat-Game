@@ -35,9 +35,9 @@ public class Boat extends EnhancedMapTile {
 	    public void update(Player player) {
 	        super.update(player);
 	        
-//	        if(map.getFlagManager().isFlagSet("boatSpawned")) {
-//	        	this.isHidden = false;
-//	        } else this.isHidden = true;
+	        if(map.getFlagManager().isFlagSet("boatSpawned")) {
+	        	this.isHidden = false;
+	        } else this.isHidden = true;
 	        	
 	        
 	        if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden && map.getFlagManager().isFlagSet("canBeRidden")) {

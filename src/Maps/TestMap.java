@@ -6,16 +6,9 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
-import NPCs.Dinosaur;
-import NPCs.Walrus;
 import NPCs.Blorbo;
-import Scripts.SimpleTextScript;
-import Scripts.TestMap.DinoScriptItemFish;
 import Scripts.TestMap.IntroScript;
-import Scripts.TestMap.TreeScript;
-import Scripts.TestMap.WalrusScript;
 import Scripts.TestMap.BlorboScript;
-import Scripts.TestMap.CertainAreaScript;
 import Tilesets.CommonTileset;
 
 import java.util.ArrayList;

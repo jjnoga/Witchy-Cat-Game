@@ -1434,23 +1434,23 @@ public class CommonTileset extends Tileset {
 
 		mapTiles.add(mourningWaterTile);
 		
-		// cauldron
-		
-		Frame cauldronFrame = new FrameBuilder(getSubImage(14, 8)).withScale(tileScale).build();
-
-		MapTileBuilder cauldronTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(cauldronFrame)
-				.withTileType(TileType.NOT_PASSABLE);
-
-		mapTiles.add(cauldronTile);
-		
-		// first cauldron
-		
-		Frame firstCauldronFrame = new FrameBuilder(getSubImage(15, 4)).withScale(tileScale).build();
-
-		MapTileBuilder firstCauldronTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(firstCauldronFrame)
-				.withTileType(TileType.NOT_PASSABLE);
-
-		mapTiles.add(firstCauldronTile);
+//		// cauldron
+//		
+//		Frame cauldronFrame = new FrameBuilder(getSubImage(14, 8)).withScale(tileScale).build();
+//
+//		MapTileBuilder cauldronTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(cauldronFrame)
+//				.withTileType(TileType.NOT_PASSABLE);
+//
+//		mapTiles.add(cauldronTile);
+//		
+//		// first cauldron
+//		
+//		Frame firstCauldronFrame = new FrameBuilder(getSubImage(15, 4)).withScale(tileScale).build();
+//
+//		MapTileBuilder firstCauldronTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(firstCauldronFrame)
+//				.withTileType(TileType.NOT_PASSABLE);
+//
+//		mapTiles.add(firstCauldronTile);
 		
 		// top left bed 
 		
