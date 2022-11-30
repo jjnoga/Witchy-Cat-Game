@@ -26,6 +26,7 @@ import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.InteriorMap;
 import Maps.MourningWoodMap;
+import Maps.SecretRoom;
 import Maps.HauntedHouse;
 import Players.Cat;
 import Scripts.Sounds;
@@ -45,6 +46,7 @@ public class PlayLevelScreen extends Screen {
     protected Map anitaHouseInteriorMap;
     protected Map islandMap;
     protected Map hauntedHouseMap;
+    protected Map secretMap;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
@@ -111,6 +113,9 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasLandedOnIsland",false);
 	flagManager.addFlag("canBeRidden",true);
 	flagManager.addFlag("end",false);
+	flagManager.addFlag("giveAllCoins",false);
+	flagManager.addFlag("hasBoomed", false);
+	flagManager.addFlag("himExistenceFlag",true);
 
 	previousX = 0;
 	isInitialPreviousX = true;
@@ -128,6 +133,7 @@ public class PlayLevelScreen extends Screen {
 	anitaHouseInteriorMap = new AnitaHouseInterior();
 	islandMap = new MourningWoodMap();
 	hauntedHouseMap = new HauntedHouse();
+	secretMap = new SecretRoom();
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
@@ -850,6 +856,28 @@ public class PlayLevelScreen extends Screen {
 	
 	//leaving haunted house
     if (map.getMapFileName().equals("haunted_house_map.txt")) {
+    	if (player.getLocation().x > 500 && player.getLocation().x < 525 && player.getLocation().y < 109) {
+    		hauntedHouseMap = this.map;
+    		secretMap.setCoinCounter(this.map.getCoinCounter());
+    		this.map = secretMap;
+    		stopMusic();
+    		this.player.setLocation(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+    		map.setFlagManager(flagManager);
+    		this.player.setMap(map);
+
+    		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+    		    map.getInventory().setIsActive(false);
+    		else
+    		    map.getInventory().setIsActive(true);
+
+    		if (map.getFlagManager().isFlagSet("optionsCheck"))
+    		    map.getOptions().setIsActive(false);
+    		else
+    		    map.getOptions().setIsActive(true);
+    		mapChanged = true;
+    	    }
+    	
+    	
 	    if (player.getLocation().x > 270 && player.getLocation().x < 283 && player.getLocation().y > 441) {
 		hauntedHouseMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
@@ -870,6 +898,29 @@ public class PlayLevelScreen extends Screen {
 		mapChanged = true;
 	    }
 	} 
+    
+  //leaving secret room
+    if (map.getMapFileName().equals("secret_room.txt")) {
+    	if (player.getLocation().x > 200 && player.getLocation().x < 310 && player.getLocation().y > 1849) {
+    		secretMap = this.map;
+    		hauntedHouseMap.setCoinCounter(this.map.getCoinCounter());
+    		this.map = hauntedHouseMap;
+    		this.player.setLocation(517, 110);
+    		map.setFlagManager(flagManager);
+    		this.player.setMap(map);
+
+    		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+    		    map.getInventory().setIsActive(false);
+    		else
+    		    map.getInventory().setIsActive(true);
+
+    		if (map.getFlagManager().isFlagSet("optionsCheck"))
+    		    map.getOptions().setIsActive(false);
+    		else
+    		    map.getOptions().setIsActive(true);
+    		mapChanged = true;
+    	    }
+    }
 
 	// leaving interior
 	if (map.getMapFileName().equals("interior_map.txt")) {

@@ -6,10 +6,11 @@ import EnhancedMapTiles.Fish;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
-import NPCs.NotMoyai;
+import NPCs.Him;
 import NPCs.Terry;
 import NPCs.Walrus;
-import Scripts.NotMoyaiScript;
+import Scripts.Boom;
+import Scripts.TestMap.CertainAreaScript;
 import Scripts.TestMap.TerryScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
@@ -18,35 +19,34 @@ import Utils.Point;
 import java.util.ArrayList;
 
 // Represents a test map to be used in a level
-public class HauntedHouse extends Map {
+public class SecretRoom extends Map {
 
-	public HauntedHouse() {
-		super("haunted_house_map.txt", new CommonTileset());	
-		this.playerStartPosition = getMapTile(6, 9).getLocation();
+	public SecretRoom() {
+		super("secret_room.txt", new CommonTileset());	
+		this.playerStartPosition = getMapTile(6, 38).getLocation();
 		this.isSpring = false;
 	}
 
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-		enhancedMapTiles.add(new Fish(getMapTile(7, 3).getLocation(), this));
-		enhancedMapTiles.add(new Coin(getMapTile(2, 9).getLocation(), this));
-		enhancedMapTiles.add(new Coin(getMapTile(11, 9).getLocation(), this));
+
 		return enhancedMapTiles;
 	}
 
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
-		NotMoyai notMoyai = new NotMoyai(3, getMapTile(10,2).getLocation(), this);
-		notMoyai.setInteractScript(new NotMoyaiScript());
-		npcs.add(notMoyai);
+		
+		Him him = new Him(1, getMapTile(5, 3).getLocation(), this);
+		npcs.add(him);
 		return npcs;
 	}
 
 	@Override
 	public ArrayList<Trigger> loadTriggers() {
-		ArrayList<Trigger> triggers = new ArrayList<>();		
+		ArrayList<Trigger> triggers = new ArrayList<>();	
+		triggers.add(new Trigger(200, 350, 350, 100, new Boom(), "hasBoomed"));
 		return triggers;
 	}
 	
@@ -56,5 +56,6 @@ public class HauntedHouse extends Map {
 
 	@Override
 	public void loadScripts() {	
+		
 	}
 }

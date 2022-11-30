@@ -8,7 +8,7 @@ import Level.NPC;
 import Level.Script;
 import Level.ScriptState;
 
-//script for talking to Pizza npc
+//script for talking to Bruce npc
 public class BruceScript extends Script<NPC> {
 
 	File tester = new File("Resources/BruceScript.txt");

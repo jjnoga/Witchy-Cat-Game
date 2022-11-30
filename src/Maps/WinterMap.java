@@ -27,6 +27,9 @@ public class WinterMap extends Map {
 		enhancedMapTiles.add(new IceSphere(getMapTile(24, 20).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(12, 21).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(21, 20).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(7, 17).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(36, 18).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(34, 30).getLocation(), this));
 		return enhancedMapTiles;
 	}
 
