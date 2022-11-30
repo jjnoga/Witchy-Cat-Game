@@ -27,11 +27,13 @@ public class Fish extends EnhancedMapTile {
         super(location.x, location.y, new SpriteSheet(ImageLoader.load("Fish.png"),16, 16), TileType.PASSABLE);
         sound  = new Sounds();
         this.map = testMap;
+        //this.isHidden = false;
     }
 
 	@Override
     public void update(Player player) {
         super.update(player);
+        
         
         
         
@@ -47,7 +49,7 @@ public class Fish extends EnhancedMapTile {
               playSE(2);
              this.isHidden = true;
       	}
-          else this.isHidden = true;
+         else this.isHidden = false;
         
         
     }
@@ -63,6 +65,6 @@ public class Fish extends EnhancedMapTile {
                 .withScale(1.5f)
                 .build();
         		
-        return new GameObject(x+12, y, frame);
+        return new GameObject(x+12, y + 12, frame);
     }
 }

@@ -27,7 +27,7 @@ public class HauntedHouse extends Map {
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-		enhancedMapTiles.add(new Fish(getMapTile(7, 1).getLocation(), this));
+		enhancedMapTiles.add(new Fish(getMapTile(7, 3).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(2, 9).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(11, 9).getLocation(), this));
 		return enhancedMapTiles;
