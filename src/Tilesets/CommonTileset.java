@@ -1442,6 +1442,87 @@ public class CommonTileset extends Tileset {
 				.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(cauldronTile);
+		
+		// first cauldron
+		
+		Frame firstCauldronFrame = new FrameBuilder(getSubImage(15, 4)).withScale(tileScale).build();
+
+		MapTileBuilder firstCauldronTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(firstCauldronFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(firstCauldronTile);
+		
+		// top left bed 
+		
+		Frame topLeftBedFrame = new FrameBuilder(getSubImage(15, 5)).withScale(tileScale).build();
+
+		MapTileBuilder topLeftBedFrameTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(topLeftBedFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(topLeftBedFrameTile);
+		
+		// top right bed 
+		
+		Frame topRightBedFrame = new FrameBuilder(getSubImage(15, 5)).withImageEffect(ImageEffect.FLIP_HORIZONTAL).withScale(tileScale).build();
+
+		MapTileBuilder topRightBedTile = new MapTileBuilder(anitaRightFloorFrame).withTopLayer(topRightBedFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(topRightBedTile);
+		
+		//bottom left bed
+		
+		Frame bottomLeftBedFrame = new FrameBuilder(getSubImage(15, 6)).withScale(tileScale).build();
+
+		MapTileBuilder bottomLeftBedTile = new MapTileBuilder(anitaRightBottomFloorFrame).withTopLayer(bottomLeftBedFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(bottomLeftBedTile);
+		
+		//bottom right bed 
+		
+		Frame bottomRightBedFrame = new FrameBuilder(getSubImage(15, 6)).withImageEffect(ImageEffect.FLIP_HORIZONTAL).withScale(tileScale).build();
+
+		MapTileBuilder bottomRightBedTile = new MapTileBuilder(anitaLeftBottomFloorFrame).withTopLayer(bottomRightBedFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(bottomRightBedTile);
+		
+		//left desk
+		
+		Frame leftDeskFrame = new FrameBuilder(getSubImage(15, 7)).withScale(tileScale).build();
+
+		MapTileBuilder leftDeskTile = new MapTileBuilder(anitaRightFloorFrame).withTopLayer(leftDeskFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(leftDeskTile);
+		
+		//right desk
+		
+		Frame rightDeskFrame = new FrameBuilder(getSubImage(15, 8)).withScale(tileScale).build();
+
+		MapTileBuilder rightDeskTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(rightDeskFrame)
+				.withTileType(TileType.NOT_PASSABLE);
+
+		mapTiles.add(rightDeskTile);
+		
+		// shelfTopOne in house 
+
+		Frame shelfTopOneHouseFrame = new FrameBuilder(getSubImage(13, 3)).withScale(tileScale).build();
+
+		MapTileBuilder shelfTopOneHouseTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(shelfTopOneHouseFrame)
+						.withTileType(TileType.PASSABLE);
+
+		mapTiles.add(shelfTopOneHouseTile);
+
+		// shelfTopTwo in house 
+
+		Frame shelfTopTwoHouseFrame = new FrameBuilder(getSubImage(13, 4)).withScale(tileScale).build();
+
+		MapTileBuilder shelfTopTwoHouseTile = new MapTileBuilder(anitaRightFloorFrame).withTopLayer(shelfTopTwoHouseFrame)
+						.withTileType(TileType.PASSABLE);
+
+		mapTiles.add(shelfTopTwoHouseTile);
 
 		return mapTiles;
 

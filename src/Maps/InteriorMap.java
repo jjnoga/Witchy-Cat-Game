@@ -2,7 +2,6 @@ package Maps;
 
 import Level.EnhancedMapTile;
 import EnhancedMapTiles.Barrel;
-import EnhancedMapTiles.Coin;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
