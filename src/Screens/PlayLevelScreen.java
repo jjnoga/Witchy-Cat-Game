@@ -26,6 +26,7 @@ import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.InteriorMap;
 import Maps.MourningWoodMap;
+import Maps.HauntedHouse;
 import Players.Cat;
 import Scripts.Sounds;
 import Scripts.UI;
@@ -43,6 +44,7 @@ public class PlayLevelScreen extends Screen {
     protected Map interiorMap;
     protected Map anitaHouseInteriorMap;
     protected Map islandMap;
+    protected Map hauntedHouseMap;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
@@ -125,6 +127,7 @@ public class PlayLevelScreen extends Screen {
 	interiorMap = new InteriorMap();
 	anitaHouseInteriorMap = new AnitaHouseInterior();
 	islandMap = new MourningWoodMap();
+	hauntedHouseMap = new HauntedHouse();
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
@@ -272,7 +275,6 @@ public class PlayLevelScreen extends Screen {
 	    map.getOptions().setIsActive(true);
 	mapChanged = true;
     }
-    
     
 	
 	// leaving spring
@@ -651,6 +653,8 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving fall
 	if (map.getMapFileName().equals("fall_map.txt")) {
+		
+		
 
 	    if (player.getLocation().x > fallMap.getEndBoundX() - 930) {
 		if (isInitialPreviousX == true) {
@@ -733,6 +737,27 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	  //Haunted house
+        if (player.getLocation().x > 635 && player.getLocation().x < 675 && player.getLocation().y == 1020)
+
+        {
+    	fallMap = this.map;
+    	hauntedHouseMap.setCoinCounter(this.map.getCoinCounter());
+    	this.map = hauntedHouseMap;
+    	this.player.setLocation(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+    	map.setFlagManager(flagManager);
+    	this.player.setMap(map);
+    	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+    	    map.getInventory().setIsActive(false);
+    	else
+    	    map.getInventory().setIsActive(true);
+
+    	if (map.getFlagManager().isFlagSet("optionsCheck"))
+    	    map.getOptions().setIsActive(false);
+    	else
+    	    map.getOptions().setIsActive(true);
+    	mapChanged = true;
+        }
 	}
 
 	// leaving summer
@@ -822,6 +847,29 @@ public class PlayLevelScreen extends Screen {
 	    }
 
 	}
+	
+	//leaving haunted house
+    if (map.getMapFileName().equals("haunted_house_map.txt")) {
+	    if (player.getLocation().x > 270 && player.getLocation().x < 283 && player.getLocation().y > 441) {
+		hauntedHouseMap = this.map;
+		fallMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = fallMap;
+		this.player.setLocation(640, 1020);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
+	} 
 
 	// leaving interior
 	if (map.getMapFileName().equals("interior_map.txt")) {
@@ -867,7 +915,10 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	   
 	}
+	
+
 
 	if (mapChanged) {
 	    for (MapTile mapTile : map.getMapTiles()) {
