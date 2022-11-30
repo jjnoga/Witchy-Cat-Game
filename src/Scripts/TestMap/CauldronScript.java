@@ -32,7 +32,7 @@ public class CauldronScript extends Script<NPC> {
 	protected void cleanup() {
 		
 		if (isFlagSet("hasGoldLeaf") && isFlagSet("hasIceSphere") && isFlagSet("hasFireRose")) {
-			map.getFlagManager().isFlagSet("boatSpawned");
+			unsetFlag("boatSpawned");
 		}
 		unlockPlayer();
 		hideTextbox();

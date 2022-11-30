@@ -108,7 +108,7 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
 	flagManager.addFlag("hasTalkedtoBruceTwo", false);
 	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
-	flagManager.addFlag("boatSpawned", false);
+	flagManager.addFlag("boatSpawned", true);
 	flagManager.addFlag("isOnBoat", false);
 	flagManager.addFlag("hasLandedOnIsland",false);
 	flagManager.addFlag("canBeRidden",true);
