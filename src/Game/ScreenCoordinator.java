@@ -4,6 +4,8 @@ import Engine.DefaultScreen;
 import Engine.GraphicsHandler;
 import Engine.Screen;
 import Screens.CreditsScreen;
+import Screens.HOSScreen;
+import Screens.HOS2Screen;
 import Screens.MenuScreen;
 import Screens.OptionsScreen;
 import Screens.PlayLevelScreen;
@@ -53,6 +55,12 @@ public class ScreenCoordinator extends Screen {
 						break;
 					case OPTIONS:
 						currentScreen = new OptionsScreen(this);
+						break;
+					case HOS1:
+						currentScreen = new HOSScreen(this);
+						break;
+					case HOS2:
+						currentScreen = new HOS2Screen(this);
 						break;
 				}
 				currentScreen.initialize();

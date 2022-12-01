@@ -24,6 +24,7 @@ import Maps.TestMap;
 import Maps.WinterMap;
 import Maps.AnitaHouseInterior;
 import Maps.FallMap;
+import Maps.HOSInterior;
 import Maps.InteriorMap;
 import Maps.MourningWoodMap;
 import Players.Cat;
@@ -43,10 +44,12 @@ public class PlayLevelScreen extends Screen {
     protected Map interiorMap;
     protected Map anitaHouseInteriorMap;
     protected Map islandMap;
+    protected Map hallOfShame;
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
     protected WinScreen winScreen;
+    protected HOSScreen hosScreen;
     protected UI options;
     protected FlagManager flagManager;
     protected KeyLocker keyLocker = new KeyLocker();
@@ -141,6 +144,7 @@ public class PlayLevelScreen extends Screen {
 	interiorMap = new InteriorMap();
 	anitaHouseInteriorMap = new AnitaHouseInterior();
 	islandMap = new MourningWoodMap();
+	hallOfShame = new HOSInterior();
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
@@ -201,6 +205,9 @@ public class PlayLevelScreen extends Screen {
 		sound.stop();
 	    winScreen.update();
 	    break;
+	case HALL_OF_S:
+		sound.stop();
+		hosScreen.update();
 	}
 
 	if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
@@ -289,7 +296,26 @@ public class PlayLevelScreen extends Screen {
 	mapChanged = true;
     }
     
-    
+    //Hall of Shame Interior
+    if (player.getLocation().x > 2338 && player.getLocation().x < 2350 && player.getLocation().y == 1260)
+    {
+	springMap = this.map;
+	hallOfShame.setCoinCounter(this.map.getCoinCounter());
+	this.map = hallOfShame;
+	this.player.setLocation(350, 180);
+	map.setFlagManager(flagManager);
+	this.player.setMap(map);
+	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+	    map.getInventory().setIsActive(false);
+	else
+	    map.getInventory().setIsActive(true);
+
+	if (map.getFlagManager().isFlagSet("optionsCheck"))
+	    map.getOptions().setIsActive(false);
+	else
+	    map.getOptions().setIsActive(true);
+	mapChanged = true;
+    }
 	
 	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
@@ -951,6 +977,28 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	    
+	    //leaving Hall Of Shame
+	    if (map.getMapFileName().equals("hall_of_shame.txt")) {
+		    if (player.getLocation().x > 335 && player.getLocation().x < 355 && player.getLocation().y > 519) {
+			hallOfShame = this.map;
+			summerMap.setCoinCounter(this.map.getCoinCounter());
+			this.map = summerMap;
+			this.player.setLocation(2341, 1260);
+			map.setFlagManager(flagManager);
+			this.player.setMap(map);
+
+			if (map.getFlagManager().isFlagSet("inventoryCheck"))
+			    map.getInventory().setIsActive(false);
+			else
+			    map.getInventory().setIsActive(true);
+
+			if (map.getFlagManager().isFlagSet("optionsCheck"))
+			    map.getOptions().setIsActive(false);
+			else
+			    map.getOptions().setIsActive(true);
+			mapChanged = true;
+		    }
 	}
 
 	if (mapChanged) {
@@ -979,6 +1027,7 @@ public class PlayLevelScreen extends Screen {
 		}
 	    }
 	    mapChanged = false;
+	}
 	}
     }
 
@@ -1009,7 +1058,7 @@ public class PlayLevelScreen extends Screen {
 
 //This enum represents the different states this screen can be in
     private enum PlayLevelScreenState {
-	RUNNING, LEVEL_COMPLETED
+	RUNNING, LEVEL_COMPLETED, HALL_OF_S
     }
 
     public void playMusic(int i) {

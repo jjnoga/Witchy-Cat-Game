@@ -96,6 +96,7 @@ public abstract class Map {
     protected IceSkates skates;
     
     public boolean isSpring = false;
+    public boolean isSummer = false;
 
     protected Options options;
     protected boolean optionsCheck = true;
