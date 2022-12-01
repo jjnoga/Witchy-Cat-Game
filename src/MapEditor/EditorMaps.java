@@ -9,6 +9,7 @@ import Maps.HOSInterior;
 import Maps.InteriorMap;
 import Maps.TestMap;
 import Maps.MourningWoodMap;
+import Maps.SecretRoom;
 import Maps.HauntedHouse;
 import Maps.TitleScreenMap;
 
@@ -28,6 +29,8 @@ public class EditorMaps {
 				add("AnitaHouseInterior");
 				add("MourningWoodMap");
 				add("HallOfShame");
+				add("SecretRoom");
+
 			}
 		};
 	}
@@ -52,8 +55,13 @@ public class EditorMaps {
 			return new AnitaHouseInterior();
 		case "MourningWoodMap":
 			return new MourningWoodMap();
+
 		case "HallOfShame":
 			return new HOSInterior();
+
+		case "SecretRoom":
+			return new SecretRoom();
+
 		default:
 			throw new RuntimeException("Unrecognized map name");
 		}

@@ -27,6 +27,8 @@ import Maps.FallMap;
 import Maps.HOSInterior;
 import Maps.InteriorMap;
 import Maps.MourningWoodMap;
+import Maps.SecretRoom;
+import Maps.HauntedHouse;
 import Players.Cat;
 import Scripts.Sounds;
 import Scripts.UI;
@@ -44,7 +46,12 @@ public class PlayLevelScreen extends Screen {
     protected Map interiorMap;
     protected Map anitaHouseInteriorMap;
     protected Map islandMap;
+
     protected Map hallOfShame;
+
+    protected Map hauntedHouseMap;
+    protected Map secretMap;
+
     protected Player player;
     protected PlayLevelScreenState playLevelScreenState;
     // protected OptionsState optionsMenuState;
@@ -121,11 +128,14 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
 	flagManager.addFlag("hasTalkedtoBruceTwo", false);
 	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
-	flagManager.addFlag("boatSpawned", false);
+	flagManager.addFlag("boatSpawned", true);
 	flagManager.addFlag("isOnBoat", false);
 	flagManager.addFlag("hasLandedOnIsland",false);
 	flagManager.addFlag("canBeRidden",true);
 	flagManager.addFlag("end",false);
+	flagManager.addFlag("giveAllCoins",false);
+	flagManager.addFlag("hasBoomed", false);
+	flagManager.addFlag("himExistenceFlag",true);
 
 	previousX = 0;
 	isInitialPreviousX = true;
@@ -144,7 +154,12 @@ public class PlayLevelScreen extends Screen {
 	interiorMap = new InteriorMap();
 	anitaHouseInteriorMap = new AnitaHouseInterior();
 	islandMap = new MourningWoodMap();
+
 	hallOfShame = new HOSInterior();
+
+	hauntedHouseMap = new HauntedHouse();
+	secretMap = new SecretRoom();
+
 	this.map = springMap;
 	map.reset();
 	map.setFlagManager(flagManager);
@@ -296,13 +311,16 @@ public class PlayLevelScreen extends Screen {
 	mapChanged = true;
     }
     
+
     //Hall of Shame Interior
     if (player.getLocation().x > 2338 && player.getLocation().x < 2350 && player.getLocation().y == 1260)
     {
-	springMap = this.map;
+	summerMap = this.map;
 	hallOfShame.setCoinCounter(this.map.getCoinCounter());
 	this.map = hallOfShame;
-	this.player.setLocation(350, 180);
+	this.player.setLocation(350, 480);
+	stopMusic();
+	playMusic(17);
 	map.setFlagManager(flagManager);
 	this.player.setMap(map);
 	if (map.getFlagManager().isFlagSet("inventoryCheck"))
@@ -316,6 +334,7 @@ public class PlayLevelScreen extends Screen {
 	    map.getOptions().setIsActive(true);
 	mapChanged = true;
     }
+
 	
 	// leaving spring
 	if (map.getMapFileName().equals("test_map.txt")) {
@@ -761,6 +780,8 @@ public class PlayLevelScreen extends Screen {
 
 	// leaving fall
 	if (map.getMapFileName().equals("fall_map.txt")) {
+		
+		
 
 	    if (player.getLocation().x > fallMap.getEndBoundX() - 930) {
 		if (isInitialPreviousX == true) {
@@ -843,6 +864,27 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	  //Haunted house
+        if (player.getLocation().x > 635 && player.getLocation().x < 675 && player.getLocation().y == 1020)
+
+        {
+    	fallMap = this.map;
+    	hauntedHouseMap.setCoinCounter(this.map.getCoinCounter());
+    	this.map = hauntedHouseMap;
+    	this.player.setLocation(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+    	map.setFlagManager(flagManager);
+    	this.player.setMap(map);
+    	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+    	    map.getInventory().setIsActive(false);
+    	else
+    	    map.getInventory().setIsActive(true);
+
+    	if (map.getFlagManager().isFlagSet("optionsCheck"))
+    	    map.getOptions().setIsActive(false);
+    	else
+    	    map.getOptions().setIsActive(true);
+    	mapChanged = true;
+        }
 	}
 
 	// leaving summer
@@ -932,6 +974,74 @@ public class PlayLevelScreen extends Screen {
 	    }
 
 	}
+	
+	//leaving haunted house
+    if (map.getMapFileName().equals("haunted_house_map.txt")) {
+    	if (player.getLocation().x > 500 && player.getLocation().x < 525 && player.getLocation().y < 109) {
+    		hauntedHouseMap = this.map;
+    		secretMap.setCoinCounter(this.map.getCoinCounter());
+    		this.map = secretMap;
+    		stopMusic();
+    		this.player.setLocation(map.getPlayerStartPosition().x, map.getPlayerStartPosition().y);
+    		map.setFlagManager(flagManager);
+    		this.player.setMap(map);
+
+    		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+    		    map.getInventory().setIsActive(false);
+    		else
+    		    map.getInventory().setIsActive(true);
+
+    		if (map.getFlagManager().isFlagSet("optionsCheck"))
+    		    map.getOptions().setIsActive(false);
+    		else
+    		    map.getOptions().setIsActive(true);
+    		mapChanged = true;
+    	    }
+    	
+    	
+	    if (player.getLocation().x > 270 && player.getLocation().x < 283 && player.getLocation().y > 500) {
+		hauntedHouseMap = this.map;
+		fallMap.setCoinCounter(this.map.getCoinCounter());
+		this.map = fallMap;
+		this.player.setLocation(640, 1020);
+		map.setFlagManager(flagManager);
+		this.player.setMap(map);
+
+		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+		    map.getInventory().setIsActive(false);
+		else
+		    map.getInventory().setIsActive(true);
+
+		if (map.getFlagManager().isFlagSet("optionsCheck"))
+		    map.getOptions().setIsActive(false);
+		else
+		    map.getOptions().setIsActive(true);
+		mapChanged = true;
+	    }
+	} 
+    
+  //leaving secret room
+    if (map.getMapFileName().equals("secret_room.txt")) {
+    	if (player.getLocation().x > 200 && player.getLocation().x < 310 && player.getLocation().y > 1849) {
+    		secretMap = this.map;
+    		hauntedHouseMap.setCoinCounter(this.map.getCoinCounter());
+    		this.map = hauntedHouseMap;
+    		this.player.setLocation(517, 110);
+    		map.setFlagManager(flagManager);
+    		this.player.setMap(map);
+
+    		if (map.getFlagManager().isFlagSet("inventoryCheck"))
+    		    map.getInventory().setIsActive(false);
+    		else
+    		    map.getInventory().setIsActive(true);
+
+    		if (map.getFlagManager().isFlagSet("optionsCheck"))
+    		    map.getOptions().setIsActive(false);
+    		else
+    		    map.getOptions().setIsActive(true);
+    		mapChanged = true;
+    	    }
+    }
 
 	// leaving interior
 	if (map.getMapFileName().equals("interior_map.txt")) {
@@ -977,14 +1087,16 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
-	    
+
 	    //leaving Hall Of Shame
 	    if (map.getMapFileName().equals("hall_of_shame.txt")) {
-		    if (player.getLocation().x > 335 && player.getLocation().x < 355 && player.getLocation().y > 519) {
+		    if (player.getLocation().x > 315 && player.getLocation().x < 380 && player.getLocation().y > 520) {
 			hallOfShame = this.map;
 			summerMap.setCoinCounter(this.map.getCoinCounter());
 			this.map = summerMap;
-			this.player.setLocation(2341, 1260);
+			this.player.setLocation(2339, 1272);
+			stopMusic();
+			playMusic(11);
 			map.setFlagManager(flagManager);
 			this.player.setMap(map);
 
@@ -999,6 +1111,7 @@ public class PlayLevelScreen extends Screen {
 			    map.getOptions().setIsActive(true);
 			mapChanged = true;
 		    }
+
 	}
 
 	if (mapChanged) {

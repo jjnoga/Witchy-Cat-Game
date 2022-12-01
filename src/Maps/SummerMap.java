@@ -40,6 +40,7 @@ public class SummerMap extends Map {
 		
 		enhancedMapTiles.add(new Coin(getMapTile(21, 23).getLocation(), this));
 		enhancedMapTiles.add(new Coin(getMapTile(31, 3).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(17, 4).getLocation(), this));
 		
 		enhancedMapTiles.add(new FireRose(getMapTile(20, 2).getLocation(), this));
 		return enhancedMapTiles;

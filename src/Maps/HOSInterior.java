@@ -6,6 +6,9 @@ import Level.EnhancedMapTile;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.BigScreen;
+import NPCs.Cauldron;
+import Scripts.SummerMap.BigScreenScript;
 import Scripts.TestMap.HouseIntro;
 import Tilesets.CommonTileset;
 import Utils.Point;
@@ -25,14 +28,18 @@ public class HOSInterior extends Map{
 	
 	@Override
 	public ArrayList<Trigger> loadTriggers() {
-		ArrayList<Trigger> triggers = new ArrayList<>();	
-		triggers.add(new Trigger(343, 450, 100, 25, new HouseIntro(), "firstTimeInHouse"));
+		ArrayList<Trigger> triggers = new ArrayList<>();		
 		return triggers;
 	}
 
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
+		
+		BigScreen bigScreen = new BigScreen(4, getMapTile(7, 1).getLocation());
+		bigScreen.setInteractScript(new BigScreenScript());
+		npcs.add(bigScreen);
+		
 		return npcs;
 	}
 
