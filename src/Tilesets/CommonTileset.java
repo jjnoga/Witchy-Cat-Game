@@ -1483,20 +1483,22 @@ public class CommonTileset extends Tileset {
 
 	// bottom right bed
 
+
 	Frame bottomRightBedFrame = new FrameBuilder(getSubImage(15, 6)).withImageEffect(ImageEffect.FLIP_HORIZONTAL)
 		.withScale(tileScale).build();
 
-	MapTileBuilder bottomRightBedTile = new MapTileBuilder(anitaLeftBottomFloorFrame)
-		.withTopLayer(bottomRightBedFrame).withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder bottomRightBedTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(bottomRightBedFrame)
+						.withTileType(TileType.NOT_PASSABLE);
 
 	mapTiles.add(bottomRightBedTile);
 
 	// left desk
 
+
 	Frame leftDeskFrame = new FrameBuilder(getSubImage(15, 7)).withScale(tileScale).build();
 
-	MapTileBuilder leftDeskTile = new MapTileBuilder(anitaRightFloorFrame).withTopLayer(leftDeskFrame)
-		.withTileType(TileType.NOT_PASSABLE);
+		MapTileBuilder leftDeskTile = new MapTileBuilder(anitaRightFloorFrame).withTopLayer(leftDeskFrame)
+						.withTileType(TileType.NOT_PASSABLE);
 
 	mapTiles.add(leftDeskTile);
 
