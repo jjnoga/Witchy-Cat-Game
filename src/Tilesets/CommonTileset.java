@@ -1511,7 +1511,7 @@ public class CommonTileset extends Tileset {
 		Frame shelfTopOneHouseFrame = new FrameBuilder(getSubImage(13, 3)).withScale(tileScale).build();
 
 		MapTileBuilder shelfTopOneHouseTile = new MapTileBuilder(anitaLeftFloorFrame).withTopLayer(shelfTopOneHouseFrame)
-						.withTileType(TileType.PASSABLE);
+						.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(shelfTopOneHouseTile);
 
@@ -1520,7 +1520,7 @@ public class CommonTileset extends Tileset {
 		Frame shelfTopTwoHouseFrame = new FrameBuilder(getSubImage(13, 4)).withScale(tileScale).build();
 
 		MapTileBuilder shelfTopTwoHouseTile = new MapTileBuilder(anitaRightFloorFrame).withTopLayer(shelfTopTwoHouseFrame)
-						.withTileType(TileType.PASSABLE);
+						.withTileType(TileType.NOT_PASSABLE);
 
 		mapTiles.add(shelfTopTwoHouseTile);
 
