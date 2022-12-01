@@ -19,9 +19,14 @@ public class CauldronScript extends Script<NPC> {
 		showTextbox();
 		
 		if (isFlagSet("hasGoldLeaf") && isFlagSet("hasIceSphere") && isFlagSet("hasFireRose")) {
-			addTextToTextboxQueue("You have everything! Congrats!\nPotion complete");
+			addTextToTextboxQueue("You have everything! Put it all in, quickly");
+			addTextToTextboxQueue("Outside there is a rumble and a shake.");
+			addTextToTextboxQueue("A voice booms \"No one has called on the great\nPoseidon in years.\"");
+			addTextToTextboxQueue("\"Kinda weird I'm hearing from anyone now.\"");
+			addTextToTextboxQueue("\"Anyway, here's the boat. I assume you are going to\nTHAT special event. Have fun little cat!\"");
+			addTextToTextboxQueue("\"Oh! Remember to press space on the boat. Bye now!\"");
 		} else {
-			addTextToTextboxQueue("You still need to collect all of the ingredients");
+			addTextToTextboxQueue("You don't have everything! You need a Fire Rose, a\nIce Sphere, and Golden Leaf");
 		}
 		
 		

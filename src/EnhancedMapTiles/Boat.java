@@ -34,10 +34,7 @@ public class Boat extends EnhancedMapTile {
 	
 	  @Override
 	    public void update(Player player) {
-	        super.update(player);
-	        
-	     
-	        	
+	        super.update(player);       	
 	        
 	        if (player.overlaps(this) && Keyboard.isKeyDown(Key.SPACE) && !this.isHidden) {
 	        	keyLocker.lockKey(Key.SPACE);

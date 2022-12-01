@@ -87,9 +87,9 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasBoughtShears", false);
 	flagManager.addFlag("hasDropped", false);
 	flagManager.addFlag("hasTalkedtoBruce", false);
-	flagManager.addFlag("hasGoldLeaf", true);
-	flagManager.addFlag("hasIceSphere", true);
-	flagManager.addFlag("hasFireRose", true);
+	flagManager.addFlag("hasGoldLeaf", false);
+	flagManager.addFlag("hasIceSphere", false);
+	flagManager.addFlag("hasFireRose", false);
 	flagManager.addFlag("inSpringArea", false);
 	flagManager.addFlag("inventoryCheck", true);
 	flagManager.addFlag("optionsCheck", true);
@@ -108,7 +108,7 @@ public class PlayLevelScreen extends Screen {
 	flagManager.addFlag("hasTalkedToBlorboTwo", false);
 	flagManager.addFlag("hasTalkedtoBruceTwo", false);
 	flagManager.addFlag("hasTalkedtoPizzaTwo", false);
-	flagManager.addFlag("boatSpawned", true);
+	flagManager.addFlag("boatSpawned", false);
 	flagManager.addFlag("isOnBoat", false);
 	flagManager.addFlag("hasLandedOnIsland",false);
 	flagManager.addFlag("canBeRidden",true);
