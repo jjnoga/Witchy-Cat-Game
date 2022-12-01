@@ -25,6 +25,7 @@ import Maps.WinterMap;
 import Maps.AnitaHouseInterior;
 import Maps.FallMap;
 import Maps.HOSInterior;
+//import Maps.HOSInterior;
 import Maps.InteriorMap;
 import Maps.MourningWoodMap;
 import Maps.SecretRoom;
@@ -159,6 +160,7 @@ public class PlayLevelScreen extends Screen {
 
 	hauntedHouseMap = new HauntedHouse();
 	secretMap = new SecretRoom();
+	
 
 	this.map = springMap;
 	map.reset();
@@ -185,13 +187,17 @@ public class PlayLevelScreen extends Screen {
 	    }
 	}
 	for (NPC npc : map.getNPCs()) {
+
+    	System.out.println(npc.getClass().toString());
 	    if (npc.getInteractScript() != null) {
+	    	System.out.println(npc.getInteractScript().getClass().toString());
 		npc.getInteractScript().setMap(map);
 		npc.getInteractScript().setPlayer(player);
 	    }
 	}
 	for (EnhancedMapTile enhancedMapTile : map.getEnhancedMapTiles()) {
 	    if (enhancedMapTile.getInteractScript() != null) {
+
 		enhancedMapTile.getInteractScript().setMap(map);
 		enhancedMapTile.getInteractScript().setPlayer(player);
 	    }
@@ -204,6 +210,7 @@ public class PlayLevelScreen extends Screen {
 	}
 
 	winScreen = new WinScreen(this);
+	hosScreen = new HOSScreen(this);
     }
 
     public void update() {
@@ -223,6 +230,7 @@ public class PlayLevelScreen extends Screen {
 	case HALL_OF_S:
 		sound.stop();
 		hosScreen.update();
+		break;
 	}
 
 	if (Keyboard.isKeyDown(volUpKey) && !keyLocker.isKeyLocked(volUpKey)) {
@@ -264,6 +272,8 @@ public class PlayLevelScreen extends Screen {
 
 	// map switching, saves state of current map, changes map, places player at
 	// certain location
+	
+
 
 	// Walrus house interior
     if (player.getLocation().x > 606 && player.getLocation().x < 618 && player.getLocation().y == 1596)
@@ -312,28 +322,28 @@ public class PlayLevelScreen extends Screen {
     }
     
 
-    //Hall of Shame Interior
-    if (player.getLocation().x > 2338 && player.getLocation().x < 2350 && player.getLocation().y == 1260)
-    {
-	summerMap = this.map;
-	hallOfShame.setCoinCounter(this.map.getCoinCounter());
-	this.map = hallOfShame;
-	this.player.setLocation(350, 480);
-	stopMusic();
-	playMusic(17);
-	map.setFlagManager(flagManager);
-	this.player.setMap(map);
-	if (map.getFlagManager().isFlagSet("inventoryCheck"))
-	    map.getInventory().setIsActive(false);
-	else
-	    map.getInventory().setIsActive(true);
-
-	if (map.getFlagManager().isFlagSet("optionsCheck"))
-	    map.getOptions().setIsActive(false);
-	else
-	    map.getOptions().setIsActive(true);
-	mapChanged = true;
-    }
+//  //Hall of Shame Interior
+//    if (player.getLocation().x > 2338 && player.getLocation().x < 2350 && player.getLocation().y == 1260)
+//    {
+//	springMap = this.map;
+//	hallOfShame.setCoinCounter(this.map.getCoinCounter());
+//	this.map = hallOfShame;
+//	this.player.setLocation(350, 480);
+//	stopMusic();
+//	playMusic(17);
+//	map.setFlagManager(flagManager);
+//	this.player.setMap(map);
+//	if (map.getFlagManager().isFlagSet("inventoryCheck"))
+//	    map.getInventory().setIsActive(false);
+//	else
+//	    map.getInventory().setIsActive(true);
+//
+//	if (map.getFlagManager().isFlagSet("optionsCheck"))
+//	    map.getOptions().setIsActive(false);
+//	else
+//	    map.getOptions().setIsActive(true);
+//	mapChanged = true;
+//    }
 
 	
 	// leaving spring
@@ -506,7 +516,8 @@ public class PlayLevelScreen extends Screen {
 		this.player.setMap(map);
 //		stopMusic();
 //		playMusic(11);
-
+		
+		
 		if (map.getFlagManager().isFlagSet("inventoryCheck"))
 		    map.getInventory().setIsActive(false);
 		else
@@ -885,10 +896,14 @@ public class PlayLevelScreen extends Screen {
     	    map.getOptions().setIsActive(true);
     	mapChanged = true;
         }
+        
+      
 	}
 
 	// leaving summer
 	if (map.getMapFileName().equals("summer_map.txt")) {
+		
+		
 
 	    if (player.getLocation().x < 790) {
 		if (isInitialPreviousX == true) {
@@ -972,8 +987,12 @@ public class PlayLevelScreen extends Screen {
 		    map.getOptions().setIsActive(true);
 		mapChanged = true;
 	    }
+	    
+	    
 
 	}
+	
+	
 	
 	//leaving haunted house
     if (map.getMapFileName().equals("haunted_house_map.txt")) {
@@ -1088,29 +1107,31 @@ public class PlayLevelScreen extends Screen {
 		mapChanged = true;
 	    }
 
-	    //leaving Hall Of Shame
-	    if (map.getMapFileName().equals("hall_of_shame.txt")) {
-		    if (player.getLocation().x > 315 && player.getLocation().x < 380 && player.getLocation().y > 520) {
-			hallOfShame = this.map;
-			summerMap.setCoinCounter(this.map.getCoinCounter());
-			this.map = summerMap;
-			this.player.setLocation(2339, 1272);
-			stopMusic();
-			playMusic(11);
-			map.setFlagManager(flagManager);
-			this.player.setMap(map);
+//	  //leaving Hall Of Shame
+//	    if (map.getMapFileName().equals("hall_of_shame.txt")) {
+//		    if (player.getLocation().x > 315 && player.getLocation().x < 380 && player.getLocation().y > 520) {
+//			hallOfShame = this.map;
+//			springMap.setCoinCounter(this.map.getCoinCounter());
+//			this.map = springMap;
+//			//this.player.setLocation(2339, 1272);
+//			this.player.setLocation(1236, 1263);
+//			stopMusic();
+//			playMusic(11);
+//			map.setFlagManager(flagManager);
+//			this.player.setMap(map);
+//
+//			if (map.getFlagManager().isFlagSet("inventoryCheck"))
+//			    map.getInventory().setIsActive(false);
+//			else
+//			    map.getInventory().setIsActive(true);
+//
+//			if (map.getFlagManager().isFlagSet("optionsCheck"))
+//			    map.getOptions().setIsActive(false);
+//			else
+//			    map.getOptions().setIsActive(true);
+//			mapChanged = true;
+//		    }
 
-			if (map.getFlagManager().isFlagSet("inventoryCheck"))
-			    map.getInventory().setIsActive(false);
-			else
-			    map.getInventory().setIsActive(true);
-
-			if (map.getFlagManager().isFlagSet("optionsCheck"))
-			    map.getOptions().setIsActive(false);
-			else
-			    map.getOptions().setIsActive(true);
-			mapChanged = true;
-		    }
 
 	}
 
@@ -1122,6 +1143,7 @@ public class PlayLevelScreen extends Screen {
 		}
 	    }
 	    for (NPC npc : map.getNPCs()) {
+	    	System.out.println(npc.getInteractScript().getClass().toString());
 		if (npc.getInteractScript() != null) {
 		    npc.getInteractScript().setMap(map);
 		    npc.getInteractScript().setPlayer(player);
@@ -1142,7 +1164,7 @@ public class PlayLevelScreen extends Screen {
 	    mapChanged = false;
 	}
 	}
-    }
+  //  }
 
     public void draw(GraphicsHandler graphicsHandler) {
 // based on screen state, draw appropriate graphics

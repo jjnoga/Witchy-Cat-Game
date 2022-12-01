@@ -21,12 +21,12 @@ public class HOSScreen extends Screen{
 	protected SpriteFont instuctions;
 	protected KeyLocker keyLocker = new KeyLocker();
     protected PlayLevelScreen playLevelScreen;
-    protected ScreenCoordinator screenCoordinator;
+    protected PlayLevelScreen screenCoordinator;
     Sounds sound = new Sounds();
     boolean isPlaying = true;
     
-    public HOSScreen(ScreenCoordinator screenCoordinator2) {
-        this.screenCoordinator = screenCoordinator2;
+    public HOSScreen(PlayLevelScreen playLevelScreen2) {
+        this.screenCoordinator = playLevelScreen2;
         initialize();
     }
 	

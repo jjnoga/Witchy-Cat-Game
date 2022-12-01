@@ -28,7 +28,9 @@ public abstract class Script<T extends MapEntity> {
     public Map getMap() { return map; }
     public void setMap(Map map) { this.map = map; }
     public Player getPlayer() { return player; }
-    public void setPlayer(Player player) { this.player = player; }
+    public void setPlayer(Player player) { 
+    	this.player = player; 
+    	}
     public T getEntity() { return entity; }
     public void setMapEntity(T entity) {
         this.entity = entity;

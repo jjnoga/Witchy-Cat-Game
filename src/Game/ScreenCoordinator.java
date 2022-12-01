@@ -56,9 +56,6 @@ public class ScreenCoordinator extends Screen {
 					case OPTIONS:
 						currentScreen = new OptionsScreen(this);
 						break;
-					case HOS1:
-						currentScreen = new HOSScreen(this);
-						break;
 					case HOS2:
 						currentScreen = new HOS2Screen(this);
 						break;
