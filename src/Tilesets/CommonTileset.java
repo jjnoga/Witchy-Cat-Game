@@ -1932,6 +1932,17 @@ public class CommonTileset extends Tileset {
 	MapTileBuilder wetSandSummerTile = new MapTileBuilder(wetSandSummerFrame);
 
 	mapTiles.add(wetSandSummerTile);
+	
+	// solidAutumnLeaves
+	
+	Frame solidAutumnLeavesFrame = new FrameBuilder(getSubImage(7, 1)).withScale(tileScale).build();
+
+	MapTileBuilder solidAutumnLeavesTile = new MapTileBuilder(cliffDownFrame).withTopLayer(solidAutumnLeavesFrame)
+		.withTileType(TileType.NOT_PASSABLE);
+
+	mapTiles.add(solidAutumnLeavesTile);
+	
+	
 
 	return mapTiles;
 
