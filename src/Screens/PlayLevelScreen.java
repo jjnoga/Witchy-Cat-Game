@@ -1063,7 +1063,7 @@ public class PlayLevelScreen extends Screen {
 		}
 	    }
 	    for (NPC npc : map.getNPCs()) {
-	    	System.out.println(npc.getInteractScript().getClass().toString());
+	    	//System.out.println(npc.getInteractScript().getClass().toString());
 		if (npc.getInteractScript() != null) {
 		    npc.getInteractScript().setMap(map);
 		    npc.getInteractScript().setPlayer(player);
