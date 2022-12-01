@@ -6,11 +6,14 @@ import EnhancedMapTiles.Fish;
 import Level.Map;
 import Level.NPC;
 import Level.Trigger;
+import NPCs.NotMoyai;
 import NPCs.Terry;
 import NPCs.Walrus;
+import Scripts.NotMoyaiScript;
 import Scripts.TestMap.TerryScript;
 import Scripts.TestMap.WalrusScript;
 import Tilesets.CommonTileset;
+import Utils.Point;
 
 import java.util.ArrayList;
 
@@ -19,21 +22,25 @@ public class HauntedHouse extends Map {
 
 	public HauntedHouse() {
 		super("haunted_house_map.txt", new CommonTileset());	
+		this.playerStartPosition = getMapTile(6, 9).getLocation();
+		this.isSpring = false;
 	}
 
 	@Override
 	public ArrayList<EnhancedMapTile> loadEnhancedMapTiles() {
 		ArrayList<EnhancedMapTile> enhancedMapTiles = new ArrayList<>();
-		enhancedMapTiles.add(new Fish(getMapTile(7, 1).getLocation(), this));
-		enhancedMapTiles.add(new Coin(getMapTile(1, 7).getLocation(), this));
-		enhancedMapTiles.add(new Coin(getMapTile(10, 7).getLocation(), this));
+		enhancedMapTiles.add(new Fish(getMapTile(7, 3).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(2, 9).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(11, 9).getLocation(), this));
 		return enhancedMapTiles;
 	}
 
 	@Override
 	public ArrayList<NPC> loadNPCs() {
 		ArrayList<NPC> npcs = new ArrayList<>();
-			
+		NotMoyai notMoyai = new NotMoyai(3, getMapTile(10,2).getLocation(), this);
+		notMoyai.setInteractScript(new NotMoyaiScript());
+		npcs.add(notMoyai);
 		return npcs;
 	}
 
@@ -41,6 +48,10 @@ public class HauntedHouse extends Map {
 	public ArrayList<Trigger> loadTriggers() {
 		ArrayList<Trigger> triggers = new ArrayList<>();		
 		return triggers;
+	}
+	
+	public Point getStartPosition() {
+		return playerStartPosition;
 	}
 
 	@Override

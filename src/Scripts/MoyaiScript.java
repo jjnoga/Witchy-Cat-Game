@@ -11,7 +11,9 @@ public class MoyaiScript extends Script<NPC> {
     protected void setup() {
 	lockPlayer();
 	showTextbox();
-
+	
+	addTextToTextboxQueue("Finally you are here. For the special event\nBut, where is it?");
+	addTextToTextboxQueue("It's supposed to be here! But it is just this\nMoyai");
 	addTextToTextboxQueue("The moyai stares ominously... \n...");
 	addTextToTextboxQueue("...");
 	addTextToTextboxQueue("......");

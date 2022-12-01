@@ -88,6 +88,10 @@ public class FallMap extends Map {
 		enhancedMapTiles.add(new Vines(getMapTile(26, 12).getLocation(), this));
 		enhancedMapTiles.add(new Vines(getMapTile(25, 12).getLocation(), this));
 		
+		enhancedMapTiles.add(new Coin(getMapTile(34, 20).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(3, 24).getLocation(), this));
+		enhancedMapTiles.add(new Coin(getMapTile(14, 14).getLocation(), this));
+		
 		return enhancedMapTiles;
 	}
 
