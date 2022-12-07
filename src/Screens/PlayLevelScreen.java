@@ -188,9 +188,9 @@ public class PlayLevelScreen extends Screen {
 	}
 	for (NPC npc : map.getNPCs()) {
 
-    	System.out.println(npc.getClass().toString());
+    	//System.out.println(npc.getClass().toString());
 	    if (npc.getInteractScript() != null) {
-	    	System.out.println(npc.getInteractScript().getClass().toString());
+	    	//System.out.println(npc.getInteractScript().getClass().toString());
 		npc.getInteractScript().setMap(map);
 		npc.getInteractScript().setPlayer(player);
 	    }
@@ -814,7 +814,7 @@ public class PlayLevelScreen extends Screen {
 		mapChanged = true;
 	    }
 	  //Haunted house
-        if (player.getLocation().x > 635 && player.getLocation().x < 675 && player.getLocation().y == 1020)
+        if (player.getLocation().x > 635 && player.getLocation().x < 675 && player.getLocation().y >= 1020 && player.getLocation().y <= 1021)
 
         {
     	fallMap = this.map;
@@ -938,11 +938,11 @@ public class PlayLevelScreen extends Screen {
     	    }
     	
     	
-	    if (player.getLocation().x > 270 && player.getLocation().x < 283 && player.getLocation().y > 500) {
+	    if (player.getLocation().x > 269 && player.getLocation().x < 283 && player.getLocation().y > 490) {
 		hauntedHouseMap = this.map;
 		fallMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = fallMap;
-		this.player.setLocation(640, 1020);
+		this.player.setLocation(656, 1020);
 		map.setFlagManager(flagManager);
 		this.player.setMap(map);
 
@@ -1007,7 +1007,7 @@ public class PlayLevelScreen extends Screen {
 	
 	// leaving Anita's house
 	if (map.getMapFileName().equals("anita_house_interior_map.txt")) {
-	    if (player.getLocation().x > 335 && player.getLocation().x < 355 && player.getLocation().y > 519) {
+	    if (player.getLocation().x > 315 && player.getLocation().x < 355 && player.getLocation().y > 519) {
 		anitaHouseInteriorMap = this.map;
 		springMap.setCoinCounter(this.map.getCoinCounter());
 		this.map = springMap;
